@@ -25,64 +25,31 @@ import javafx.stage.FileChooser.ExtensionFilter;
 
 public class FileManagement {
 
-
-    @FXML
-    private Button openBtn;
-
-    @FXML
-    private Button cancelButton;
-    
-    @FXML
-    private Button saveBtn;
-    
-    @FXML
-    private TextField target;
-    
-    @FXML
-    private TextArea txtAreaInput;
-    
-    @FXML
-    private TextArea txtAreaOutput;
-    
-//    @FXML
-//    private fileManager fm;
-
-    @FXML
-    protected void cancelBtnPressed(ActionEvent event) {
-    	System.exit(0);
-    }
-
-    @FXML
-    void saveBtnPressed(ActionEvent event) throws IOException {
-    	System.out.println(txtAreaInput.getText());
-    	
-    	OutputStream os = new FileOutputStream("hans.txt");
-    	Writer osw = new OutputStreamWriter(os);
-    	
-    	osw.write("Hei");
-    	osw.close();
-//    	txtAreaInput.getText()
-    }
+//    private void saveFile(ActionEvent event) throws IOException {
+//    	System.out.println(txtAreaInput.getText());
+//    	
+//    	OutputStream os = new FileOutputStream("hans.txt");
+//    	Writer osw = new OutputStreamWriter(os);
+//    	
+//    	osw.write("Hei");
+//    	osw.close();
+//
+//    }
     
     
-	@FXML
-	protected void openBtnPressed(ActionEvent event) throws IOException	{
+	private void readFile() 	{
 	
 
 		String file=openFile().toString();
-		txtAreaOutput.setText(file+"\n");
+//		txtAreaOutput.setText(file+"\n");
 
 		Path path = Paths.get(".");
 		System.out.println(path);
 		
-		
-		
 		InputStream is = new FileInputStream(file);
 		Reader isr = new InputStreamReader(is);
-		
-		
+				
 		int i = 0;
-		char c;
 		
 		try (BufferedReader br = new BufferedReader(isr)) {
 			while ((i = isr.read()) != -1){

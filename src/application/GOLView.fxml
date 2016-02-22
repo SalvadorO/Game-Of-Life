@@ -33,6 +33,7 @@
          <children>
             <Button fx:id="btn_Play" mnemonicParsing="false" onAction="#btn_PlayPressed" text="Play" />
           <Button fx:id="btn_Reset" mnemonicParsing="false" onAction="#btn_ResetPressed" text="Reset" />
+            <Button fx:id="bnt_Cancel" mnemonicParsing="false" onAction="#bnt_CancelPressed" text="Cancel" />
          </children>
          <padding>
             <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />

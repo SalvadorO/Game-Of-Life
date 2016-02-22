@@ -25,7 +25,10 @@ public class GameController {
 	
     @FXML	
     private Button btn_Play;
-
+    
+    @FXML
+    private Button bnt_Cancel;
+    
     @FXML
     void btn_PlayPressed(ActionEvent event) {
     	g_model.setCell(grd_Gameboard);
@@ -42,12 +45,18 @@ public class GameController {
     @FXML
     void mnu_FileOpenPressed(ActionEvent event) {
     	System.out.println("Open selected");
+    	FileManagement fm = new FileManagement();
+    	fm.openFile();
     }
     @FXML
     void mnu_FileSavePressed(ActionEvent event) {
     	System.out.println("Save selected");
     }
 	
+    @FXML
+    protected void bnt_CancelPressed(ActionEvent event) {
+    	System.exit(0);
+    }
 	
 }
 
