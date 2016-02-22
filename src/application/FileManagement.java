@@ -23,7 +23,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.FileChooser;
 import javafx.stage.FileChooser.ExtensionFilter;
 
-public class GUIController {
+public class FileManagement {
 
 
     @FXML
@@ -44,8 +44,8 @@ public class GUIController {
     @FXML
     private TextArea txtAreaOutput;
     
-    @FXML
-    private fileManager fm;
+//    @FXML
+//    private fileManager fm;
 
     @FXML
     protected void cancelBtnPressed(ActionEvent event) {
@@ -75,7 +75,7 @@ public class GUIController {
 		Path path = Paths.get(".");
 		System.out.println(path);
 		
-		@
+		
 		
 		InputStream is = new FileInputStream(file);
 		Reader isr = new InputStreamReader(is);
