@@ -1,5 +1,13 @@
 package application;
 
 public class Grid {
-
+	double[][] grid = 
+			new double[][] 	{
+							{1,0},
+							{1,1},
+							};
+		
+	public double[][] getGrid(){
+		return grid;
+	}
 }
