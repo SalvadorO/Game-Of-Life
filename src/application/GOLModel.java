@@ -1,6 +1,6 @@
 package application;
 
-import TEMP.gameboard;
+
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.layout.GridPane;
@@ -11,7 +11,7 @@ public class GOLModel {
 	
 	private final boolean INITIAL_VALUE=false;
 	private boolean cellValue;
-	private gameboard gb;	
+	private GameboardCanvas gb;	
 	
 	GOLModel()	{
 		reset();
