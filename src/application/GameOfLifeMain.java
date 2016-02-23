@@ -2,8 +2,11 @@ package application;
 	
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Group;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.canvas.Canvas;
+import javafx.scene.canvas.GraphicsContext;
 import javafx.stage.Stage;
 
 
@@ -13,7 +16,8 @@ public class GameOfLifeMain extends Application {
 		try {
 			Parent root = FXMLLoader.load(getClass().getResource("GOLView.fxml"));
 			Scene scene = new Scene(root);
-			scene.getStylesheets().add(getClass().getResource("GameboardCSS.css").toExternalForm());
+//			scene.getStylesheets().add(getClass().getResource("GameboardCSS.css").toExternalForm());
+			
 			primaryStage.setScene(scene);
 			primaryStage.show();
 		} catch(Exception e) {
