@@ -22,17 +22,7 @@ public class GOLModel {
 		cellValue=INITIAL_VALUE;
 	}
 	
-	//TODO: Add JDOC
-	public void setGrid(GridPane grd_Gameboard)	{
-		if (cellValue)	{
-			grd_Gameboard.setGridLinesVisible(true);	
-			cellValue=false;
-		}
-		else	{
-			grd_Gameboard.setGridLinesVisible(false);
-			cellValue=true;
-		}
-	}
+	
 	
 	//TODO: add JDOC, helper method to set a cell
 	public void setCell(GridPane grd_Gameboard){
