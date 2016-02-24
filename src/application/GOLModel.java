@@ -7,7 +7,6 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 
-
 public class GOLModel {
 	
 	private final boolean INITIAL_VALUE=false;
@@ -24,6 +23,15 @@ public class GOLModel {
 	}
 	
 	
+	
+	//TODO: add JDOC, helper method to set a cell
+	public void setCell(GridPane grd_Gameboard){
+		Shape shape = new Shape();
+		grd_Gameboard.add(shape, 1, 3);
+	}
+	
+	
+//	public void nextGeneration(gameboard board) {
 	
 	/**
 	 * Method counts and returns number of neighbours
@@ -64,35 +72,38 @@ public class GOLModel {
 	 }	 
  
 	
-/**
- * Method implements two rules
- * 1) cell dies if number of neighbours is less than 2
- * 2) cell dies if number of neighbours is greater than 3
- * @param neighBours
- * @return boolean
- *  
- */
-public boolean survives(int neighbours)	{
-	boolean alive=true;
 	
-	if (( neighbours < 2) || (neighbours> 3))
-			alive = false;
-	return alive;
+	/**
+	 * Method implements two rules
+	 * 1) cell dies if number of neighbours is less than 2
+	 * 2) cell dies if number of neighbours is greater than 3
+	 * @param neighBours
+	 * @return boolean
+	 * @author hd
+	 */
+	public boolean survives(int neighbours)	{
+		boolean alive=true;
+		
+		if (( neighbours < 2) || (neighbours> 3))
+				alive = false;
+		return alive;
+	}
+	
+
+	/**
+	 * Method checks if current cell is dead or alive
+	 * @param x coordinate
+	 * @param y coordinate
+	 * @return boolean
+	 * @author hd
+	 */
+	public boolean isAlive(int x, int y)	{
+		if (gb.getTable()[x][y]==1)
+			return true;
+		return false;
+	}
 }
 
-
-/**
- * Method checks if current cell is dead or alive
- * @param x coordinate
- * @param y coordinate
- * @return boolean
- */
-public boolean isAlive(int x, int y)	{
-	if (gb.getTable()[x][y]==1)
-		return true;
-	return false;
-}
-}
 
 	
 

@@ -47,8 +47,9 @@ public class GameController implements Initializable{
 		
 		Grid g = new Grid();
 		double[][] array = g.getGrid();
-		gc.setFill(Color.BLACK);
-		
+
+		gc.setFill(Color.YELLOW);
+
 		for (int i = 0;i<array.length;i++){
 			for (int j = 0; j<(array[i].length); j++){
 				if (array[i][j]==1)
