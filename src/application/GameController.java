@@ -15,7 +15,7 @@ import javafx.scene.canvas.GraphicsContext;
 
 public class GameController implements Initializable{
 	
-//	protected GOLModel g_model = new GOLModel();
+//	protected GOLModel model = new GOLModel();
 	protected FileManagement filemanager = new FileManagement();
 	@FXML private Canvas img;
 	private GraphicsContext gc;
@@ -33,6 +33,12 @@ public class GameController implements Initializable{
 	@FXML
     private TextArea txtArea	;
     
+	/**
+	 * Method request an array from Grid. Draws this on the canvas
+	 * Code should be moved to model later on. Enabled here for testing purposes
+	 * @param event
+	 * @author hd
+	 */
     @FXML
     void btn_PlayPressed(ActionEvent event) {
 		int x = 100;
@@ -41,7 +47,7 @@ public class GameController implements Initializable{
 		
 		Grid g = new Grid();
 		double[][] array = g.getGrid();
-		gc.setFill(Color.AQUAMARINE);
+		gc.setFill(Color.BLACK);
 		
 		for (int i = 0;i<array.length;i++){
 			for (int j = 0; j<(array[i].length); j++){
