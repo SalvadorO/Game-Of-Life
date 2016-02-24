@@ -11,4 +11,5 @@ public class Grid {
 	public double[][] getGrid(){
 		return grid;
 	}
+
 }
