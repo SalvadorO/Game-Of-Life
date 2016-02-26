@@ -6,15 +6,21 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 
 /*
- * Cell object, with defined size and colour
- * May be developed to support user selected color and form
- */
-public class Shape extends Canvas	{
+ * Holds shapes, currently one shape for testing purposes 
+ * May be extended to set properties
+ *  */
+public class Shape {
 
-	public Shape()	{
-		super(10,10);
-		GraphicsContext gc = super.getGraphicsContext2D();
-		gc.setFill(Color.BLUE);
-		gc.fillOval(0,0,10,10);
+
+	double[][] typeA = new double[][] 	{
+		{0,0,0,0},
+		{0,1,1,0},
+		{1,0,0,1},
+		{0,1,1,0}
+		};
+		
+	public double[][] getShape(){
+		return typeA;
 	}
+	
 }
