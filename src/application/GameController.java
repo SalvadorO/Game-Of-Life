@@ -23,9 +23,6 @@ public class GameController implements Initializable{
 	@FXML
 	private Canvas img;
 	
-	@FXML
-    private Canvas canvas;
-
     @FXML
     private MenuItem mnu_FileOpen,  mnu_FileSave, mnu_SetupGridsize;
 	
@@ -55,15 +52,14 @@ public class GameController implements Initializable{
     }
 
     /**
-     * Implemented testing of setting a specific cell and show the 1d representation in the output area
-     * Just using the reset button to help kicking the method
+     * Method resets the Gameboarcanvas by creating a new gameboardcanvas object
+     * and let the gameboardcanvas parameter point to this 
      * @param event
+     * @author hd
      */
-
     @FXML
     void btn_ResetPressed(ActionEvent event) {
-
-
+    	gameboardcanvas = new GameboardCanvas();
 	}
     
     @FXML
