@@ -1,39 +1,26 @@
 package application;
-import java.util.Arrays;
 
 /**
- * Initialized with a table representing the gameboard
+ * Constructed by creating a Grid object
  * Provides the possibility to set and get the grid, 
- * Provides a toString method to get a 1D representation of the table.
+ * 
  * @author hd
  *
  */
 public class GameboardCanvas {
-	int [][] table;
+	Grid grid;
 	
-	public GameboardCanvas(int[][] t){
-		table = t;
-	}
-	
-	public int[][] getTable() {
-		return table;
-	}
-
-	public void setTable(int[][] table) {
-		this.table = table;
+	public GameboardCanvas(){
+		grid = new Grid(4,4);
+		
 	}
 	
-	public void updateCellstatus(int x, int y, int value)	{
-		table[x][y]=value;
+	public int[][] getGrid() {
+		return grid.getGrid();
 	}
-
-	@Override
-	public String toString() {
-		String o="";
-		for (int i=0;i<table.length;i++)
-			for (int j=0;j<table[i].length;j++)
-				o+=table[i][j];
-		return o;
+	
+	public String getGridAsString(){
+		return grid.toString();
 	}
 	
 }

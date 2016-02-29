@@ -6,7 +6,7 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 
 /*
- * Holds shapes, currently one shape for testing purposes 
+ * Holds shapes, currently two shapes for testing purposes 
  * May be extended to set properties
  *  */
 public class Shape {
@@ -19,8 +19,20 @@ public class Shape {
 		{0,1,1,0}
 		};
 		
-	public double[][] getShape(){
+	double[][] typeB = new double[][] 	{
+		{1,0,0,0,1},
+		{0,1,0,1,0},
+		{0,0,1,0,0},
+		{0,1,0,1,0},
+		{1,0,0,0,1}
+		};
+		
+	public double[][] getShapeA(){
 		return typeA;
+	}
+	
+	public double[][] getShapeB(){
+		return typeB;
 	}
 	
 }
