@@ -63,9 +63,6 @@ public class GameController implements Initializable{
     @FXML
     void btn_ResetPressed(ActionEvent event) {
 
-    	txtArea.setText(gameboardcanvas.getGridAsString()+"\n");
-    	gameboardcanvas.grid.setCellstatus(0, 3, 1);
-    	txtArea.appendText(gameboardcanvas.getGridAsString());
 
 	}
     
