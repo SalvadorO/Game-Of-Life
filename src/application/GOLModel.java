@@ -33,14 +33,14 @@ public class GOLModel {
 		}
 	}
 	
-	//TODO: not completed
+	//TODO: fix method return value
 	public String setGridSizeDialogue()	{
 		TextInputDialog textInput = new TextInputDialog("Enter grid size");
 		textInput.setTitle("Enter grid size as x and y values");
 	    textInput.setHeaderText("Text Input");
 	    Optional<String> result = textInput.showAndWait();
 	    if (result.isPresent())	{
-	         return result;
+	        //
 	    }
 	}
 	

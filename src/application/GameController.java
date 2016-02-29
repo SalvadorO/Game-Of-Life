@@ -34,32 +34,31 @@ public class GameController implements Initializable{
     private TextArea txtArea;
     
 	/**
-	 * Method request an array from Grid. Draws this on the canvas
-	 * Code should be moved to model later on. Enabled here for testing purposes
+	 * Method calls the gameboardcanvs' setgridsize method
 	 * @param event
-	 * @author hd
 	 */
-
 	@FXML
     void mnu_SetupGridsizePressed(ActionEvent event) {
-		
+		txtArea.setText(model.setGridSizeDialogue());
     }
 	
     @FXML
     void btn_PlayPressed(ActionEvent event) {
-
     	model.draw(gc);
     }
 
     /**
      * Method resets the Gameboarcanvas by creating a new gameboardcanvas object
      * and let the gameboardcanvas parameter point to this 
+     * It also clears the graphicscontext object
      * @param event
      * @author hd
      */
     @FXML
     void btn_ResetPressed(ActionEvent event) {
     	gameboardcanvas = new GameboardCanvas();
+    	gc.clearRect(0, 0, img.getWidth(), img.getHeight());
+    	
 	}
     
     @FXML
@@ -81,9 +80,6 @@ public class GameController implements Initializable{
 	public void initialize(URL location, ResourceBundle resources) {
 		gc = img.getGraphicsContext2D();
 		gc.setFill(Color.BLACK);
-
-		System.out.println("Controller initialized");
-
 	}
 
 }
