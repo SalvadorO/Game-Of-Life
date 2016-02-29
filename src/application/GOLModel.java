@@ -21,7 +21,7 @@ public class GOLModel {
 
 		Shape shape = new Shape();
 				
-		double[][] array = shape.getShapeB();
+		double[][] array = shape.getShapeA();
 				
 		gc.setFill(Color.BLACK);
 
@@ -32,7 +32,7 @@ public class GOLModel {
 				{
 					gc.fillRect((x+size*j), (y+size*i), size, size);
 				}
-			}
+			
 		}
 	
 
@@ -47,37 +47,37 @@ public class GOLModel {
 		 * @return number of neighbours
 		 * @author hd
 		 */
-		protected int countNeighbours(int x, int y)	{
-		
-			int neighbours = 0;
-			int cellValue = 0;
-			
-			for (int  i=-1; i<2 ; i++)
-				for (int j=-1;j<2;j++)	{
-					cellValue = gb.getTable()[x+i][y+j];
-					if (!(i==0 && j==0) && (cellValue==1))
-						neighbours++;
-				}
-			return neighbours;
-		}
-			
-			//TODO: add JDOC, Decide if the method should be in the GBCanvas class
-			 protected int cellstatusNextgeneration(int x, int y)	{
-				 int cn = countNeighbours(x,y);
-				 
-				 if (gb.getTable()[x][y]==1){
-					if (survives(cn))
-						return 1;
-					gb.updateCellstatus(x, y, 0);
-					return 0;
-				 }
-				 if (cn==3){
-					 gb.updateCellstatus(x, y, 1);
-					 return 1;
-				 }
-				 return 0;
-			 }	 
-		 
+//		protected int countNeighbours(int x, int y)	{
+//		
+//			int neighbours = 0;
+//			int cellValue = 0;
+//			
+//			for (int  i=-1; i<2 ; i++)
+//				for (int j=-1;j<2;j++)	{
+//					cellValue = gb.getTable()[x+i][y+j];
+//					if (!(i==0 && j==0) && (cellValue==1))
+//						neighbours++;
+//				}
+//			return neighbours;
+//		}
+//			
+//			//TODO: add JDOC, Decide if the method should be in the GBCanvas class
+//			 protected int cellstatusNextgeneration(int x, int y)	{
+//				 int cn = countNeighbours(x,y);
+//				 
+//				 if (gb.getTable()[x][y]==1){
+//					if (survives(cn))
+//						return 1;
+//					gb.updateCellstatus(x, y, 0);
+//					return 0;
+//				 }
+//				 if (cn==3){
+//					 gb.updateCellstatus(x, y, 1);
+//					 return 1;
+//				 }
+//				 return 0;
+//			 }	 
+//		 
 			
 			
 		/**
@@ -90,13 +90,13 @@ public class GOLModel {
 		 * @return boolean
 		 * @author hd
 		 */
-		public boolean survives(int neighbours)	{
-			boolean alive=true;
-			
-			if (( neighbours < 2) || (neighbours> 3))
-					alive = false;
-			return alive;
-		}
+//		public boolean survives(int neighbours)	{
+//			boolean alive=true;
+//			
+//			if (( neighbours < 2) || (neighbours> 3))
+//					alive = false;
+//			return alive;
+//		}
 		
 
 		/**
@@ -108,13 +108,14 @@ public class GOLModel {
 		 * @return boolean
 		 * @author hd
 		 */
-		public boolean isAlive(int x, int y)	{
-			if (gb.getTable()[x][y]==1)
-				return true;
-			return false;
+//		public boolean isAlive(int x, int y)	{
+//			if (gb.getTable()[x][y]==1)
+//				return true;
+//			return false;
+//		}
+//		}
 		}
-		}
-	}	 
+	}
 }
 
 
