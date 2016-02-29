@@ -15,15 +15,19 @@ import javafx.scene.canvas.GraphicsContext;
 
 public class GameController implements Initializable{
 	
+
 	protected GOLModel model = new GOLModel();
 	protected GameboardCanvas gameboardcanvas =  new GameboardCanvas();
 	protected GraphicsContext gc;
 	protected FileManagement filemanager = new FileManagement();
-	
-	
+
 	@FXML private Canvas img;
 	
 	@FXML
+
+    private Canvas canvas;
+
+    @FXML
     private MenuItem mnu_FileOpen,  mnu_FileSave;
 	
 	@FXML
@@ -31,20 +35,32 @@ public class GameController implements Initializable{
 	
 	//TODO: This component is for testing purposes. To be removed
 	@FXML
-    private TextArea txtArea	;
+    private TextArea txtArea;
     
-	
+	/**
+	 * Method request an array from Grid. Draws this on the canvas
+	 * Code should be moved to model later on. Enabled here for testing purposes
+	 * @param event
+	 * @author hd
+	 */
+
     @FXML
     void btn_PlayPressed(ActionEvent event) {
+
     	model.draw(gc);
-	    }
+    }
+
+
 	
-    //Testing setting a cell, output as 1D array
+    
+
     @FXML
     void btn_ResetPressed(ActionEvent event) {
+
     	txtArea.setText(gameboardcanvas.getGridAsString()+"\n");
     	gameboardcanvas.grid.setCellstatus(3, 3, 1);
     	txtArea.appendText(gameboardcanvas.getGridAsString());
+
 	}
     
     @FXML
@@ -66,8 +82,9 @@ public class GameController implements Initializable{
 	public void initialize(URL location, ResourceBundle resources) {
 		gc = img.getGraphicsContext2D();
 		gc.setFill(Color.BLACK);
+
 		System.out.println("Controller initialized");
-		
+
 	}
 
 }

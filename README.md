@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Game-Of-Life - Master
 Game-Of-Life DATS1600
 

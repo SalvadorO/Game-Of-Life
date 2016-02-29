@@ -5,7 +5,9 @@ import javafx.scene.paint.Color;
 
 public class GOLModel {
 	
-		
+	public void GOLModel()	{
+
+	}
 	
 	/**
 	 * 
@@ -16,6 +18,7 @@ public class GOLModel {
 		int x = 100;
 		int y = 100;
 		int size = 10;
+
 		Shape shape = new Shape();
 				
 		double[][] array = shape.getShapeB();

@@ -4,7 +4,6 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 
 public class Grid {
-
 	private int[][] gamegrid;
 	
 	public Grid(int x, int y){
@@ -24,7 +23,7 @@ public class Grid {
 	public int[][] getGrid(){
 		return gamegrid;
 	}
-
+	
 	/**
 	 * Method takes coordinates and cell value and set relevant cell accordingly
 	 * @param x
