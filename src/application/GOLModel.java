@@ -1,13 +1,14 @@
 package application;
 
+import java.util.Optional;
+
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.TextInputDialog;
 import javafx.scene.paint.Color;
 
 public class GOLModel {
-	
-	public void GOLModel()	{
-
-	}
 	
 	/**
 	 * 
@@ -20,20 +21,30 @@ public class GOLModel {
 		int size = 10;
 
 		Shape shape = new Shape();
-				
 		double[][] array = shape.getShapeA();
-				
 		gc.setFill(Color.BLACK);
-
 		
 		for (int i = 0;i<array.length;i++){
 			for (int j = 0; j<(array[i].length); j++){
-				if (array[i][j]==1)
-				{
+				if (array[i][j]==1)	{
 					gc.fillRect((x+size*j), (y+size*i), size, size);
 				}
-			
+			}
 		}
+	}
+			
+	public void setGridSizeDialogue()	{
+		TextInputDialog textInput = new TextInputDialog("Enter grid size");
+		textInput.setTitle("Enter some text");
+	    textInput.setHeaderText("Text Input");
+	    textInput.setContentText("Please enter something:");
+	    Optional<String> result = textInput.showAndWait();
+	    if (result.isPresent())	{
+	         Alert alert = new Alert(AlertType.INFORMATION);
+	         alert.setContentText("You entered: " + result.get());
+	         alert.showAndWait();
+	    }
+	}
 	
 
 		/** TODO: To be implemented
@@ -114,9 +125,9 @@ public class GOLModel {
 //			return false;
 //		}
 //		}
-		}
+		
 	}
-}
+
 
 
 	
