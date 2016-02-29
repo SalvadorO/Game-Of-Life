@@ -45,7 +45,7 @@ public class GameController implements Initializable{
 
 	@FXML
     void mnu_SetupGridsizePressed(ActionEvent event) {
-		model.
+		
     }
 	
     @FXML
@@ -64,7 +64,7 @@ public class GameController implements Initializable{
     void btn_ResetPressed(ActionEvent event) {
 
     	txtArea.setText(gameboardcanvas.getGridAsString()+"\n");
-    	gameboardcanvas.grid.setCellstatus(3, 3, 1);
+    	gameboardcanvas.grid.setCellstatus(0, 3, 1);
     	txtArea.appendText(gameboardcanvas.getGridAsString());
 
 	}
