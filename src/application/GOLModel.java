@@ -29,7 +29,9 @@ public class GOLModel {
 		for (int i = 0;i<array.length;i++){
 			for (int j = 0; j<(array[i].length); j++){
 				if (array[i][j]==1)
+				{
 					gc.fillRect((x+size*j), (y+size*i), size, size);
+				}
 			}
 		}
 	
