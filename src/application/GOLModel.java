@@ -32,17 +32,15 @@ public class GOLModel {
 			}
 		}
 	}
-			
-	public void setGridSizeDialogue()	{
+	
+	//TODO: not completed
+	public String setGridSizeDialogue()	{
 		TextInputDialog textInput = new TextInputDialog("Enter grid size");
-		textInput.setTitle("Enter some text");
+		textInput.setTitle("Enter grid size as x and y values");
 	    textInput.setHeaderText("Text Input");
-	    textInput.setContentText("Please enter something:");
 	    Optional<String> result = textInput.showAndWait();
 	    if (result.isPresent())	{
-	         Alert alert = new Alert(AlertType.INFORMATION);
-	         alert.setContentText("You entered: " + result.get());
-	         alert.showAndWait();
+	         return result;
 	    }
 	}
 	
