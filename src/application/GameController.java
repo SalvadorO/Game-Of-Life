@@ -51,8 +51,13 @@ public class GameController implements Initializable{
     }
 
 
-	
     
+	
+    /**
+     * Implemented testing of setting a specific cell and show the 1d representation in the output area
+     * Just using the reset button to help kicking the method
+     * @param event
+     */
 
     @FXML
     void btn_ResetPressed(ActionEvent event) {
