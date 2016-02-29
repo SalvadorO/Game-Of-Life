@@ -19,6 +19,10 @@ public class GameboardCanvas {
 		return grid.getGrid();
 	}
 	
+	public void setGrid(int x, int y){
+		
+	}
+	
 	public String getGridAsString(){
 		return grid.toString();
 	}

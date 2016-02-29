@@ -15,20 +15,19 @@ import javafx.scene.canvas.GraphicsContext;
 
 public class GameController implements Initializable{
 	
-
 	protected GOLModel model = new GOLModel();
 	protected GameboardCanvas gameboardcanvas =  new GameboardCanvas();
 	protected GraphicsContext gc;
 	protected FileManagement filemanager = new FileManagement();
 
-	@FXML private Canvas img;
+	@FXML
+	private Canvas img;
 	
 	@FXML
-
     private Canvas canvas;
 
     @FXML
-    private MenuItem mnu_FileOpen,  mnu_FileSave;
+    private MenuItem mnu_FileOpen,  mnu_FileSave, mnu_SetupGridsize;
 	
 	@FXML
     private Button btn_Pause, btn_Play, bnt_Cancel;
@@ -44,15 +43,17 @@ public class GameController implements Initializable{
 	 * @author hd
 	 */
 
+	@FXML
+    void mnu_SetupGridsizePressed(ActionEvent event) {
+		model.
+    }
+	
     @FXML
     void btn_PlayPressed(ActionEvent event) {
 
     	model.draw(gc);
     }
 
-
-    
-	
     /**
      * Implemented testing of setting a specific cell and show the 1d representation in the output area
      * Just using the reset button to help kicking the method
