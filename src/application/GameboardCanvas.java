@@ -19,7 +19,13 @@ public class GameboardCanvas {
 		return grid.getGrid();
 	}
 	
-	public void setGrid(int x, int y){
+	/**
+	 * Method gets gridsize as parameters, then calls the class' gridobject' setGrid method.
+	 * @param x
+	 * @param y
+	 */
+	public void setGridSize(int x, int y){
+		grid.setGrid(x, y);
 		
 	}
 	
