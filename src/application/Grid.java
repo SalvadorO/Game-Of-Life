@@ -58,21 +58,13 @@ public class Grid {
 	// If method for removing live objects
 	
 	
-	Grid.setOnMousePressed(new EventHandler<MouseEvent>() {
+	Grid.setOnMousePressed(new EventHandler<MouseEvent>()
 	    public void handle(MouseEvent me) 
 	    {
-	
 	    	if (int cellValue = 1;){
-	    		
-	    	
 	    		int cellValue = 0;
-	    	} 
-	    	else {
+	    	} else {
 	    		int cellValue = 1;
 	    	}
-	
-	}
 	}
 }
-	
-//test2
