@@ -9,6 +9,7 @@ import javafx.scene.control.Dialog;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.paint.Color;
 import javafx.util.Callback;
 
@@ -60,14 +61,15 @@ public class GOLModel {
 		grid.add(lbl_y, 2, 1);
 		grid.add(txt_x, 1, 2);
 		grid.add(txt_y, 2, 2);
+		
 		dialog.getDialogPane().setContent(grid);
 		
 		ButtonType buttonTypeOk = new ButtonType ("Ok", ButtonData.OK_DONE);
 		ButtonType buttonTypeCancel = new ButtonType ("Cancel", ButtonData.CANCEL_CLOSE);
-		dialog.getDialogPane().getButtonTypes().addAll(buttonTypeOk, buttonTypeCancel);
+		dialog.getDialogPane().getButtonTypes().addAll(buttonTypeCancel, buttonTypeOk);
 		
 		dialog.setResultConverter(new Callback<ButtonType, int[]>() {
-			@Override
+			@Override	
 			public int[] call(ButtonType b) {
 				if (b==buttonTypeOk){
 					return new int[]{Integer.parseInt(txt_x.getText()), Integer.parseInt(txt_y.getText())};
