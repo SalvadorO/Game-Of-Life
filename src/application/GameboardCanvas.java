@@ -11,7 +11,7 @@ public class GameboardCanvas {
 	Grid grid;
 	
 	public GameboardCanvas(){
-		grid = new Grid(4,4);
+		grid = new Grid(10,10);
 		
 	}
 	

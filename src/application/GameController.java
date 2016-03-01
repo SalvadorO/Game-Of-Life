@@ -83,14 +83,6 @@ public class GameController implements Initializable{
 		gc.setFill(Color.BLACK);
 
 		System.out.println("Controller initialized");
-
 	}
 
 }
-
-
-
-
-
- 
-
