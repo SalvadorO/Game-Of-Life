@@ -90,12 +90,5 @@ public class GameController implements Initializable{
 		gc = img.getGraphicsContext2D();
 		gc.setFill(Color.BLACK);
 	}
-
+    
 }
-
-
-
-
-
- 
-
