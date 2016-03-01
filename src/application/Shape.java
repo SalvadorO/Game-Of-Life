@@ -26,6 +26,22 @@ public class Shape {
 		{0,1,0,1,0},
 		{1,0,0,0,1}
 		};
+	
+	double[][] typeC = new double[][]	{
+		{0,0,0,0,0},
+		{0,0,0,0,0},
+		{0,1,1,1,0},
+		{0,0,0,0,0},
+		{0,0,0,0,0}
+		};
+		
+	double[][] typeD = new double[][]	{
+		{0,0,0,0,0},
+		{0,0,1,0,0},
+		{0,0,0,1,0},
+		{0,1,1,1,0},
+		{0,0,0,0,0}
+		};
 		
 	public double[][] getShapeA(){
 		return typeA;
@@ -33,6 +49,14 @@ public class Shape {
 	
 	public double[][] getShapeB(){
 		return typeB;
+	}
+	
+	public double[][] getShapeC(){
+		return typeC;
+	}
+	
+	public double[][] getShapeD(){
+		return typeD;
 	}
 	
 }
