@@ -38,16 +38,16 @@ public class GOLModel {
 	}
 	
 	/**
-	 * Method that show an input dialog box to the user.
+	 * Method that show a custom inputdialog box to the user.
 	 * The dialog takes an x value and a y value.
-	 * the values are returned to the calling method.
-	 * 
+	 * The values are returned to the calling method.
+	 * TODO: consider if method should reside in another class, e.g. GameBoardCanvas
 	 * @return String
 	 */
-	public String setGridSizeDialogue()	{
-		String returnValue=null;
+	public Optional<int[]> setGridSizeDialogue()	{
+		Optional<int[]>returnValue=null;
 		
-		Dialog<String> dialog = new Dialog<>();
+		Dialog<int[]> dialog = new Dialog<>();
 		dialog.setTitle("Enter size of grid");
 		dialog.setResizable(true);
 		Label lbl_x = new Label("X-value:");
@@ -66,19 +66,19 @@ public class GOLModel {
 		ButtonType buttonTypeCancel = new ButtonType ("Cancel", ButtonData.CANCEL_CLOSE);
 		dialog.getDialogPane().getButtonTypes().addAll(buttonTypeOk, buttonTypeCancel);
 		
-		dialog.setResultConverter(new Callback<ButtonType, String>() {
+		dialog.setResultConverter(new Callback<ButtonType, int[]>() {
 			@Override
-			public String call(ButtonType b) {
+			public int[] call(ButtonType b) {
 				if (b==buttonTypeOk){
-					return new String(txt_x.getText());
+					return new int[]{Integer.parseInt(txt_x.getText()), Integer.parseInt(txt_y.getText())};
 				}
 				return null;
 			}
 	    });
 		
-		Optional<String> result = dialog.showAndWait();
+		Optional<int[]> result = dialog.showAndWait();
 		if ( result.isPresent()){
-			returnValue = result.get();
+			return result;
 		}
 		
 		return returnValue;
