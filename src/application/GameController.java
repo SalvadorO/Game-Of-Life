@@ -29,17 +29,26 @@ public class GameController implements Initializable{
 	@FXML
     private Button btn_Pause, btn_Play, bnt_Cancel;
 	
-	//TODO: This component is for testing purposes. To be removed
+	//TODO: This component is for testing purposes. To be removed when done
 	@FXML
     private TextArea txtArea;
     
 	/**
-	 * Method calls the gameboardcanvs' setgridsize method
+	 * When the menu item "SetupGridsize" is pressed, the gameboardcanvs' setgridsize dialog method
+	 * is called.
+	 * The returned values are sent to the GameBoardCanvas setGridmethod to set the grid size
 	 * @param event
 	 */
 	@FXML
     void mnu_SetupGridsizePressed(ActionEvent event) {
-		txtArea.setText(model.setGridSizeDialogue());
+				
+		int[] o = model.setGridSizeDialogue().get();
+		
+		gameboardcanvas.setGridSize(o[0], o[1]);
+		//The lines below is for testing, to be removed
+		txtArea.setText(o[0] + "\n" + o[1]);
+		txtArea.appendText("\n"+gameboardcanvas.getGridAsString());
+		//The lines before, are for testing, to be removed
     }
 	
     @FXML
