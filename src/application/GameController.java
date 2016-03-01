@@ -43,12 +43,13 @@ public class GameController implements Initializable{
     void mnu_SetupGridsizePressed(ActionEvent event) {
 				
 		int[] o = model.setGridSizeDialogue().get();
-		
 		gameboardcanvas.setGridSize(o[0], o[1]);
-		//The lines below is for testing, to be removed
+		
+		//The lines below are for testing, to be removed
 		txtArea.setText(o[0] + "\n" + o[1]);
 		txtArea.appendText("\n"+gameboardcanvas.getGridAsString());
-		//The lines before, are for testing, to be removed
+		//The lines above, are for testing, to be removed
+			
     }
 	
     @FXML
