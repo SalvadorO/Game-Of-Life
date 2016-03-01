@@ -58,5 +58,5 @@ public class Shape {
 	public double[][] getShapeD(){
 		return typeD;
 	}
-	
+	//TEST SAL
 }
