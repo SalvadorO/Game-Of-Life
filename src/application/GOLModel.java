@@ -3,10 +3,14 @@ package application;
 import java.util.Optional;
 
 import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Alert.AlertType;
-import javafx.scene.control.TextInputDialog;
+import javafx.scene.control.ButtonBar.ButtonData;
+import javafx.scene.control.ButtonType;
+import javafx.scene.control.Dialog;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
+import javafx.util.Callback;
 
 public class GOLModel {
 	
@@ -33,15 +37,51 @@ public class GOLModel {
 		}
 	}
 	
-	//TODO: fix method return value
+	/**
+	 * Method that show an input dialog box to the user.
+	 * The dialog takes an x value and a y value.
+	 * the values are returned to the calling method.
+	 * 
+	 * @return String
+	 */
 	public String setGridSizeDialogue()	{
-		TextInputDialog textInput = new TextInputDialog("Enter grid size");
-		textInput.setTitle("Enter grid size as x and y values");
-	    textInput.setHeaderText("Text Input");
-	    Optional<String> result = textInput.showAndWait();
-	    if (result.isPresent())	{
-	        //
-	    }
+		String returnValue=null;
+		
+		Dialog<String> dialog = new Dialog<>();
+		dialog.setTitle("Enter size of grid");
+		dialog.setResizable(true);
+		Label lbl_x = new Label("X-value:");
+		Label lbl_y = new Label("Y-value:");
+		TextField txt_x = new TextField();
+		TextField txt_y = new TextField();
+		
+		GridPane grid = new GridPane();
+		grid.add(lbl_x, 1, 1);
+		grid.add(lbl_y, 2, 1);
+		grid.add(txt_x, 1, 2);
+		grid.add(txt_y, 2, 2);
+		dialog.getDialogPane().setContent(grid);
+		
+		ButtonType buttonTypeOk = new ButtonType ("Ok", ButtonData.OK_DONE);
+		ButtonType buttonTypeCancel = new ButtonType ("Cancel", ButtonData.CANCEL_CLOSE);
+		dialog.getDialogPane().getButtonTypes().addAll(buttonTypeOk, buttonTypeCancel);
+		
+		dialog.setResultConverter(new Callback<ButtonType, String>() {
+			@Override
+			public String call(ButtonType b) {
+				if (b==buttonTypeOk){
+					return new String(txt_x.getText());
+				}
+				return null;
+			}
+	    });
+		
+		Optional<String> result = dialog.showAndWait();
+		if ( result.isPresent()){
+			returnValue = result.get();
+		}
+		
+		return returnValue;
 	}
 	
 
