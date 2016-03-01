@@ -2,8 +2,10 @@ package application;
 
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
+import javafx.scene.input;
 
 public class Grid {
+	
 	private int[][] gamegrid;
 	
 	public Grid(int x, int y){
@@ -49,6 +51,14 @@ public class Grid {
 			for (int j=0;j<gamegrid[i].length;j++)
 				o+=gamegrid[i][j];
 		return o;
+	}
+	// If method for removing live objects
+	
+	if (mouse)
+	{
+		
+	} else {
+		
 	}
 }
 	

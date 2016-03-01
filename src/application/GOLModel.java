@@ -21,7 +21,7 @@ public class GOLModel {
 		int size = 10;
 
 		Shape shape = new Shape();
-		double[][] array = shape.getShapeA();
+		double[][] array = shape.getShapeB();
 		gc.setFill(Color.BLACK);
 		
 		for (int i = 0;i<array.length;i++){
@@ -125,9 +125,3 @@ public class GOLModel {
 //		}
 		
 	}
-
-
-
-	
-
-
