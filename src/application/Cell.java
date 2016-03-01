@@ -30,7 +30,7 @@ public class Cell {
 	 * @return boolean
 	 * @author hd
 	 */
-	public boolean survives(int neighbours)	{
+	public boolean survives(int neighbours){
 		boolean alive=true;
 		if (( neighbours < 2) || (neighbours> 3))
 			alive = false;
