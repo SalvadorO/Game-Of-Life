@@ -53,13 +53,13 @@ public class Grid {
 		return o;
 	}
 	// If method for removing live objects
-	
-	if (mouse)
+	public static final EventType<MouseEvent> MOUSE_CLICKED
 	{
-		
-	} else {
-		
-	}
+	
+	if (MOUSE_CLICKED)
+	{
+		int cellValue = 1;
+	} 
 }
 	
 
