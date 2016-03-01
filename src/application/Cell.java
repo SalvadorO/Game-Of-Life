@@ -9,7 +9,7 @@ public class Cell {
 	 * @return number of neighbours
 	 * @author hd
 	 */
-	public int countNeighbours(int x, int y)	{
+	public int countNeighbours(int x, int y){
 	
 		int neighbours = 0;
 		int cellValue = 0;
