@@ -50,6 +50,8 @@ public class Grid {
 				o+=gamegrid[i][j];
 		return o;
 	}
+	
+	}
 }
 	
 
