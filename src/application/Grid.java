@@ -66,6 +66,6 @@ public class Grid {
 	    	} else {
 	    		int cellValue = 1;
 	    	}
-	    	//Method for drawing cell when mouse is clicked
+	    	//Method for drawing cell when mouse is clicked.
 	}
 }
