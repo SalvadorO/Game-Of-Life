@@ -13,19 +13,35 @@ import javafx.scene.paint.Color;
 public class Shape {
 
 
-	double[][] typeA = new double[][] 	{
+	double[][] typeA = new double[][]{
 		{0,0,0,0},
 		{0,1,1,0},
 		{1,0,0,1},
 		{0,1,1,0}
 		};
 		
-	double[][] typeB = new double[][] 	{
+	double[][] typeB = new double[][]{
 		{1,0,0,0,1},
 		{0,1,0,1,0},
 		{0,0,1,0,0},
 		{0,1,0,1,0},
 		{1,0,0,0,1}
+		};
+		
+	double[][] typeC = new double[][] {
+		{0,0,0,0,0},
+		{0,0,0,0,0},
+		{0,1,1,1,0},
+		{0,0,0,0,0},
+		{0,0,0,0,0}
+		};
+		
+	double[][] typeGlider = new double[][] 	{
+		{0,0,0,0,0},
+		{0,0,1,0,0},
+		{0,0,0,1,0},
+		{0,1,1,1,0},
+		{0,0,0,0,0}
 		};
 		
 	public double[][] getShapeA(){
@@ -36,4 +52,11 @@ public class Shape {
 		return typeB;
 	}
 	
+	public double[][] getShapeC(){
+		return typeC;
+	}
+	
+	public double[][] getShapeGlider(){
+		return typeGlider;
+	}
 }
