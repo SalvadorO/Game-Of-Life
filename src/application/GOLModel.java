@@ -26,7 +26,7 @@ public class GOLModel {
 		int size = 10;
 
 		Shape shape = new Shape();
-		double[][] array = shape.getShapeA();
+		double[][] array = shape.getShapeGlider();
 		gc.setFill(Color.BLACK);
 		
 		for (int i = 0;i<array.length;i++){
