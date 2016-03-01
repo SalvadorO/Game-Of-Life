@@ -30,12 +30,6 @@ public class GameboardCanvas {
 	 * @author hd
 	 */
 	public void setGridSize(int x, int y){
-		grid.setGrid(x, y);
-		
-	}
-	
-	
-	
+		grid.setGrid(x, y);	
+	}	
 }
-	
-
