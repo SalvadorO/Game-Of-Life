@@ -19,19 +19,22 @@ public class GameboardCanvas {
 		return grid.getGrid();
 	}
 	
+	public String getGridAsString(){
+		return grid.toString();
+	}
+	
 	/**
 	 * Method gets gridsize as parameters, then calls the class' gridobject' setGrid method.
 	 * @param x
 	 * @param y
+	 * @author hd
 	 */
 	public void setGridSize(int x, int y){
 		grid.setGrid(x, y);
 		
 	}
 	
-	public String getGridAsString(){
-		return grid.toString();
-	}
+	
 	
 }
 	

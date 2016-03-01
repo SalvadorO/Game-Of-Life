@@ -8,6 +8,7 @@ import javafx.scene.paint.Color;
 /*
  * Holds shapes, currently two shapes for testing purposes 
  * May be extended to set properties
+ * May be extended to hold a collection of shapes
  *  */
 public class Shape {
 
