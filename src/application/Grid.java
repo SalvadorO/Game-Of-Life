@@ -4,8 +4,8 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 import javafx.scene.input;
 import javafx.event.Event;
-import javafx.scene.input.InputEvent;
 import javafx.scene.input.MouseEvent;
+import javafx.event.EventHandler;
 
 public class Grid {
 	
@@ -66,5 +66,6 @@ public class Grid {
 	    	} else {
 	    		int cellValue = 1;
 	    	}
+	    	//Method for drawing cell when mouse is clicked
 	}
 }
