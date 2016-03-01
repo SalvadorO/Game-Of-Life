@@ -59,4 +59,5 @@ public class Shape {
 		return typeD;
 	}
 	//TEST SAL
+	//Test fra Sal PC
 }
