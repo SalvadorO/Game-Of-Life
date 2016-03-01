@@ -3,6 +3,9 @@ package application;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 import javafx.scene.input;
+import javafx.event.Event;
+import javafx.scene.input.InputEvent;
+import javafx.scene.input.MouseEvent;
 
 public class Grid {
 	
@@ -53,13 +56,23 @@ public class Grid {
 		return o;
 	}
 	// If method for removing live objects
-	public static final EventType<MouseEvent> MOUSE_CLICKED
-	{
 	
-	if (MOUSE_CLICKED)
-	{
-		int cellValue = 1;
-	} 
+	
+	Grid.setOnMousePressed(new EventHandler<MouseEvent>() {
+	    public void handle(MouseEvent me) 
+	    {
+	
+	    	if (int cellValue = 1;){
+	    		
+	    	
+	    		int cellValue = 0;
+	    	} 
+	    	else {
+	    		int cellValue = 1;
+	    	}
+	
+	}
+	}
 }
 	
 
