@@ -51,6 +51,12 @@ public class GameController implements Initializable{
 		//The lines above, are for testing, to be removed
 			
     }
+	// Code for about
+	@FXML
+	void mnu_HelpAboutPressed(ActionEvent event) {
+		model.HelpAboutDialogue().get();
+	}
+	
 	
     @FXML
     void btn_PlayPressed(ActionEvent event) {
