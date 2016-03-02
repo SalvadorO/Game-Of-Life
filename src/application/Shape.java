@@ -28,7 +28,7 @@ public class Shape {
 		{1,0,0,0,1}
 		};
 		
-	double[][] typeC = new double[][] {
+	double[][] typeInfinity = new double[][] {
 		{0,0,0,0,0},
 		{0,0,0,0,0},
 		{0,1,1,1,0},
@@ -52,8 +52,8 @@ public class Shape {
 		return typeB;
 	}
 	
-	public double[][] getShapeC(){
-		return typeC;
+	public double[][] getShapeInfinity(){
+		return typeInfinity;
 	}
 	
 	public double[][] getShapeGlider(){
