@@ -30,7 +30,7 @@ public class GOLModel {
 		int size = 10;
 
 		Shape shape = new Shape();
-		double[][] array = shape.getShapeGlider();
+		double[][] array = shape.getShapeGliderGun();
 		gc.setFill(Color.BLACK);
 		
 		for (int i = 0;i<array.length;i++){
@@ -101,7 +101,7 @@ public class GOLModel {
 		Alert about = new Alert(AlertType.INFORMATION);
 		about.setTitle("About");
 		about.setHeaderText(null);
-		about.setContentText("John Conway's Game Of Life");
+		about.setContentText("About: John Conway's Game Of Life");
 		about.setResizable(true);
 		ButtonType buttonTypeCancel = new ButtonType("I understand", ButtonData.CANCEL_CLOSE);
 		

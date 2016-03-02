@@ -96,6 +96,5 @@ public class GameController implements Initializable{
 	public void initialize(URL location, ResourceBundle resources) {
 		gc = img.getGraphicsContext2D();
 		gc.setFill(Color.BLACK);
-	}
-    
+	}    
 }
