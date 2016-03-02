@@ -2,12 +2,16 @@ package application;
 
 import java.util.Optional;
 
+import javafx.event.EventHandler;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.ButtonBar.ButtonData;
+import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Dialog;
+import javafx.scene.control.DialogEvent;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.paint.Color;
@@ -50,6 +54,7 @@ public class GOLModel {
 		
 		Dialog<int[]> dialog = new Dialog<>();
 		dialog.setTitle("Enter size of grid");
+		// Er det noe vits i å ha utsagnet nedenfor til true? Hvor ofte vil man få bruk for å resize der man setter inn gridstr?? Dessuten legger den seg uansett bare oppe i venstre hjørnet.
 		dialog.setResizable(true);
 		Label lbl_x = new Label("X-value:");
 		Label lbl_y = new Label("Y-value:");
@@ -85,6 +90,27 @@ public class GOLModel {
 		
 		return returnValue;
 	}
+	
+	/**
+	 * The FX part for about, here it will say about the game, and how you play it. It will also explain our interface and how you use it.
+	 * @author Lars
+	 */
+	public Optional<int[]> HelpAboutDialogue() {
+		Optional<int[]>returnValue=null;
+
+		Alert about = new Alert(AlertType.INFORMATION);
+		about.setTitle("About");
+		about.setHeaderText(null);
+		about.setContentText("John Conway's Game Of Life");
+		about.setResizable(true);
+		ButtonType buttonTypeCancel = new ButtonType("I understand", ButtonData.CANCEL_CLOSE);
+		
+		about.getButtonTypes().setAll(buttonTypeCancel);
+
+		about.showAndWait();
+		return returnValue;		
+	}			
+}
 	
 
 		/** TODO: To be implemented
@@ -165,8 +191,6 @@ public class GOLModel {
 //			return false;
 //		}
 //		}
-		
-	}
 
 
 
