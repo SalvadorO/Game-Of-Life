@@ -75,5 +75,4 @@ public class Shape {
 	public double[][] getShapeGliderGun(){
 		return typeGliderGun;
 	}
-//	Test
 }
