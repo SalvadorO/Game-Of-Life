@@ -212,9 +212,3 @@ public class GOLModel {
 //			return false;
 //		}
 //		}
-
-
-
-	
-
-
