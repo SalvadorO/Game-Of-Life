@@ -26,9 +26,9 @@ public class GOLModel {
 	 * @author hd
 	 */
 	public void draw(GraphicsContext gc){
-		int x = 100;
-		int y = 100;
-		int size = 10;
+		int x = 1;
+		int y = 1;
+		int size = 1;
 
 		Shape shape = new Shape();
 		double[][] array = shape.getShapeGlider();
@@ -55,8 +55,7 @@ public class GOLModel {
 		
 		Dialog<int[]> dialog = new Dialog<>();
 		dialog.setTitle("Enter size of grid");
-		// Er det noe vits i å ha utsagnet nedenfor til true? Hvor ofte vil man få bruk for å resize der man setter inn gridstr?? Dessuten legger den seg uansett bare oppe i venstre hjørnet.
-		dialog.setResizable(true);
+		dialog.setResizable(false);
 		Label lbl_x = new Label("X-value:");
 		Label lbl_y = new Label("Y-value:");
 		TextField txt_x = new TextField();
