@@ -2,7 +2,11 @@ package application;
 
 import java.util.Optional;
 
+import javax.swing.event.ChangeListener;
+import javax.xml.soap.Node;
+
 import javafx.application.Platform;
+import javafx.beans.value.ObservableValue;
 import javafx.event.EventHandler;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.ButtonBar.ButtonData;
@@ -32,7 +36,7 @@ public class GOLModel {
 		int size = 1;
 
 		Shape shape = new Shape();
-		double[][] array = shape.getShapeGlider();
+		double[][] array = shape.getShapeGlider(); 
 		gc.setFill(Color.BLACK);
 		
 		for (int i = 0;i<array.length;i++){
@@ -73,9 +77,21 @@ public class GOLModel {
 		ButtonType buttonTypeOk = new ButtonType ("Ok", ButtonData.OK_DONE);
 		ButtonType buttonTypeCancel = new ButtonType ("Cancel", ButtonData.CANCEL_CLOSE);
 		dialog.getDialogPane().getButtonTypes().addAll(buttonTypeCancel, buttonTypeOk);
-		// Koden under gjør at du fokuserer på feltet der X-verdien settes inn. Enklere å skrive inn uten bruk av mus
+//		Koden under gjør at du fokuserer på feltet der X-verdien settes inn. Enklere å skrive inn uten bruk av mus
 		Platform.runLater(() -> txt_x.requestFocus());
+//		Disabler Ok knappen
+		javafx.scene.Node Button = dialog.getDialogPane().lookupButton(buttonTypeOk);
+		Button.setDisable(true);
+//		Disabler Ok knappen når det ikke er skrevet noe i X-verdi feltet, fungerer ikke helt.
+		txt_x.textProperty().addListener((observable, oldValue, newValue) ->{
+		    Button.setDisable(newValue.trim().isEmpty());
+		});
+//		Disabler Ok knappen når det ikke er skrevet noe i Y-verdi feltet, fungerer ikke helt.
+		txt_y.textProperty().addListener((observable, oldValue, newValue) ->{
+		    Button.setDisable(newValue.trim().isEmpty());
+		});
 		
+
 		dialog.setResultConverter(new Callback<ButtonType, int[]>() {
 			@Override	
 			public int[] call(ButtonType b) {
