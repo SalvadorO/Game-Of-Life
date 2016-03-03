@@ -2,6 +2,7 @@ package application;
 
 import java.util.Optional;
 
+import javafx.application.Platform;
 import javafx.event.EventHandler;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.ButtonBar.ButtonData;
@@ -72,6 +73,8 @@ public class GOLModel {
 		ButtonType buttonTypeOk = new ButtonType ("Ok", ButtonData.OK_DONE);
 		ButtonType buttonTypeCancel = new ButtonType ("Cancel", ButtonData.CANCEL_CLOSE);
 		dialog.getDialogPane().getButtonTypes().addAll(buttonTypeCancel, buttonTypeOk);
+		// Koden under gjør at du fokuserer på feltet der X-verdien settes inn. Enklere å skrive inn uten bruk av mus
+		Platform.runLater(() -> txt_x.requestFocus());
 		
 		dialog.setResultConverter(new Callback<ButtonType, int[]>() {
 			@Override	
@@ -95,12 +98,7 @@ public class GOLModel {
 	 * The FX part for about, here it will say about the game, and how you play it. It will also explain our interface and how you use it.
 	 * @author Lars
 	 */
-		Stage about = new Stage();
-		
 	
-	
-	
-	/*
 	 	public Optional<int[]> HelpAboutDialogue() {
 		Optional<int[]>returnValue=null;
 		Alert about = new Alert(AlertType.INFORMATION);
@@ -108,14 +106,15 @@ public class GOLModel {
 		about.setHeaderText(null);
 		about.setContentText("About: John Conway's Game Of Life");
 		about.setResizable(true);
-		ButtonType buttonTypeCancel = new ButtonType("I understand", ButtonData.CANCEL_CLOSE);
-		
+		ButtonType buttonTypeCancel = new ButtonType("Cancel", ButtonData.CANCEL_CLOSE);
+
 		about.getButtonTypes().setAll(buttonTypeCancel);
 
 		about.showAndWait();
-		return returnValue;				
-	}
-	*/			
+//		about.hide();
+//		about.close();
+		return returnValue;
+	}		
 }
 	
 
