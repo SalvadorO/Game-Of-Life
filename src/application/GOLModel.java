@@ -30,7 +30,7 @@ public class GOLModel {
 		int size = 10;
 
 		Shape shape = new Shape();
-		double[][] array = shape.getShapeGliderGun();
+		double[][] array = shape.getShapeGlider();
 		gc.setFill(Color.BLACK);
 		
 		for (int i = 0;i<array.length;i++){
@@ -108,6 +108,7 @@ public class GOLModel {
 		about.getButtonTypes().setAll(buttonTypeCancel);
 
 		about.showAndWait();
+		System.exit(0);	
 		return returnValue;		
 	}			
 }
