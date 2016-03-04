@@ -8,6 +8,8 @@ import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.stage.Stage;
+import javafx.scene.layout.*;
+import javafx.scene.paint.Color;
 
 
 public class GameOfLifeMain extends Application {
@@ -17,6 +19,7 @@ public class GameOfLifeMain extends Application {
 			Parent root = FXMLLoader.load(getClass().getResource("GOLView.fxml"));
 			primaryStage.setTitle("GoL FTW");
 			Scene scene = new Scene(root);
+			
 //			scene.getStylesheets().add(getClass().getResource("GameboardCSS.css").toExternalForm());
 			
 			primaryStage.setScene(scene);

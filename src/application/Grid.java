@@ -2,7 +2,7 @@ package application;
 
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
-import javafx.scene.input;
+
 import javafx.event.Event;
 import javafx.scene.input.MouseEvent;
 import javafx.event.EventHandler;
@@ -10,6 +10,7 @@ import javafx.event.EventHandler;
 public class Grid {
 	
 	private int[][] gamegrid;
+	
 	
 	public Grid(int x, int y){
 		gamegrid = new int[x][y];
@@ -58,14 +59,7 @@ public class Grid {
 	// If method for removing live objects
 	
 	
-	Grid.setOnMousePressed(new EventHandler<MouseEvent>()
-	    public void handle(MouseEvent me) 
-	    {
-	    	if (int cellValue = 1;){
-	    		int cellValue = 0;
-	    	} else {
-	    		int cellValue = 1;
-	    	}
+	
 	    	//Method for drawing cell when mouse is clicked.
-	}
+	
 }
