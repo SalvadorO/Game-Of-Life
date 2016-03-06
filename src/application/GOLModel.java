@@ -120,7 +120,7 @@ public class GOLModel {
 		Alert about = new Alert(AlertType.INFORMATION);
 		about.setTitle("About");
 		about.setHeaderText(null);
-		about.setContentText("About: John Conway's Game Of Life");
+		about.setContentText("About: John Conway's Game Of Life"+'\n'+"New Line");
 		about.setResizable(true);
 		ButtonType buttonTypeCancel = new ButtonType("Cancel", ButtonData.CANCEL_CLOSE);
 
