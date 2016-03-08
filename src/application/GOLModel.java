@@ -109,11 +109,9 @@ public class GOLModel {
 		about.getButtonTypes().setAll(buttonTypeCancel);
 
 		about.showAndWait();
-<<<<<<< HEAD
-		System.exit(0);	
-=======
+
 //		System.exit(0);	
->>>>>>> DevelopLars
+
 		return returnValue;		
 	}			
 }
