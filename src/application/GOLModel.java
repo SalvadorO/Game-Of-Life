@@ -2,11 +2,6 @@ package application;
 
 import java.util.Optional;
 
-import javax.swing.event.ChangeListener;
-import javax.xml.soap.Node;
-
-import javafx.application.Platform;
-import javafx.beans.value.ObservableValue;
 import javafx.event.EventHandler;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.ButtonBar.ButtonData;
@@ -31,12 +26,12 @@ public class GOLModel {
 	 * @author hd
 	 */
 	public void draw(GraphicsContext gc){
-		int x = 1;
-		int y = 1;
-		int size = 1;
+		int x = 100;
+		int y = 100;
+		int size = 10;
 
 		Shape shape = new Shape();
-		double[][] array = shape.getShapeGlider(); 
+		double[][] array = shape.getShapeGlider();
 		gc.setFill(Color.BLACK);
 		
 		for (int i = 0;i<array.length;i++){
@@ -60,7 +55,8 @@ public class GOLModel {
 		
 		Dialog<int[]> dialog = new Dialog<>();
 		dialog.setTitle("Enter size of grid");
-		dialog.setResizable(false);
+		// Er det noe vits i Â ha utsagnet nedenfor til true? Hvor ofte vil man fÂ bruk for Â resize der man setter inn gridstr?? Dessuten legger den seg uansett bare oppe i venstre hj¯rnet.
+		dialog.setResizable(true);
 		Label lbl_x = new Label("X-value:");
 		Label lbl_y = new Label("Y-value:");
 		TextField txt_x = new TextField();
@@ -77,21 +73,7 @@ public class GOLModel {
 		ButtonType buttonTypeOk = new ButtonType ("Ok", ButtonData.OK_DONE);
 		ButtonType buttonTypeCancel = new ButtonType ("Cancel", ButtonData.CANCEL_CLOSE);
 		dialog.getDialogPane().getButtonTypes().addAll(buttonTypeCancel, buttonTypeOk);
-//		Koden under gj¯r at du fokuserer pÂ feltet der X-verdien settes inn. Enklere Â skrive inn uten bruk av mus
-		Platform.runLater(() -> txt_x.requestFocus());
-//		Disabler Ok knappen
-		javafx.scene.Node Button = dialog.getDialogPane().lookupButton(buttonTypeOk);
-		Button.setDisable(true);
-//		Disabler Ok knappen nÂr det ikke er skrevet noe i X-verdi feltet, fungerer ikke helt.
-		txt_x.textProperty().addListener((observable, oldValue, newValue) ->{
-		    Button.setDisable(newValue.trim().isEmpty());
-		});
-//		Disabler Ok knappen nÂr det ikke er skrevet noe i Y-verdi feltet, fungerer ikke helt.
-		txt_y.textProperty().addListener((observable, oldValue, newValue) ->{
-		    Button.setDisable(newValue.trim().isEmpty());
-		});
 		
-
 		dialog.setResultConverter(new Callback<ButtonType, int[]>() {
 			@Override	
 			public int[] call(ButtonType b) {
@@ -114,24 +96,34 @@ public class GOLModel {
 	 * The FX part for about, here it will say about the game, and how you play it. It will also explain our interface and how you use it.
 	 * @author Lars
 	 */
+		Stage about = new Stage();
+		
 	
+	
+	
+	/*
 	 	public Optional<int[]> HelpAboutDialogue() {
 		Optional<int[]>returnValue=null;
 		Alert about = new Alert(AlertType.INFORMATION);
 		about.setTitle("About");
 		about.setHeaderText(null);
-		about.setContentText("About: John Conway's Game Of Life"+'\n'+"New Line");
+		about.setContentText("About: John Conway's Game Of Life");
 		about.setResizable(true);
-		ButtonType buttonTypeCancel = new ButtonType("Cancel", ButtonData.CANCEL_CLOSE);
-
+		ButtonType buttonTypeCancel = new ButtonType("I understand", ButtonData.CANCEL_CLOSE);
+		
 		about.getButtonTypes().setAll(buttonTypeCancel);
 
 		about.showAndWait();
-//		about.hide();
-//		about.close();
-		return returnValue;
-	}		
-}	
+<<<<<<< Upstream, based on master
+		System.exit(0);	
+		return returnValue;		
+	}			
+=======
+		return returnValue;				
+	}
+	*/			
+>>>>>>> 7e17481 Tester om det Alert er den beste m√•ten √• vise About p√•
+}
 	
 
 		/** TODO: To be implemented
@@ -212,3 +204,9 @@ public class GOLModel {
 //			return false;
 //		}
 //		}
+
+
+
+	
+
+
