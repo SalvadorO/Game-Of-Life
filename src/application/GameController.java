@@ -6,9 +6,13 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextArea;
+import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.ButtonBar.ButtonData;
 import javafx.scene.paint.Color;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
@@ -51,10 +55,19 @@ public class GameController implements Initializable{
 		//The lines above, are for testing, to be removed
 			
     }
-	// Code for about
+	// Code for about dialog
 	@FXML
 	void mnu_HelpAboutPressed(ActionEvent event) {
-		model.HelpAboutDialogue().get();
+		Alert about = new Alert(AlertType.INFORMATION);
+		about.setTitle("About");
+		about.setHeaderText(null);
+		about.setContentText("About: John Conway's Game Of Life"+'\n'+"New Line");
+		about.setResizable(true);
+		
+		ButtonType buttonTypeCancel = new ButtonType("I understand", ButtonData.CANCEL_CLOSE);
+		about.getButtonTypes().setAll(buttonTypeCancel);
+		
+		about.showAndWait();
 	}
 	
 	
