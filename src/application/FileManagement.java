@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -26,9 +27,9 @@ import javafx.stage.FileChooser.ExtensionFilter;
 
 public class FileManagement {
 
-   // workarea copied from local controller class
-	//
-	public String readShape(){
+ 	public String readShape(){
+	
+ 	//method should take txt, and not read a file	
 	String txt = readFile();
 	
 	//set header and pattern variables
@@ -42,7 +43,6 @@ public class FileManagement {
 	
 	//Get x and y values and set x and y variables
 	//Consider separate this as a method
-	
 	for (int i = 0; i < headerelements.length; i++){
 		String[] keyvalue = headerelements[i].split("=");
 		if (keyvalue[0].equals("x") )
@@ -50,13 +50,13 @@ public class FileManagement {
 		if (keyvalue[0].equals("y") )
 			y_value = Integer.parseInt(keyvalue[1]);
 	}
-	
-	
+ 
 	pattern = pattern.replaceAll("\\!", "");
 	String[] line = pattern.split("\\$");
 	    	
-	return Count(pattern,y_value);
-	//Parse  pattern, consider moving this to Model class, and refactor;
+	return statusCount(pattern,y_value);
+}
+	//Parse  pattern, consider moving this to Model class, and refactor; patternParser
 	//should not create an array, just draw on grid directly 
 	
 //	int[][] shape = new int[x_value][y_value];
@@ -74,7 +74,7 @@ public class FileManagement {
 //		}
 //	}
 //	
-}
+
 //******************
 		
 	
@@ -126,34 +126,46 @@ public String statusCount(String pattern, int y){
 	
 	String returnValue = ("Number of dead: " + deadcounter);
 	returnValue += ("\nNumber of living cells: " + lifecounter);
+	
+	return returnValue;
 }
 	// end work area
 
 /**
-     * Method reads a file and returns the content as String.
-     * Method uses openFile() method for the user dialogue.
-     * @return filecontent as a String
-     * @throws IOException
-     * @author hd
-     */
-	public String readFile() 	{
+ * Method reads a file and returns the content as String.
+ * Method uses openFile() method for the user dialogue.
+ * @return filecontent as a String as header:pattern
+ * @throws IOException
+ * @author hd
+ */
+public String readFile() 	{
+
+	File file=openFile();
+	String header = "";
+	String pattern = "";
+	String line = null;		
+	String filecontent = "";
 	
-		String file=openFile().toString();
-		String filecontent = null;
-		int i = 0;
-				
-		try (BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(file)))) {
-			while ((i = br.read()) != -1){
-				filecontent +=((char) i+" ");
-			}
-		} 
-		catch (IOException e) {
-			System.err.format("IOException: %s%n", e);
-		}
+	try (BufferedReader br = new BufferedReader(new FileReader(file))) {
+
+		do{
+			line = br.readLine();
+				if (line != null && !line.startsWith("#")){
+					if (header == "")
+						header = line;
+					else
+						pattern += line;
+				};
 		
-		return filecontent;
-				
+		}while (line != null);
+	} 
+	catch (IOException e) {
+		System.err.format("IOException: %s%n", e);
 	}
+		
+	return header.replaceAll("\\s+","")+":"+pattern;
+			
+}
 	
 	/**
 	 * Method receives content as a String and saves this to the default file (created if not existing)
