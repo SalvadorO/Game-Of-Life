@@ -16,7 +16,9 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.paint.Color;
+import javafx.stage.Stage;
 import javafx.util.Callback;
+
 
 public class GOLModel {
 	
@@ -95,9 +97,8 @@ public class GOLModel {
 	 * The FX part for about, here it will say about the game, and how you play it. It will also explain our interface and how you use it.
 	 * @author Lars
 	 */
-	public Optional<int[]> HelpAboutDialogue() {
+	 	public Optional<int[]> HelpAboutDialogue() {
 		Optional<int[]>returnValue=null;
-
 		Alert about = new Alert(AlertType.INFORMATION);
 		about.setTitle("About");
 		about.setHeaderText(null);
@@ -108,7 +109,11 @@ public class GOLModel {
 		about.getButtonTypes().setAll(buttonTypeCancel);
 
 		about.showAndWait();
+<<<<<<< HEAD
 		System.exit(0);	
+=======
+//		System.exit(0);	
+>>>>>>> DevelopLars
 		return returnValue;		
 	}			
 }
