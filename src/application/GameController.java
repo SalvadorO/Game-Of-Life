@@ -92,7 +92,8 @@ public class GameController implements Initializable{
     
     @FXML
     void mnu_FileOpenPressed(ActionEvent event) {
-    	txtArea.setText(filemanager.readFile());
+    	txtArea.setText("Filecontent:\n" + filemanager.readFile());
+    	txtArea.appendText("\n"+filemanager.readShape());
     }
     
     @FXML
