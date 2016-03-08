@@ -131,7 +131,7 @@ public class GOLModel {
 //		about.close();
 		return returnValue;
 	}		
-}
+}	
 	
 
 		/** TODO: To be implemented
