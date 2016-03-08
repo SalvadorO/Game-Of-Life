@@ -1,10 +1,5 @@
 package application;
 
-import javafx.scene.Node;
-import javafx.scene.canvas.Canvas;
-import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.paint.Color;
-
 /*
  * Holds shapes, currently two shapes for testing purposes 
  * May be extended to set properties
