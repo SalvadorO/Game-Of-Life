@@ -91,26 +91,6 @@ public class GOLModel {
 		}
 		
 		return returnValue;
-	}
-	
-	/**
-	 * The FX part for about, here it will say about the game, and how you play it. It will also explain our interface and how you use it.
-	 * @author Lars
-	 */
-	 	public Optional<int[]> HelpAboutDialogue() {
-		Optional<int[]>returnValue=null;
-		Alert about = new Alert(AlertType.INFORMATION);
-		about.setTitle("About");
-		about.setHeaderText(null);
-		about.setContentText("About: John Conway's Game Of Life");
-		about.setResizable(true);
-		ButtonType buttonTypeCancel = new ButtonType("I understand", ButtonData.CANCEL_CLOSE);
-		
-		about.getButtonTypes().setAll(buttonTypeCancel);
-
-		about.showAndWait();
-//		System.exit(0);	
-		return returnValue;		
 	}			
 }
 	
