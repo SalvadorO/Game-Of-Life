@@ -96,12 +96,6 @@ public class GOLModel {
 	 * The FX part for about, here it will say about the game, and how you play it. It will also explain our interface and how you use it.
 	 * @author Lars
 	 */
-		Stage about = new Stage();
-		
-	
-	
-	
-	/*
 	 	public Optional<int[]> HelpAboutDialogue() {
 		Optional<int[]>returnValue=null;
 		Alert about = new Alert(AlertType.INFORMATION);
@@ -114,15 +108,9 @@ public class GOLModel {
 		about.getButtonTypes().setAll(buttonTypeCancel);
 
 		about.showAndWait();
-<<<<<<< Upstream, based on master
-		System.exit(0);	
+//		System.exit(0);	
 		return returnValue;		
 	}			
-=======
-		return returnValue;				
-	}
-	*/			
->>>>>>> 7e17481 Tester om det Alert er den beste måten å vise About på
 }
 	
 
