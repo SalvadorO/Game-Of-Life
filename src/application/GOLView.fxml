@@ -20,7 +20,7 @@
       <HBox alignment="BOTTOM_RIGHT" prefHeight="10.0" prefWidth="20.0" spacing="5.0">
          <children>
             <Button fx:id="btn_PlayStop" mnemonicParsing="false" onAction="#btn_PlayStopPressed" text="Play" />
-          <Button fx:id="btn_Reset" mnemonicParsing="false" onAction="#btn_ResetPressed" text="Reset" />
+         	<Button fx:id="btn_Reset" mnemonicParsing="false" onAction="#btn_ResetPressed" text="Reset" />
             <Button fx:id="btn_Quit" mnemonicParsing="false" onAction="#btn_QuitPressed" text="Quit" />
          </children>
          <padding>
