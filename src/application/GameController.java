@@ -47,11 +47,11 @@ public class GameController implements Initializable{
     void mnu_SetupGridsizePressed(ActionEvent event) {
 				
 		int[] o = model.setGridSizeDialogue().get();
-		gameboardcanvas.setGridSize(o[0], o[1]);
+		gameboardcanvas.grid.setGrid(o[0], o[1]);
 		
 		//The lines below are for testing, to be removed
 		txtArea.setText(o[0] + "\n" + o[1]);
-		txtArea.appendText("\n"+gameboardcanvas.getGridAsString());
+		txtArea.appendText("\n"+gameboardcanvas.grid.toString());
 		//The lines above, are for testing, to be removed
 			
     }
@@ -73,7 +73,7 @@ public class GameController implements Initializable{
 	
     @FXML
     void btn_PlayPressed(ActionEvent event) {
-    	model.draw(gc);
+    	gameboardcanvas.draw(gc);
     }
 
     /**
