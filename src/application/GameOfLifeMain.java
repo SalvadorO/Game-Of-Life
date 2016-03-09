@@ -16,7 +16,7 @@ public class GameOfLifeMain extends Application {
 	public void start(Stage primaryStage) {
 		try {
 			Parent root = FXMLLoader.load(getClass().getResource("GOLView.fxml"));
-			primaryStage.setTitle("GoL FTW");
+			primaryStage.setTitle("Conway's Game of Life");
 			Scene scene = new Scene(root);
 //			scene.getStylesheets().add(getClass().getResource("GameboardCSS.css").toExternalForm());
 			
