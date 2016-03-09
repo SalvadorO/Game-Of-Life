@@ -154,19 +154,3 @@ public class GOLModel {
 //			return false;
 //		}
 //		}
-
-
-// Stuff vi trenger senere
-	/*
-	 public void startStopButtonClicked( GameOfLifeControlsEvent e ) {
-    if ( isRunning() ) {
-      stop();
-    } else {
-      start2();
-    }
-  }
-	 
-	 
-	 */
-
-
