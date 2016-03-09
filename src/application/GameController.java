@@ -57,7 +57,7 @@ public class GameController implements Initializable{
     }
 	// Code for about dialog
 	@FXML
-	void mnu_HelpAboutPressed(ActionEvent event) {
+	void mnu_AboutDialogPressed(ActionEvent event) {
 		Alert about = new Alert(AlertType.INFORMATION);
 		about.setTitle("About");
 		about.setHeaderText(null);
