@@ -16,7 +16,8 @@ public class FileManagement {
 
  	public String readShape(){
 	
- 	//method should take txt, and not read a file	
+ 	//Method should take txt, and not read a file	
+	//Consider moving to Model class
 	String txt = readFile();
 	
 	//set header and pattern variables
@@ -28,8 +29,8 @@ public class FileManagement {
 	
 	String[] headerelements = header.split(",");
 	
-	//Get x and y values and set x and y variables
-	//Consider separate this as a method
+//Get x and y values and set x and y variables
+//Consider separate this as a method
 	for (int i = 0; i < headerelements.length; i++){
 		String[] keyvalue = headerelements[i].split("=");
 		if (keyvalue[0].equals("x") )
@@ -98,7 +99,7 @@ public String statusCount(String pattern, int y){
 	
 	return returnValue;
 }
-	// end work area
+
 
 /**
  * Method reads a file and returns the content as String.

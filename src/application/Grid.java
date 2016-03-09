@@ -20,12 +20,17 @@ public class Grid {
 		gamegrid = new int[x][y];
 	}
 	
+	/**
+	 * 
+	 * @return int[][] gamegrid
+	 * @auth
+	 */
 	public int[][] getGrid(){
 		return gamegrid;
 	}
 	
 	/**
-	 * Method takes coordinates and cell value and set relevant cell accordingly
+	 * Method sets cell value based on received x and y parameter
 	 * @param x
 	 * @param y
 	 * @param value
@@ -41,6 +46,7 @@ public class Grid {
 	
 	/**
 	 * A toString method to get a 1D representation of the table.
+	 * @author hd
 	 */
 	@Override
 	public String toString() {
