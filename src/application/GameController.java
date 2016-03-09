@@ -14,6 +14,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.ButtonBar.ButtonData;
 import javafx.scene.paint.Color;
+import javafx.stage.StageStyle;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 
@@ -31,12 +32,12 @@ public class GameController implements Initializable{
     private MenuItem mnu_FileOpen,  mnu_FileSave, mnu_SetupGridsize;
 	
 	@FXML
-    private Button btn_Pause, btn_Play, bnt_Cancel;
+    private Button btn_Reset, btn_PlayStop, btn_Quit;
 	
 	//TODO: This component is for testing purposes. To be removed when done
 	@FXML
     private TextArea txtArea;
-    
+	
 	/**
 	 * When the menu item "SetupGridsize" is pressed, the gameboardcanvs' setgridsize dialog method
 	 * is called.
@@ -61,8 +62,9 @@ public class GameController implements Initializable{
 		Alert about = new Alert(AlertType.INFORMATION);
 		about.setTitle("About");
 		about.setHeaderText(null);
-		about.setContentText("About: John Conway's Game Of Life"+'\n'+"New Line");
+		about.setContentText("John Conway's Game Of Life"+"\n\n"+"The Game of Life, also known simply as Life, is a cellular automaton devised by the British mathematician John Horton Conway in 1970"+"\n"+"The 'game' is a zero-player game, meaning that its evolution is determined by its initial state, requiring no further input. One interacts with the Game of Life by creating an initial configuration and observing how it evolves or, for advanced players, by creating patterns with particular properties."+"\n\n"+"Rules"+"\n"+"1. Any live cell with fewer than two live neighbours dies, as if caused by under-population."+"\n"+"2. Any live cell with two or three live neighbours lives on to the next generation."+"\n"+"3. Any live cell with more than three live neighbours dies, as if by over-population."+"\n"+"4. Any dead cell with exactly three live neighbours becomes a live cell, as if by reproduction.");
 		about.setResizable(true);
+		about.initStyle(StageStyle.UNDECORATED);
 		
 		ButtonType buttonTypeCancel = new ButtonType("I understand", ButtonData.CANCEL_CLOSE);
 		about.getButtonTypes().setAll(buttonTypeCancel);
@@ -70,10 +72,29 @@ public class GameController implements Initializable{
 		about.showAndWait();
 	}
 	
+// Advanced Menu
+	@FXML
+	void mnu_AdvancedMenuPressed(ActionEvent event){
+		Alert advanced = new Alert(AlertType.INFORMATION);
+		advanced.setTitle("Advanced");
+		advanced.setHeaderText(null);
+		advanced.setContentText("Advanced Menu");
+		advanced.setResizable(true);
+		
+		ButtonType buttonTypeCancel = new ButtonType("Close", ButtonData.CANCEL_CLOSE);
+		advanced.getButtonTypes().setAll(buttonTypeCancel);
+		
+		advanced.showAndWait();
+	}
 	
+
+	// Code for play button
     @FXML
-    void btn_PlayPressed(ActionEvent event) {
+    void btn_PlayStopPressed(ActionEvent event) {
     	gameboardcanvas.draw(gc);
+//    	Disablig the play button after pressed
+    	btn_PlayStop.setDisable(true);
+    	btn_PlayStop.
     }
 
     /**
@@ -103,7 +124,7 @@ public class GameController implements Initializable{
     }
 	
     @FXML
-    protected void bnt_CancelPressed(ActionEvent event) {
+    protected void btn_QuitPressed(ActionEvent event) {
     	System.exit(0);
     }
     @Override
