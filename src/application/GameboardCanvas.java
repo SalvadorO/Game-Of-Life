@@ -5,8 +5,9 @@ import javafx.scene.paint.Color;
 
 /**
  * Constructed by creating a Grid object
- * Provides the possibility to set and get the grid, 
- * 
+ * Provides methods to set and get the grid
+ * Provides methods to set and get a specific cell
+ * TODO: consider adding a register holding living cells
  * @author hd
  *
  */
@@ -15,7 +16,6 @@ public class GameboardCanvas {
 	
 	public GameboardCanvas(){
 		grid = new Grid(4,4);
-		
 	}
 	
 	//Moved from Controller
@@ -42,6 +42,4 @@ public class GameboardCanvas {
 		}
 	}
 
-	//Deleted the setters and getter, put in Grid class
-		
 }

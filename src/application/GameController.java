@@ -42,13 +42,14 @@ public class GameController implements Initializable{
 	 * is called.
 	 * The returned values are sent to the GameBoardCanvas setGridmethod to set the grid size
 	 * @param event
+	 * @author hd
 	 */
 	@FXML
     void mnu_SetupGridsizePressed(ActionEvent event) {
 				
 		int[] o = model.setGridSizeDialogue().get();
-		gameboardcanvas.grid.setGrid(o[0], o[1]);
-		
+//		gameboardcanvas.grid.setGrid(o[0], o[1]);
+		gameboardcanvas.grid.setCellstatus(o[0], o[1], 1);
 		//The lines below are for testing, to be removed
 		txtArea.setText(o[0] + "\n" + o[1]);
 		txtArea.appendText("\n"+gameboardcanvas.grid.toString());
@@ -70,10 +71,19 @@ public class GameController implements Initializable{
 		about.showAndWait();
 	}
 	
-	
+	/**
+	 * NOTE: use txtArea for testing output
+	 * @param event
+	 * @author hd
+	 */
     @FXML
     void btn_PlayPressed(ActionEvent event) {
     	gameboardcanvas.draw(gc);
+    	txtArea.appendText("\n" + gameboardcanvas.grid.toString());
+    	gameboardcanvas.grid.setCellstatus(0, 3, 1);
+    	txtArea.appendText("\n" + gameboardcanvas.grid.toString());
+    	gameboardcanvas.grid.setCellstatus(3, 3, 1);
+    	txtArea.appendText("\n" + gameboardcanvas.grid.toString());
     }
 
     /**
@@ -106,6 +116,7 @@ public class GameController implements Initializable{
     protected void bnt_CancelPressed(ActionEvent event) {
     	System.exit(0);
     }
+    
     @Override
 	public void initialize(URL location, ResourceBundle resources) {
 		gc = img.getGraphicsContext2D();
