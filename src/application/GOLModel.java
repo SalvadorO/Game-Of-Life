@@ -2,6 +2,7 @@ package application;
 
 import java.util.Optional;
 
+import javafx.application.Platform;
 import javafx.event.EventHandler;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.ButtonBar.ButtonData;
@@ -48,6 +49,8 @@ public class GOLModel {
 		grid.add(txt_y, 2, 2);
 		
 		dialog.getDialogPane().setContent(grid);
+//		Focuses the X-value when you enter the stage
+		Platform.runLater(() -> txt_x.requestFocus());
 		
 		ButtonType buttonTypeOk = new ButtonType ("Ok", ButtonData.OK_DONE);
 		ButtonType buttonTypeCancel = new ButtonType ("Cancel", ButtonData.CANCEL_CLOSE);
@@ -153,7 +156,17 @@ public class GOLModel {
 //		}
 
 
-
-	
+// Stuff vi trenger senere
+	/*
+	 public void startStopButtonClicked( GameOfLifeControlsEvent e ) {
+    if ( isRunning() ) {
+      stop();
+    } else {
+      start2();
+    }
+  }
+	 
+	 
+	 */
 
 
