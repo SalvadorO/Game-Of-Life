@@ -1,6 +1,8 @@
 package application;
 
+import java.awt.Label;
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
@@ -88,7 +90,6 @@ public class GameController implements Initializable{
 	}
 	
 
-	// Code for play button
 	/**
 	 * NOTE: use txtArea for testing output
 	 * @param event
@@ -98,7 +99,9 @@ public class GameController implements Initializable{
     void btn_PlayStopPressed(ActionEvent event) {
     	gameboardcanvas.draw(gc);
 //    	Disablig the play button after pressed
-    	btn_PlayStop.setDisable(true);
+//    	btn_PlayStop.setText("Stop");
+//    	btn_PlayStop.setDisable(true);
+
     	txtArea.appendText("\n" + gameboardcanvas.grid.toString());
     	gameboardcanvas.grid.setCellstatus(0, 3, 1);
     	txtArea.appendText("\n" + gameboardcanvas.grid.toString());
