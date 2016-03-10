@@ -89,6 +89,14 @@ public class GameController implements Initializable{
 		advanced.showAndWait();
 	}
 	
+	
+	@FXML
+	void mnu_StatsMenuPressed(ActionEvent event){
+		Alert stats = new Alert(AlertType.INFORMATION);
+		stats.setTitle("Stats");
+		stats.setContentText("Here will stats about the game be");
+		
+	}
 
 	/**
 	 * NOTE: use txtArea for testing output
