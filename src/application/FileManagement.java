@@ -14,49 +14,66 @@ import javafx.stage.FileChooser.ExtensionFilter;
 
 public class FileManagement {
 
- 	public String readShape(){
+	/**
+	 * The method takes the filecontent as a String, and returns the pattern element from it
+	 * @param filecontent
+	 * @return String pattern
+	 * @author hd
+	 */
+ 	public String getPattern(String filecontent)	{
 	
- 	//Method should take txt, and not read a file	
-	//Consider moving to Model class
-	String txt = readFile();
-	
-	//set header and pattern variables
-	String[] payload = txt.split(":");
+//Sets header and pattern variables
+	String[] payload = filecontent.split(":");
 	String header = payload[0];
 	String pattern = payload[1];
-	int x_value = 0;
-	int y_value = 0;
-	
-	String[] headerelements = header.split(",");
-	
-//Get x and y values and set x and y variables
-//Consider separate this as a method
-	for (int i = 0; i < headerelements.length; i++){
-		String[] keyvalue = headerelements[i].split("=");
-		if (keyvalue[0].equals("x") )
-			x_value = Integer.parseInt(keyvalue[1]);
-		if (keyvalue[0].equals("y") )
-			y_value = Integer.parseInt(keyvalue[1]);
-	}
- 
+
+//Remove end of file marker ('!')
 	pattern = pattern.replaceAll("\\!", "");
-	    	
-	return statusCount(pattern,y_value);
+
+	return pattern;
 }
-	
+
+ 	/**
+ 	 * The method takes the filecontent as a String, and returns the header element
+ 	 * @param file
+ 	 * @return
+ 	 */
+ 	public String getHeader(String file)	{
+//Sets header and pattern variables
+		String[] payload = file.split(":");
+		String header = payload[0];
+ 			
+
+//Get x and y values and set x and y variables
+
+ 			String[] headerelements = header.split(",");
+ 			int x_value = 0;
+ 			int y_value = 0;
+ 			
+ 			for (int i = 0; i < headerelements.length; i++){
+ 				String[] keyvalue = headerelements[i].split("=");
+ 				if (keyvalue[0].equals("x") )
+ 					x_value = Integer.parseInt(keyvalue[1]);
+ 				if (keyvalue[0].equals("y") )
+ 					y_value = Integer.parseInt(keyvalue[1]);
+ 			}
+
+ 			return header;
+ 		}
+
 
 
 
 /**
- * Method reads a file and returns the content as String.
- * Method uses openFile() method for the user dialogue.
- * @return filecontent as a String as header:pattern
+ * Method takes a file and returns the content as String.
+ * 
+ * @return filecontent as a String as 'header:pattern'
  * @throws IOException
  * @author hd
  */
-public String readFile() 	{
+public String parseFile(File f) 	{
 
-	File file=openFile();
+	File file = f;
 	String header = "";
 	String pattern = "";
 	String line = null;		
