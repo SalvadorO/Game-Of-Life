@@ -14,103 +14,66 @@ import javafx.stage.FileChooser.ExtensionFilter;
 
 public class FileManagement {
 
- 	public String readShape(){
+	/**
+	 * The method takes the filecontent as a String, and returns the pattern element from it
+	 * @param filecontent
+	 * @return String pattern
+	 * @author hd
+	 */
+ 	public String getPattern(String filecontent)	{
 	
- 	//Method should take txt, and not read a file	
-	//Consider moving to Model class
-	String txt = readFile();
-	
-	//set header and pattern variables
-	String[] payload = txt.split(":");
+//Sets header and pattern variables
+	String[] payload = filecontent.split(":");
 	String header = payload[0];
 	String pattern = payload[1];
-	int x_value = 0;
-	int y_value = 0;
-	
-	String[] headerelements = header.split(",");
-	
-//Get x and y values and set x and y variables
-//Consider separate this as a method
-	for (int i = 0; i < headerelements.length; i++){
-		String[] keyvalue = headerelements[i].split("=");
-		if (keyvalue[0].equals("x") )
-			x_value = Integer.parseInt(keyvalue[1]);
-		if (keyvalue[0].equals("y") )
-			y_value = Integer.parseInt(keyvalue[1]);
-	}
- 
-	pattern = pattern.replaceAll("\\!", "");
-	    	
-	return statusCount(pattern,y_value);
-}
-	//TODO: create parsePattern(), consider moving this to Model class, and refactor; patternParser
-	//should not create an array, just draw on grid directly 
-	
 
-	
-	//Count various cells method
-	//consider moving this to Model class
-	//look into how to not require paramter int y
-public String statusCount(String pattern, int y){
-	int multiplier = 1;
-	int deadcounter = 0;
-	int lifecounter = 0;
-	char element = 0;
-	boolean digit = false;
-	int y_value = y;
-	
-	String[] patternArray = pattern.split("\\$");
-	    	//verify the length of the for loop (was y_value)
-	for (int i = 0; i < y_value; i++){
-		char[] charArray = patternArray[i].toCharArray();
-		
-		for (int j = 0; j < charArray.length; j++){
-		element = charArray[j];
-		//Consider using switch
-			if (Character.isDigit(element)){
-				if (digit){
-					multiplier = multiplier * 10;
-					multiplier += Character.getNumericValue(element);
-					digit = false;
-				}
-				else {
-					multiplier = Character.getNumericValue(element);
-					digit = true;
-				};
-				
-			}
-			else if (element == 'b'){
-				deadcounter += multiplier;
-				multiplier = 1;
-				digit = false;
-				//ij=element[0]
-			}
-			else if (element == 'o'){
-				lifecounter += multiplier;
-				multiplier = 1;
-				digit = false;
-				}
-    		}
-		
-	}
-	
-	String returnValue = ("Number of dead cells: " + deadcounter + "\n");
-	returnValue += ("Number of living cells: " + lifecounter);
-	
-	return returnValue;
+//Remove end of file marker ('!')
+	pattern = pattern.replaceAll("\\!", "");
+
+	return pattern;
 }
+
+ 	/**
+ 	 * The method takes the filecontent as a String, and returns the header element
+ 	 * @param file
+ 	 * @return
+ 	 */
+ 	public String getHeader(String file)	{
+//Sets header and pattern variables
+		String[] payload = file.split(":");
+		String header = payload[0];
+ 			
+
+//Get x and y values and set x and y variables
+
+ 			String[] headerelements = header.split(",");
+ 			int x_value = 0;
+ 			int y_value = 0;
+ 			
+ 			for (int i = 0; i < headerelements.length; i++){
+ 				String[] keyvalue = headerelements[i].split("=");
+ 				if (keyvalue[0].equals("x") )
+ 					x_value = Integer.parseInt(keyvalue[1]);
+ 				if (keyvalue[0].equals("y") )
+ 					y_value = Integer.parseInt(keyvalue[1]);
+ 			}
+
+ 			return header;
+ 		}
+
+
 
 
 /**
- * Method reads a file and returns the content as String.
- * Method uses openFile() method for the user dialogue.
- * @return filecontent as a String as header:pattern
+ * Method takes a file and returns the content as String.
+ * 
+ * @return filecontent as a String as 'header:pattern'
  * @throws IOException
  * @author hd
  */
-public String readFile() 	{
+public String parseFile(File f) 	{
 
-	File file=openFile();
+	File file = f;
 	String header = "";
 	String pattern = "";
 	String line = null;		

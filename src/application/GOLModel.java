@@ -1,6 +1,8 @@
 package application;
 
 import java.util.Optional;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import javafx.application.Platform;
 import javafx.event.EventHandler;
@@ -73,7 +75,7 @@ public class GOLModel {
 		
 		return returnValue;
 	}			
-}
+
 	
 
 		/** TODO: To be implemented
@@ -139,18 +141,4 @@ public class GOLModel {
 //		}
 		
 
-		/**
-		 *TODO: add JDOC, Decide if the method should be in the GBCanvas class
-
-		 * Method checks if current cell is dead or alive
-		 * @param x coordinate
-		 * @param y coordinate
-		 * @return boolean
-		 * @author hd
-		 */
-//		public boolean isAlive(int x, int y)	{
-//			if (gb.getTable()[x][y]==1)
-//				return true;
-//			return false;
-//		}
-//		}
+	
