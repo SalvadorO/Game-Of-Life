@@ -76,11 +76,11 @@ public class GameController implements Initializable{
 	}
 // Advanced Menu
 	@FXML
-	void mnu_AdvancedMenuPressed(ActionEvent event){
+	void rbn_AdvancedMenuPressed(ActionEvent event){
 		Alert advanced = new Alert(AlertType.INFORMATION);
 		advanced.setTitle("Advanced");
 		advanced.setHeaderText(null);
-		advanced.setContentText("Advanced Menu");
+		advanced.setContentText("Advanced Menu is now enabled! \n\nGood luck!");
 		advanced.setResizable(true);
 		
 		ButtonType buttonTypeCancel = new ButtonType("Close", ButtonData.CANCEL_CLOSE);
@@ -94,8 +94,15 @@ public class GameController implements Initializable{
 	void mnu_StatsMenuPressed(ActionEvent event){
 		Alert stats = new Alert(AlertType.INFORMATION);
 		stats.setTitle("Stats");
+		stats.setHeaderText(null);
+		stats.setResizable(false);
 		stats.setContentText("Here will stats about the game be");
+		stats.initStyle(StageStyle.UNDECORATED);
 		
+		ButtonType buttonTypeCancel = new ButtonType("Close", ButtonData.CANCEL_CLOSE);
+		stats.getButtonTypes().setAll(buttonTypeCancel);
+		
+		stats.showAndWait();
 	}
 
 	/**
