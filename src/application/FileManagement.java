@@ -43,62 +43,8 @@ public class FileManagement {
 	    	
 	return statusCount(pattern,y_value);
 }
-	//TODO: create parsePattern(), consider moving this to Model class, and refactor; patternParser
-	//should not create an array, just draw on grid directly 
 	
 
-	
-	//Count various cells method
-	//consider moving this to Model class
-	//look into how to not require paramter int y
-public String statusCount(String pattern, int y){
-	int multiplier = 1;
-	int deadcounter = 0;
-	int lifecounter = 0;
-	char element = 0;
-	boolean digit = false;
-	int y_value = y;
-	
-	String[] patternArray = pattern.split("\\$");
-	    	//verify the length of the for loop (was y_value)
-	for (int i = 0; i < y_value; i++){
-		char[] charArray = patternArray[i].toCharArray();
-		
-		for (int j = 0; j < charArray.length; j++){
-		element = charArray[j];
-		//Consider using switch
-			if (Character.isDigit(element)){
-				if (digit){
-					multiplier = multiplier * 10;
-					multiplier += Character.getNumericValue(element);
-					digit = false;
-				}
-				else {
-					multiplier = Character.getNumericValue(element);
-					digit = true;
-				};
-				
-			}
-			else if (element == 'b'){
-				deadcounter += multiplier;
-				multiplier = 1;
-				digit = false;
-				//ij=element[0]
-			}
-			else if (element == 'o'){
-				lifecounter += multiplier;
-				multiplier = 1;
-				digit = false;
-				}
-    		}
-		
-	}
-	
-	String returnValue = ("Number of dead cells: " + deadcounter + "\n");
-	returnValue += ("Number of living cells: " + lifecounter);
-	
-	return returnValue;
-}
 
 
 /**
