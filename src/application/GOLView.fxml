@@ -41,6 +41,8 @@
           <Menu mnemonicParsing="false" text="Setup">
             <items>
               <MenuItem fx:id="mnu_SetupGridsize" mnemonicParsing="false" onAction="#mnu_SetupGridsizePressed" text="Grid size" />
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <MenuItem mnemonicParsing="false" text="Shapes" />
             </items>
           </Menu>
           
@@ -52,7 +54,7 @@
           
           <Menu mnemonicParsing="false" text="Advanced">
           	<items>
-          		<MenuItem mnemonicParsing="false" onAction="#mnu_AdvancedMenuPressed" text="Enable Advanced Menu" />
+                  <CheckMenuItem mnemonicParsing="false" onAction="#rbn_AdvancedMenuPressed" text="Enable Advanced Menu" />
           			<MenuItem mnemonicParsing="false" onAction="#mnu_StatsMenuPressed" text="Stats" />
           	</items>
           </Menu>
@@ -74,4 +76,3 @@
       </Pane>
    </center>
 </BorderPane>
-
