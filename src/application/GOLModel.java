@@ -76,38 +76,7 @@ public class GOLModel {
 		return returnValue;
 	}			
 
-	/**
-	 * The method takes a pattern in RLE format (e.g 2b2o$2o2b) as a String and interprets the characters 
-	 * ('2' followed by a 'b' is 'bb', $ represents new line) and returns the pattern as a complete shape as a String
-	 * @param patterntobeparsed
-	 * @return parsedpattern
-	 * @author hd
-	 */
-
-	public String patternParser(String patterntobeparsed){
-    	//hardcoded testpattern
-		String input = "2b2o2b$2o2b2o$2b2o2b";
-    	String parsedpattern = "";
-    	
-    	String[] is = input.split("\\$");
-    	
-    	String re = "[0-9]+|[a-zA-Z]";
-		Pattern pattern = Pattern.compile(re);
-    	Matcher matcher;
-		
-		for (int i = 0; i < is.length; i++){
-			matcher = pattern.matcher(is[i]);
-				while (matcher.find()){
-					int number = Integer.parseInt(matcher.group());
-					matcher.find();
-					while (number-- != 0){
-						parsedpattern += (matcher.group());
-					}
-				}
-		}
-		return parsedpattern;
-	}
-}
+	
 
 		/** TODO: To be implemented
 //	public void nextGeneration(gameboard board) {
@@ -172,18 +141,4 @@ public class GOLModel {
 //		}
 		
 
-		/**
-		 *TODO: add JDOC, Decide if the method should be in the GBCanvas class
-
-		 * Method checks if current cell is dead or alive
-		 * @param x coordinate
-		 * @param y coordinate
-		 * @return boolean
-		 * @author hd
-		 */
-//		public boolean isAlive(int x, int y)	{
-//			if (gb.getTable()[x][y]==1)
-//				return true;
-//			return false;
-//		}
-//		}
+	
