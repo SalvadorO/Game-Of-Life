@@ -140,8 +140,13 @@ public class GameController implements Initializable{
     
     @FXML
     void mnu_FileOpenPressed(ActionEvent event) {
-    	txtArea.setText("Filecontent:\n" + filemanager.readFile());
-    	txtArea.appendText("\n"+filemanager.readShape());
+    	//Get the pattern
+    	String pattern = filemanager.getPattern(filemanager.parseFile(filemanager.openFile()));
+    	//Show the pattern
+    	txtArea.setText(pattern + "\n");
+    	//Draw the pattern
+    	txtArea.appendText(gameboardcanvas.drawTWO(pattern));
+    	
     }
     
     @FXML
