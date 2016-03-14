@@ -1,25 +1,14 @@
 package application;
 
 import java.util.Optional;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 import javafx.application.Platform;
-import javafx.event.EventHandler;
-import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.ButtonBar.ButtonData;
-import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Dialog;
-import javafx.scene.control.DialogEvent;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.input.MouseEvent;
-import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.paint.Color;
-import javafx.stage.Stage;
 import javafx.util.Callback;
 
 
@@ -76,69 +65,8 @@ public class GOLModel {
 		return returnValue;
 	}			
 
-	
 
-		/** TODO: To be implemented
-//	public void nextGeneration(gameboard board) {
-			
-		/*TODO: Decide if the method should be in the GBCanvas class
-		/**
-		 * Method counts and returns number of neighbours
-		 * to a cell given by provided x and y param
-		 * @param int x, int y
-		 * @return number of neighbours
-		 * @author hd
-		 */
-//		protected int countNeighbours(int x, int y)	{
-//		
-//			int neighbours = 0;
-//			int cellValue = 0;
-//			
-//			for (int  i=-1; i<2 ; i++)
-//				for (int j=-1;j<2;j++)	{
-//					cellValue = gb.getTable()[x+i][y+j];
-//					if (!(i==0 && j==0) && (cellValue==1))
-//						neighbours++;
-//				}
-//			return neighbours;
-//		}
-//			
-//			//TODO: add JDOC, Decide if the method should be in the GBCanvas class
-//			 protected int cellstatusNextgeneration(int x, int y)	{
-//				 int cn = countNeighbours(x,y);
-//				 
-//				 if (gb.getTable()[x][y]==1){
-//					if (survives(cn))
-//						return 1;
-//					gb.updateCellstatus(x, y, 0);
-//					return 0;
-//				 }
-//				 if (cn==3){
-//					 gb.updateCellstatus(x, y, 1);
-//					 return 1;
-//				 }
-//				 return 0;
-//			 }	 
-//		 
-			
-			
-		/**
-		 *TODO: add JDOC, Decide if the method should be in the GBCanvas class
 
-		 * Method implements two rules
-		 * 1) cell dies if number of neighbours is less than 2
-		 * 2) cell dies if number of neighbours is greater than 3
-		 * @param neighBours
-		 * @return boolean
-		 * @author hd
-		 */
-//		public boolean survives(int neighbours)	{
-//			boolean alive=true;
-//			
-//			if (( neighbours < 2) || (neighbours> 3))
-//					alive = false;
-//			return alive;
-//		}
 		
-
+}
 	

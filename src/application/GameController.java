@@ -147,7 +147,7 @@ public class GameController implements Initializable{
     	//Show the pattern
     	txtArea.setText(pattern + "\n");
     	//Draw the pattern
-    	txtArea.appendText(gameboardcanvas.drawTWO(pattern));
+    	txtArea.appendText(gameboardcanvas.drawTWO(gc, pattern));
     	
     }
     
