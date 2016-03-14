@@ -21,7 +21,7 @@ public class GameboardCanvas {
 		grid = new Grid(4,4);
 	}
 	
-	//Moved from Controller
+	
 	/**
 	 * 
 	 * @param gc
@@ -48,32 +48,52 @@ public class GameboardCanvas {
 	/**
 	 * The method takes a pattern in RLE format (e.g 2b2o$2o2b) as a String and interprets the characters 
 	 * ('2' followed by a 'b' is 'bb', $ represents new line) and returns the pattern as a complete shape as a String
-	 * The methold is not complete; remains to draw on canvas and remove return type.
+	 * The methold is not complete; remains to draw on canvas (and not in txtArea) and remove return type.
 	 * @param patterntobeparsed
 	 * @return parsedpattern
 	 * @author hd
 	 */
 
-	public String drawTWO(String pattern){
-    	//hardcoded testpattern
-		String input = "2b2o2b$2o2b2o$2b2o2b";
+	public String drawTWO(GraphicsContext gc, String s){
+		int x = 150;
+		int y = 150;
+		int size = 10;
+		
+		String shape = s;
     	String parsedpattern = "";
     	
-    	String[] is = input.split("\\$");
+    	String[] is = shape.split("\\$");
     	
     	String re = "[0-9]+|[a-zA-Z]";
 		Pattern p = Pattern.compile(re);
     	Matcher matcher;
 		
+    	int y_counter = 0;
+		int x_counter = 0;
+		gc.setFill(Color.BLACK);
+		
 		for (int i = 0; i < is.length; i++){
+			x_counter = 0;
 			matcher = p.matcher(is[i]);
 				while (matcher.find()){
-					int number = Integer.parseInt(matcher.group());
-					matcher.find();
-					while (number-- != 0){
+					if (Character.isDigit(matcher.group().charAt(0))){
+						int number = Integer.parseInt(matcher.group());
+						matcher.find();
+						while (number-- != 0){
+							if (matcher.group().equals("o")){
+								gc.fillRect(x + 10*x_counter++, y + 10*y_counter, size, size);
+							}
+							parsedpattern += (matcher.group());
+						}
+					}
+					else {
+						gc.fillRect(x + 10*x_counter++, y + 10*y_counter, size, size);
 						parsedpattern += (matcher.group());
+						
 					}
 				}
+			parsedpattern += "\n";
+			y_counter++;
 		}
 		return parsedpattern;
 	}
@@ -89,19 +109,19 @@ public class GameboardCanvas {
 		 * @return number of neighbours
 		 * @author hd
 		 */
-		protected int countNeighbours(int x, int y)	{
-		
-			int neighbours = 0;
-			int cellValue = 0;
-			
-			for (int  i=-1; i<2 ; i++)
-				for (int j=-1;j<2;j++)	{
-					cellValue = gb.getTable()[x+i][y+j];
-					if (!(i==0 && j==0) && (cellValue==1))
-						neighbours++;
-				}
-			return neighbours;
-		}
+//		protected int countNeighbours(int x, int y)	{
+//		
+//			int neighbours = 0;
+//			int cellValue = 0;
+//			
+//			for (int  i=-1; i<2 ; i++)
+//				for (int j=-1;j<2;j++)	{
+//					cellValue = gb.getTable()[x+i][y+j];
+//					if (!(i==0 && j==0) && (cellValue==1))
+//						neighbours++;
+//				}
+//			return neighbours;
+//		}
 //			
 //			//TODO: add JDOC
 //			 protected int cellstatusNextgeneration(int x, int y)	{
@@ -118,7 +138,7 @@ public class GameboardCanvas {
 //					 return 1;
 //				 }
 //				 return 0;
-			 }	 
+//			 }	 
 //		 
 			
 			
