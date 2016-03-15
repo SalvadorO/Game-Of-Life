@@ -18,7 +18,7 @@ public class GameboardCanvas {
 	Grid grid;
 	
 	public GameboardCanvas(){
-		grid = new Grid(4,4);
+		grid = new Grid(5,5);
 	}
 	
 	
@@ -55,23 +55,24 @@ public class GameboardCanvas {
 	 */
 
 	public String drawTWO(GraphicsContext gc, String s){
-		int x = 150;
-		int y = 150;
-		int size = 10;
+		
+		/*TODO: add a routine to check if size of shape is not
+		 *exceeding availbale gamegrid space  
+		 */
 		
 		String shape = s;
-    	String parsedpattern = "";
+    	String parsedpattern = grid.toString() + "\n";
+    	gc.setFill(Color.BLACK);
     	
     	String[] is = shape.split("\\$");
-    	
     	String re = "[0-9]+|[a-zA-Z]";
 		Pattern p = Pattern.compile(re);
     	Matcher matcher;
 		
     	int y_counter = 0;
 		int x_counter = 0;
-		gc.setFill(Color.BLACK);
 		
+		//loop antall ganger som det er linjer i is
 		for (int i = 0; i < is.length; i++){
 			x_counter = 0;
 			matcher = p.matcher(is[i]);
@@ -81,21 +82,23 @@ public class GameboardCanvas {
 						matcher.find();
 						while (number-- != 0){
 							if (matcher.group().equals("o")){
-								gc.fillRect(x + 10*x_counter++, y + 10*y_counter, size, size);
+								grid.setCellstatus(i, x_counter++, 1);
 							}
 							parsedpattern += (matcher.group());
 						}
 					}
 					else {
-						gc.fillRect(x + 10*x_counter++, y + 10*y_counter, size, size);
+						if (matcher.group().equals("o"))	{
+							grid.setCellstatus(i, x_counter++, 1);
+						}
 						parsedpattern += (matcher.group());
 						
 					}
+					
 				}
 			parsedpattern += "\n";
-			y_counter++;
 		}
-		return parsedpattern;
+		return parsedpattern + "\n" + grid.toString();
 	}
 
 	/** TODO: To be implemented
