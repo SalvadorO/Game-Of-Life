@@ -62,6 +62,21 @@ public class Grid {
 		gamegrid[x][y]=value;
 	}
 	
+	/**
+	 * Method implements two rules
+	 * 1) cell dies if number of neighbours is less than 2
+	 * 2) cell dies if number of neighbours is greater than 3
+	 * @param neighBours
+	 * @return boolean
+	 * @author hd
+	 */
+	public boolean survives(int neighbours){
+		boolean alive=true;
+		if (( neighbours < 2) || (neighbours> 3))
+			alive = false;
+		return alive;
+	}
+	
 	public int getCellstatus(int x, int y){
 		return gamegrid[x][y];
 	}

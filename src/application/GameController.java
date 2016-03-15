@@ -31,6 +31,7 @@ public class GameController implements Initializable{
 	protected GameboardCanvas gameboardcanvas =  new GameboardCanvas();
 	protected GraphicsContext gc;
 	protected FileManagement filemanager = new FileManagement();
+	protected Dialog dialog = new Dialog();
 
 	@FXML
 	private Canvas img;
@@ -55,7 +56,7 @@ public class GameController implements Initializable{
 	@FXML
     void mnu_SetupGridsizePressed(ActionEvent event) {
 				
-		int[] o = model.setGridSizeDialogue().get();
+		int[] o = dialog.setGridSizeDialogue().get();
 //		gameboardcanvas.grid.setGrid(o[0], o[1]);
 		gameboardcanvas.grid.setCellstatus(o[0], o[1], 1);
 		//The lines below are for testing, to be removed
