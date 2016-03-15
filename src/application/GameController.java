@@ -1,6 +1,9 @@
 package application;
 
 import java.awt.Label;
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
+import java.io.StringWriter;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -76,6 +79,17 @@ public class GameController implements Initializable{
 		
 		about.showAndWait();
 	}
+//	Test txt area lars
+	/*
+	Exception ex = new FileNotFoundException("Could not find file blabla.txt");
+	
+	StringWriter sw = new StringWriter();
+	PrintWriter pw = new PrintWriter(sw);
+	ex.printStackTrace(pw);
+	String exceptionText = sw.toString();
+	
+	Label label = new Label("Test TXT Area");
+	*/
 // Advanced Menu
 	@FXML
 	void rbn_AdvancedMenuPressed(ActionEvent event){
