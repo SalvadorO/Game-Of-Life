@@ -30,6 +30,28 @@ public class Grid {
 	}
 	
 	/**
+	 * Method counts and returns number of neighbours
+	 * to a cell given by provided x and y param
+	 * TODO: not tested after moved here
+	 * @param int x, int y
+	 * @return number of neighbours
+	 * @author hd
+	 */
+	public int countNeighbours(int x, int y)	{
+	
+		int neighbours = 0;
+		int cellValue = 0;
+		
+		for (int  i=-1; i<2 ; i++)
+			for (int j=-1;j<2;j++)	{
+				cellValue = gamegrid[x+i][y+j];
+				if (!(i==0 && j==0) && (cellValue==1))
+					neighbours++;
+			}
+		return neighbours;
+	}
+	
+	/**
 	 * Method sets cell value based on received x and y parameter
 	 * @param x
 	 * @param y
