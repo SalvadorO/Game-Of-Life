@@ -17,19 +17,24 @@ import javafx.scene.image.Image;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import javafx.stage.Window;
 import javafx.util.Callback;
 
 public class Dialog {
 
 	// About Dialogue
 		protected static  void AboutDialogue() {
-			Alert about = new Alert(AlertType.INFORMATION);
+			Alert about = new Alert(AlertType.NONE);
 			about.setHeaderText(null);
 			about.setContentText("John Conway's Game Of Life"+"\n\n"+"The Game of Life, also known simply as Life, is a cellular automaton devised by the British mathematician John Horton Conway in 1970"+"\n"+"The 'game' is a zero-player game, meaning that its evolution is determined by its initial state, requiring no further input. One interacts with the Game of Life by creating an initial configuration and observing how it evolves or, for advanced players, by creating patterns with particular properties."+"\n\n"+"Rules"+"\n"+"1. Any live cell with fewer than two live neighbours dies, as if caused by under-population."+"\n"+"2. Any live cell with two or three live neighbours lives on to the next generation."+"\n"+"3. Any live cell with more than three live neighbours dies, as if by over-population."+"\n"+"4. Any dead cell with exactly three live neighbours becomes a live cell, as if by reproduction.");
 			about.initStyle(StageStyle.UNDECORATED);
 			
+			ButtonType buttonTypeCancel = new ButtonType("Close", ButtonData.CANCEL_CLOSE);
+			about.getButtonTypes().setAll(buttonTypeCancel);
+			
 			about.showAndWait();
 		}
+		
 		// Advanced Dialogue
 		protected  static void AdvancedDialogue() {
 			Alert advanced = new Alert(AlertType.INFORMATION);
@@ -40,6 +45,7 @@ public class Dialog {
 			
 			advanced.showAndWait();
 		}
+		
 		// Stats Dialogue
 		protected static void StatsDialogue()	{
 			Alert stats = new Alert(AlertType.INFORMATION);
