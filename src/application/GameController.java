@@ -27,7 +27,6 @@ import javafx.scene.canvas.GraphicsContext;
 
 public class GameController implements Initializable{
 	
-	protected GOLModel model = new GOLModel();
 	protected GameboardCanvas gameboardcanvas =  new GameboardCanvas();
 	protected GraphicsContext gc;
 	protected FileManagement filemanager = new FileManagement();
