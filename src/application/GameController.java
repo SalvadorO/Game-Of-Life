@@ -65,20 +65,25 @@ public class GameController implements Initializable{
 		//The lines above, are for testing, to be removed
 			
     }
-	// Help dialog
+			// Help dialog
 			@FXML
 			 void mnu_AboutDialogPressed(ActionEvent event) {
 			 		Dialog.AboutDialogue();
 			 }
-			// Advanced Menu
+			// Advanced dialog
 			@FXML
 				void rbn_AdvancedPressed(ActionEvent event)	{
 					Dialog.AdvancedDialogue();
 			}
-			// Stats Menu
+			// Stats dialog
 			@FXML
-				void mnu_StatsMenuPressed(ActionEvent event)	{
+				void mnu_StatsMenuPressed(ActionEvent event){
 					Dialog.StatsDialogue();
+			}
+			// Shapes dialog
+			@FXML
+				void mnu_ShapesPressed(ActionEvent event)	{
+					Dialog.ShapesDialogue();
 			}
 
 	/**
