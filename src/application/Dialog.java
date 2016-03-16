@@ -59,10 +59,6 @@ public class Dialog {
 			
 			stats.showAndWait();
 		}	
-
-
-
-	
 	
 	/**
 	 * Method that show a custom inputdialog box to the user.
