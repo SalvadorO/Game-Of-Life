@@ -16,13 +16,10 @@ import javafx.scene.layout.GridPane;
 import javafx.stage.StageStyle;
 import javafx.util.Callback;
 
-
-
-
 public class Dialog {
 
 	// About Dialogue
-		protected static void AboutDialogue() {
+		protected static  void AboutDialogue() {
 			Alert about = new Alert(AlertType.INFORMATION);
 			about.setTitle("About");
 			about.setHeaderText(null);
@@ -36,7 +33,7 @@ public class Dialog {
 			about.showAndWait();
 		}
 		// Advanced Dialogue
-		protected static void AdvancedDialogue() {
+		protected  static void AdvancedDialogue() {
 			Alert advanced = new Alert(AlertType.INFORMATION);
 			advanced.setTitle("Advanced");
 			advanced.setHeaderText(null);
@@ -64,13 +61,10 @@ public class Dialog {
 		}	
 	
 		// Shapes Dialogue
-		protected static void ShapesDialogue()	{
+		protected static  void ShapesDialogue()	{
 			List<String> choices = new ArrayList<>();
 			choices.add("1");
 			choices.add("2");
-			choices.add("3");
-			choices.add("4");
-			choices.add("5");
 			
 			ChoiceDialog<String> dialog = new ChoiceDialog<>(null,choices);
 			dialog.setTitle("Select your shape");
@@ -88,8 +82,11 @@ public class Dialog {
 	 * The values are returned to the calling method.
 	 * TODO: consider if method should reside in another class, e.g. GameBoardCanvas
 	 * TODO: validate x and y
+	 * @return 
 	 * @return String
 	 */
+		
+
 	public Optional<int[]> setGridSizeDialogue()	{
 		Optional<int[]>returnValue=null;
 		
@@ -131,6 +128,6 @@ public class Dialog {
 		}
 		
 		return returnValue;
-	}			
+	}
 
 }

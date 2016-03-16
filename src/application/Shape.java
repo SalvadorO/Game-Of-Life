@@ -1,12 +1,6 @@
 package application;
 
-/*
- * Holds shapes, currently two shapes for testing purposes 
- * May be extended to set properties
- * May be extended to hold a collection of shapes
- *  */
 public class Shape {
-
 
 	double[][] typeA = new double[][]{
 		{0,0,0,0},
@@ -15,7 +9,7 @@ public class Shape {
 		{0,1,1,0}
 		};
 		
-	double[][] typeB = new double[][]{
+	 double[][] typeB = new double[][]{
 		{1,0,0,0,1},
 		{0,1,0,1,0},
 		{0,0,1,0,0},
@@ -51,7 +45,7 @@ public class Shape {
 		{0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0}	
 		};
 		
-	public double[][] getShapeA(){
+	public  double[][] getShapeA(){
 		return typeA;
 	}
 	
