@@ -1,5 +1,7 @@
 package application;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 import javafx.application.Platform;
@@ -7,6 +9,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.ButtonBar.ButtonData;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.ChoiceDialog;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
@@ -60,6 +63,25 @@ public class Dialog {
 			stats.showAndWait();
 		}	
 	
+		// Shapes Dialogue
+		protected static void ShapesDialogue()	{
+			List<String> choices = new ArrayList<>();
+			choices.add("1");
+			choices.add("2");
+			choices.add("3");
+			choices.add("4");
+			choices.add("5");
+			
+			ChoiceDialog<String> dialog = new ChoiceDialog<>(null,choices);
+			dialog.setTitle("Select your shape");
+			dialog.setHeaderText(null);
+			dialog.setContentText("Choose your shape");
+			
+			Optional<String> result = dialog.showAndWait();
+			if(result.isPresent()){
+				System.out.println("You picked " + result.get());
+			}
+		}
 	/**
 	 * Method that show a custom inputdialog box to the user.
 	 * The dialog takes an x value and a y value.
