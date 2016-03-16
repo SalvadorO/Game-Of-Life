@@ -54,7 +54,7 @@
           
           <Menu mnemonicParsing="false" text="Advanced">
           	<items>
-                  <CheckMenuItem mnemonicParsing="false" onAction="#rbn_AdvancedMenuPressed" text="Enable Advanced Menu" />
+                  <CheckMenuItem mnemonicParsing="false" onAction="#rbn_AdvancedPressed" text="Enable Advanced Menu" />
           			<MenuItem mnemonicParsing="false" onAction="#mnu_StatsMenuPressed" text="Stats" />
           	</items>
           </Menu>
