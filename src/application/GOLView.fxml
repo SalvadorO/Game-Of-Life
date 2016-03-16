@@ -42,7 +42,7 @@
             <items>
               <MenuItem fx:id="mnu_SetupGridsize" mnemonicParsing="false" onAction="#mnu_SetupGridsizePressed" text="Grid size" />
                   <SeparatorMenuItem mnemonicParsing="false" />
-                  <MenuItem mnemonicParsing="false" text="Shapes" />
+                  <MenuItem mnemonicParsing="false" onAction="#mnu_ShapesPressed" text="Shapes" />
             </items>
           </Menu>
           
