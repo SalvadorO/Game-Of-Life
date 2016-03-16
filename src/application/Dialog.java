@@ -12,6 +12,7 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.ChoiceDialog;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.control.TextInputDialog;
 import javafx.scene.layout.GridPane;
 import javafx.stage.StageStyle;
 import javafx.util.Callback;
@@ -85,8 +86,6 @@ public class Dialog {
 	 * @return 
 	 * @return String
 	 */
-		
-
 	public Optional<int[]> setGridSizeDialogue()	{
 		Optional<int[]>returnValue=null;
 		
@@ -129,5 +128,4 @@ public class Dialog {
 		
 		return returnValue;
 	}
-
 }
