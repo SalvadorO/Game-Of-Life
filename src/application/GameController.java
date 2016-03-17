@@ -1,27 +1,16 @@
 package application;
 
-import java.awt.Label;
-import java.io.FileNotFoundException;
-import java.io.PrintWriter;
-import java.io.StringWriter;
 import java.net.URL;
-import java.util.List;
 import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
-import javafx.scene.control.ButtonType;
 import javafx.scene.control.MenuItem;
-import javafx.scene.control.ScrollPane;
+import javafx.scene.control.Slider;
 import javafx.scene.control.TextArea;
-import javafx.scene.layout.Region;
-import javafx.scene.control.Alert.AlertType;
-import javafx.scene.control.ButtonBar.ButtonData;
 import javafx.scene.paint.Color;
-import javafx.stage.StageStyle;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 
@@ -69,10 +58,20 @@ public class GameController implements Initializable{
 			 void mnu_AboutDialogPressed(ActionEvent event) {
 			 		Dialog.AboutDialogue();
 			 }
+			
+			
 			// Advanced dialog
 			@FXML
+	    	private Slider Sld_SpeedSlider; 
+
+			@FXML
 				void rbn_AdvancedPressed(ActionEvent event)	{
-					Dialog.AdvancedDialogue();
+//					Dialog.AdvancedDialogue();
+//					System.out.println("test");
+//					Sld_SpeedSlider.isVisible();
+//					Sld_SpeedSlider.setDisable(false);
+					Sld_SpeedSlider.setVisible(true);
+					
 			}
 			// Stats dialog
 			@FXML
@@ -84,6 +83,20 @@ public class GameController implements Initializable{
 				void mnu_ShapesPressed(ActionEvent event)	{
 					Dialog.ShapesDialogue();
 			}
+			
+			
+			// test knapp
+			@FXML
+			public Button btn_testPressed;
+			
+			@FXML
+				void btn_testPressed(ActionEvent event){
+				System.out.println("test");
+				btn_testPressed.isDisabled();
+			}
+			
+			
+			
 
 	/**
 	 * NOTE: use txtArea for testing output
