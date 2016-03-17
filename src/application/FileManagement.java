@@ -69,20 +69,24 @@ public class FileManagement {
 /**
  * Method takes a file and returns the content as String.
  * 
- * @return filecontent as a String as 'header:pattern'
+ * @return filecontent as a String array; 
+ * pos 0 contains metadata
+ * pos 1 contains header
+ * pos 2 contains pattern
  * @throws IOException
  * @author hd
  */
 public String parseFile(File f) 	{
 
 	File file = f;
+	String returndata[] = new String[3];
 	String metadata = "";
 	String header = "";
 	String pattern = "";
-	String line = null;		
+			
 	
 	try (BufferedReader br = new BufferedReader(new FileReader(file))) {
-
+		String line = null;
 		do{
 			line = br.readLine();
 				if (line != null){
@@ -93,17 +97,20 @@ public String parseFile(File f) 	{
 						if (header == "")
 							header = line;
 						else
-							pattern = line;
+							header = line;
 					}
-					};
+				};
 		
 		}while (line != null);
 	} 
 	catch (IOException e) {
 		System.err.format("IOException: %s%n", e);
 	}
-		
-	return metadata + ":" + header.replaceAll("\\s+","")+":"+pattern;
+	returndata[0] = metadata;
+	returndata[1] = header.replaceAll("\\s+","");
+	returndata[2] = pattern;
+	
+	return returndata;
 			
 }
 	
@@ -140,7 +147,6 @@ public String parseFile(File f) 	{
  */
 	public File openFile(){
 		
-//		ExtensionFilter filterTextfiles = new ExtensionFilter("Text, *.txt","*.txt");
 		ExtensionFilter filterGoLfiles = new ExtensionFilter("GoL, *.rle","*.rle");
 
 		FileChooser fc = new FileChooser();
