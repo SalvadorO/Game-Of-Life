@@ -12,6 +12,8 @@ import java.io.Writer;
 import javafx.stage.FileChooser;
 import javafx.stage.FileChooser.ExtensionFilter;
 
+//TODO: consider rewrite or returning an array, consisting metatada:header:pattern
+
 public class FileManagement {
 
 	/**

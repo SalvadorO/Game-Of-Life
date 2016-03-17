@@ -4,12 +4,14 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.ButtonBar.ButtonData;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.ChoiceDialog;
+import javafx.scene.control.Dialog;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TextInputDialog;
@@ -20,7 +22,7 @@ import javafx.stage.StageStyle;
 import javafx.stage.Window;
 import javafx.util.Callback;
 
-public class Dialog {
+public class golDialog extends Application	{
 
 	// About Dialogue
 		protected static  void AboutDialogue() {
@@ -86,10 +88,10 @@ public class Dialog {
 	 * @return 
 	 * @return String
 	 */
-	public Optional<int[]> setGridSizeDialogue()	{
+	public Optional<int[]> setGridSizeDialogue() {
 		Optional<int[]>returnValue=null;
 		
-		Dialog<int[]> dialog = new Dialog<>();
+		Dialog dialog = new Dialog<int[]>();
 		dialog.setTitle("Enter size of grid");
 		dialog.setResizable(false);
 		Label lbl_x = new Label("X-value:");
@@ -127,5 +129,11 @@ public class Dialog {
 		}
 		
 		return returnValue;
+	}
+
+	@Override
+	public void start(Stage primaryStage) throws Exception {
+		// TODO Auto-generated method stub
+		
 	}
 }

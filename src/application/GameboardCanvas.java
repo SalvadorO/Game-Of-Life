@@ -57,7 +57,7 @@ public class GameboardCanvas {
 	public String drawTWO(GraphicsContext gc, String s){
 		
 		/*TODO: add a routine to check if size of shape is not
-		 *exceeding availbale gamegrid space  
+		 *exceeding available gamegrid space  
 		 */
 		
 		String shape = s;
