@@ -47,12 +47,8 @@ public class GameController implements Initializable{
     void mnu_SetupGridsizePressed(ActionEvent event) {
 				
 		int[] o = dialog.setGridSizeDialogue().get();
-//		gameboardcanvas.grid.setGrid(o[0], o[1]);
-		gameboardcanvas.grid.setCellstatus(o[0], o[1], 1);
-		//The lines below are for testing, to be removed
+//		testing by printing the returned values on the outputarea
 		txtArea.setText(o[0] + "\n" + o[1]);
-		txtArea.appendText("\n"+gameboardcanvas.grid.toString());
-		//The lines above, are for testing, to be removed
 			
     }
 			// Help dialog
@@ -135,12 +131,13 @@ public class GameController implements Initializable{
     
     @FXML
     void mnu_FileOpenPressed(ActionEvent event) {
-    	//Get the pattern
-    	String pattern = filemanager.getPattern(filemanager.parseFile(filemanager.openFile()));
+    	//Get the file content 
+    	String input = (filemanager.parseFile(filemanager.openFile()));
     	//Show the pattern
-    	txtArea.setText(pattern + "\n");
-    	//Draw the pattern
-    	txtArea.appendText(gameboardcanvas.drawTWO(gc, pattern));
+    	String[] output = input.split(":");
+    	txtArea.setText(output[0] + "\n");
+    	txtArea.appendText(output[1] + "\n");
+    	txtArea.appendText(output[2] + "\n");
     	
     }
     

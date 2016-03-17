@@ -76,6 +76,7 @@ public class FileManagement {
 public String parseFile(File f) 	{
 
 	File file = f;
+	String metadata = "";
 	String header = "";
 	String pattern = "";
 	String line = null;		
@@ -84,12 +85,17 @@ public String parseFile(File f) 	{
 
 		do{
 			line = br.readLine();
-				if (line != null && !line.startsWith("#")){
-					if (header == "")
-						header = line;
-					else
-						pattern += line;
-				};
+				if (line != null){
+					if (line.startsWith("#")){
+						metadata += line;
+					}
+					else {
+						if (header == "")
+							header = line;
+						else
+							pattern = line;
+					}
+					};
 		
 		}while (line != null);
 	} 
@@ -97,7 +103,7 @@ public String parseFile(File f) 	{
 		System.err.format("IOException: %s%n", e);
 	}
 		
-	return header.replaceAll("\\s+","")+":"+pattern;
+	return metadata + ":" + header.replaceAll("\\s+","")+":"+pattern;
 			
 }
 	
