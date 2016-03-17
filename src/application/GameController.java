@@ -19,7 +19,7 @@ public class GameController implements Initializable{
 	protected GameboardCanvas gameboardcanvas =  new GameboardCanvas();
 	protected GraphicsContext gc;
 	protected FileManagement filemanager = new FileManagement();
-	protected Dialog dialog = new Dialog();
+	protected golDialog dialog = new golDialog();
 
 	@FXML
 	private Canvas img;
@@ -56,7 +56,7 @@ public class GameController implements Initializable{
 			// Help dialog
 			@FXML
 			 void mnu_AboutDialogPressed(ActionEvent event) {
-			 		Dialog.AboutDialogue();
+			 		dialog.AboutDialogue();
 			 }
 			
 			
@@ -76,12 +76,12 @@ public class GameController implements Initializable{
 			// Stats dialog
 			@FXML
 				void mnu_StatsMenuPressed(ActionEvent event){
-					Dialog.StatsDialogue();
+					dialog.StatsDialogue();
 			}
 			// Shapes dialog
 			@FXML
 				void mnu_ShapesPressed(ActionEvent event)	{
-					Dialog.ShapesDialogue();
+					dialog.ShapesDialogue();
 			}
 			
 			
