@@ -14,12 +14,9 @@ import javafx.scene.control.ChoiceDialog;
 import javafx.scene.control.Dialog;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.control.TextInputDialog;
-import javafx.scene.image.Image;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-import javafx.stage.Window;
 import javafx.util.Callback;
 
 public class golDialog extends Application	{
@@ -91,7 +88,7 @@ public class golDialog extends Application	{
 	public Optional<int[]> setGridSizeDialogue() {
 		Optional<int[]>returnValue=null;
 		
-		Dialog dialog = new Dialog<int[]>();
+		Dialog<int[]> dialog = new Dialog<int[]>();
 		dialog.setTitle("Enter size of grid");
 		dialog.setResizable(false);
 		Label lbl_x = new Label("X-value:");
