@@ -22,46 +22,42 @@ public class FileManagement {
 	 * @return String pattern
 	 * @author hd
 	 */
- 	public String getPattern(String filecontent)	{
+ 	public String getPattern(String[] filecontent)	{
 	
-//Sets header and pattern variables
-	String[] payload = filecontent.split(":");
-	String header = payload[0];
-	String pattern = payload[1];
-
-//Remove end of file marker ('!')
-	pattern = pattern.replaceAll("\\!", "");
-
-	return pattern;
+	 	//Remove end of file marker ('!')
+		String fc = filecontent[2].replaceAll("\\!", "");
+		return fc;
 }
 
  	/**
  	 * The method takes the filecontent as a String, and returns the header element
  	 * @param file
  	 * @return
+ 	 * TODO: add "rule" element to the return parameter, consider using switch statement rather than if
+ 	 * 
  	 */
- 	public String getHeader(String file)	{
-//Sets header and pattern variables
-		String[] payload = file.split(":");
-		String header = payload[0];
+ 	public String getHeader(String[] filecontent)	{
+ 		//Sets header and pattern variables
+		String header = filecontent[1];
  			
+		//Get x and y values and set x and y variables
 
-//Get x and y values and set x and y variables
+		String[] headerelements = header.split(",");
+		int x_value = 0;
+		int y_value = 0;
+		String rule = "";
+		for (int i = 0; i < headerelements.length; i++){
+			String[] keyvalue = headerelements[i].split("=");
+			if (keyvalue[0].equals("x") )
+				x_value = Integer.parseInt(keyvalue[1]);
+			if (keyvalue[0].equals("y") )
+				y_value = Integer.parseInt(keyvalue[1]);
+			
+			
+		}
 
- 			String[] headerelements = header.split(",");
- 			int x_value = 0;
- 			int y_value = 0;
- 			
- 			for (int i = 0; i < headerelements.length; i++){
- 				String[] keyvalue = headerelements[i].split("=");
- 				if (keyvalue[0].equals("x") )
- 					x_value = Integer.parseInt(keyvalue[1]);
- 				if (keyvalue[0].equals("y") )
- 					y_value = Integer.parseInt(keyvalue[1]);
- 			}
-
- 			return header;
- 		}
+		return header;
+	}
 
 
 
@@ -76,7 +72,7 @@ public class FileManagement {
  * @throws IOException
  * @author hd
  */
-public String parseFile(File f) 	{
+public String[] parseFile(File f) 	{
 
 	File file = f;
 	String returndata[] = new String[3];
@@ -97,7 +93,7 @@ public String parseFile(File f) 	{
 						if (header == "")
 							header = line;
 						else
-							header = line;
+							pattern = line;
 					}
 				};
 		
