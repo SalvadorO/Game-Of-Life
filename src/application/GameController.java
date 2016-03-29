@@ -6,6 +6,8 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
+import javafx.event.Event;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -57,7 +59,7 @@ public class GameController implements Initializable{
 			 		dialog.AboutDialogue();
 			 }
 			
-			
+			/*
 			// Advanced dialog
 			@FXML
 	    	private Slider Sld_SpeedSlider; 
@@ -71,6 +73,8 @@ public class GameController implements Initializable{
 					Sld_SpeedSlider.setVisible(true);
 					
 			}
+			*/
+			
 			// Stats dialog
 			@FXML
 				void mnu_StatsMenuPressed(ActionEvent event){
@@ -156,7 +160,24 @@ public class GameController implements Initializable{
 	public void initialize(URL location, ResourceBundle resources) {
 		gc = img.getGraphicsContext2D();
 		gc.setFill(Color.BLACK);
-	}    
-    
-  
+    }
+    /*
+   EventHandler<MouseEvent> mouseHandler = new EventHandler<MouseEvent>()	{
+	   
+	@Override
+	public void handle(MouseEvent mouseEvent)	{
+		System.out.println(mouseEvent.getEventType() + "\n"
+                + "X : Y - " + mouseEvent.getX() + " : " + mouseEvent.getY() + "\n"
+                + "SceneX : SceneY - " + mouseEvent.getSceneX() + " : " + mouseEvent.getSceneY() + "\n"
+                + "ScreenX : ScreenY - " + mouseEvent.getScreenX() + " : " + mouseEvent.getScreenY());
+	} 
+};
+
+	button.setOnMouseClicked(event -> {
+		if(event.getClickCount() > 1)	{
+			System.out.println("Double clicked");
+		}
+	});
+*/
+
 }
