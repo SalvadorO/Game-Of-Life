@@ -30,6 +30,7 @@
                </padding>
             </HBox>
             <HBox alignment="BOTTOM_RIGHT" prefHeight="35.0" prefWidth="350.0">
+               <!-- Will only be implemented if there is enough time
                <children>
                   <Slider id="Sld_SpeedSlider" blockIncrement="0.0" majorTickUnit="5.0" max="20.0" min="1.0" minorTickCount="1" nodeOrientation="LEFT_TO_RIGHT" prefHeight="10.0" prefWidth="320.0" showTickMarks="true" value="1.0">
                      <HBox.margin>
@@ -37,7 +38,7 @@
                      </HBox.margin>
                   </Slider>
                   <Button mnemonicParsing="false" onAction="#btn_testPressed" text="Test" />
-               </children>
+               </children>-->
                <HBox.margin>
                   <Insets bottom="8.0" />
                </HBox.margin>
