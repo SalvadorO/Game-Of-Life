@@ -1,10 +1,12 @@
 package application;
 	
 import javafx.application.Application;
+import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 
@@ -22,6 +24,13 @@ public class GameOfLifeMain extends Application {
 			primaryStage.setScene(scene);
 			primaryStage.show();
 
+	    	scene.setOnMousePressed(new EventHandler<MouseEvent>() {
+	    	        public void handle(MouseEvent event) {
+	    	            System.out.println("mouse click detected! ");
+		    	        }
+		    	    });
+			
+			
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
