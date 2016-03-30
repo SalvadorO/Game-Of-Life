@@ -3,7 +3,9 @@ package application;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import javafx.event.EventHandler;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 
 /**
@@ -162,4 +164,25 @@ public class GameboardCanvas {
 					alive = false;
 			return alive;
 		}	
+		
+		private boolean cellUnderMouse;
+
+		
+		public synchronized boolean mouseUp(java.awt.Event evt, int x, int y) {
+			// toggle cell
+	                try {
+	                    cells[x/cellSize][y/cellSize] = !cellUnderMouse;
+	                } catch ( java.lang.ArrayIndexOutOfBoundsException e ) {}
+			repaint();
+			return true;
+		}
+
+		public synchronized boolean mouseDown(java.awt.Event evt, int x, int y) {
+	                try {
+	                    boolean[][] cells = null;
+						int cellSize = 0;
+						cellUnderMouse = cells[x/cellSize][y/cellSize];
+	                } catch ( java.lang.ArrayIndexOutOfBoundsException e ) {}
+			return true;
+	        }
 }
