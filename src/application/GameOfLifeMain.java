@@ -17,7 +17,7 @@ public class GameOfLifeMain extends Application {
 			Scene scene = new Scene(root);
 //			scene.getStylesheets().add(getClass().getResource("GameboardCSS.css").toExternalForm());
 			// Adds a icon to the stage
-			primaryStage.getIcons().add(new Image(this.getClass().getResource("GOL.png").toString()));
+			primaryStage.getIcons().add(new Image(this.getClass().getResource("GameOfLife.png").toString()));
 			
 			primaryStage.setScene(scene);
 			primaryStage.show();
