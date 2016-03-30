@@ -33,7 +33,7 @@ public class GameboardCanvas {
 		int size = 10;
 
 		Shape shape = new Shape();
-		double[][] array = shape.getShapeGlider();
+		byte[][] array = shape.getShapeGlider();
 		gc.setFill(Color.BLACK);
 		
 		for (int i = 0;i<array.length;i++){

@@ -2,14 +2,14 @@ package application;
 
 public class Shape {
 
-	double[][] typeA = new double[][]{
+	byte[][] typeA = new byte[][]{
 		{0,0,0,0},
 		{0,1,1,0},
 		{1,0,0,1},
 		{0,1,1,0}
 		};
 		
-	 double[][] typeB = new double[][]{
+	 byte[][] typeB = new byte[][]{
 		{1,0,0,0,1},
 		{0,1,0,1,0},
 		{0,0,1,0,0},
@@ -17,7 +17,7 @@ public class Shape {
 		{1,0,0,0,1}
 		};
 		
-	double[][] typeInfinity = new double[][] {
+	byte[][] typeInfinity = new byte[][] {
 		{0,0,0,0,0},
 		{0,0,0,0,0},
 		{0,1,1,1,0},
@@ -25,7 +25,7 @@ public class Shape {
 		{0,0,0,0,0}
 		};
 		
-	double[][] typeGlider = new double[][] 	{
+	byte[][] typeGlider = new byte[][] 	{
 		{0,0,0,0,0},
 		{0,0,1,0,0},
 		{0,0,0,1,0},
@@ -33,7 +33,7 @@ public class Shape {
 		{0,0,0,0,0}
 		};
 		
-	double[][] typeGliderGun = new double[][] {
+	byte[][] typeGliderGun = new byte[][] {
 		{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0},
 		{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0},
 		{0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,1,1},
@@ -45,23 +45,23 @@ public class Shape {
 		{0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0}	
 		};
 		
-	public  double[][] getShapeA(){
+	public  byte[][] getShapeA(){
 		return typeA;
 	}
 	
-	public double[][] getShapeB(){
+	public byte[][] getShapeB(){
 		return typeB;
 	}
 	
-	public double[][] getShapeInfinity(){
+	public byte[][] getShapeInfinity(){
 		return typeInfinity;
 	}
 	
-	public double[][] getShapeGlider(){
+	public byte[][] getShapeGlider(){
 		return typeGlider;
 	}
 	
-	public double[][] getShapeGliderGun(){
+	public byte[][] getShapeGliderGun(){
 		return typeGliderGun;
 	}
 }
