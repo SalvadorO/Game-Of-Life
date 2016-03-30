@@ -28,10 +28,10 @@ public class GameOfLifeMain extends Application {
 
 	    	scene.setOnMousePressed(new EventHandler<MouseEvent>() {
 	    	        public void handle(MouseEvent event) {
-	    	            System.out.println("You pressed:\nX: "+event.getX()+"\nY: "+event.getY());
+	    	            System.out.println("You pressed:\nX: "+event.getSceneX()+"\nY: "+event.getSceneY());
 		    	        }
 		    	    });
-			
+
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
