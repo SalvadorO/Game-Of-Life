@@ -87,18 +87,7 @@ public class GameController implements Initializable{
 				void mnu_ShapesPressed(ActionEvent event)	{
 					dialog.ShapesDialogue();
 			}
-			
-			
-			// test knapp
-			@FXML
-			public Button btn_testPressed;
-			
-			@FXML
-				void btn_testPressed(ActionEvent event){
-				System.out.println("test");
-				btn_testPressed.isDisabled();
-			}
-			
+		
 			
 			
 
