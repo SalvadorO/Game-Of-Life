@@ -168,21 +168,6 @@ public class GameboardCanvas {
 		private boolean cellUnderMouse;
 
 		
-		public synchronized boolean mouseUp(java.awt.Event evt, int x, int y) {
-			// toggle cell
-	                try {
-	                    cells[x/cellSize][y/cellSize] = !cellUnderMouse;
-	                } catch ( java.lang.ArrayIndexOutOfBoundsException e ) {}
-			repaint();
-			return true;
-		}
+	
 
-		public synchronized boolean mouseDown(java.awt.Event evt, int x, int y) {
-	                try {
-	                    boolean[][] cells = null;
-						int cellSize = 0;
-						cellUnderMouse = cells[x/cellSize][y/cellSize];
-	                } catch ( java.lang.ArrayIndexOutOfBoundsException e ) {}
-			return true;
-	        }
 }
