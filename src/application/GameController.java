@@ -1,7 +1,6 @@
 package application;
 
 import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -15,8 +14,11 @@ import javafx.scene.control.MenuItem;
 import javafx.scene.control.Slider;
 import javafx.scene.control.TextArea;
 import javafx.scene.paint.Color;
+import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
+import java.awt.event.MouseMotionAdapter;
+import javafx.scene.input.MouseEvent;
 
 public class GameController implements Initializable{
 	
@@ -160,24 +162,5 @@ public class GameController implements Initializable{
 	public void initialize(URL location, ResourceBundle resources) {
 		gc = img.getGraphicsContext2D();
 		gc.setFill(Color.BLACK);
-    }
-    /*
-   EventHandler<MouseEvent> mouseHandler = new EventHandler<MouseEvent>()	{
-	   
-	@Override
-	public void handle(MouseEvent mouseEvent)	{
-		System.out.println(mouseEvent.getEventType() + "\n"
-                + "X : Y - " + mouseEvent.getX() + " : " + mouseEvent.getY() + "\n"
-                + "SceneX : SceneY - " + mouseEvent.getSceneX() + " : " + mouseEvent.getSceneY() + "\n"
-                + "ScreenX : ScreenY - " + mouseEvent.getScreenX() + " : " + mouseEvent.getScreenY());
-	} 
-};
-
-	button.setOnMouseClicked(event -> {
-		if(event.getClickCount() > 1)	{
-			System.out.println("Double clicked");
-		}
-	});
-*/
-
+    }   
 }
