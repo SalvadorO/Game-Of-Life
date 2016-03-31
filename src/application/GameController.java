@@ -126,7 +126,7 @@ public class GameController implements Initializable{
     
     @FXML
     void mnu_FileOpenPressed(ActionEvent event) {
-    	//Get the file content 
+    	//Get the file content as an array
     	String[] input = (filemanager.parseFile(filemanager.openFile()));
     	//Show the content in output area
     	txtArea.clear();
@@ -134,7 +134,8 @@ public class GameController implements Initializable{
        		txtArea.appendText(e + "\n");
     	
        	//parse and show the pattern
-       	gameboardcanvas.drawTWO(gc, input[2]);
+       	txtArea.appendText("\n" + filemanager.getHeader(input));
+//       	gameboardcanvas.drawTWO(gc, input[2]);
     	
     }
     

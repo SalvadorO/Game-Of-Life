@@ -33,30 +33,29 @@ public class FileManagement {
  	 * The method takes the filecontent as a String, and returns the header element
  	 * @param file
  	 * @return
- 	 * TODO: add "rule" element to the return parameter, consider using switch statement rather than if
  	 * 
  	 */
- 	public String getHeader(String[] filecontent)	{
- 		//Sets header and pattern variables
+ 	public String[] getHeader(String[] filecontent)	{
+ 		
+ 		// Initialize local variable header with the header part of the filecontent array
 		String header = filecontent[1];
  			
-		//Get x and y values and set x and y variables
-
+		//Get x, y and rule values and set same
 		String[] headerelements = header.split(",");
-		int x_value = 0;
-		int y_value = 0;
-		String rule = "";
+		String returnedHeader[] = null;
+		
 		for (int i = 0; i < headerelements.length; i++){
 			String[] keyvalue = headerelements[i].split("=");
 			if (keyvalue[0].equals("x") )
-				x_value = Integer.parseInt(keyvalue[1]);
+				returnedHeader[i] = keyvalue[1];
 			if (keyvalue[0].equals("y") )
-				y_value = Integer.parseInt(keyvalue[1]);
-			
-			
+				returnedHeader[i] = keyvalue[1];
+			if (keyvalue[0].matches("r*")){
+				returnedHeader[i] = keyvalue[1];
+			}
 		}
 
-		return header;
+		return returnedHeader;
 	}
 
 
