@@ -26,7 +26,7 @@ public class GameOfLifeMain extends Application {
 			primaryStage.setScene(scene);
 			primaryStage.show();
 
-	    	scene.setOnMousePressed(new EventHandler<MouseEvent>() {
+	    	scene.setOnMouseDragged(new EventHandler<MouseEvent>() {
 	    	        public void handle(MouseEvent event) {
 	    	            System.out.println("You pressed:\nX: "+event.getSceneX()+"\nY: "+event.getSceneY());
 		    	        }
