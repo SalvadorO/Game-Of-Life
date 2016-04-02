@@ -119,8 +119,10 @@ public class GameController implements Initializable{
      */
     @FXML
     void btn_ResetPressed(ActionEvent event) {
-    	gameboardcanvas = new GameboardCanvas();
-    	gc.clearRect(0, 0, img.getWidth(), img.getHeight());
+    //	gameboardcanvas = new GameboardCanvas();
+    //	gc.clearRect(0, 0, img.getWidth(), img.getHeight());
+    	
+    	gameboardcanvas.grid.nextGeneration(null);
     	
 	}
     

@@ -4,6 +4,10 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 
 public class Grid {
+	
+	
+	Shape currentInfo = new Shape();
+	
 	private int[][] gamegrid;
 	
 	public Grid(int x, int y){
@@ -93,4 +97,68 @@ public class Grid {
 				o+=gamegrid[i][j];
 		return o;
 	}
+	
+public void nextGeneration(int [][] array){
+		
+		int [][] currentGen = currentInfo.gettest();
+		
+		for (int x = 0; x < currentGen.length; x++){
+	    	   for (int y = 0; y < currentGen[0].length; y++){
+	    		   
+	    		   System.out.print(currentGen[x][y]);
+	    	   }
+	    	   System.out.println("");
+	       }
+		
+	    	   System.out.println("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++/n");
+	       
+		
+	    	   
+	   int t = 1; 
+	   
+	    	   
+		int [][] nextGen = new int [10][10];
+		
+		//  Loop for counting neighbors
+		for ( int r = 0; r < 10; r++ ) {
+            int above, below; // rows considered above and below row number r 
+            int left, right;  // columns considered left and right of column c
+            above = r > 0 ? r-1 : 10-1;
+            below = r < 10-1 ? r+1 : 0;
+            for ( int c = 0; c < 10; c++ ) {
+                left =  c > 0 ? c-1 : 10-1;
+                right = c < 10-1 ? c+1 : 0;
+                int n = 0; // number of alive cells in the 8 neighboring cells
+                if (currentGen[above][left]==t)
+                    n++;
+                if (currentGen[above][c]==t)
+                    n++;
+                if (currentGen[above][right]==t)
+                    n++;
+                if (currentGen[r][left]==t)
+                    n++;
+                if (currentGen[r][right]==t)
+                    n++;
+                if (currentGen[below][left]==t)
+                    n++;
+                if (currentGen[below][c]==t)
+                    n++;
+                if (currentGen[below][right]==t)
+                    n++;
+                if (n == 3 || ((currentGen[r][c] ==t )&& (n == 2)))
+                    nextGen[r][c] = t;
+                else
+                    nextGen[r][c] = 0;
+            }
+        }
+        currentGen = nextGen;
+        
+       for (int x = 0; x < currentGen.length; x++){
+    	   for (int y = 0; y < currentGen[0].length; y++){
+    		   
+    		   System.out.print(currentGen[x][y]);
+    	   }
+    	   System.out.println("");
+       }
+    }
 }
