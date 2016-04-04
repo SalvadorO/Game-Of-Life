@@ -28,12 +28,12 @@ public class GameOfLifeMain extends Application {
 
 	    	scene.setOnMouseDragged(new EventHandler<MouseEvent>() {
 	    	        public void handle(MouseEvent event) {
-	    	            System.out.println("You pressed:\nX: "+event.getSceneX()+"\nY: "+event.getSceneY());
+	    	            System.out.println("You pressed:\nX: "+event.getX()+"\nY: "+event.getY());
 		    	        }
 		    	    });
 	    	scene.setOnMousePressed(new EventHandler<MouseEvent>() {
     	        public void handle(MouseEvent event) {
-    	            System.out.println("You pressed:\nX: "+event.getSceneX()+"\nY: "+event.getSceneY());
+    	            System.out.println("You pressed:\nX: "+event.getX()+"\nY: "+event.getY());
 	    	        }
 	    	    });
 
