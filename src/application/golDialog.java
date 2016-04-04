@@ -21,7 +21,10 @@ import javafx.util.Callback;
 
 public class golDialog extends Application	{
 
-	// About Dialogue
+		/**
+		 * Method that show a Alertbox to the user that explains how the game work
+		 * @return 
+		 */
 		protected static  void AboutDialogue() {
 			Alert about = new Alert(AlertType.NONE);
 			about.setHeaderText(null);
