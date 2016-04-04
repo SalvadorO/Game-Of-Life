@@ -164,6 +164,12 @@ public class GameboardCanvas {
 					alive = false;
 			return alive;
 		}	
+
+//		----------------------------------------------------
+		
+		
+		
+//		----------------------------------------------------
 		
 		private boolean cellUnderMouse;
 
