@@ -25,17 +25,18 @@ public class GameOfLifeMain extends Application {
 			
 			primaryStage.setScene(scene);
 			primaryStage.show();
-
-	    	scene.setOnMouseDragged(new EventHandler<MouseEvent>() {
-	    	        public void handle(MouseEvent event) {
-	    	            System.out.println("You pressed:\nX: "+event.getX()+"\nY: "+event.getY());
-		    	        }
-		    	    });
-	    	scene.setOnMousePressed(new EventHandler<MouseEvent>() {
-    	        public void handle(MouseEvent event) {
-    	            System.out.println("You pressed:\nX: "+event.getX()+"\nY: "+event.getY());
-	    	        }
-	    	    });
+			
+			
+//	    	scene.setOnMouseDragged(new EventHandler<MouseEvent>() {
+//	    	        public void handle(MouseEvent event) {
+//	    	            System.out.println("You pressed:\nX: "+event.getX()+"\nY: "+event.getY());
+//		    	        }
+//		    	    });
+//	    	scene.setOnMousePressed(new EventHandler<MouseEvent>() {
+//    	        public void handle(MouseEvent event) {
+//    	            System.out.println("You pressed:\nX: "+event.getX()+"\nY: "+event.getY());
+//	    	        }
+//	    	    });
 
 		} catch(Exception e) {
 			e.printStackTrace();
