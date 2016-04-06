@@ -78,7 +78,7 @@ public class Shape {
 		return typeGliderGun;
 	}
 	
-	public  int[][] gettest(){
+	public int[][] gettest(){
 		return test;
 	}
 }
