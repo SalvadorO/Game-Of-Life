@@ -16,8 +16,8 @@ public class GameOfLifeMain extends Application {
 		try {
 			Parent root = FXMLLoader.load(getClass().getResource("GOLView.fxml"));
 			primaryStage.setTitle("Conway's Game of Life");
-			primaryStage.setMinWidth(600);
-			primaryStage.setMinHeight(400);
+			primaryStage.setMinWidth(400);
+			primaryStage.setMinHeight(300);
 			Scene GOLgame = new Scene(root);
 			// Connects to CSS file
 			GOLgame.getStylesheets().add(getClass().getResource("GameboardCSS.css").toExternalForm());
@@ -26,6 +26,10 @@ public class GameOfLifeMain extends Application {
 
 			primaryStage.setScene(GOLgame);
 			primaryStage.show();
+			
+			// lets us connect the mouse event that is in controller class in some way
+	        GOLgame.setOnMouseClicked(GameController.mouseHandler);
+
 			
 //	    	GOLgame.setOnMouseDragged(new EventHandler<MouseEvent>() {
 //	    	        public void handle(MouseEvent event) {
