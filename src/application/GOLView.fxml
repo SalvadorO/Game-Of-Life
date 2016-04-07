@@ -17,34 +17,28 @@
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.GameController">
    <bottom>
-      <HBox nodeOrientation="RIGHT_TO_LEFT" prefHeight="35.0">
+      <HBox alignment="CENTER" nodeOrientation="RIGHT_TO_LEFT" prefHeight="35.0" BorderPane.alignment="CENTER">
          <children>
-            <HBox alignment="BOTTOM_RIGHT" nodeOrientation="LEFT_TO_RIGHT" prefHeight="35.0" prefWidth="350.0" spacing="5.0">
+            <HBox alignment="BOTTOM_RIGHT" nodeOrientation="LEFT_TO_RIGHT" prefHeight="35.0" prefWidth="400.0" spacing="5.0">
                <children>
-                  <Button fx:id="btn_PlayStop" mnemonicParsing="false" onAction="#btn_PlayStopPressed" text="Play" />
-                  <Button fx:id="btn_Next" mnemonicParsing="false" onAction="#btn_Next" text="Next" />
-               	  <Button fx:id="btn_Reset" mnemonicParsing="false" onAction="#btn_ResetPressed" text="Reset" />
-                  <Button fx:id="btn_Quit" cancelButton="true" mnemonicParsing="false" onAction="#btn_QuitPressed" text="Quit" underline="true" />
+                  <Button fx:id="btn_PlayStop" alignment="CENTER_RIGHT" contentDisplay="CENTER" defaultButton="true" mnemonicParsing="false" onAction="#btn_PlayStopPressed" text="Play" />
+                  <Button fx:id="btn_Next" alignment="CENTER_RIGHT" contentDisplay="CENTER" mnemonicParsing="false" onAction="#btn_Next" text="Next" />
+               	  <Button fx:id="btn_Reset" alignment="CENTER_RIGHT" contentDisplay="CENTER" mnemonicParsing="false" onAction="#btn_ResetPressed" text="Reset" />
+                  <Button fx:id="btn_Quit" alignment="CENTER_RIGHT" cancelButton="true" contentDisplay="CENTER" mnemonicParsing="false" onAction="#btn_QuitPressed" text="Quit" underline="true" />
                </children>
                <padding>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </padding>
             </HBox>
-            <HBox alignment="BOTTOM_RIGHT" prefHeight="35.0" prefWidth="350.0">
-               <!-- Will only be implemented if there is enough time
-               <children>
-                  <Slider id="Sld_SpeedSlider" blockIncrement="0.0" majorTickUnit="5.0" max="20.0" min="1.0" minorTickCount="1" nodeOrientation="LEFT_TO_RIGHT" prefHeight="10.0" prefWidth="320.0" showTickMarks="true" value="1.0">
-                     <HBox.margin>
-                        <Insets />
-                     </HBox.margin>
-                  </Slider>
-                  <Button mnemonicParsing="false" onAction="#btn_testPressed" text="Test" />
-               </children>-->
+            <HBox fx:id="HB_Advanced" alignment="CENTER_LEFT" nodeOrientation="LEFT_TO_RIGHT" prefHeight="35.0" prefWidth="400.0" spacing="5.0" visible="false">
                <HBox.margin>
-                  <Insets bottom="8.0" />
+                  <Insets />
                </HBox.margin>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
                <children>
-                  <ToggleButton mnemonicParsing="false" text="ToggleButton" />
+                  <Slider id="Sld_Speed" nodeOrientation="LEFT_TO_RIGHT" showTickLabels="true" showTickMarks="true" snapToTicks="true" />
                </children>
             </HBox>
          </children>
@@ -76,8 +70,8 @@
           
           <Menu mnemonicParsing="false" text="Advanced">
           	<items>
-<!--                  <CheckMenuItem mnemonicParsing="false" onAction="#rbn_AdvancedPressed" text="Enable Advanced Menu" />	-->
           			<MenuItem mnemonicParsing="false" onAction="#mnu_StatsMenuPressed" text="Stats" />
+                  <CheckMenuItem id="cmi_adv" mnemonicParsing="false" text="Advanced Menu" />
           	</items>
           </Menu>
         </menus>

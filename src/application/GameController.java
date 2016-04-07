@@ -2,12 +2,14 @@ package application;
 
 import java.awt.event.MouseAdapter;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.HBox;
 
 import java.awt.MouseInfo;
 import java.awt.Point;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.event.EventHandler;
@@ -38,7 +40,13 @@ public class GameController implements Initializable{
     private MenuItem mnu_FileOpen,  mnu_FileSave, mnu_SetupGridsize;
 	
 	@FXML
-    private Button btn_Reset, btn_PlayStop, btn_Quit;
+    private Button btn_Reset, btn_PlayStop, btn_Quit, btn_Next, cmi_adv;
+	
+	@FXML
+	private Slider Sld_Speed;
+	
+	@FXML
+	private HBox HB_Advanced;
 	
 	//TODO: This component is for testing purposes. To be removed when done
 	@FXML
@@ -85,7 +93,9 @@ public class GameController implements Initializable{
 			@FXML
 				void mnu_StatsMenuPressed(ActionEvent event){
 					golDialog.StatsDialogue();
+			    	HB_Advanced.setVisible(true);
 			}
+			
 			// Shapes dialog
 			@FXML
 				void mnu_ShapesPressed(ActionEvent event)	{
@@ -103,9 +113,9 @@ public class GameController implements Initializable{
     @FXML
     void btn_PlayStopPressed(ActionEvent event) {
     	gameboardcanvas.draw(gc);
-//    	Disablig the play button after pressed
-//    	btn_PlayStop.setText("Stop");
-//    	btn_PlayStop.setDisable(true);
+//    	Disabling the play button after pressed
+    	btn_PlayStop.setText("Stop");
+    	btn_PlayStop.setDisable(true);
 
     	txtArea.appendText("\n" + gameboardcanvas.grid.toString());
     	gameboardcanvas.grid.setCellstatus(0, 3, 1);
@@ -156,6 +166,32 @@ public class GameController implements Initializable{
     	System.exit(0);
     }
     
+    @FXML
+    void btn_Next(ActionEvent event){
+    	// This will show the next gen and stop there
+    }
+    
+    @FXML
+    void cmi_adv(ActionEvent event){
+    	// This will activate the advanced menu
+//    	Sld_Speed.setVisible(true);
+//    	System.out.println("The Speed slider is now visible");
+//    	Sld_SpeedSlider.isVisible();
+//		Sld_SpeedSlider.setDisable(false);
+//		Sld_SpeedSlider.setVisible(true);
+//    	cmi_adv.setSelected(true);
+    	
+//		golDialog.StatsDialogue();
+		
+//    	HB_Advanced.setVisible(true);
+//    	cmi_adv.setOnAction(new EventHandler<ActionEvent>() {
+//    		public void handle(ActionEvent e)	{
+//    			System.out.println("YES!");
+//    		}
+//    	});
+    }
+    
+    
     @Override
 	public void initialize(URL location, ResourceBundle resources) {
 		gc = img.getGraphicsContext2D();
@@ -166,11 +202,6 @@ public class GameController implements Initializable{
 		@Override
 		public void handle(MouseEvent event) {
 			System.out.println("Click! "+event.getX()+" "+event.getY());
-			
-//			System.out.println(mouseEvent.getEventType() + "\n"
-//                    + "X : Y - " + mouseEvent.getX() + " : " + mouseEvent.getY() + "\n"
-//                    + "SceneX : SceneY - " + mouseEvent.getSceneX() + " : " + mouseEvent.getSceneY() + "\n"
-//                    + "ScreenX : ScreenY - " + mouseEvent.getScreenX() + " : " + mouseEvent.getScreenY());
 		}
     };
     protected static EventHandler<MouseEvent> mouseHandlerDragged = new EventHandler <MouseEvent>()	{
