@@ -162,21 +162,22 @@ public class GameController implements Initializable{
 		gc.setFill(Color.BLACK);
     }   
     
-    protected static EventHandler<MouseEvent> mouseHandler = new EventHandler <MouseEvent>()	{
-
+    protected static EventHandler<MouseEvent> mouseHandlerClicked = new EventHandler <MouseEvent>()	{
 		@Override
 		public void handle(MouseEvent event) {
-			System.out.println("testing\n"+event.getX()+"\n"+event.getY());
+			System.out.println("Click! "+event.getX()+" "+event.getY());
 			
 //			System.out.println(mouseEvent.getEventType() + "\n"
 //                    + "X : Y - " + mouseEvent.getX() + " : " + mouseEvent.getY() + "\n"
 //                    + "SceneX : SceneY - " + mouseEvent.getSceneX() + " : " + mouseEvent.getSceneY() + "\n"
 //                    + "ScreenX : ScreenY - " + mouseEvent.getScreenX() + " : " + mouseEvent.getScreenY());
 		}
-    	  
     };
-    
-  
-     
+    protected static EventHandler<MouseEvent> mouseHandlerDragged = new EventHandler <MouseEvent>()	{
+		@Override
+		public void handle(MouseEvent event) {
+			System.out.println("DRAAAG!! "+event.getX()+" "+event.getY());
+		}
+    };
     
 }
