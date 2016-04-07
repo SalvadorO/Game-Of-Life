@@ -1,6 +1,8 @@
 package application;
 
 import java.awt.event.MouseAdapter;
+import java.awt.MouseInfo;
+import java.awt.Point;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -28,7 +30,7 @@ public class GameController implements Initializable{
 	protected golDialog dialog = new golDialog();
 
 	@FXML
-	private Canvas img;
+	protected Canvas img;
 	
     @FXML
     private MenuItem mnu_FileOpen,  mnu_FileSave, mnu_SetupGridsize;
@@ -58,7 +60,7 @@ public class GameController implements Initializable{
 			// Help dialog
 			@FXML
 			 void mnu_AboutDialogPressed(ActionEvent event) {
-			 		dialog.AboutDialogue();
+			 		golDialog.AboutDialogue();
 			 }
 			
 			/*
@@ -80,12 +82,12 @@ public class GameController implements Initializable{
 			// Stats dialog
 			@FXML
 				void mnu_StatsMenuPressed(ActionEvent event){
-					dialog.StatsDialogue();
+					golDialog.StatsDialogue();
 			}
 			// Shapes dialog
 			@FXML
 				void mnu_ShapesPressed(ActionEvent event)	{
-					dialog.ShapesDialogue();
+					golDialog.ShapesDialogue();
 			}
 		
 			
@@ -157,4 +159,15 @@ public class GameController implements Initializable{
 		gc = img.getGraphicsContext2D();
 		gc.setFill(Color.BLACK);
     }   
+    
+    public void Listener(MouseAdapter mouseAdapter){
+    
+    	Point p = MouseInfo.getPointerInfo().getLocation();
+        int x = p.x;
+    	int y = p.y;
+    	System.out.println(x);
+    	System.out.println(y);
+    	
+    }
+    
 }
