@@ -1,6 +1,8 @@
 package application;
 
 import java.awt.event.MouseAdapter;
+import javafx.scene.input.MouseEvent;
+
 import java.awt.MouseInfo;
 import java.awt.Point;
 import java.net.URL;
@@ -160,14 +162,21 @@ public class GameController implements Initializable{
 		gc.setFill(Color.BLACK);
     }   
     
-    public void Listener(MouseAdapter mouseAdapter){
+    protected static EventHandler<MouseEvent> mouseHandler = new EventHandler <MouseEvent>()	{
+
+		@Override
+		public void handle(MouseEvent event) {
+			System.out.println("testing\n"+event.getX()+"\n"+event.getY());
+			
+//			System.out.println(mouseEvent.getEventType() + "\n"
+//                    + "X : Y - " + mouseEvent.getX() + " : " + mouseEvent.getY() + "\n"
+//                    + "SceneX : SceneY - " + mouseEvent.getSceneX() + " : " + mouseEvent.getSceneY() + "\n"
+//                    + "ScreenX : ScreenY - " + mouseEvent.getScreenX() + " : " + mouseEvent.getScreenY());
+		}
+    	  
+    };
     
-    	Point p = MouseInfo.getPointerInfo().getLocation();
-        int x = p.x;
-    	int y = p.y;
-    	System.out.println(x);
-    	System.out.println(y);
-    	
-    }
+  
+     
     
 }
