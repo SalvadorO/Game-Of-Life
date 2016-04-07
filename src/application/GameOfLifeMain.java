@@ -16,14 +16,15 @@ public class GameOfLifeMain extends Application {
 		try {
 			Parent root = FXMLLoader.load(getClass().getResource("GOLView.fxml"));
 			primaryStage.setTitle("Conway's Game of Life");
-			Scene scene = new Scene(root);
 			primaryStage.setMinWidth(600);
 			primaryStage.setMinHeight(400);
-			scene.getStylesheets().add(getClass().getResource("GameboardCSS.css").toExternalForm());
+			Scene GOLgame = new Scene(root);
+			// Connects to CSS file
+			GOLgame.getStylesheets().add(getClass().getResource("GameboardCSS.css").toExternalForm());
 			// Adds a icon to the stage
 			primaryStage.getIcons().add(new Image(this.getClass().getResource("GameOfLife.png").toString()));
 			
-			primaryStage.setScene(scene);
+			primaryStage.setScene(GOLgame);
 			primaryStage.show();
 			
 			
@@ -33,10 +34,10 @@ public class GameOfLifeMain extends Application {
 //		    	        }
 //		    	    });
 //	    	scene.setOnMousePressed(new EventHandler<MouseEvent>() {
-//    	        public void handle(MouseEvent event) {
-//    	            System.out.println("You pressed:\nX: "+event.getX()+"\nY: "+event.getY());
-//	    	        }
-//	    	    });
+//	    	        public void handle(MouseEvent event) {
+//	    	            System.out.println("You pressed:\nX: "+event.getX()+"\nY: "+event.getY());
+//		    	        }
+//		    	    });
 
 		} catch(Exception e) {
 			e.printStackTrace();
