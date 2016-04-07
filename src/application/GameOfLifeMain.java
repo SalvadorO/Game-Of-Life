@@ -1,5 +1,5 @@
 package application;
-	
+
 import javafx.application.Application;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
@@ -27,13 +27,12 @@ public class GameOfLifeMain extends Application {
 			primaryStage.setScene(GOLgame);
 			primaryStage.show();
 			
-			
-//	    	scene.setOnMouseDragged(new EventHandler<MouseEvent>() {
+//	    	GOLgame.setOnMouseDragged(new EventHandler<MouseEvent>() {
 //	    	        public void handle(MouseEvent event) {
 //	    	            System.out.println("You pressed:\nX: "+event.getX()+"\nY: "+event.getY());
 //		    	        }
 //		    	    });
-//	    	scene.setOnMousePressed(new EventHandler<MouseEvent>() {
+//	    	GOLgame.setOnMousePressed(new EventHandler<MouseEvent>() {
 //	    	        public void handle(MouseEvent event) {
 //	    	            System.out.println("You pressed:\nX: "+event.getX()+"\nY: "+event.getY());
 //		    	        }
