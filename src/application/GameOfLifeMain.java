@@ -23,7 +23,7 @@ public class GameOfLifeMain extends Application {
 			GOLgame.getStylesheets().add(getClass().getResource("GameboardCSS.css").toExternalForm());
 			// Adds a icon to the stage
 			primaryStage.getIcons().add(new Image(this.getClass().getResource("GameOfLife.png").toString()));
-			
+
 			primaryStage.setScene(GOLgame);
 			primaryStage.show();
 			
