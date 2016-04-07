@@ -21,9 +21,10 @@
          <children>
             <HBox alignment="BOTTOM_RIGHT" nodeOrientation="LEFT_TO_RIGHT" prefHeight="35.0" prefWidth="350.0" spacing="5.0">
                <children>
-                  <Button fx:id="btn_PlayStop" alignment="BASELINE_RIGHT" mnemonicParsing="false" onAction="#btn_PlayStopPressed" text="Play" />
-               	<Button fx:id="btn_Reset" mnemonicParsing="false" onAction="#btn_ResetPressed" text="Reset" />
-                  <Button fx:id="btn_Quit" mnemonicParsing="false" onAction="#btn_QuitPressed" text="Quit" />
+                  <Button fx:id="btn_PlayStop" mnemonicParsing="false" onAction="#btn_PlayStopPressed" text="Play" />
+                  <Button fx:id="btn_Next" mnemonicParsing="false" onAction="#btn_Next" text="Next" />
+               	  <Button fx:id="btn_Reset" mnemonicParsing="false" onAction="#btn_ResetPressed" text="Reset" />
+                  <Button fx:id="btn_Quit" cancelButton="true" mnemonicParsing="false" onAction="#btn_QuitPressed" text="Quit" underline="true" />
                </children>
                <padding>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
@@ -42,6 +43,9 @@
                <HBox.margin>
                   <Insets bottom="8.0" />
                </HBox.margin>
+               <children>
+                  <ToggleButton mnemonicParsing="false" text="ToggleButton" />
+               </children>
             </HBox>
          </children>
       </HBox>
@@ -89,7 +93,7 @@
    <center>
       <Pane prefHeight="275.0" prefWidth="426.0" style="-fx-background-color: #dedede">
          <children>
-            <Canvas fx:id="img" height="277.0" width="381.0" BorderPane.alignment="CENTER" />
+            <Canvas fx:id="img" height="438.0" width="800.0" BorderPane.alignment="CENTER" />
          </children>
       </Pane>
    </center>
