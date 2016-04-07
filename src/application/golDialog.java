@@ -32,9 +32,7 @@ public class golDialog extends Application	{
 			about.initStyle(StageStyle.UNDECORATED);
 			
 			ButtonType buttonTypeCancel = new ButtonType("Close", ButtonData.CANCEL_CLOSE);
-//			about.getButtonTypes().setAll(buttonTypeCancel);
-//			buttonTypeCancel.defaultButtonProperty().bind(buttonTypeCancel.focusedProperty());
-			buttonTypeCancel.setDefaultButton(true);  
+			about.getButtonTypes().setAll(buttonTypeCancel);
 			
 			about.showAndWait();
 		}
