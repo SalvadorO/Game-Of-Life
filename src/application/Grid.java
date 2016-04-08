@@ -164,7 +164,7 @@ public void nextGeneration(int [][] array){
        }
     }
 //--------------------------------- Hardkode
-
+/*
 private boolean cellundermouse;
 private CellGrid cellGrid;
 private int cellSize;
@@ -185,5 +185,5 @@ public void savecellundermouse(int x, int y)	{
 		// Aint happening
 	}
 }
-
+*/
 }
