@@ -1,5 +1,7 @@
 package application;
 
+import java.awt.event.MouseEvent;
+
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 
@@ -161,4 +163,27 @@ public void nextGeneration(int [][] array){
     	   System.out.println("");
        }
     }
+//--------------------------------- Hardkode
+
+private boolean cellundermouse;
+private CellGrid cellGrid;
+private int cellSize;
+
+
+public void mousePressed(MouseEvent e){
+	savecellundermouse(e.getX(),e.getY());
+}
+
+
+
+
+public void savecellundermouse(int x, int y)	{
+	try{
+		int cellSize;
+		cellundermouse = cellGrid.getCell(x / cellSize, y/ cellSize);
+	}catch(java.lang.ArrayIndexOutOfBoundsException e){
+		// Aint happening
+	}
+}
+
 }
