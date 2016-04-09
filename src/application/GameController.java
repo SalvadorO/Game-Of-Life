@@ -117,11 +117,11 @@ public class GameController implements Initializable{
     	btn_PlayStop.setText("Stop");
     	//btn_PlayStop.setDisable(true);
 
-    	txtArea.appendText("\n" + gameboardcanvas.grid.toString());
+    	
     	gameboardcanvas.grid.setCellstatus(0, 3, 1);
-    	txtArea.appendText("\n" + gameboardcanvas.grid.toString());
+    	
     	gameboardcanvas.grid.setCellstatus(3, 3, 1);
-    	txtArea.appendText("\n" + gameboardcanvas.grid.toString());
+    	
     }
 
     /**
