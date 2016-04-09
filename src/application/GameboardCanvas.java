@@ -28,14 +28,15 @@ public class GameboardCanvas {
 	 * 
 	 * @param gc
 	 * @author hd
+	 * @return 
 	 */
-	public void draw(GraphicsContext gc){
+	public static int[][] draw(GraphicsContext gc){
 		int x = 100;
 		int y = 100;
 		int size = 10;
 
 		Shape shape = new Shape();
-		int[][] array = shape.getShapeGlider();
+		int[][] array = shape.getShapeB();
 		gc.setFill(Color.BLACK);
 		
 		for (int i = 0;i<array.length;i++){
@@ -45,6 +46,7 @@ public class GameboardCanvas {
 				}
 			}
 		}
+		return array;
 	}
 	
 	/**

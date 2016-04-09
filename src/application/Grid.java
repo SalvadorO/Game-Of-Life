@@ -100,9 +100,15 @@ public class Grid {
 		return o;
 	}
 	
-public void nextGeneration(int [][] array){
+	public void nextGeneration(int [][] array2, GraphicsContext gc){
 		
-		int [][] currentGen = currentInfo.gettest();
+		int [][] currentGen = GameboardCanvas.draw(gc);
+		int size = 10;
+		
+		
+		Shape shape = new Shape();
+		int[][] array = shape.gettest();
+		gc.setFill(Color.BLACK);
 		
 		for (int x = 0; x < currentGen.length; x++){
 	    	   for (int y = 0; y < currentGen[0].length; y++){
@@ -119,17 +125,17 @@ public void nextGeneration(int [][] array){
 	   int t = 1; 
 	   
 	    	   
-		int [][] nextGen = new int [10][10];
+		int [][] nextGen = new int [gamegrid.length][gamegrid.length];
 		
 		//  Loop for counting neighbors
-		for ( int r = 0; r < 10; r++ ) {
+		for ( int r = 0; r < gamegrid.length; r++ ) {
             int above, below; // rows considered above and below row number r 
             int left, right;  // columns considered left and right of column c
-            above = r > 0 ? r-1 : 10-1;
-            below = r < 10-1 ? r+1 : 0;
-            for ( int c = 0; c < 10; c++ ) {
-                left =  c > 0 ? c-1 : 10-1;
-                right = c < 10-1 ? c+1 : 0;
+            above = r > 0 ? r-1 : gamegrid.length-1;
+            below = r < gamegrid.length-1 ? r+1 : 0;
+            for ( int c = 0; c < gamegrid.length; c++ ) {
+                left =  c > 0 ? c-1 : gamegrid.length-1;
+                right = c < gamegrid.length-1 ? c+1 : 0;
                 int n = 0; // number of alive cells in the 8 neighboring cells
                 if (currentGen[above][left]==t)
                     n++;
@@ -158,11 +164,24 @@ public void nextGeneration(int [][] array){
        for (int x = 0; x < currentGen.length; x++){
     	   for (int y = 0; y < currentGen[0].length; y++){
     		   
+    		   int[][] array3 = nextGen;
+      			gc.setFill(Color.YELLOW);
+      			
+      			for (int i = 0;i<array3.length;i++){
+       				for (int j = 0; j<(array3[i].length); j++){
+       					if (array3[i][j]==1)	{
+       						gc.fillRect((x+size*j), (y+size*i), size/currentGen.length, size/currentGen.length);
+    		   
     		   System.out.print(currentGen[x][y]);
+    	
+    		   
+    		   gc.fillRect((x+size*j), (y+size*i), size/currentGen.length, size/currentGen.length);
     	   }
     	   System.out.println("");
        }
     }
+    	   }}
+      	}
 //--------------------------------- Hardkode
 /*
 private boolean cellundermouse;

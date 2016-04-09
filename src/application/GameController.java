@@ -115,7 +115,7 @@ public class GameController implements Initializable{
     	gameboardcanvas.draw(gc);
 //    	Disabling the play button after pressed
     	btn_PlayStop.setText("Stop");
-    	btn_PlayStop.setDisable(true);
+    	//btn_PlayStop.setDisable(true);
 
     	txtArea.appendText("\n" + gameboardcanvas.grid.toString());
     	gameboardcanvas.grid.setCellstatus(0, 3, 1);
@@ -133,10 +133,10 @@ public class GameController implements Initializable{
      */
     @FXML
     void btn_ResetPressed(ActionEvent event) {
-    //	gameboardcanvas = new GameboardCanvas();
-    //	gc.clearRect(0, 0, img.getWidth(), img.getHeight());
+    	gameboardcanvas = new GameboardCanvas();
+    gc.clearRect(0, 0, img.getWidth(), img.getHeight());
     	
-    	gameboardcanvas.grid.nextGeneration(null);
+    	
     	
 	}
     
@@ -169,6 +169,7 @@ public class GameController implements Initializable{
     @FXML
     void btn_Next(ActionEvent event){
     	// This will show the next gen and stop there
+    	gameboardcanvas.grid.nextGeneration(null, gc);
     }
     
     @FXML
