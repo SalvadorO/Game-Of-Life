@@ -112,11 +112,11 @@ public class GameController implements Initializable{
 	 */
     @FXML
     void btn_PlayStopPressed(ActionEvent event) {
-    	gameboardcanvas.draw(gc);
+    	Grid.draw(gc);
 //    	Disabling the play button after pressed
     	btn_PlayStop.setText("Stop");
     	//btn_PlayStop.setDisable(true);
-
+    	
     	
     	gameboardcanvas.grid.setCellstatus(0, 3, 1);
     	

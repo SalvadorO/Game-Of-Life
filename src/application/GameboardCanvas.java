@@ -31,8 +31,8 @@ public class GameboardCanvas {
 	 * @return 
 	 */
 	public static int[][] draw(GraphicsContext gc){
-		int x = 100;
-		int y = 100;
+		int x = 1;
+		int y = 1;
 		int size = 10;
 
 		Shape shape = new Shape();
