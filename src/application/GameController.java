@@ -29,12 +29,12 @@ import javafx.scene.input.MouseEvent;
 public class GameController implements Initializable{
 	
 	protected GameboardCanvas gameboardcanvas =  new GameboardCanvas();
-	protected GraphicsContext gc;
+	protected static GraphicsContext gc;
 	protected FileManagement filemanager = new FileManagement();
 	protected golDialog dialog = new golDialog();
 
 	@FXML
-	public Canvas img;
+	protected Canvas img;
 	
     @FXML
     private MenuItem mnu_FileOpen,  mnu_FileSave, mnu_SetupGridsize;
@@ -134,7 +134,10 @@ public class GameController implements Initializable{
     @FXML
     void btn_ResetPressed(ActionEvent event) {
     	gameboardcanvas = new GameboardCanvas();
-    gc.clearRect(0, 0, img.getWidth(), img.getHeight());	
+    gc.clearRect(0, 0, img.getWidth(), img.getHeight());
+    	
+    	
+    	
 	}
     
     @FXML
@@ -164,13 +167,13 @@ public class GameController implements Initializable{
     }
     
     @FXML
-    protected void btn_Next(ActionEvent event){
+    void btn_Next(ActionEvent event){
     	// This will show the next gen and stop there
     	gameboardcanvas.grid.nextGeneration(null, gc);
     }
     
     @FXML
-    protected void cmi_adv(ActionEvent event){
+    void cmi_adv(ActionEvent event){
     	// This will activate the advanced menu
 //    	Sld_Speed.setVisible(true);
 //    	System.out.println("The Speed slider is now visible");
@@ -188,28 +191,41 @@ public class GameController implements Initializable{
 //    		}
 //    	});
     }
+    
+    
     @Override
 	public void initialize(URL location, ResourceBundle resources) {
 		gc = img.getGraphicsContext2D();
 		gc.setFill(Color.BLACK);
     }   
     
-    protected static EventHandler<MouseEvent> mouseHandlerPressed = new EventHandler <MouseEvent>()	{
+    protected static EventHandler<MouseEvent> mouseHandlerClicked = new EventHandler <MouseEvent>()	{
 		@Override
 		public void handle(MouseEvent event) {
-			System.out.println("Click! getX "+event.getX()+" "+event.getY());
-			System.out.print("Click! getSceneX "+event.getSceneX()+" "+event.getSceneY());
+			System.out.println("Click! "+event.getX()+" "+event.getY());
+			int x = (int) event.getX();
+			int y = (int) event.getY();
+			if (x >= 0  && y > 0)
+				if (x < Grid.gamegrid.length+1)
+					if (y < Grid.gamegrid.length+1)	
+			
+		Grid.updateGameGrid(x, y);
+		
+		
 		}
     };
     protected static EventHandler<MouseEvent> mouseHandlerDragged = new EventHandler <MouseEvent>()	{
 		@Override
 		public void handle(MouseEvent event) {
 			System.out.println("DRAAAG!! "+event.getX()+" "+event.getY());
+			
+			int x = (int) event.getX();
+			int y = (int) event.getY();
+			if (x >= 0  && y > 0)
+			if (x < Grid.gamegrid.length+1)
+				if (y < Grid.gamegrid[0].length+1)
+			Grid.updateGameGrid(x, y);
+			
 		}
     };
-    private boolean HasStarted(){
-    	if(){
-    		
-    	}
-    }
 }

@@ -20,7 +20,7 @@ public class GameboardCanvas {
 	Grid grid;
 	
 	public GameboardCanvas(){
-		grid = new Grid(5,5);
+		grid = new Grid(120,120);
 	}
 	
 	
@@ -30,24 +30,7 @@ public class GameboardCanvas {
 	 * @author hd
 	 * @return 
 	 */
-	public static int[][] draw(GraphicsContext gc){
-		int x = 1;
-		int y = 1;
-		int size = 10;
-
-		Shape shape = new Shape();
-		int[][] array = shape.getShapeB();
-		gc.setFill(Color.BLACK);
-		
-		for (int i = 0;i<array.length;i++){
-			for (int j = 0; j<(array[i].length); j++){
-				if (array[i][j]==1)	{
-					gc.fillRect((x+size*j), (y+size*i), size, size);
-				}
-			}
-		}
-		return array;
-	}
+	
 	
 	/**
 	 * The method takes a pattern in RLE format (e.g 2b2o$2o2b) as a String and interprets the characters 

@@ -10,10 +10,18 @@ public class Grid {
 	
 	Shape currentInfo = new Shape();
 	
-	private int[][] gamegrid;
+	public static int[][] gamegrid;
+	static int cellSize = 10;
+	private static int[][] gamegrid2 ;
+	
+	
+	
+	
 	
 	public Grid(int x, int y){
 		gamegrid = new int[x][y];
+		gamegrid2 = new int [x][y];
+		
 	}
 	
 	/**
@@ -102,8 +110,8 @@ public class Grid {
 	
 	public void nextGeneration(int [][] array2, GraphicsContext gc){
 		
-		int [][] currentGen = GameboardCanvas.draw(gc);
-		int size = 10;
+		int [][] currentGen = gamegrid;
+		int size = cellSize;
 		
 		
 		Shape shape = new Shape();
@@ -122,7 +130,7 @@ public class Grid {
 	       
 		
 	    	   
-	   int t = 1; 
+	   
 	   
 	    	   
 		int [][] nextGen = new int [gamegrid.length][gamegrid.length];
@@ -137,24 +145,24 @@ public class Grid {
                 left =  c > 0 ? c-1 : gamegrid.length-1;
                 right = c < gamegrid.length-1 ? c+1 : 0;
                 int n = 0; // number of alive cells in the 8 neighboring cells
-                if (currentGen[above][left]==t)
+                if (currentGen[above][left]==1)
                     n++;
-                if (currentGen[above][c]==t)
+                if (currentGen[above][c]==1)
                     n++;
-                if (currentGen[above][right]==t)
+                if (currentGen[above][right]==1)
                     n++;
-                if (currentGen[r][left]==t)
+                if (currentGen[r][left]==1)
                     n++;
-                if (currentGen[r][right]==t)
+                if (currentGen[r][right]==1)
                     n++;
-                if (currentGen[below][left]==t)
+                if (currentGen[below][left]==1)
                     n++;
-                if (currentGen[below][c]==t)
+                if (currentGen[below][c]==1)
                     n++;
-                if (currentGen[below][right]==t)
+                if (currentGen[below][right]==1)
                     n++;
-                if (n == 3 || ((currentGen[r][c] ==t )&& (n == 2)))
-                    nextGen[r][c] = t;
+                if (n == 3 || ((currentGen[r][c] ==1 )&& (n == 2)))
+                    nextGen[r][c] = 1;
                 else
                     nextGen[r][c] = 0;
             }
@@ -177,7 +185,8 @@ public class Grid {
     		   
     		   gc.fillRect((x+size*j), (y+size*i), size/currentGen.length, size/currentGen.length);
     	   }
-    	   System.out.println("");
+       					System.out.println("+++++e++++++++++++++++++++++++++++++++++++++++++++++++++++++");
+    	   System.out.println(gamegrid.length);
        }
     }
     	   }}
@@ -188,23 +197,51 @@ public class Grid {
 	 * @author hd
 	 * @return 
 	 */
+	
 	public static int[][] draw(GraphicsContext gc){
-		int x = 1;
-		int y = 1;
-		int size = 10;
+		int x = 0;
+		int y = 0;
+		int size = cellSize;
 
 		Shape shape = new Shape();
-		int[][] array = shape.getShapeB();
+		int[][] array = gamegrid;
 		gc.setFill(Color.BLACK);
 		
 		for (int i = 0;i<array.length;i++){
 			for (int j = 0; j<(array[i].length); j++){
+				
+				
 				if (array[i][j]==1)	{
 					gc.fillRect((x+size*j), (y+size*i), size, size);
 				}
-			}
+			}System.out.println("");
 		}
 		return array;
+	}
+	
+	
+	public static void updateGameGrid (int x, int y){
+		for (int i = 0;i<gamegrid2.length;i++){
+			for (int j = 0; j<(gamegrid2[i].length); j++){
+				if (x == i && y == j){
+					
+					gamegrid2[i][j] = 1;
+				}
+	
+				}
+			}
+		
+		
+//for printing purposes
+	for (int i = 0;i<gamegrid2.length;i++){
+		for (int j = 0; j<(gamegrid2[i].length); j++){
+			
+			
+		System.out.print(gamegrid2[i][j]);
+		}System.out.println("");
+	}
+		
+		
 	}
 //--------------------------------- Hardkode
 /*
