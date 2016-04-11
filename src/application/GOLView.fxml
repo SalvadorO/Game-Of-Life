@@ -65,14 +65,18 @@
    </left>
    
    <bottom>
-   	<HBox alignment="CENTER" prefHeight="30.0" prefWidth="800.0" BorderPane.alignment="CENTER">
+   	<HBox alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="30.0" prefWidth="900.0" BorderPane.alignment="CENTER">
    		<children>
-   			<HBox fx:id="HB_Advanced" alignment="CENTER_LEFT" prefWidth="400.0" style="-fx-background-color: #00FFFF" visible="true">
+   			<HBox fx:id="HB_Advanced" prefHeight="35.0" prefWidth="413.0" style="-fx-background-color: #00FFFF" visible="true" HBox.hgrow="ALWAYS">
    				<children>
-   					<Slider id="Sld_Speed" nodeOrientation="LEFT_TO_RIGHT" showTickLabels="true" showTickMarks="true" snapToTicks="true" />
+                  <Pane cacheHint="SCALE" nodeOrientation="LEFT_TO_RIGHT">
+                     <children>
+         					<Slider id="Sld_Speed" nodeOrientation="LEFT_TO_RIGHT" showTickLabels="true" showTickMarks="true" snapToTicks="true" />
+                     </children>
+                  </Pane>
    				</children>
    			</HBox>
-   			<HBox fx:id="MenuButtons" alignment="CENTER_RIGHT" nodeOrientation="LEFT_TO_RIGHT" prefWidth="400.0" spacing="5.0" style="-fx-background-color: #000000">
+   			<HBox fx:id="MenuButtons" alignment="TOP_RIGHT" nodeOrientation="LEFT_TO_RIGHT" prefWidth="400.0" spacing="5.0" style="-fx-background-color: #000000">
    				<children>
    					<Button fx:id="btn_PlayStop" alignment="CENTER_RIGHT" defaultButton="true" mnemonicParsing="false" onAction="#btn_PlayStopPressed" prefHeight="30" text="Play" />
                   	<Button fx:id="btn_Next" alignment="CENTER_RIGHT" mnemonicParsing="false" onAction="#btn_Next" prefHeight="30" text="Next" />
