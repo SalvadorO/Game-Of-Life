@@ -34,7 +34,7 @@ public class GameController implements Initializable{
 	protected golDialog dialog = new golDialog();
 
 	@FXML
-	protected Canvas img;
+	public Canvas img;
 	
     @FXML
     private MenuItem mnu_FileOpen,  mnu_FileSave, mnu_SetupGridsize;
@@ -134,10 +134,7 @@ public class GameController implements Initializable{
     @FXML
     void btn_ResetPressed(ActionEvent event) {
     	gameboardcanvas = new GameboardCanvas();
-    gc.clearRect(0, 0, img.getWidth(), img.getHeight());
-    	
-    	
-    	
+    gc.clearRect(0, 0, img.getWidth(), img.getHeight());	
 	}
     
     @FXML
@@ -167,13 +164,13 @@ public class GameController implements Initializable{
     }
     
     @FXML
-    void btn_Next(ActionEvent event){
+    protected void btn_Next(ActionEvent event){
     	// This will show the next gen and stop there
     	gameboardcanvas.grid.nextGeneration(null, gc);
     }
     
     @FXML
-    void cmi_adv(ActionEvent event){
+    protected void cmi_adv(ActionEvent event){
     	// This will activate the advanced menu
 //    	Sld_Speed.setVisible(true);
 //    	System.out.println("The Speed slider is now visible");
@@ -191,18 +188,17 @@ public class GameController implements Initializable{
 //    		}
 //    	});
     }
-    
-    
     @Override
 	public void initialize(URL location, ResourceBundle resources) {
 		gc = img.getGraphicsContext2D();
 		gc.setFill(Color.BLACK);
     }   
     
-    protected static EventHandler<MouseEvent> mouseHandlerClicked = new EventHandler <MouseEvent>()	{
+    protected static EventHandler<MouseEvent> mouseHandlerPressed = new EventHandler <MouseEvent>()	{
 		@Override
 		public void handle(MouseEvent event) {
-			System.out.println("Click! "+event.getX()+" "+event.getY());
+			System.out.println("Click! getX "+event.getX()+" "+event.getY());
+			System.out.print("Click! getSceneX "+event.getSceneX()+" "+event.getSceneY());
 		}
     };
     protected static EventHandler<MouseEvent> mouseHandlerDragged = new EventHandler <MouseEvent>()	{
@@ -211,5 +207,9 @@ public class GameController implements Initializable{
 			System.out.println("DRAAAG!! "+event.getX()+" "+event.getY());
 		}
     };
-    
+    private boolean HasStarted(){
+    	if(){
+    		
+    	}
+    }
 }
