@@ -67,7 +67,7 @@
    <bottom>
    	<HBox alignment="CENTER" prefHeight="30.0" prefWidth="800.0" BorderPane.alignment="CENTER">
    		<children>
-   			<HBox fx:id="HB_Advanced" alignment="CENTER_LEFT"  prefWidth="400.0" visible="true" style="-fx-background-color: #00FFFF">
+   			<HBox fx:id="HB_Advanced" alignment="CENTER_LEFT" prefWidth="400.0" style="-fx-background-color: #00FFFF" visible="true">
    				<children>
    					<Slider id="Sld_Speed" nodeOrientation="LEFT_TO_RIGHT" showTickLabels="true" showTickMarks="true" snapToTicks="true" />
    				</children>
