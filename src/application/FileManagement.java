@@ -33,7 +33,7 @@ public class FileManagement {
  	 * The method takes the filecontent as a String, and returns the header element
  	 * @param file
  	 * @return
- 	 * 
+ 	 * @author hd
  	 */
  	public String[] getHeader(String[] filecontent)	{
  		
