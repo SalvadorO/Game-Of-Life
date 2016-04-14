@@ -66,9 +66,9 @@
    </left>
    
    <bottom>
-   	<HBox alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="30.0" prefWidth="900.0" style="-fx-background-color: #00FFFF;" BorderPane.alignment="CENTER">
+   	<HBox alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="30.0" prefWidth="900.0" style="-fx-background-color: #bdbdbd;" BorderPane.alignment="CENTER">
    		<children>
-   			<HBox fx:id="HB_Advanced" prefHeight="35.0" prefWidth="413.0" style="-fx-background-color: #00FFFF" visible="true" HBox.hgrow="ALWAYS">
+   			<HBox fx:id="HB_Advanced" prefHeight="35.0" prefWidth="400.0" visible="true" HBox.hgrow="ALWAYS">
    				<children>
                   <Pane cacheHint="SCALE" nodeOrientation="LEFT_TO_RIGHT">
                      <children>
