@@ -2,8 +2,11 @@ package application;
 
 import java.awt.event.MouseEvent;
 
+import javax.swing.BorderFactory;
+
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
 
 public class Grid {
 	
@@ -185,8 +188,7 @@ public class Grid {
     		   
     		   gc.fillRect((x+size*j), (y+size*i), size/currentGen.length, size/currentGen.length);
     	   }
-       					System.out.println("+++++e++++++++++++++++++++++++++++++++++++++++++++++++++++++");
-    	   System.out.println(gamegrid.length);
+       					
        }
     }
     	   }}
@@ -209,9 +211,15 @@ public class Grid {
 		
 		for (int i = 0;i<array.length;i++){
 			for (int j = 0; j<(array[i].length); j++){
+				//her skal dte inn noe for å lage border på cellene
 				
 				
 				if (array[i][j]==1)	{
+					gc.setFill(Color.BLUE);
+					gc.fillRect((x+size*i), (y+size*j), size, size);
+				}
+				else{
+					gc.setFill(Color.GREY);
 					gc.fillRect((x+size*j), (y+size*i), size, size);
 				}
 			}System.out.println("");
@@ -220,7 +228,7 @@ public class Grid {
 	}
 	
 	
-	public static void updateGameGrid (int x, int y){
+	public static void updateGameGrid (int x, int y, GraphicsContext gc){
 		for (int i = 0;i<gamegrid2.length;i++){
 			for (int j = 0; j<(gamegrid2[i].length); j++){
 				if (x == i && y == j){
@@ -236,7 +244,8 @@ public class Grid {
 	for (int i = 0;i<gamegrid2.length;i++){
 		for (int j = 0; j<(gamegrid2[i].length); j++){
 			
-			
+			gc.setFill(Color.BLUE);
+			gc.fillRect((x+cellSize), (y+cellSize), cellSize, cellSize);
 		System.out.print(gamegrid2[i][j]);
 		}System.out.println("");
 	}

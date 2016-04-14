@@ -42,6 +42,7 @@
           	<items>
           		<MenuItem mnemonicParsing="false" onAction="#mnu_StatsMenuPressed" text="Stats" />
                 <CheckMenuItem id="cmi_adv" mnemonicParsing="false" text="Advanced Menu" />
+                  <MenuItem mnemonicParsing="false" onAction="#mnu_StatsMenuPressed" text="GridSize" />
           	</items>
           </Menu>
         </menus>

@@ -40,7 +40,7 @@ public class GameController implements Initializable{
     private MenuItem mnu_FileOpen,  mnu_FileSave, mnu_SetupGridsize;
 	
 	@FXML
-    private Button btn_Reset, btn_PlayStop, btn_Quit, btn_Next, cmi_adv;
+    private Button btn_Reset, btn_PlayStop, btn_Quit, btn_Next, cmi_adv, btn_GridSize;
 	
 	@FXML
 	private Slider Sld_Speed;
@@ -172,6 +172,8 @@ public class GameController implements Initializable{
     	gameboardcanvas.grid.nextGeneration(null, gc);
     }
     
+   
+    
     @FXML
     void cmi_adv(ActionEvent event){
     	// This will activate the advanced menu
@@ -209,7 +211,7 @@ public class GameController implements Initializable{
 				if (x < Grid.gamegrid.length+1)
 					if (y < Grid.gamegrid.length+1)	
 			
-		Grid.updateGameGrid(x, y);
+		Grid.updateGameGrid(x, y, gc);
 		
 		
 		}
@@ -222,9 +224,9 @@ public class GameController implements Initializable{
 			int x = (int) event.getX();
 			int y = (int) event.getY();
 			if (x >= 0  && y > 0)
-			if (x < Grid.gamegrid.length+1)
-				if (y < Grid.gamegrid[0].length+1)
-			Grid.updateGameGrid(x, y);
+			if (x < Grid.gamegrid.length-1)
+				if (y < Grid.gamegrid[0].length-1)
+			Grid.updateGameGrid(x, y, gc);
 			
 		}
     };

@@ -94,17 +94,19 @@ public class golDialog extends Application	{
 		Dialog<int[]> dialog = new Dialog<int[]>();
 		dialog.setTitle("Enter size of grid");
 		dialog.setResizable(false);
+		Label CurrentGrid = new Label ("Current gridsize is: "+ Grid.gamegrid.length + " x " + Grid.gamegrid[0].length);
 		Label lbl_x = new Label("X-value:");
 		Label lbl_y = new Label("Y-value:");
 		TextField txt_x = new TextField();
 		TextField txt_y = new TextField();
 		
 		GridPane grid = new GridPane();
+		
 		grid.add(lbl_x, 1, 1);
 		grid.add(lbl_y, 2, 1);
 		grid.add(txt_x, 1, 2);
 		grid.add(txt_y, 2, 2);
-		
+		grid.add(CurrentGrid, 1, 3);
 		dialog.getDialogPane().setContent(grid);
 //		Focuses the X-value when you enter the stage
 		Platform.runLater(() -> txt_x.requestFocus());
