@@ -21,7 +21,7 @@ public class GameboardCanvas {
 	
 	public GameboardCanvas(){
 
-		grid = new Grid(120,120);
+		grid = new Grid(200,200);
 
 	}
 	
@@ -150,17 +150,6 @@ public class GameboardCanvas {
 			if (( neighbours < 2) || (neighbours> 3))
 					alive = false;
 			return alive;
-		}	
-
-//		----------------------------------------------------
-		
-		
-		
-//		----------------------------------------------------
-		
-		private boolean cellUnderMouse;
-
-		
-	
+		}		
 
 }
