@@ -20,7 +20,9 @@ public class GameboardCanvas {
 	Grid grid;
 	
 	public GameboardCanvas(){
+
 		grid = new Grid(120,120);
+
 	}
 	
 	
