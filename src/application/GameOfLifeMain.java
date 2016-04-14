@@ -31,17 +31,6 @@ public class GameOfLifeMain extends Application {
 			// lets us connect the mouse event that is in controller class in some way
 	       GOLgame.setOnMouseClicked(GameController.mouseHandlerClicked);
 	       GOLgame.setOnMouseDragged(GameController.mouseHandlerDragged);
-			
-//	    	GOLgame.setOnMouseDragged(new EventHandler<MouseEvent>() {
-//	    	        public void handle(MouseEvent event) {
-//	    	            System.out.println("You pressed:\nX: "+event.getX()+"\nY: "+event.getY());
-//		    	        }
-//		    	    });
-//	    	GOLgame.setOnMousePressed(new EventHandler<MouseEvent>() {
-//	    	        public void handle(MouseEvent event) {
-//	    	            System.out.println("You pressed:\nX: "+event.getX()+"\nY: "+event.getY());
-//		    	        }
-//		    	    });
 
 		} catch(Exception e) {
 			e.printStackTrace();
