@@ -223,7 +223,8 @@ public class GameController implements Initializable{
 		public void handle(MouseEvent event) {
 			System.out.println("DRAAAG!! "+event.getX()+" "+event.getY());
 			
-			gameboardcanvas.setCodY() = (int) event.getX()/Grid.cellSize;
+//			gameboardcanvas.setCodY() = (int) event.getX()/Grid.cellSize;
+			int x = (int) event.getX();
 			int y = (int) event.getY();
 			if (x >= 0  && y > 0)
 			if (x < Grid.gamegrid.length-1)
