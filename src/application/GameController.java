@@ -16,15 +16,33 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.CheckMenuItem;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.Slider;
 import javafx.scene.control.TextArea;
 import javafx.scene.paint.Color;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import java.awt.event.MouseMotionAdapter;
 import javafx.scene.input.MouseEvent;
+
+import java.util.AbstractMap.SimpleEntry;
+import java.util.Map.Entry;
+import javafx.application.Application;
+import javafx.scene.Scene;
+import javafx.scene.control.*;
+import javafx.scene.effect.DropShadow;
+import javafx.scene.effect.Effect;
+import javafx.scene.effect.Glow;
+import javafx.scene.effect.SepiaTone;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
+import javafx.stage.Stage;
+ 
 
 public class GameController implements Initializable{
 	
@@ -40,7 +58,7 @@ public class GameController implements Initializable{
     private MenuItem mnu_FileOpen,  mnu_FileSave, mnu_SetupGridsize;
 	
 	@FXML
-    private Button btn_Reset, btn_PlayStop, btn_Quit, btn_Next, cmi_adv, btn_GridSize;
+    private Button btn_Reset, btn_PlayStop, btn_Quit, btn_Next, btn_GridSize;
 	
 	@FXML
 	private Slider Sld_Speed;
@@ -51,6 +69,9 @@ public class GameController implements Initializable{
 	//TODO: This component is for testing purposes. To be removed when done
 	@FXML
     private TextArea txtArea;
+	
+	@FXML
+	private CheckMenuItem cmi_adv;
 
 	
 	/**
@@ -233,4 +254,7 @@ public class GameController implements Initializable{
 			
 		}
     };
+    
+    
+    
 }

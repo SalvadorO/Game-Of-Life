@@ -42,7 +42,6 @@
           	<items>
           		<MenuItem mnemonicParsing="false" onAction="#mnu_StatsMenuPressed" text="Stats" />
                 <CheckMenuItem id="cmi_adv" mnemonicParsing="false" text="Advanced Menu" />
-                  <MenuItem mnemonicParsing="false" onAction="#mnu_StatsMenuPressed" text="GridSize" />
           	</items>
           </Menu>
         </menus>
@@ -66,14 +65,17 @@
    </left>
    
    <bottom>
-   	<HBox alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="30.0" prefWidth="900.0" style="-fx-background-color: #bdbdbd;" BorderPane.alignment="CENTER">
+   	<HBox alignment="CENTER" prefHeight="30.0" prefWidth="400.0" style="-fx-background-color: #bdbdbd;" BorderPane.alignment="CENTER">
    		<children>
-   			<HBox fx:id="HB_Advanced" prefHeight="35.0" prefWidth="400.0" visible="true" HBox.hgrow="ALWAYS">
+   			<HBox fx:id="HB_Advanced" prefHeight="35.0" prefWidth="400.0" visible="false" HBox.hgrow="ALWAYS" spacing="10.0">
    				<children>
                   <Pane cacheHint="SCALE" nodeOrientation="LEFT_TO_RIGHT">
                      <children>
          					<Slider id="Sld_Speed" nodeOrientation="LEFT_TO_RIGHT" showTickLabels="true" showTickMarks="true" snapToTicks="true" />
                      </children>
+                     <padding>
+                     	<Insets left="5.0" right="5.0"/>
+                     </padding>
                   </Pane>
    				</children>
    			</HBox>
