@@ -51,6 +51,7 @@ public class GameController implements Initializable{
 	//TODO: This component is for testing purposes. To be removed when done
 	@FXML
     private TextArea txtArea;
+
 	
 	/**
 	 * When the menu item "SetupGridsize" is pressed, the gameboardcanvs' setgridsize dialog method
@@ -204,12 +205,13 @@ public class GameController implements Initializable{
     protected static EventHandler<MouseEvent> mouseHandlerClicked = new EventHandler <MouseEvent>()	{
 		@Override
 		public void handle(MouseEvent event) {
+			
 			System.out.println("Click! "+event.getX()+" "+event.getY());
 			int x = (int) event.getX();
 			int y = (int) event.getY();
 			if (x >= 0  && y > 0)
-				if (x < Grid.gamegrid.length+1)
-					if (y < Grid.gamegrid.length+1)	
+				if (x < Grid.gamegrid.length-1)
+					if (y < Grid.gamegrid.length-1)	
 			
 		Grid.updateGameGrid(x, y, gc);
 		
@@ -221,8 +223,8 @@ public class GameController implements Initializable{
 		public void handle(MouseEvent event) {
 			System.out.println("DRAAAG!! "+event.getX()+" "+event.getY());
 			
-			int x = (int) event.getX();
-			int y = (int) event.getY();
+			int x = (int) event.getX()/Grid.cellSize;
+			int y = (int) event.getY()/Grid.cellSize;
 			if (x >= 0  && y > 0)
 			if (x < Grid.gamegrid.length-1)
 				if (y < Grid.gamegrid[0].length-1)

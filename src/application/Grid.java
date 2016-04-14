@@ -205,7 +205,7 @@ public class Grid {
 		int x = 0;
 		int y = 0;
 		int size = cellSize;
-
+		
 		Shape shape = new Shape();
 		int[][] array = gamegrid;
 		gc.setFill(Color.BLACK);
@@ -213,7 +213,7 @@ public class Grid {
 		for (int i = 0;i<array.length;i++){
 			for (int j = 0; j<(array[i].length); j++){
 				//her skal dte inn noe for å lage border på cellene
-				
+			
 				
 				if (array[i][j]==1)	{
 					gc.setFill(Color.BLUE);
@@ -223,8 +223,10 @@ public class Grid {
 					gc.setFill(Color.GREY);
 					gc.fillRect((x+size*j), (y+size*i), size, size);
 				}
+				gc.strokeRect(y+cellSize*j, x+cellSize*i, size, size);
 			}System.out.println("");
 		}
+	
 		return array;
 	}
 	
@@ -247,7 +249,7 @@ public class Grid {
 			
 			gc.setFill(Color.BLUE);
 			gc.fillRect((x+cellSize), (y+cellSize), cellSize, cellSize);
-		System.out.print(gamegrid2[i][j]);
+		System.out.print(gamegrid2[j][i]);
 		}System.out.println("");
 	}
 		
