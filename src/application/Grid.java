@@ -193,6 +193,7 @@ public class Grid {
     }
     	   }}
       	}
+
 	/**
 	 * 
 	 * @param gc
@@ -252,6 +253,8 @@ public class Grid {
 		
 		
 	}
+
+
 //--------------------------------- Hardkode
 /*
 private boolean cellundermouse;
