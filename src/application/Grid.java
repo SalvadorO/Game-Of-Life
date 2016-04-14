@@ -247,7 +247,7 @@ public class Grid {
 	for (int i = 0;i<gamegrid2.length;i++){
 		for (int j = 0; j<(gamegrid2[i].length); j++){
 			
-			gc.setFill(Color.BLUE);
+			gc.setFill(Color.YELLOW);
 			gc.fillRect((x+cellSize), (y+cellSize), cellSize, cellSize);
 		System.out.print(gamegrid2[j][i]);
 		}System.out.println("");

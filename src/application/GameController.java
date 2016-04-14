@@ -28,7 +28,7 @@ import javafx.scene.input.MouseEvent;
 
 public class GameController implements Initializable{
 	
-	protected GameboardCanvas gameboardcanvas =  new GameboardCanvas();
+	public GameboardCanvas gameboardcanvas =  new GameboardCanvas();
 	protected static GraphicsContext gc;
 	protected FileManagement filemanager = new FileManagement();
 	protected golDialog dialog = new golDialog();
@@ -223,8 +223,8 @@ public class GameController implements Initializable{
 		public void handle(MouseEvent event) {
 			System.out.println("DRAAAG!! "+event.getX()+" "+event.getY());
 			
-			int x = (int) event.getX()/Grid.cellSize;
-			int y = (int) event.getY()/Grid.cellSize;
+			gameboardcanvas.setCodY() = (int) event.getX()/Grid.cellSize;
+			int y = (int) event.getY();
 			if (x >= 0  && y > 0)
 			if (x < Grid.gamegrid.length-1)
 				if (y < Grid.gamegrid[0].length-1)

@@ -18,12 +18,33 @@ import javafx.scene.paint.Color;
  */
 public class GameboardCanvas {
 	Grid grid;
-	
+	int cordX , cordY;
 	public GameboardCanvas(){
 
 		grid = new Grid(200,200);
+		
+		
 
 	}
+	public int getcordX(){
+		return cordX;
+		
+	}
+	public int getcordY(){
+		return cordY;
+		
+	}
+	public void setcordX(int cordX){
+		this.cordX = cordX;}
+	
+	public void setcordY(int cordY){
+		this.cordY = cordY;
+	}
+	
+	
+	
+	
+	
 	
 	
 	/**
