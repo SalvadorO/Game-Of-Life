@@ -176,7 +176,7 @@ public class Grid {
     	   for (int y = 0; y < currentGen[0].length; y++){
     		   
     		   int[][] array3 = nextGen;
-      			gc.setFill(Color.YELLOW);
+      			gc.setFill(Color.WHITE);
       			
       			for (int i = 0;i<array3.length;i++){
        				for (int j = 0; j<(array3[i].length); j++){
@@ -255,29 +255,4 @@ public class Grid {
 		
 		
 	}
-
-
-//--------------------------------- Hardkode
-/*
-private boolean cellundermouse;
-private CellGrid cellGrid;
-private int cellSize;
-
-
-public void mousePressed(MouseEvent e){
-	savecellundermouse(e.getX(),e.getY());
-}
-
-
-
-
-public void savecellundermouse(int x, int y)	{
-	try{
-		int cellSize;
-		cellundermouse = cellGrid.getCell(x / cellSize, y/ cellSize);
-	}catch(java.lang.ArrayIndexOutOfBoundsException e){
-		// Aint happening
-	}
-}
-*/
 }
