@@ -166,11 +166,13 @@ public class GameController implements Initializable{
     void mnu_FileOpenPressed(ActionEvent event) {
     	//Get the file content as an array
     	String[] input = (filemanager.parseFile(filemanager.openFile()));
-    	//Show the content in output area
-    	txtArea.clear();
-       	for (String e : input)
-       		txtArea.appendText(e + "\n");
-    	
+    	//Show the content in console for testing
+    	String s="";
+       	for (String e : input){
+       		s += e;
+       		s += "\n";
+       	}
+    	System.out.println(s);
        	//parse and show the pattern
        	txtArea.appendText("\n" + filemanager.getHeader(input));
 //       	gameboardcanvas.drawTWO(gc, input[2]);

@@ -39,7 +39,7 @@ public class FileManagement {
  		
  		// Initialize local variable header with the header part of the filecontent array
 		String header = filecontent[1];
- 			
+ 		
 		//Get x, y and rule values and set same
 		String[] headerelements = header.split(",");
 		String returnedHeader[] = null;
