@@ -1,12 +1,12 @@
 package application;
 
-import java.awt.event.MouseEvent;
-
-import javax.swing.BorderFactory;
-
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
+import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
-import javafx.scene.shape.Rectangle;
+import javafx.util.Duration;
+
 
 public class Grid {
 	
@@ -15,9 +15,13 @@ public class Grid {
 	
 	public static int[][] gamegrid;
 	static int cellSize = 10;
+	public static int cellWid =10;
+	public static int cellHei = 10;
 	private static int[][] gamegrid2 ;
 	
-	
+	public static double testCellSize ;
+	public static double testCellSize2 ;
+
 	
 	
 	
@@ -75,7 +79,7 @@ public class Grid {
 	 * @param value
 	 * @author hd
 	 */
-	public static void setCellstatus(int x, int y, int value)	{
+	public void setCellstatus(int x, int y, int value)	{
 		gamegrid[x][y]=value;
 	}
 	
@@ -111,25 +115,25 @@ public class Grid {
 		return o;
 	}
 	
-	public void nextGeneration(int [][] array2, GraphicsContext gc){
+	public int [][] nextGeneration(int [][] array2, GraphicsContext gc){
 		
-		int [][] currentGen = gamegrid;
+		int [][] currentGen = array2;
 		int size = cellSize;
 		
 		
-		Shape shape = new Shape();
-		int[][] array = shape.gettest();
-		gc.setFill(Color.BLACK);
+		//Shape shape = new Shape();
+		//int[][] array = shape.gettest();
+	//	gc.setFill(Color.BLACK);
 		
 		for (int x = 0; x < currentGen.length; x++){
 	    	   for (int y = 0; y < currentGen[0].length; y++){
 	    		   
-	    		   System.out.print(currentGen[x][y]);
+	    		 //  System.out.print(currentGen[x][y]);
 	    	   }
-	    	   System.out.println("");
+	    	 //  System.out.println("");
 	       }
 		
-	    	   System.out.println("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++/n");
+	    	 //  System.out.println("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++/n");
 	       
 		
 	    	   
@@ -181,9 +185,9 @@ public class Grid {
       			for (int i = 0;i<array3.length;i++){
        				for (int j = 0; j<(array3[i].length); j++){
        					if (array3[i][j]==1)	{
-       						gc.fillRect((x+size*j), (y+size*i), size/currentGen.length, size/currentGen.length);
+       						
     		   
-    		   System.out.print(currentGen[x][y]);
+    	//	   System.out.print(currentGen[x][y]);
     	
     		   
     		   gc.fillRect((x+size*j), (y+size*i), size/currentGen.length, size/currentGen.length);
@@ -192,6 +196,9 @@ public class Grid {
        }
     }
     	   }}
+       
+       return nextGen;
+       
       	}
 
 	/**
@@ -201,31 +208,63 @@ public class Grid {
 	 * @return 
 	 */
 	
-	public static int[][] draw(GraphicsContext gc){
-		int x = 0;
-		int y = 0;
-		int size = cellSize;
+	
+	
+
+
+	
+	
+	
+	public void oneGen(GraphicsContext gc, Canvas img){
 		
-		Shape shape = new Shape();
-		int[][] array = gamegrid;
-		gc.setFill(Color.BLACK);
 		
-		Grid.setCellstatus(15, 15, 1);
+		/*for (int i = 0;i<gamegrid2.length;i++){
+			for (int j = 0; j<(gamegrid2[i].length); j++){
+				
+			System.out.print(gamegrid2[j][i]);
+			}//System.out.println("");
+		}
+		//	System.out.println("--------------------------------------------------------------------------------------------------");
+			
+			*/
+			
+		gamegrid2 = nextGeneration(gamegrid2, gc);
 		
+		/*for (int i = 0;i<gamegrid2.length;i++){
+			for (int j = 0; j<(gamegrid2[i].length); j++){
+				
+			System.out.print(gamegrid2[j][i]);
+			}System.out.println("");
+		}
+		//System.out.println("??????????????????????????????????????????????????????????????????????????????????????????????????????????");
+	//	System.out.println();*/
+		draw(gc,img);
+		
+	}
+	
+	public static int[][] draw(GraphicsContext gc, Canvas canvas){
+		
+	//	int size = cellSize;
+		testCellSize = canvas.getHeight()/gamegrid.length;
+		testCellSize2 = canvas.getWidth();
+
+		
+//		Shape shape = new Shape();
+		int[][] array = gamegrid2;
+		gc.setFill(Color.GREY);
+		gc.setStroke(Color.BLACK);
+		gc.fillRect(0, 0, gc.getCanvas().getWidth(), gc.getCanvas().getHeight());
 		for (int i = 0;i<array.length;i++){
 			for (int j = 0; j<(array[i].length); j++){
-				//her skal dte inn noe for � lage border p� cellene
-			
 				
+				
+				//Grid.setCellstatus(x, y, value);
 				if (array[i][j]==1)	{
 					gc.setFill(Color.BLUE);
-					gc.fillRect((x+size*i), (y+size*j), size, size);
+					gc.fillRect(i*testCellSize, j*testCellSize, testCellSize, testCellSize);
 				}
-				else{
-					gc.setFill(Color.GREY);
-					gc.fillRect((x+size*j), (y+size*i), size, size);
-				}
-				gc.strokeRect(y+cellSize*j, x+cellSize*i, size, size);
+				
+				gc.strokeRect(i*testCellSize, j*testCellSize, testCellSize, testCellSize);
 			}System.out.println("");
 		}
 	
@@ -246,14 +285,12 @@ public class Grid {
 		
 		
 //for printing purposes
-	for (int i = 0;i<gamegrid2.length;i++){
+	/*for (int i = 0;i<gamegrid2.length;i++){
 		for (int j = 0; j<(gamegrid2[i].length); j++){
 			
-			gc.setFill(Color.YELLOW);
-			gc.fillRect((x+cellSize), (y+cellSize), cellSize, cellSize);
 		System.out.print(gamegrid2[j][i]);
 		}System.out.println("");
-	}
+	}*/
 		
 		
 	}

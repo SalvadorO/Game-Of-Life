@@ -89,7 +89,6 @@ public class golDialog extends Application	{
 	 * @return String
 	 */
 	public Optional<int[]> setGridSizeDialogue() {
-		
 		Optional<int[]>returnValue=null;
 		
 		Dialog<int[]> dialog = new Dialog<int[]>();
@@ -108,7 +107,6 @@ public class golDialog extends Application	{
 		grid.add(txt_x, 1, 2);
 		grid.add(txt_y, 2, 2);
 		grid.add(CurrentGrid, 1, 3);
-		
 		dialog.getDialogPane().setContent(grid);
 //		Focuses the X-value when you enter the stage
 		Platform.runLater(() -> txt_x.requestFocus());
