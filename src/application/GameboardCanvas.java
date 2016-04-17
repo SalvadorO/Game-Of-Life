@@ -3,9 +3,9 @@ package application;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import javafx.event.EventHandler;
+import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.input.MouseEvent;
+
 import javafx.scene.paint.Color;
 
 /**
@@ -18,27 +18,31 @@ import javafx.scene.paint.Color;
  */
 public class GameboardCanvas {
 	Grid grid;
-	int cordX , cordY;
+	static int GridX;
+	static int GridY;
+	private double testCellSize;
 	public GameboardCanvas(){
 
-		grid = new Grid(200,200);
+		grid = new Grid(50,50);
 		
 		
 
 	}
-	public int getcordX(){
-		return cordX;
-		
-	}
-	public int getcordY(){
-		return cordY;
-		
-	}
-	public void setcordX(int cordX){
-		this.cordX = cordX;}
 	
-	public void setcordY(int cordY){
-		this.cordY = cordY;
+	public static int getGridX(){
+		return GridX;
+		
+	}
+	public int getGridY(){
+		return GridY;
+		
+	}
+	public void setGridX(int GridX){
+	
+		GameboardCanvas.GridX = GridX;}
+	
+	public void setGridY(int GridY){
+		GameboardCanvas.GridY = GridY;
 	}
 	
 	
@@ -79,7 +83,7 @@ public class GameboardCanvas {
 		Pattern p = Pattern.compile(re);
     	Matcher matcher;
 		
-    	int y_counter = 0;
+    //	int y_counter = 0;
 		int x_counter = 0;
 		
 		//loop antall ganger som det er linjer i is

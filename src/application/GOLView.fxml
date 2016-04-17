@@ -51,8 +51,14 @@
    <center>
       <Pane prefHeight="275.0" prefWidth="426.0" style="-fx-background-color: #dedede">
          <children>
-            <Canvas id="test" fx:id="img" height="414.0" width="800.0" BorderPane.alignment="CENTER" />
+            <Canvas id="test" fx:id="img" height="450.0" width="800.0" BorderPane.alignment="CENTER" />
          </children>
+         <opaqueInsets>
+            <Insets top="10.0" />
+         </opaqueInsets>
+         <BorderPane.margin>
+            <Insets />
+         </BorderPane.margin>
       </Pane>
    </center>
    
@@ -71,7 +77,7 @@
    				<children>
                   <Pane cacheHint="SCALE" nodeOrientation="LEFT_TO_RIGHT">
                      <children>
-         					<Slider id="Sld_Speed" nodeOrientation="LEFT_TO_RIGHT" showTickLabels="true" showTickMarks="true" snapToTicks="true" />
+         					<Slider id="Sld_Speed" blockIncrement="5.0" layoutY="-5.0" majorTickUnit="1.0" max="5.0" min="1.0" minorTickCount="1" nodeOrientation="LEFT_TO_RIGHT" showTickLabels="true" showTickMarks="true" snapToTicks="true" value="2.0" />
                      </children>
                      <padding>
                      	<Insets left="5.0" right="5.0"/>
