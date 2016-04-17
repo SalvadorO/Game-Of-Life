@@ -260,7 +260,7 @@ public class Grid {
 				
 				//Grid.setCellstatus(x, y, value);
 				if (array[i][j]==1)	{
-					gc.setFill(Color.BLUE);
+					gc.setFill(Color.WHITE);
 					gc.fillRect(i*testCellSize, j*testCellSize, testCellSize, testCellSize);
 				}
 				
@@ -278,6 +278,8 @@ public class Grid {
 				if (x == i && y == j){
 					
 					gamegrid2[i][j] = 1;
+					gc.setFill(Color.WHITE);
+					gc.fillRect(i*testCellSize, j*testCellSize, testCellSize*0.75, testCellSize*0.75);
 				}
 	
 				}

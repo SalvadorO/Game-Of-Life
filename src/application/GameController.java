@@ -224,7 +224,7 @@ public class GameController implements Initializable{
 		gc.setFill(Color.BLACK);
 		Grid.draw(gc, img);
 		timeline = new Timeline(new KeyFrame(
-    	        Duration.millis(250),
+    	        Duration.millis(125),
     	        butt -> gameboardcanvas.grid.oneGen(gc, img)));
     	timeline.setCycleCount(Animation.INDEFINITE);
 		
