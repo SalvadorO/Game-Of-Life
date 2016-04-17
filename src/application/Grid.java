@@ -75,7 +75,7 @@ public class Grid {
 	 * @param value
 	 * @author hd
 	 */
-	public void setCellstatus(int x, int y, int value)	{
+	public static void setCellstatus(int x, int y, int value)	{
 		gamegrid[x][y]=value;
 	}
 	
@@ -210,9 +210,11 @@ public class Grid {
 		int[][] array = gamegrid;
 		gc.setFill(Color.BLACK);
 		
+		Grid.setCellstatus(15, 15, 1);
+		
 		for (int i = 0;i<array.length;i++){
 			for (int j = 0; j<(array[i].length); j++){
-				//her skal dte inn noe for å lage border på cellene
+				//her skal dte inn noe for ï¿½ lage border pï¿½ cellene
 			
 				
 				if (array[i][j]==1)	{

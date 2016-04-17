@@ -26,6 +26,8 @@ import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import java.awt.event.MouseMotionAdapter;
+import java.io.File;
+
 import javafx.scene.input.MouseEvent;
 
 import java.util.AbstractMap.SimpleEntry;
@@ -83,10 +85,22 @@ public class GameController implements Initializable{
 	 */
 	@FXML
     void mnu_SetupGridsizePressed(ActionEvent event) {
-				
-		int[] o = dialog.setGridSizeDialogue().get();
+			
+		
+		/* TODO: fix error when exiting setupgridsize
+		 * TODO: connect new gridsize values to gridsize array
+		 * TODO: update "current gridsize", maybe implement a getGridsize method in grid
+		 */
+		
+		int[] newgridsize = dialog.setGridSizeDialogue().get();
+		gameboardcanvas.grid.setGrid(newgridsize[0], newgridsize[1]);
+		
+		
+//		dialog.setGridSizeDialogue();
+		
+		
 //		testing by printing the returned values on the outputarea
-		txtArea.setText(o[0] + "\n" + o[1]);
+		
 			
     }
 			// Help dialog
@@ -162,19 +176,41 @@ public class GameController implements Initializable{
     	
 	}
     
+    
+    /**
+     * Method opens a file input dialog to let the user choose a .rle file.
+     * The pattern is subsequently drawn on the canvas
+     * @param event
+     * @author hd
+     */
     @FXML
     void mnu_FileOpenPressed(ActionEvent event) {
+ 
+    	/*TODO: lag en model-klasse
+    	 * ved innlasting av fil: 
+    	 * 1) nullstill gamegrid 
+    	 * 2) oppdater med innlastett fil
+    	 * 3) tegn på canvas
+    	 * 4) Oppdater drawmetode til å støtte dette
+    	 */
+    	
+    	
+    	//Open a file object by calling the filemanager class
+    	File file=filemanager.openFile();
     	//Get the file content as an array
-    	String[] input = (filemanager.parseFile(filemanager.openFile()));
+    	String[] filecontent = (filemanager.parseFile(file));
     	//Show the content in console for testing
     	String s="";
-       	for (String e : input){
+       	for (String e : filecontent){
        		s += e;
        		s += "\n";
        	}
-    	System.out.println(s);
+       	System.out.println(s);
+//       	System.out.println(filemanager.getPattern(filecontent));
        	//parse and show the pattern
-       	txtArea.appendText("\n" + filemanager.getHeader(input));
+       	
+    	
+//	TODO: draw the pattern
 //       	gameboardcanvas.drawTWO(gc, input[2]);
     	
     }
@@ -230,6 +266,7 @@ public class GameController implements Initializable{
 		public void handle(MouseEvent event) {
 			
 			System.out.println("Click! "+event.getX()+" "+event.getY());
+			
 			int x = (int) event.getX();
 			int y = (int) event.getY();
 			if (x >= 0  && y > 0)
