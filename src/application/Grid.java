@@ -261,7 +261,7 @@ public class Grid {
 				//Grid.setCellstatus(x, y, value);
 				if (array[i][j]==1)	{
 					gc.setFill(Color.WHITE);
-					gc.fillRect(i*testCellSize, j*testCellSize, testCellSize, testCellSize);
+					gc.fillRect(i*testCellSize, j*testCellSize, testCellSize*0.75, testCellSize*0.75);
 				}
 				
 				gc.strokeRect(i*testCellSize, j*testCellSize, testCellSize, testCellSize);
