@@ -23,7 +23,7 @@ public class GameboardCanvas {
 	private double testCellSize;
 	public GameboardCanvas(){
 
-		grid = new Grid(50,50);
+		grid = new Grid(75,75);
 		
 		
 
