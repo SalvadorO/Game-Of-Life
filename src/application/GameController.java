@@ -51,10 +51,7 @@ public class GameController implements Initializable{
 	@FXML
 	private HBox HB_Advanced;
 	
-	//TODO: This component is for testing purposes. To be removed when done
-	@FXML
-    private TextArea txtArea;
-
+	
 	
 	/**
 	 * When the menu item "SetupGridsize" is pressed, the gameboardcanvs' setgridsize dialog method
@@ -119,7 +116,6 @@ public class GameController implements Initializable{
 			
 
 	/**
-	 * NOTE: use txtArea for testing output
 	 * @param event
 	 * @author hd
 	 */
@@ -169,21 +165,27 @@ public class GameController implements Initializable{
     void mnu_FileOpenPressed(ActionEvent event) {
     	//Get the file content as an array
     	String[] input = (filemanager.parseFile(filemanager.openFile()));
-    	//Show the content in output area
-    	txtArea.clear();
-       	for (String e : input)
-       		txtArea.appendText(e + "\n");
     	
+    	String output="";
+       	for (String e : input){
+       		output +=e;
+       		output +="\n";
+       	}
+    	System.out.println(output);
+       	
        	//parse and show the pattern
-       	txtArea.appendText("\n" + filemanager.getHeader(input));
+//       	System.out.println(filemanager.getHeader(input));
 //       	gameboardcanvas.drawTWO(gc, input[2]);
     	
     }
+    /**
+     * TODO: to be implemented
+     * @param event
+     */
     
     @FXML
     void mnu_FileSavePressed(ActionEvent event) {
-    	String filecontent = txtArea.getText();
-    	filemanager.saveFile(filecontent);
+//      	filemanager.saveFile(filecontent);
     }
 	
     @FXML
