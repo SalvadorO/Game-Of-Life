@@ -1,9 +1,11 @@
 package application;
 
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
-
+import javafx.util.Duration;
 
 
 public class Grid {
@@ -13,13 +15,12 @@ public class Grid {
 	
 	public static int[][] gamegrid;
 	static int cellSize = 10;
-	
+	public static int cellWid =10;
+	public static int cellHei = 10;
 
 	
 	public static int testCellSize ;
-	
-	// dont know if needed yet:
-	//public static int testCellSize2 ;
+	public static int testCellSize2 ;
 
 	
 	
@@ -120,16 +121,19 @@ public class Grid {
 		int size = cellSize;
 		
 		
+		//Shape shape = new Shape();
+		//int[][] array = shape.gettest();
+	//	gc.setFill(Color.BLACK);
 		
 		for (int x = 0; x < currentGen.length; x++){
 	    	   for (int y = 0; y < currentGen[0].length; y++){
 	    		   
-	    	
+	    		 //  System.out.print(currentGen[x][y]);
 	    	   }
-	    	
+	    	 //  System.out.println("");
 	       }
 		
-	    	
+	    	 //  System.out.println("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++/n");
 	       
 		
 	    	   
@@ -183,6 +187,7 @@ public class Grid {
        					if (array3[i][j]==1)	{
        						
     		   
+    	//	   System.out.print(currentGen[x][y]);
     	
     		   
     		   gc.fillRect((x+size*j), (y+size*i), size/currentGen.length, size/currentGen.length);
@@ -196,6 +201,12 @@ public class Grid {
        
       	}
 
+	/**
+	 * 
+	 * @param gc
+	 * @author hd
+	 * @return 
+	 */
 	
 	
 	
@@ -205,19 +216,41 @@ public class Grid {
 	
 	
 	public void oneGen(GraphicsContext gc, Canvas img){
+		
+		
+		/*for (int i = 0;i<gamegrid2.length;i++){
+			for (int j = 0; j<(gamegrid2[i].length); j++){
+				
+			System.out.print(gamegrid2[j][i]);
+			}//System.out.println("");
+		}
+		//	System.out.println("--------------------------------------------------------------------------------------------------");
+			
+			*/
 			
 		gamegrid = nextGeneration(gamegrid, gc);
 		
-		
+		/*for (int i = 0;i<gamegrid2.length;i++){
+			for (int j = 0; j<(gamegrid2[i].length); j++){
+				
+			System.out.print(gamegrid2[j][i]);
+			}System.out.println("");
+		}
+		//System.out.println("??????????????????????????????????????????????????????????????????????????????????????????????????????????");
+	//	System.out.println();*/
 		draw(gc,img);
 		
 	}
 	
 	public static int[][] draw(GraphicsContext gc, Canvas canvas){
 		
-	
+	//	int size = cellSize;
 		testCellSize = (int) (canvas.getHeight()/gamegrid[0].length);
-	
+		
+	//	testCellSize2 = canvas.getWidth();
+
+		
+//		Shape shape = new Shape();
 		int[][] array = gamegrid;
 		gc.setFill(Color.GREY);
 		gc.setStroke(Color.BLACK);
@@ -226,14 +259,14 @@ public class Grid {
 			for (int j = 0; j<(array[i].length); j++){
 				
 				
-		
+				//Grid.setCellstatus(x, y, value);
 				if (array[i][j]==1)	{
 					gc.setFill(Color.WHITE);
 					gc.fillRect(i*testCellSize, j*testCellSize, testCellSize, testCellSize);
 				}
 				
 				gc.strokeRect(i*testCellSize, j*testCellSize, testCellSize, testCellSize);
-			}
+			}//System.out.println("");
 		}
 	
 		return array;
@@ -252,6 +285,15 @@ public class Grid {
 	
 				}
 			}
+		
+		
+//for printing purposes
+	/*for (int i = 0;i<gamegrid2.length;i++){
+		for (int j = 0; j<(gamegrid2[i].length); j++){
+			
+		System.out.print(gamegrid2[j][i]);
+		}System.out.println("");
+	}*/
 		
 		
 	}
