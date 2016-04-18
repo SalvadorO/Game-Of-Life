@@ -54,7 +54,9 @@ public class golDialog extends Application	{
 			stats.setTitle("Stats");
 			stats.setHeaderText(null);
 			stats.setResizable(false);
-			stats.setContentText("Here will stats about the game be \n\n\n Ticks in the game: \n How many cell's are alive: \n And much more!");
+			stats.setContentText("Current gridsize is: "+ Grid.gamegrid.length + " x " + Grid.gamegrid[0].length + "\n" + "Number of generations:");
+			
+//			stats.setContentText("Here will stats about the game be \n\n\n Ticks in the game: \n How many cell's are alive: \n And much more!");
 			stats.initStyle(StageStyle.UNDECORATED);
 			
 			ButtonType buttonTypeCancel = new ButtonType("Close", ButtonData.CANCEL_CLOSE);
