@@ -89,7 +89,7 @@ public class golDialog extends Application	{
 	 * @return String
 	 */
 	public Optional<int[]> setGridSizeDialogue() {
-		Optional<int[]>returnValue=null;
+		Optional<int[]>returnValue = null;
 		
 		Dialog<int[]> dialog = new Dialog<int[]>();
 		dialog.setTitle("Enter size of grid");
