@@ -36,7 +36,7 @@ public class GameController implements Initializable{
 	
 
 	@FXML
-	protected Canvas img;
+	private Canvas img;
 	
     @FXML
     private MenuItem mnu_FileOpen,  mnu_FileSave, mnu_SetupGridsize;
