@@ -4,7 +4,7 @@ package application;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 
-
+import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -169,15 +169,14 @@ public class GameController implements Initializable{
     @FXML
     void mnu_FileOpenPressed(ActionEvent event) {
     	//Get the file content as an array
-    	String[] input = (filemanager.parseFile(filemanager.openFile()));
+    	File file = filemanager.openFile();
     	
-    	String output="";
-       	for (String e : input){
-       		output +=e;
-       		output +="\n";
-       	}
-    	System.out.println(output);
-       	
+    	String[] filecontent = filemanager.parseFile(file);
+    	
+    	System.out.println(filecontent[2]);
+    	
+    	System.out.println(filemanager.getHeader(filecontent)[0]);
+    	
        	//parse and show the pattern
 //       	System.out.println(filemanager.getHeader(input));
 //       	gameboardcanvas.drawTWO(gc, input[2]);
