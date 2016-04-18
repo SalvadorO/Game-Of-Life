@@ -20,15 +20,14 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.Slider;
-import javafx.scene.control.TextArea;
+
 import javafx.scene.paint.Color;
 import javafx.util.Duration;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 
 public class GameController implements Initializable{
-	//int gridWid = 30;
-//	int gridHei = 30;
+	
 	protected GameboardCanvas gameboardcanvas =  new GameboardCanvas();
 	protected static GraphicsContext gc;
 	protected FileManagement filemanager = new FileManagement();
@@ -131,8 +130,6 @@ public class GameController implements Initializable{
     	
     	
     	
-//    	Disabling the play button after pressed
-    	//btn_PlayStop.setDisable(true);
     	if (btn_PlayStop.getText().equals("Stop")){
         	
     		btn_PlayStop.setText("Play");
@@ -245,8 +242,6 @@ public class GameController implements Initializable{
 			int x = (int) (event.getX()/Grid.testCellSize);
 			int y = (int) (event.getY()/Grid.testCellSize);
 			y = (int) (y-3);
-			//GameboardCanvas.GridX =  (int)( event.getX()/Grid.testCellSize);
-			//GameboardCanvas.GridY =  (int)( event.getY()/Grid.testCellSize);
 			if (x >= 0  && y > -1)
 				if (x < Grid.gamegrid.length)
 					if (y < Grid.gamegrid[0].length)	
@@ -261,8 +256,6 @@ public class GameController implements Initializable{
 		public void handle(MouseEvent event) {
 			System.out.println("DRAAAG!! "+event.getX()+" "+event.getY());
 			
-		//	GameboardCanvas.GridX =  (int)( event.getX()/Grid.testCellSize);
-		//	GameboardCanvas.GridY =  (int)( event.getY()/Grid.testCellSize);
 			int x = (int) (event.getX()/Grid.testCellSize);
 			int y = (int) (event.getY() /Grid.testCellSize);
 			y = (int) (y-3);

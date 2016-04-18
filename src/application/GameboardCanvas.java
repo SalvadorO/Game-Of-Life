@@ -3,7 +3,7 @@ package application;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import javafx.scene.canvas.Canvas;
+
 import javafx.scene.canvas.GraphicsContext;
 
 import javafx.scene.paint.Color;
@@ -18,9 +18,7 @@ import javafx.scene.paint.Color;
  */
 public class GameboardCanvas {
 	Grid grid;
-	static int GridX;
-	static int GridY;
-	private double testCellSize;
+	
 	public GameboardCanvas(){
 
 		grid = new Grid(50,50);
@@ -28,27 +26,6 @@ public class GameboardCanvas {
 		
 
 	}
-	
-	public static int getGridX(){
-		return GridX;
-		
-	}
-	public int getGridY(){
-		return GridY;
-		
-	}
-	public void setGridX(int GridX){
-	
-		GameboardCanvas.GridX = GridX;}
-	
-	public void setGridY(int GridY){
-		GameboardCanvas.GridY = GridY;
-	}
-	
-	
-	
-	
-	
 	
 	
 	/**
