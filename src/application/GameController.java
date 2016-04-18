@@ -67,9 +67,16 @@ public class GameController implements Initializable{
 			gameboardcanvas.grid.setGrid(newgridsize[0],newgridsize[1]);
 			Grid.draw(gc, img);
 			
+			// Now calls the reset method and the PlayStop method 
+			btn_ResetPressed(event);
+			btn_PlayStopPressed(event);
+
+			
 			//TODO: use draw method to redraw grid
 			//TODO: validate input values
 			System.out.println(newgridsize[0] + "\n" + newgridsize[1]);
+			
+			
 		}
 		
 		
