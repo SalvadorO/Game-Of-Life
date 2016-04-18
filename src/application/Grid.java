@@ -17,17 +17,17 @@ public class Grid {
 	static int cellSize = 10;
 	public static int cellWid =10;
 	public static int cellHei = 10;
-	private static int[][] gamegrid2 ;
+
 	
-	public static double testCellSize ;
-	public static double testCellSize2 ;
+	public static int testCellSize ;
+	public static int testCellSize2 ;
 
 	
 	
 	
 	public Grid(int x, int y){
 		gamegrid = new int[x][y];
-		gamegrid2 = new int [x][y];
+		
 		
 	}
 	
@@ -228,7 +228,7 @@ public class Grid {
 			
 			*/
 			
-		gamegrid2 = nextGeneration(gamegrid2, gc);
+		gamegrid = nextGeneration(gamegrid, gc);
 		
 		/*for (int i = 0;i<gamegrid2.length;i++){
 			for (int j = 0; j<(gamegrid2[i].length); j++){
@@ -245,12 +245,13 @@ public class Grid {
 	public static int[][] draw(GraphicsContext gc, Canvas canvas){
 		
 	//	int size = cellSize;
-		testCellSize = canvas.getHeight()/gamegrid.length;
-		testCellSize2 = canvas.getWidth();
+		testCellSize = (int) (canvas.getHeight()/gamegrid[0].length);
+		
+	//	testCellSize2 = canvas.getWidth();
 
 		
 //		Shape shape = new Shape();
-		int[][] array = gamegrid2;
+		int[][] array = gamegrid;
 		gc.setFill(Color.GREY);
 		gc.setStroke(Color.BLACK);
 		gc.fillRect(0, 0, gc.getCanvas().getWidth(), gc.getCanvas().getHeight());
@@ -261,11 +262,11 @@ public class Grid {
 				//Grid.setCellstatus(x, y, value);
 				if (array[i][j]==1)	{
 					gc.setFill(Color.WHITE);
-					gc.fillRect(i*testCellSize, j*testCellSize, testCellSize*0.75, testCellSize*0.75);
+					gc.fillRect(i*testCellSize, j*testCellSize, testCellSize, testCellSize);
 				}
 				
 				gc.strokeRect(i*testCellSize, j*testCellSize, testCellSize, testCellSize);
-			}System.out.println("");
+			}//System.out.println("");
 		}
 	
 		return array;
@@ -273,13 +274,13 @@ public class Grid {
 	
 	
 	public static void updateGameGrid (int x, int y, GraphicsContext gc){
-		for (int i = 0;i<gamegrid2.length;i++){
-			for (int j = 0; j<(gamegrid2[i].length); j++){
+		for (int i = 0;i<gamegrid.length;i++){
+			for (int j = 0; j<(gamegrid[i].length); j++){
 				if (x == i && y == j){
 					
-					gamegrid2[i][j] = 1;
+					gamegrid[i][j] = 1;
 					gc.setFill(Color.WHITE);
-					gc.fillRect(i*testCellSize, j*testCellSize, testCellSize*0.75, testCellSize*0.75);
+					gc.fillRect(i*testCellSize, j*testCellSize, testCellSize, testCellSize);
 				}
 	
 				}

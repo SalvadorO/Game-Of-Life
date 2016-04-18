@@ -235,12 +235,13 @@ public class GameController implements Initializable{
 		public void handle(MouseEvent event) {
 			
 			System.out.println("Click! "+event.getX()+" "+event.getY());
+			
 			int x = (int) (event.getX()/Grid.testCellSize);
 			int y = (int) (event.getY()/Grid.testCellSize);
-			y = y-2;
+			y = (int) (y-3);
 			//GameboardCanvas.GridX =  (int)( event.getX()/Grid.testCellSize);
 			//GameboardCanvas.GridY =  (int)( event.getY()/Grid.testCellSize);
-			if (x >= 0  && y > -2)
+			if (x >= 0  && y > -1)
 				if (x < Grid.gamegrid.length)
 					if (y < Grid.gamegrid[0].length)	
 			
@@ -253,12 +254,13 @@ public class GameController implements Initializable{
 		@Override
 		public void handle(MouseEvent event) {
 			System.out.println("DRAAAG!! "+event.getX()+" "+event.getY());
+			
 		//	GameboardCanvas.GridX =  (int)( event.getX()/Grid.testCellSize);
 		//	GameboardCanvas.GridY =  (int)( event.getY()/Grid.testCellSize);
 			int x = (int) (event.getX()/Grid.testCellSize);
 			int y = (int) (event.getY() /Grid.testCellSize);
-			y = y-2;
-			if (x >= 0  && y > -2)
+			y = (int) (y-3);
+			if (x >= 0  && y > -1)
 			if (x < Grid.gamegrid.length)
 				if (y< Grid.gamegrid[0].length)
 			Grid.updateGameGrid(x, y, gc);
