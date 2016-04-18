@@ -117,14 +117,6 @@ public class GameController implements Initializable{
 			    	
 			}
 			
-			// Shapes dialog
-			@FXML
-				void mnu_ShapesPressed(ActionEvent event)	{
-					golDialog.ShapesDialogue();
-			}
-		
-			
-			
 
 	/**
 	 * @param event
