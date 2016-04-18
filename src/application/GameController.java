@@ -175,10 +175,8 @@ public class GameController implements Initializable{
     	
     	System.out.println(filecontent[2]);
     	
-    	System.out.println(filemanager.getHeader(filecontent)[0]);
-    	
        	//parse and show the pattern
-//       	System.out.println(filemanager.getHeader(input));
+
 //       	gameboardcanvas.drawTWO(gc, input[2]);
     	
     }
