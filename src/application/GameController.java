@@ -66,10 +66,12 @@ public class GameController implements Initializable{
 	@FXML
     void mnu_SetupGridsizePressed(ActionEvent event) {
 				
-		int[] o = dialog.setGridSizeDialogue().get();
-//		testing by printing the returned values on the outputarea
-		txtArea.setText(o[0] + "\n" + o[1]);
-			
+		int[] newgridsize = dialog.setGridSizeDialogue().get();
+		if (newgridsize != null) {
+			System.out.println(newgridsize[0] + "\n" + newgridsize[1]);
+		}
+		
+		
     }
 			// Help dialog
 			@FXML
