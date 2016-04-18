@@ -29,40 +29,12 @@ public class FileManagement {
 		return fc;
 }
 
- 	/**
- 	 * The method takes the filecontent as a String, and returns the header element
- 	 * @param file
- 	 * @return returnedHeader
- 	 * @author hd
- 	 */
- 	public String[] getHeader(String[] filecontent)	{
- 		
- 		// Initialize local variable header with the header part of the filecontent array
-		String header = filecontent[1];
- 		
-		//Get x, y and rule values and set same
-		String[] headerelements = header.split(",");
-		String returnedHeader[] = null;
-		
-		for (int i = 0; i < headerelements.length; i++){
-			String[] keyvalue = headerelements[i].split("=");
-			if (keyvalue[0].equals("x") )
-				returnedHeader[i] = keyvalue[1];
-			if (keyvalue[0].equals("y") )
-				returnedHeader[i] = keyvalue[1];
-			if (keyvalue[0].matches("r*")){
-				returnedHeader[i] = keyvalue[1];
-			}
-		}
-
-		return returnedHeader;
-	}
-
+ 	
 
 
 
 /**
- * Method takes a file and returns the content as String.
+ * Method takes a file and returns the content as String array.
  * 
  * @return filecontent as a String array; 
  * pos 0 contains metadata
@@ -109,6 +81,30 @@ public String[] parseFile(File f) 	{
 			
 }
 	
+/**
+	 * The method takes the filecontent as a String, and returns the header
+	 * element as elements in an array
+	 * @param filecontent
+	 * @return returnedHeader array 
+	 * (position 0 holds x value
+	 * position 1 holds y value
+	 * position 2 holds rule value (if present)
+	 * @author hd
+	 */
+	public String[] getHeader(String[] filecontent)	{
+		
+		// Initialize local variable header with the header part of the filecontent array
+	String header = filecontent[1];
+	
+		// split header into info elements, ',' separates info elements
+	String[] headerelements = header.split(",");
+	
+		//return the header as a String array
+	return headerelements;
+}
+
+
+
 	/**
 	 * Method receives content as a String and saves this to the default file (created if not existing)
 	 * 

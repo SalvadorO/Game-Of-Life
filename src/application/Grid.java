@@ -42,9 +42,9 @@ public class Grid {
 	}
 	
 	/**
-	 * 
+	 * Method returns current gamegrid
 	 * @return int[][] gamegrid
-	 * @auth
+	 * @auth hd
 	 */
 	public int[][] getGrid(){
 		return gamegrid;
@@ -72,6 +72,8 @@ public class Grid {
 		return neighbours;
 	}
 	
+	
+	
 	/**
 	 * Method sets cell value based on received x and y parameter
 	 * @param x
@@ -81,6 +83,10 @@ public class Grid {
 	 */
 	public void setCellstatus(int x, int y, int value)	{
 		gamegrid[x][y]=value;
+	}
+	
+	public int getCellstatus(int x, int y){
+		return gamegrid[x][y];
 	}
 	
 	/**
@@ -98,10 +104,7 @@ public class Grid {
 		return alive;
 	}
 	
-	public int getCellstatus(int x, int y){
-		return gamegrid[x][y];
-	}
-	
+		
 	/**
 	 * A toString method to get a 1D representation of the table.
 	 * @author hd
