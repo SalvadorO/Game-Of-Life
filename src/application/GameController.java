@@ -54,7 +54,7 @@ public class GameController implements Initializable{
 	
 	
 	/**
-	 * When the menu item "SetupGridsize" is pressed, the gameboardcanvs' setgridsize dialog method
+	 * When the menu item "SetupGridsize" is pressed, the setgridsize dialog method
 	 * is called.
 	 * The returned values are sent to the GameBoardCanvas setGridmethod to set the grid size
 	 * @param event
@@ -65,6 +65,11 @@ public class GameController implements Initializable{
 				
 		int[] newgridsize = dialog.setGridSizeDialogue().get();
 		if (newgridsize != null) {
+			gameboardcanvas.grid.setGrid(newgridsize[0],newgridsize[1]);
+			Grid.draw(gc, img);
+			
+			//TODO: use draw method to redraw grid
+			//TODO: validate input values
 			System.out.println(newgridsize[0] + "\n" + newgridsize[1]);
 		}
 		
