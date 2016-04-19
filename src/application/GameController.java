@@ -67,21 +67,18 @@ public class GameController implements Initializable{
 		if (newgridsize != null) {
 			gameboardcanvas.grid.setGrid(newgridsize[0],newgridsize[1]);
 			Grid.draw(gc, img);
-			
-//			 btn_PlayStopPressed(event);
-//			 btn_ResetPressed(event);
 			//TODO: use draw method to redraw grid
 			//TODO: validate input values
-			System.out.println(newgridsize[0] + "\n" + newgridsize[1]);
 		}
-		
+		//Pauses and resets the game when gridsize is changed
+		btn_PlayStopPressed(event);
+		btn_ResetPressed(event);
 		
     }
 			// Help dialog
 			@FXML
 			 void mnu_AboutDialogPressed(ActionEvent event) {
 			 		golDialog.AboutDialogue();
-			 		
 			 }
 			
 			/*
@@ -105,8 +102,6 @@ public class GameController implements Initializable{
 				 void mnu_StatsMenuPressed(ActionEvent event){
 					golDialog.StatsDialogue();
 			    	HB_Advanced.setVisible(true);			   
-			    	
-			    	
 			}
 
 	/**
