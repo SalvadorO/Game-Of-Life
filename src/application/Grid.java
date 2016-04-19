@@ -11,7 +11,7 @@ public class Grid {
 	
 	
 	public static int[][] gamegrid;
-	static int cellSize = 10;
+	static int cellSize ;
 	
 	
 	public static int testCellSize ;
