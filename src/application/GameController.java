@@ -67,8 +67,8 @@ public class GameController implements Initializable{
 		if (newgridsize != null) {
 			gameboardcanvas.grid.setGrid(newgridsize[0],newgridsize[1]);
 			Grid.draw(gc, Gameboard);
-			//TODO: use draw method to redraw grid
-			//TODO: validate input values
+
+
 		}
 		//Pauses and resets the game when gridsize is changed
 		btn_PlayStopPressed(event);
@@ -77,9 +77,9 @@ public class GameController implements Initializable{
     }
 			// Help dialog
 			@FXML
-			 void mnu_AboutDialogPressed(ActionEvent event) {
-			 		golDialog.AboutDialogue();
-			 }
+			void mnu_AboutDialogPressed(ActionEvent event) {
+		 		golDialog.AboutDialogue();
+		 }
 			
 			/*
 			// Advanced dialog
