@@ -153,6 +153,8 @@ public class GameController implements Initializable{
     gc.clearRect(0, 0, img.getWidth(), img.getHeight());
     gameboardcanvas = new GameboardCanvas();
     Grid.draw(gc, img);
+    
+    btn_PlayStopPressed(event);
     	
 	}
     
@@ -231,7 +233,7 @@ public class GameController implements Initializable{
 		
     }
     
-    protected static EventHandler<MouseEvent> mouseHandlerClicked = new EventHandler <MouseEvent>()	{
+    protected static EventHandler<MouseEvent> mouseHandlerClicked = new EventHandler <MouseEvent>()		{
 		@Override
 		public void handle(MouseEvent event) {
 		
@@ -241,7 +243,7 @@ public class GameController implements Initializable{
 		Grid.updateGameGrid(x, y, gc);
 		}
     };
-    protected static EventHandler<MouseEvent> mouseHandlerDragged = new EventHandler <MouseEvent>()	{
+    protected static EventHandler<MouseEvent> mouseHandlerDragged = new EventHandler <MouseEvent>()		{
 		@Override
 		public void handle(MouseEvent event) {
 			
