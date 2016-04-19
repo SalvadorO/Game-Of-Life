@@ -104,6 +104,7 @@ public class GameController implements Initializable{
 			    	HB_Advanced.setVisible(true);			   
 			}
 
+
 	/**
 	 * @param event
 	 * @author hd
@@ -227,6 +228,7 @@ public class GameController implements Initializable{
 		
 			int x = (int) Math.floor((event.getX() / Grid.testCellSize));
 			int y = (int) Math.floor((event.getY() / Grid.testCellSize));
+
 			
 		Grid.updateGameGrid(x, y, gc);
 		}
@@ -235,8 +237,10 @@ public class GameController implements Initializable{
 		@Override
 		public void handle(MouseEvent event) {
 			
+
 			int x = (int) Math.floor((event.getX() / Grid.testCellSize));
 			int y = (int) Math.floor((event.getY() / Grid.testCellSize));
+
 			
 		Grid.updateGameGrid(x, y, gc);
 		}

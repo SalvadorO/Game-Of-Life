@@ -11,7 +11,9 @@ public class Grid {
 	
 	
 	public static int[][] gamegrid;
+
 	static int cellSize ;
+
 	
 	
 	public static int testCellSize ;
@@ -221,7 +223,9 @@ public class Grid {
 	public static int[][] draw(GraphicsContext gc, Canvas canvas){
 		
 	
+
 		testCellSize = (int) (canvas.getHeight()/gamegrid.length);
+
 		
 	
 
