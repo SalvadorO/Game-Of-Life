@@ -99,15 +99,16 @@ public class golDialog extends Application	{
 		
 		ButtonType buttonTypeOk = new ButtonType ("Ok", ButtonData.OK_DONE);
 		ButtonType buttonTypeCancel = new ButtonType ("Cancel", ButtonData.CANCEL_CLOSE);
-		dialog.getDialogPane().getButtonTypes().addAll(buttonTypeCancel, buttonTypeOk);
+		dialog.getDialogPane().getButtonTypes().addAll(buttonTypeOk, buttonTypeCancel);
 		
 		dialog.setResultConverter(new Callback<ButtonType, int[]>() {
 			@Override	
-			public int[] call(ButtonType b) {
-				if (b==buttonTypeOk){
+			public int[] call(ButtonType ok) {
+				if (ok==buttonTypeOk){
 					return new int[]{Integer.parseInt(txt_x.getText()), Integer.parseInt(txt_y.getText())};
+				}	else {
+					return null;
 				}
-				return null;
 			}
 	    });
 		
