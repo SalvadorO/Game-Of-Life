@@ -101,7 +101,7 @@ public class Grid {
 	
 		
 	/**
-	 * A toString method to get a 1D representation of the table.
+	 * A toString method to get a 1D representation of the gamegrid array.
 	 * @author hd
 	 */
 	@Override
