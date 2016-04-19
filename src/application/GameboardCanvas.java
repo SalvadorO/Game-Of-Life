@@ -21,7 +21,7 @@ public class GameboardCanvas {
 	
 	public GameboardCanvas(){
 
-		grid = new Grid(50,50);
+		grid = new Grid(10,10);
 		
 		
 
