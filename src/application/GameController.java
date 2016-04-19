@@ -3,19 +3,15 @@ package application;
 
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
-
 import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
-
 import javafx.animation.Animation;
 import javafx.animation.Animation.Status;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
-
 import javafx.event.EventHandler;
-
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -29,15 +25,19 @@ import javafx.scene.canvas.GraphicsContext;
 
 public class GameController implements Initializable{
 	
+
 	protected GameboardCanvas gameboardcanvas =  new GameboardCanvas();
 	protected static GraphicsContext gc;
 	protected FileManagement filemanager = new FileManagement();
 	protected golDialog dialog = new golDialog();
+
 	Timeline timeline = new Timeline();
 	
 
 	@FXML
+
 	private Canvas Gameboard;
+
 	
     @FXML
     private MenuItem mnu_FileOpen,  mnu_FileSave, mnu_SetupGridsize;
@@ -61,12 +61,16 @@ public class GameController implements Initializable{
 	 * @author hd
 	 */
 	@FXML
-    void mnu_SetupGridsizePressed(ActionEvent event) {
+	protected void mnu_SetupGridsizePressed(ActionEvent event) {
 				
 		int[] newgridsize = dialog.setGridSizeDialogue().get();
-		if (newgridsize != null) {
+		if (newgridsize.equals(null)) {
+			
+			System.out.println("Hei");
 			gameboardcanvas.grid.setGrid(newgridsize[0],newgridsize[1]);
+
 			Grid.draw(gc, Gameboard);
+
 
 
 		}
@@ -77,9 +81,11 @@ public class GameController implements Initializable{
     }
 			// Help dialog
 			@FXML
+
 			void mnu_AboutDialogPressed(ActionEvent event) {
 		 		golDialog.AboutDialogue();
 		 }
+
 			
 			/*
 			// Advanced dialog
@@ -99,7 +105,9 @@ public class GameController implements Initializable{
 			
 			// Stats dialog
 			@FXML
+
 				 void mnu_StatsMenuPressed(ActionEvent event){
+
 					golDialog.StatsDialogue();
 			    	HB_Advanced.setVisible(true);			   
 			}
@@ -110,7 +118,9 @@ public class GameController implements Initializable{
 	 * @author hd
 	 */
     @FXML
+
     void btn_PlayStopPressed(ActionEvent event) {
+
     	if (btn_PlayStop.getText().equals("Stop")){
         	
     		btn_PlayStop.setText("Play");
@@ -133,7 +143,7 @@ public class GameController implements Initializable{
      * @author hd
      */
     @FXML
-    void btn_ResetPressed(ActionEvent event) {
+    protected void btn_ResetPressed(ActionEvent event) {
     
     gc.clearRect(0, 0, Gameboard.getWidth(), Gameboard.getHeight());
     gameboardcanvas = new GameboardCanvas();
@@ -148,18 +158,21 @@ public class GameController implements Initializable{
 	}
     
     @FXML
-    void mnu_FileOpenPressed(ActionEvent event) {
+    protected void mnu_FileOpenPressed(ActionEvent event) {
     	//Get the file content as an array
     	File file = filemanager.openFile();
     	
     	String[] filecontent = filemanager.parseFile(file);
     	
+
     	System.out.println(filecontent[2]);
     	
        	//parse and show the pattern
 
 //       	gameboardcanvas.drawTWO(gc, input[2]);
+
     	
+    	Grid.draw(gc, img);
     }
     /**
      * TODO: to be implemented
@@ -167,7 +180,7 @@ public class GameController implements Initializable{
      */
     
     @FXML
-    void mnu_FileSavePressed(ActionEvent event) {
+    protected void mnu_FileSavePressed(ActionEvent event) {
 //      	filemanager.saveFile(filecontent);
     }
 	
@@ -177,7 +190,7 @@ public class GameController implements Initializable{
     }
     
     @FXML
-    void btn_Next(ActionEvent event){
+    protected void btn_Next(ActionEvent event){
     	// This will show the next gen and stop there
     	gameboardcanvas.grid.oneGen(gc, Gameboard);
     }
@@ -185,7 +198,7 @@ public class GameController implements Initializable{
    
     
     @FXML
-    void cmi_adv(ActionEvent event){
+    protected void cmi_adv(ActionEvent event){
     	// This will activate the advanced menu
 //    	Sld_Speed.setVisible(true);
 //    	System.out.println("The Speed slider is now visible");
@@ -225,9 +238,11 @@ public class GameController implements Initializable{
     protected static EventHandler<MouseEvent> mouseHandlerClicked = new EventHandler <MouseEvent>()		{
 		@Override
 		public void handle(MouseEvent event) {
+
 		
 			int x = (int) Math.floor((event.getX() / Grid.testCellSize));
 			int y = (int) Math.floor((event.getY() / Grid.testCellSize));
+
 
 			
 		Grid.updateGameGrid(x, y, gc);
@@ -238,8 +253,10 @@ public class GameController implements Initializable{
 		public void handle(MouseEvent event) {
 			
 
+
 			int x = (int) Math.floor((event.getX() / Grid.testCellSize));
 			int y = (int) Math.floor((event.getY() / Grid.testCellSize));
+
 
 			
 		Grid.updateGameGrid(x, y, gc);

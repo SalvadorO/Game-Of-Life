@@ -21,7 +21,7 @@ public class GameboardCanvas {
 	
 	public GameboardCanvas(){
 
-		grid = new Grid(10,10);
+		grid = new Grid(50,50);
 		
 		
 
@@ -52,10 +52,10 @@ public class GameboardCanvas {
 		 */
 		
 		String shape = s;
-    	String parsedpattern = grid.toString() + "\n";
-    	gc.setFill(Color.BLACK);
     	
-    	String[] is = shape.split("\\$");
+    	gc.setFill(Color.BLACK);
+    	String parsedpattern="";
+    	String[] inputstring = shape.split("\\$");
     	String re = "[0-9]+|[a-zA-Z]";
 		Pattern p = Pattern.compile(re);
     	Matcher matcher;
@@ -64,23 +64,35 @@ public class GameboardCanvas {
 		int x_counter = 0;
 		
 		//loop antall ganger som det er linjer i is
-		for (int i = 0; i < is.length; i++){
+		for (int i = 0; i < inputstring.length; i++){
 			x_counter = 0;
-			matcher = p.matcher(is[i]);
+			matcher = p.matcher(inputstring[i]);
 				while (matcher.find()){
 					if (Character.isDigit(matcher.group().charAt(0))){
 						int number = Integer.parseInt(matcher.group());
 						matcher.find();
 						while (number-- != 0){
+
+							//Fort testing
+							if (matcher.group().equals("b")){
+								grid.setCellstatus( x_counter++,i, 0);
+							}
+							//End for testing
+
 							if (matcher.group().equals("o")){
-								grid.setCellstatus(i, x_counter++, 1);
+								grid.setCellstatus( x_counter++,i, 1);
 							}
 							parsedpattern += (matcher.group());
 						}
 					}
 					else {
+						//For testing
+						if (matcher.group().equals("b"))	{
+							grid.setCellstatus(x_counter++,i, 0);
+						}
+						//End for testingh
 						if (matcher.group().equals("o"))	{
-							grid.setCellstatus(i, x_counter++, 1);
+							grid.setCellstatus(x_counter++,i, 1);
 						}
 						parsedpattern += (matcher.group());
 						
