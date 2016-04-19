@@ -3,24 +3,19 @@ package application;
 
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
-
 import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
-
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
-
 import javafx.event.EventHandler;
-
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.Slider;
-
 import javafx.scene.paint.Color;
 import javafx.util.Duration;
 import javafx.scene.canvas.Canvas;
@@ -28,10 +23,10 @@ import javafx.scene.canvas.GraphicsContext;
 
 public class GameController implements Initializable{
 	
-	protected GameboardCanvas gameboardcanvas =  new GameboardCanvas();
-	protected static GraphicsContext gc;
-	protected FileManagement filemanager = new FileManagement();
-	protected golDialog dialog = new golDialog();
+	private GameboardCanvas gameboardcanvas =  new GameboardCanvas();
+	private static GraphicsContext gc;
+	private FileManagement filemanager = new FileManagement();
+	private golDialog dialog = new golDialog();
 	Timeline timeline = new Timeline();
 	
 
@@ -60,7 +55,7 @@ public class GameController implements Initializable{
 	 * @author hd
 	 */
 	@FXML
-    void mnu_SetupGridsizePressed(ActionEvent event) {
+	protected void mnu_SetupGridsizePressed(ActionEvent event) {
 				
 		int[] newgridsize = dialog.setGridSizeDialogue().get();
 		if (newgridsize != null) {
@@ -83,7 +78,7 @@ public class GameController implements Initializable{
     }
 			// Help dialog
 			@FXML
-			 void mnu_AboutDialogPressed(ActionEvent event) {
+			protected void mnu_AboutDialogPressed(ActionEvent event) {
 			 		golDialog.AboutDialogue();
 			 		
 			 }
@@ -106,7 +101,7 @@ public class GameController implements Initializable{
 			
 			// Stats dialog
 			@FXML
-				void mnu_StatsMenuPressed(ActionEvent event){
+			protected void mnu_StatsMenuPressed(ActionEvent event){
 					golDialog.StatsDialogue();
 			    	HB_Advanced.setVisible(true);
 			    	
@@ -123,7 +118,7 @@ public class GameController implements Initializable{
 	 * @author hd
 	 */
     @FXML
-    void btn_PlayStopPressed(ActionEvent event) {
+    protected void btn_PlayStopPressed(ActionEvent event) {
     	
     	
     	
@@ -154,7 +149,7 @@ public class GameController implements Initializable{
      * @author hd
      */
     @FXML
-    void btn_ResetPressed(ActionEvent event) {
+    protected void btn_ResetPressed(ActionEvent event) {
     
     gc.clearRect(0, 0, img.getWidth(), img.getHeight());
     gameboardcanvas = new GameboardCanvas();
@@ -163,7 +158,7 @@ public class GameController implements Initializable{
 	}
     
     @FXML
-    void mnu_FileOpenPressed(ActionEvent event) {
+    protected void mnu_FileOpenPressed(ActionEvent event) {
     	//Get the file content as an array
     	File file = filemanager.openFile();
     	
@@ -182,7 +177,7 @@ public class GameController implements Initializable{
      */
     
     @FXML
-    void mnu_FileSavePressed(ActionEvent event) {
+    protected void mnu_FileSavePressed(ActionEvent event) {
 //      	filemanager.saveFile(filecontent);
     }
 	
@@ -192,7 +187,7 @@ public class GameController implements Initializable{
     }
     
     @FXML
-    void btn_Next(ActionEvent event){
+    protected void btn_Next(ActionEvent event){
     	// This will show the next gen and stop there
     	gameboardcanvas.grid.oneGen(gc, img);
     }
@@ -200,7 +195,7 @@ public class GameController implements Initializable{
    
     
     @FXML
-    void cmi_adv(ActionEvent event){
+    protected void cmi_adv(ActionEvent event){
     	// This will activate the advanced menu
 //    	Sld_Speed.setVisible(true);
 //    	System.out.println("The Speed slider is now visible");
