@@ -223,40 +223,32 @@ public class GameController implements Initializable{
     	        Duration.millis(125),
     	        butt -> gameboardcanvas.grid.oneGen(gc, img)));
     	timeline.setCycleCount(Animation.INDEFINITE);
+    	
+		
+		// lets us connect the mouse event that is in controller class in some way
+       img.setOnMouseClicked(GameController.mouseHandlerClicked);
+       img.setOnMouseDragged(GameController.mouseHandlerDragged);
 		
     }
     
     protected static EventHandler<MouseEvent> mouseHandlerClicked = new EventHandler <MouseEvent>()	{
 		@Override
 		public void handle(MouseEvent event) {
-			
-			System.out.println("Click! "+event.getX()+" "+event.getY());
-			
-			int x = (int) (event.getX()/Grid.testCellSize);
-			int y = (int) (event.getY()/Grid.testCellSize);
-			y = (int) (y-3);
-			if (x >= 0  && y > -1)
-				if (x < Grid.gamegrid.length)
-					if (y < Grid.gamegrid[0].length)	
+		
+			int x = (int) Math.floor((event.getX() / Grid.testCellSize));
+			int y = (int) Math.floor((event.getY() / Grid.testCellSize));
 			
 		Grid.updateGameGrid(x, y, gc);
-		
-		
 		}
     };
     protected static EventHandler<MouseEvent> mouseHandlerDragged = new EventHandler <MouseEvent>()	{
 		@Override
 		public void handle(MouseEvent event) {
-			System.out.println("DRAAAG!! "+event.getX()+" "+event.getY());
 			
-			int x = (int) (event.getX()/Grid.testCellSize);
-			int y = (int) (event.getY() /Grid.testCellSize);
-			y = (int) (y-3);
-			if (x >= 0  && y > -1)
-			if (x < Grid.gamegrid.length)
-				if (y< Grid.gamegrid[0].length)
-			Grid.updateGameGrid(x, y, gc);
+			int x = (int) Math.floor((event.getX() / Grid.testCellSize));
+			int y = (int) Math.floor((event.getY() / Grid.testCellSize));
 			
+		Grid.updateGameGrid(x, y, gc);
 		}
     };
 }
