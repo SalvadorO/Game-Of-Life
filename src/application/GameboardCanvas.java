@@ -73,7 +73,7 @@ public class GameboardCanvas {
 						matcher.find();
 						while (number-- != 0){
 
-							//Fort testing
+							//For testing
 							if (matcher.group().equals("b")){
 								grid.setCellstatus( x_counter++,i, 0);
 							}
