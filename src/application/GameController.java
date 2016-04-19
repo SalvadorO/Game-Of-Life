@@ -238,6 +238,8 @@ public class GameController implements Initializable{
 		public void handle(MouseEvent event) {
 			
 			System.out.println("Click! "+event.getX()+" "+event.getY());
+			System.out.println("GBX" + event.getX()/Grid.testCellSize);
+			System.out.println("GBY" + event.getY()/Grid.testCellSize);
 			
 			int x = (int) (event.getX()/Grid.testCellSize);
 			int y = (int) (event.getY()/Grid.testCellSize);
@@ -255,6 +257,7 @@ public class GameController implements Initializable{
 		@Override
 		public void handle(MouseEvent event) {
 			System.out.println("DRAAAG!! "+event.getX()+" "+event.getY());
+			
 			
 			int x = (int) (event.getX()/Grid.testCellSize);
 			int y = (int) (event.getY() /Grid.testCellSize);

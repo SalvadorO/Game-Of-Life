@@ -221,7 +221,7 @@ public class Grid {
 	public static int[][] draw(GraphicsContext gc, Canvas canvas){
 		
 	
-		testCellSize = (int) (canvas.getHeight()/gamegrid[0].length);
+		testCellSize = (int) (canvas.getHeight()/gamegrid.length);
 		
 	
 
