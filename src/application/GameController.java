@@ -9,6 +9,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import javafx.animation.Animation;
+import javafx.animation.Animation.Status;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
@@ -67,8 +68,8 @@ public class GameController implements Initializable{
 			gameboardcanvas.grid.setGrid(newgridsize[0],newgridsize[1]);
 			Grid.draw(gc, img);
 			
-			 btn_PlayStopPressed(event);
-			 btn_ResetPressed(event);
+//			 btn_PlayStopPressed(event);
+//			 btn_ResetPressed(event);
 			//TODO: use draw method to redraw grid
 			//TODO: validate input values
 			System.out.println(newgridsize[0] + "\n" + newgridsize[1]);
@@ -101,13 +102,9 @@ public class GameController implements Initializable{
 			
 			// Stats dialog
 			@FXML
-				void mnu_StatsMenuPressed(ActionEvent event){
+				 void mnu_StatsMenuPressed(ActionEvent event){
 					golDialog.StatsDialogue();
-			    	HB_Advanced.setVisible(true);
-			    	
-			    	
-			   
-			    	
+			    	HB_Advanced.setVisible(true);			   
 			    	
 			    	
 			}
@@ -153,9 +150,13 @@ public class GameController implements Initializable{
     gc.clearRect(0, 0, img.getWidth(), img.getHeight());
     gameboardcanvas = new GameboardCanvas();
     Grid.draw(gc, img);
-    
-    btn_PlayStopPressed(event);
-    	
+    //Changes the button to Play and stops the timeline if reset is pressed
+    if (btn_PlayStop.getText().equals("Play")){
+    	timeline.stop();	
+    	}	else		{
+    		btn_PlayStop.setText("Play");	
+    		timeline.stop();
+    }
 	}
     
     @FXML
