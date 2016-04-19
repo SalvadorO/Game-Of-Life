@@ -19,10 +19,10 @@ public class GameOfLifeMain extends Application {
 			// Sets the minimal height and width value
 			primaryStage.setMinWidth(468);
 			primaryStage.setMinHeight(549);
-			primaryStage.setWidth(468);
-			primaryStage.setHeight(549);
-			primaryStage.setMaxWidth(468);
-			primaryStage.setMaxHeight(549);
+//			primaryStage.setWidth(468);
+//			primaryStage.setHeight(549);
+//			primaryStage.setMaxWidth(468);
+//			primaryStage.setMaxHeight(549);
 			Scene GOLgame = new Scene(root);
 			// Connects to CSS file
 			GOLgame.getStylesheets().add(getClass().getResource("GameboardCSS.css").toExternalForm());
@@ -31,10 +31,7 @@ public class GameOfLifeMain extends Application {
 
 			primaryStage.setScene(GOLgame);
 			primaryStage.show();
-			
-			// lets us connect the mouse event that is in controller class in some way
-	       GOLgame.setOnMouseClicked(GameController.mouseHandlerClicked);
-	       GOLgame.setOnMouseDragged(GameController.mouseHandlerDragged);
+
 
 		} catch(Exception e) {
 			e.printStackTrace();
