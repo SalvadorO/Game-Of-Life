@@ -37,7 +37,7 @@ public class GameController implements Initializable{
 	
 
 	@FXML
-	private Canvas img;
+	private Canvas Gameboard;
 	
     @FXML
     private MenuItem mnu_FileOpen,  mnu_FileSave, mnu_SetupGridsize;
@@ -66,7 +66,7 @@ public class GameController implements Initializable{
 		int[] newgridsize = dialog.setGridSizeDialogue().get();
 		if (newgridsize != null) {
 			gameboardcanvas.grid.setGrid(newgridsize[0],newgridsize[1]);
-			Grid.draw(gc, img);
+			Grid.draw(gc, Gameboard);
 			//TODO: use draw method to redraw grid
 			//TODO: validate input values
 		}
@@ -134,9 +134,9 @@ public class GameController implements Initializable{
     @FXML
     void btn_ResetPressed(ActionEvent event) {
     
-    gc.clearRect(0, 0, img.getWidth(), img.getHeight());
+    gc.clearRect(0, 0, Gameboard.getWidth(), Gameboard.getHeight());
     gameboardcanvas = new GameboardCanvas();
-    Grid.draw(gc, img);
+    Grid.draw(gc, Gameboard);
     //Changes the button to Play and stops the timeline if reset is pressed
     if (btn_PlayStop.getText().equals("Play")){
     	timeline.stop();	
@@ -178,7 +178,7 @@ public class GameController implements Initializable{
     @FXML
     void btn_Next(ActionEvent event){
     	// This will show the next gen and stop there
-    	gameboardcanvas.grid.oneGen(gc, img);
+    	gameboardcanvas.grid.oneGen(gc, Gameboard);
     }
     
    
@@ -206,18 +206,18 @@ public class GameController implements Initializable{
     
     @Override
 	public void initialize(URL location, ResourceBundle resources) {
-		gc = img.getGraphicsContext2D();
+		gc = Gameboard.getGraphicsContext2D();
 		gc.setFill(Color.BLACK);
-		Grid.draw(gc, img);
+		Grid.draw(gc, Gameboard);
 		timeline = new Timeline(new KeyFrame(
     	        Duration.millis(125),
-    	        butt -> gameboardcanvas.grid.oneGen(gc, img)));
+    	        butt -> gameboardcanvas.grid.oneGen(gc, Gameboard)));
     	timeline.setCycleCount(Animation.INDEFINITE);
     	
 		
 		// lets us connect the mouse event that is in controller class in some way
-       img.setOnMouseClicked(GameController.mouseHandlerClicked);
-       img.setOnMouseDragged(GameController.mouseHandlerDragged);
+       Gameboard.setOnMouseClicked(GameController.mouseHandlerClicked);
+       Gameboard.setOnMouseDragged(GameController.mouseHandlerDragged);
 		
     }
     

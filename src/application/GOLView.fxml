@@ -51,7 +51,7 @@
    <center>
       <Pane prefHeight="275.0" prefWidth="426.0" style="-fx-background-color: #dedede">
          <children>
-            <Canvas id="test" fx:id="img" height="450.0" width="800.0" BorderPane.alignment="CENTER" />
+            <Canvas fx:id="Gameboard" height="450.0" width="800.0" BorderPane.alignment="CENTER" />
          </children>
          <opaqueInsets>
             <Insets top="10.0" />
