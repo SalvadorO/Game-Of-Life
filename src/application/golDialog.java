@@ -54,7 +54,9 @@ public class golDialog extends Application	{
 			stats.setTitle("Stats");
 			stats.setHeaderText(null);
 			stats.setResizable(false);
-			stats.setContentText("Here will stats about the game be \n\n\n Ticks in the game: \n How many cell's are alive: \n And much more!");
+			stats.setContentText("Current gridsize is: "+ Grid.gamegrid.length + " x " + Grid.gamegrid[0].length + "\n" + "Number of generations:");
+			
+//			stats.setContentText("Here will stats about the game be \n\n\n Ticks in the game: \n How many cell's are alive: \n And much more!");
 			stats.initStyle(StageStyle.UNDECORATED);
 			
 			ButtonType buttonTypeCancel = new ButtonType("Close", ButtonData.CANCEL_CLOSE);
@@ -63,22 +65,6 @@ public class golDialog extends Application	{
 			stats.showAndWait();
 		}	
 	
-		// Shapes Dialogue
-		protected static  void ShapesDialogue()	{
-			List<String> choices = new ArrayList<>();
-			choices.add("1");
-			choices.add("2");
-			
-			ChoiceDialog<String> dialog = new ChoiceDialog<>(null,choices);
-			dialog.setTitle("Select your shape");
-			dialog.setHeaderText(null);
-			dialog.setContentText("Choose your shape");
-			
-			Optional<String> result = dialog.showAndWait();
-			if(result.isPresent()){
-				System.out.println("You picked " + result.get());
-			}
-		}
 	/**
 	 * Method that show a custom inputdialog box to the user.
 	 * The dialog takes an x value and a y value.
