@@ -115,11 +115,6 @@ public class GameController implements Initializable{
 	 */
     @FXML
     void btn_PlayStopPressed(ActionEvent event) {
-    	
-    	
-    	
-    	
-    	
     	if (btn_PlayStop.getText().equals("Stop")){
         	
     		btn_PlayStop.setText("Play");
@@ -128,9 +123,6 @@ public class GameController implements Initializable{
     		btn_PlayStop.setText("Stop");	
     		timeline.play();
     	}
-    	
-
-    	
     	gameboardcanvas.grid.setCellstatus(8, 8, 1);
     	
     	gameboardcanvas.grid.setCellstatus(16, 12, 1);
