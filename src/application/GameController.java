@@ -20,7 +20,7 @@ import javafx.util.Duration;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 
-class GameController implements Initializable{
+public class GameController implements Initializable{
 	
 	private GameboardCanvas gameboardcanvas =  new GameboardCanvas();
 	private static GraphicsContext gc;
