@@ -35,36 +35,35 @@ public class FileManagement {
 
 /**
  * Method takes a file and returns the content as String array.
+ * Method assumes files uses the convention; 
  * 
  * @return filecontent as a String array; 
  * pos 0 contains metadata
  * pos 1 contains header
  * pos 2 contains pattern
- * @throws IOException
  * @author hd
  */
 public String[] parseFile(File f) 	{
 
 	File file = f;
-	String returndata[] = new String[3];
-	String metadata = "";
+	String filecontent[] = new String[3];
+	StringBuilder metadata = new StringBuilder();
 	String header = "";
-	String pattern = "";
-			
-	
+	StringBuilder pattern = new StringBuilder();
+
 	try (BufferedReader br = new BufferedReader(new FileReader(file))) {
 		String line = null;
 		do{
 			line = br.readLine();
 				if (line != null){
 					if (line.startsWith("#")){
-						metadata += line;
+						metadata.append(line);
 					}
 					else {
 						if (header == "")
 							header = line;
 						else
-							pattern = line;
+							pattern.append(line);
 					}
 				};
 		
@@ -73,11 +72,11 @@ public String[] parseFile(File f) 	{
 	catch (IOException e) {
 		System.err.format("IOException: %s%n", e);
 	}
-	returndata[0] = metadata;
-	returndata[1] = header.replaceAll("\\s+","");
-	returndata[2] = pattern;
+	filecontent[0] = metadata.toString();
+	filecontent[1] = header.replaceAll("\\s+","");
+	filecontent[2] = pattern.toString();
 	
-	return returndata;
+	return filecontent;
 			
 }
 	
@@ -88,7 +87,7 @@ public String[] parseFile(File f) 	{
 	 * @return returnedHeader array 
 	 * (position 0 holds x value
 	 * position 1 holds y value
-	 * position 2 holds rule value (if present)
+	 * position 2 holds rule value (if present))
 	 * @author hd
 	 */
 	public String[] getHeader(String[] filecontent)	{
@@ -106,7 +105,8 @@ public String[] parseFile(File f) 	{
 
 
 	/**
-	 * Method receives content as a String and saves this to the default file (created if not existing)
+	 * TODO: to be completed
+	 * Method receives the filecontent as a String and saves this to the default file (created if not existing)
 	 * 
 	 * @param filecontent
 	 * @return boolean true if content was saved successfully

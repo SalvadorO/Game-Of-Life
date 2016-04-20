@@ -169,11 +169,11 @@ public class GameController implements Initializable{
        	//Redraw gameboard (i.e draw the laoded pattern)
     	Grid.draw(gc, Gameboard);
     }
+
     /**
      * TODO: to be implemented
      * @param event
      */
-    
     @FXML
     protected void mnu_FileSavePressed(ActionEvent event) {
 //      	filemanager.saveFile(filecontent);
