@@ -29,30 +29,20 @@ public class GameboardCanvas {
 	
 	/**
 	 * The method takes a pattern in RLE format (e.g 2b2o$2o2b) as a String and interprets the characters 
-	 * ('2' followed by a 'b' is 'bb', $ represents new line) and returns the pattern as a complete shape as a String
-	 * The methold is not complete; remains to draw on canvas (and not in txtArea) and remove return type.
+	 * ('2' followed by a 'b' is 'bb', $ represents new line) and sets the gamegrid array.
 	 * @param patterntobeparsed
-	 * @return parsedpattern
+	 * @return void
 	 * @author hd
 	 */
 
-	public String parsePattern(GraphicsContext gc, String s){
+	public void parsePattern(String pattern){
 		
-		/*TODO: add a routine to check if size of shape is not
-		 *exceeding available gamegrid space  
-		 */
-		
-		String shape = s;
-    	
-    	gc.setFill(Color.BLACK);
-    	String parsedpattern="";
-    	String[] inputstring = shape.split("\\$");
+    	String[] inputstring = pattern.split("\\$");
     	String re = "[0-9]+|[a-zA-Z]";
 		Pattern p = Pattern.compile(re);
     	Matcher matcher;
 		
-    //	int y_counter = 0;
-		int x_counter = 0;
+  		int x_counter = 0;
 		
 		//loop antall ganger som det er linjer i is
 		for (int i = 0; i < inputstring.length; i++){
@@ -73,7 +63,6 @@ public class GameboardCanvas {
 							if (matcher.group().equals("o")){
 								grid.setCellstatus( x_counter++,i, 1);
 							}
-							parsedpattern += (matcher.group());
 						}
 					}
 					else {
@@ -81,18 +70,13 @@ public class GameboardCanvas {
 						if (matcher.group().equals("b"))	{
 							grid.setCellstatus(x_counter++,i, 0);
 						}
-						//End for testingh
+						//End for testing
 						if (matcher.group().equals("o"))	{
 							grid.setCellstatus(x_counter++,i, 1);
 						}
-						parsedpattern += (matcher.group());
-						
 					}
-					
 				}
-			parsedpattern += "\n";
 		}
-		return parsedpattern + "\n" + grid.toString();
 	}
 
 	/** TODO: To be implemented
@@ -171,7 +155,7 @@ public class GameboardCanvas {
 			int rows = grid.getRows();
 			int columns = grid.getColumns();
 			
-			if ((rows > shapeRows) || (columns > shapeColumns))
+			if ((shapeRows > rows) || (shapeColumns > columns))
 				return true;
 			else 
 				return false;
