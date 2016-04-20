@@ -172,7 +172,7 @@ public class GameController implements Initializable{
 //       	gameboardcanvas.drawTWO(gc, input[2]);
 
     	
-    	Grid.draw(gc, img);
+    	Grid.draw(gc, Gameboard);
     }
     /**
      * TODO: to be implemented
