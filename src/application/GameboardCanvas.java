@@ -158,8 +158,24 @@ public class GameboardCanvas {
 		}
 		
 		
-		public boolean shapeBiggerThanGameboard(int x, int y){
-			int row = gaem
+		/**
+		 * Method takes the size (x and y values) of and returns true if any exceeds size of gamegrid,
+		 * returns false otherwise
+		 * @param shapeColumns
+		 * @param shapeRows
+		 * @return boolean
+		 * @author hd
+		 */
+		public boolean shapeBiggerThanGameboard(int shapeColumns, int shapeRows){
+			
+			int rows = grid.getRows();
+			int columns = grid.getColumns();
+			
+			if ((rows > shapeRows) || (columns > shapeColumns))
+				return true;
+			else 
+				return false;
+				
 		}
 
 }
