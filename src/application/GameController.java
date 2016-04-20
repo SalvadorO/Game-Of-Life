@@ -161,17 +161,12 @@ public class GameController implements Initializable{
     protected void mnu_FileOpenPressed(ActionEvent event) {
     	//Get the file content as an array
     	File file = filemanager.openFile();
-    	
     	String[] filecontent = filemanager.parseFile(file);
-    	
-
-    	System.out.println(filecontent[2]);
-    	
-       	//parse and show the pattern
-
-//       	gameboardcanvas.drawTWO(gc, input[2]);
-
-    	
+    	    	
+       	//Parse the pattern, update gamegrid array accordingly
+       	gameboardcanvas.drawTWO(gc, filecontent[2]);
+       	
+       	//Redraw gameboard (i.e draw the laoded pattern)
     	Grid.draw(gc, Gameboard);
     }
     /**
