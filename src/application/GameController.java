@@ -164,7 +164,7 @@ public class GameController implements Initializable{
     	String[] filecontent = filemanager.parseFile(file);
     	    	
        	//Parse the pattern, update gamegrid array accordingly
-       	gameboardcanvas.drawTWO(gc, filecontent[2]);
+       	gameboardcanvas.parsePattern(gc, filecontent[2]);
        	
        	//Redraw gameboard (i.e draw the laoded pattern)
     	Grid.draw(gc, Gameboard);

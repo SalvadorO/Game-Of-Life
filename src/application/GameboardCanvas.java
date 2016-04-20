@@ -27,15 +27,6 @@ public class GameboardCanvas {
 
 	}
 	
-	
-	/**
-	 * 
-	 * @param gc
-	 * @author hd
-	 * @return 
-	 */
-	
-	
 	/**
 	 * The method takes a pattern in RLE format (e.g 2b2o$2o2b) as a String and interprets the characters 
 	 * ('2' followed by a 'b' is 'bb', $ represents new line) and returns the pattern as a complete shape as a String
@@ -45,7 +36,7 @@ public class GameboardCanvas {
 	 * @author hd
 	 */
 
-	public String drawTWO(GraphicsContext gc, String s){
+	public String parsePattern(GraphicsContext gc, String s){
 		
 		/*TODO: add a routine to check if size of shape is not
 		 *exceeding available gamegrid space  
