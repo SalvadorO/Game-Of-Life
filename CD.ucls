@@ -3,8 +3,8 @@
   realizations="true" associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
   <class id="1" language="java" name="application.FileManagement" project="GameOfLife" 
     file="/GameOfLife/src/application/FileManagement.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="736" y="502"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+    <position height="222" width="184" x="644" y="416"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
@@ -12,7 +12,7 @@
   </class>  
   <class id="2" language="java" name="application.GameOfLifeMain" project="GameOfLife" 
     file="/GameOfLife/src/application/GameOfLifeMain.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="125" y="573"/>    
+    <position height="-1" width="-1" x="109" y="14"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -21,7 +21,7 @@
   </class>  
   <class id="3" language="java" name="application.golDialog" project="GameOfLife" 
     file="/GameOfLife/src/application/golDialog.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="438" y="551"/>    
+    <position height="-1" width="-1" x="512" y="503"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -30,7 +30,7 @@
   </class>  
   <class id="4" language="java" name="application.Grid" project="GameOfLife" 
     file="/GameOfLife/src/application/Grid.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="844" y="266"/>    
+    <position height="-1" width="-1" x="182" y="309"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -39,8 +39,8 @@
   </class>  
   <class id="5" language="java" name="application.Shape" project="GameOfLife" 
     file="/GameOfLife/src/application/Shape.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1057" y="68"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+    <position height="376" width="181" x="738" y="-60"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
@@ -48,24 +48,20 @@
   </class>  
   <class id="6" language="java" name="application.GameboardCanvas" project="GameOfLife" 
     file="/GameOfLife/src/application/GameboardCanvas.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="570" y="11"/>    
+    <position height="-1" width="-1" x="532" y="16"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <dependency id="7">    
-    <end type="SOURCE" refId="6"/>    
-    <end type="TARGET" refId="5"/>  
-  </dependency>  
-  <association id="8">    
+  <association id="7">    
     <end type="SOURCE" refId="6" navigable="false">      
-      <attribute id="9" name="grid">        
-        <position height="0" width="0" x="0" y="0"/>      
+      <attribute id="8" name="grid">        
+        <position height="0" width="0" x="-662" y="43"/>      
       </attribute>      
-      <multiplicity id="10" minimum="0" maximum="1">        
-        <position height="0" width="0" x="0" y="0"/>      
+      <multiplicity id="9" minimum="0" maximum="1">        
+        <position height="0" width="0" x="-662" y="43"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="4" navigable="true"/>    

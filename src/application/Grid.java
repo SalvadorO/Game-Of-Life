@@ -88,6 +88,12 @@ public class Grid {
 		gamegrid[x][y]=value;
 	}
 	
+	/**
+	 * Method gets cell value based on received x and y parameter
+	 * @param x
+	 * @param y
+	 * @return int value
+	 */
 	public int getCellstatus(int x, int y){
 		return gamegrid[x][y];
 	}

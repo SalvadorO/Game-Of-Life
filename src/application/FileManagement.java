@@ -30,9 +30,6 @@ public class FileManagement {
 }
 
 
-
-
-
 /**
  * Method takes a file and returns the content as String array.
  * Method assumes files uses the convention; 
@@ -77,7 +74,7 @@ public String[] parseFile(File f) 	{
 	filecontent[2] = pattern.toString();
 	
 	return filecontent;
-			
+	
 }
 	
 /**
@@ -103,7 +100,6 @@ public String[] parseFile(File f) 	{
 }
 
 
-
 	/**
 	 * TODO: to be completed
 	 * Method receives the filecontent as a String and saves this to the default file (created if not existing)
@@ -127,7 +123,6 @@ public String[] parseFile(File f) 	{
 		}
 		
 		return true;
-
     }
 		
 /**

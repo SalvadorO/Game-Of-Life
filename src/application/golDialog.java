@@ -75,6 +75,7 @@ public class golDialog extends Application	{
 	 * TODO: validate x and y
 	 * @return 
 	 * @return String
+	 * @author hd (plus Internet)
 	 */
 	public Optional<int[]> setGridSizeDialogue() {
 		Optional<int[]>returnValue = null;
