@@ -250,7 +250,7 @@ public class Grid {
 	
 				if (array[i][j]==1)	{
 					gc.setFill(Color.WHITE);
-					gc.fillRect(i*cellSize, j*cellSize, cellSize, cellSize);
+					gc.fillRect(i*cellSize, j*cellSize, cellSize*0.9, cellSize*0.9);
 				}
 				
 				gc.strokeRect(i*cellSize, j*cellSize, cellSize, cellSize);
@@ -268,7 +268,7 @@ public class Grid {
 					
 					gamegrid[i][j] = 1;
 					gc.setFill(Color.WHITE);
-					gc.fillRect(i*cellSize, j*cellSize, cellSize, cellSize);
+					gc.fillRect(i*cellSize, j*cellSize, cellSize*0.9, cellSize *0.9);
 				}
 	
 				}
