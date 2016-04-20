@@ -4,16 +4,12 @@ import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 
-
-public class Grid {
+class Grid {
 	
-	public static int[][] gamegrid;
-	
-	public static int cellSize ;
-	
-	public Grid(int x, int y){
-		gamegrid = new int[x][y];
-		
+	protected static int[][] gamegrid;
+	protected static int cellSize ;
+	protected Grid(int x, int y){
+		gamegrid = new int[x][y];	
 	}
 	
 	/**
@@ -22,7 +18,7 @@ public class Grid {
 	 * @param y
 	 * @author hd
 	 */
-	public void setGrid(int x, int y){
+	protected void setGrid(int x, int y){
 		gamegrid = new int[x][y];
 	}
 	
@@ -31,7 +27,7 @@ public class Grid {
 	 * @return int rows
 	 * @author hd
 	 */
-	public int getRows(){
+	protected int getRows(){
 		return gamegrid.length;
 	}
 	
@@ -40,7 +36,7 @@ public class Grid {
 	 * @return int columns
 	 * @author hd
 	 */
-	public int getColumns(){
+	protected int getColumns(){
 		return gamegrid[0].length;
 	}
 	
@@ -49,7 +45,7 @@ public class Grid {
 	 * @return int[][] gamegrid
 	 * @auth hd
 	 */
-	public int[][] getGrid(){
+	protected int[][] getGrid(){
 		return gamegrid;
 	}
 	
@@ -61,7 +57,7 @@ public class Grid {
 	 * @return number of neighbours
 	 * @author hd
 	 */
-	public int countNeighbours(int x, int y)	{
+	protected int countNeighbours(int x, int y)	{
 	
 		int neighbours = 0;
 		int cellValue = 0;
@@ -74,8 +70,6 @@ public class Grid {
 			}
 		return neighbours;
 	}
-	
-	
 	
 	/**
 	 * Method sets cell value based on received x and y parameter
