@@ -185,7 +185,7 @@ public class GameController implements Initializable{
     	
     	
        	//Parse the pattern, update gamegrid array accordingly
-       	gameboardcanvas.parsePattern(gc, filecontent[2]);
+       	gameboardcanvas.parsePattern(filecontent[2]);
        	
        	//Redraw gameboard (i.e draw the laoded pattern)
     	Grid.draw(gc, Gameboard);
