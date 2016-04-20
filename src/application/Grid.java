@@ -8,10 +8,8 @@ import javafx.scene.paint.Color;
 public class Grid {
 	
 	public static int[][] gamegrid;
-	static int cellSize ;
 	
-	public static int testCellSize ;
-	public static int testCellSize2 ;
+	public static int cellSize ;
 	
 	public Grid(int x, int y){
 		gamegrid = new int[x][y];
@@ -146,36 +144,36 @@ public class Grid {
 	    	   
 		int [][] nextGen = new int [gamegrid.length][gamegrid.length];
 		
-		//  Loop for counting neighbors
-		for ( int r = 0; r < gamegrid.length; r++ ) {
-            int above, below; // rows considered above and below row number r 
-            int left, right;  // columns considered left and right of column c
-            above = r > 0 ? r-1 : gamegrid.length-1;
-            below = r < gamegrid.length-1 ? r+1 : 0;
-            for ( int c = 0; c < gamegrid.length; c++ ) {
-                left =  c > 0 ? c-1 : gamegrid.length-1;
-                right = c < gamegrid.length-1 ? c+1 : 0;
-                int n = 0; // number of alive cells in the 8 neighboring cells
-                if (currentGen[above][left]==1)
+		// This loop is for counting neighbors
+		for ( int rows = 0; rows < gamegrid.length; rows++ ) {
+            int over, under;  
+            int left, right; 
+            over = rows > 0 ? rows-1 : gamegrid.length-1;
+            under = rows < gamegrid.length-1 ? rows+1 : 0;
+            for ( int cols = 0; cols < gamegrid.length; cols++ ) {
+                left =  cols > 0 ? cols-1 : gamegrid.length-1;
+                right = cols < gamegrid.length-1 ? cols+1 : 0;
+                int n = 0; 
+                if (currentGen[over][left]==1)
                     n++;
-                if (currentGen[above][c]==1)
+                if (currentGen[over][cols]==1)
                     n++;
-                if (currentGen[above][right]==1)
+                if (currentGen[over][right]==1)
                     n++;
-                if (currentGen[r][left]==1)
+                if (currentGen[rows][left]==1)
                     n++;
-                if (currentGen[r][right]==1)
+                if (currentGen[rows][right]==1)
                     n++;
-                if (currentGen[below][left]==1)
+                if (currentGen[under][left]==1)
                     n++;
-                if (currentGen[below][c]==1)
+                if (currentGen[under][cols]==1)
                     n++;
-                if (currentGen[below][right]==1)
+                if (currentGen[under][right]==1)
                     n++;
-                if (n == 3 || ((currentGen[r][c] ==1 )&& (n == 2)))
-                    nextGen[r][c] = 1;
+                if (n == 3 || ((currentGen[rows][cols] ==1 )&& (n == 2)))
+                    nextGen[rows][cols] = 1;
                 else
-                    nextGen[r][c] = 0;
+                    nextGen[rows][cols] = 0;
             }
         }
         currentGen = nextGen;
@@ -233,7 +231,7 @@ public class Grid {
 	
 
 
-		testCellSize = (int) (canvas.getHeight()/gamegrid.length);
+		cellSize = (int) (canvas.getHeight()/gamegrid.length);
 
 
 		
@@ -252,10 +250,10 @@ public class Grid {
 	
 				if (array[i][j]==1)	{
 					gc.setFill(Color.WHITE);
-					gc.fillRect(i*testCellSize, j*testCellSize, testCellSize, testCellSize);
+					gc.fillRect(i*cellSize, j*cellSize, cellSize, cellSize);
 				}
 				
-				gc.strokeRect(i*testCellSize, j*testCellSize, testCellSize, testCellSize);
+				gc.strokeRect(i*cellSize, j*cellSize, cellSize, cellSize);
 			}
 		}
 	
@@ -270,7 +268,7 @@ public class Grid {
 					
 					gamegrid[i][j] = 1;
 					gc.setFill(Color.WHITE);
-					gc.fillRect(i*testCellSize, j*testCellSize, testCellSize, testCellSize);
+					gc.fillRect(i*cellSize, j*cellSize, cellSize, cellSize);
 				}
 	
 				}

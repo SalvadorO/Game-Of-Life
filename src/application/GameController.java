@@ -239,9 +239,11 @@ public class GameController implements Initializable{
 		gc = Gameboard.getGraphicsContext2D();
 		gc.setFill(Color.BLACK);
 		Grid.draw(gc, Gameboard);
+		// Animation
+		// Used for updating next generation
 		timeline = new Timeline(new KeyFrame(
     	        Duration.millis(125),
-    	        butt -> gameboardcanvas.grid.oneGen(gc, Gameboard)));
+    	        Kv -> gameboardcanvas.grid.oneGen(gc, Gameboard)));
     	timeline.setCycleCount(Animation.INDEFINITE);
     	
 		
@@ -256,9 +258,9 @@ public class GameController implements Initializable{
 		public void handle(MouseEvent event) {
 
 		
-			int x = (int) Math.floor((event.getX() / Grid.testCellSize));
-			int y = (int) Math.floor((event.getY() / Grid.testCellSize));
-
+			int x = (int) Math.floor((event.getX() / Grid.cellSize));
+			int y = (int) Math.floor((event.getY() / Grid.cellSize));
+		
 
 			
 		Grid.updateGameGrid(x, y, gc);
@@ -270,8 +272,8 @@ public class GameController implements Initializable{
 			
 
 
-			int x = (int) Math.floor((event.getX() / Grid.testCellSize));
-			int y = (int) Math.floor((event.getY() / Grid.testCellSize));
+			int x = (int) Math.floor((event.getX() / Grid.cellSize));
+			int y = (int) Math.floor((event.getY() / Grid.cellSize));
 
 
 			

@@ -19,7 +19,7 @@ public class GameOfLifeMain extends Application {
 			// Sets the minimal height and width value
 			primaryStage.setMinWidth(468);
 			primaryStage.setMinHeight(549);
-			primaryStage.setResizable(false);
+			primaryStage.setResizable(true);
 			Scene GOLgame = new Scene(root);
 			// Connects to CSS file
 			GOLgame.getStylesheets().add(getClass().getResource("GameboardCSS.css").toExternalForm());
