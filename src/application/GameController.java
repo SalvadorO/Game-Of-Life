@@ -159,7 +159,11 @@ public class GameController implements Initializable{
     	//Get the file content as an array
     	File file = filemanager.openFile();
     	String[] filecontent = filemanager.parseFile(file);
-    	    	
+    	
+    	
+    	//Check size of shape; must noe exceed gameboard
+    	System.out.println(filemanager.getHeader(filecontent)[0]+" "+filemanager.getHeader(filecontent)[1]);
+    	
        	//Parse the pattern, update gamegrid array accordingly
        	gameboardcanvas.parsePattern(gc, filecontent[2]);
        	

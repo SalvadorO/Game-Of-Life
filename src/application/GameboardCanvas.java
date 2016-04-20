@@ -155,6 +155,11 @@ public class GameboardCanvas {
 			if (( neighbours < 2) || (neighbours> 3))
 					alive = false;
 			return alive;
-		}		
+		}
+		
+		
+		public boolean shapeBiggerThanGameboard(int x, int y){
+			int row = gaem
+		}
 
 }
