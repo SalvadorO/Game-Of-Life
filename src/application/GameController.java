@@ -64,13 +64,11 @@ public class GameController implements Initializable{
 	protected void mnu_SetupGridsizePressed(ActionEvent event) {
 				
 		int[] newgridsize = dialog.setGridSizeDialogue().get();
-		if (newgridsize.equals(null)) {
+	if (newgridsize != null) {
 			
-			System.out.println("Hei");
 			gameboardcanvas.grid.setGrid(newgridsize[0],newgridsize[1]);
 
 			Grid.draw(gc, Gameboard);
-
 
 
 		}
