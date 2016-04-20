@@ -73,8 +73,7 @@ public class GameController implements Initializable{
 
 		}
 		//Pauses and resets the game when gridsize is changed
-		btn_PlayStopPressed(event);
-		btn_ResetPressed(event);
+		
 		
     }
 			// Help dialog
