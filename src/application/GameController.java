@@ -153,42 +153,35 @@ public class GameController implements Initializable{
     		timeline.stop();
     }
 	}
-    
+    /**
+     * Method called when user selects File - Open
+     * It checks if the shape to be loaded is within the gamegrid boundaries
+     * TODO: checking procedure should be a separate method in a model class
+     * @param event
+     * @author hd
+     */
     @FXML
     protected void mnu_FileOpenPressed(ActionEvent event) {
     	//Get the file content as an array
     	File file = filemanager.openFile();
     	String[] filecontent = filemanager.parseFile(file);
-    	
-    	
-    	//Check if size of shape exceeds current gameboard
+    	    	
+    	//Check if size of shape exceedes current gameboard
     	String[] header = filemanager.getHeader(filecontent); 
-    	String columns = header[0];
-    	String rows = header[1];
+    	//Get the y and x values (c indicates column hence is x value)
+    	String[] c = header[0].split("=");
+    	String[] r = header[1].split("=");
     	 
-    	String[] c = columns.split("=");
-    	String[] r = rows.split("=");
-    	
     	//For testing
-    	//Shape
-    	System.out.println("c: "+c[0]+" "+c[1]);
-    	System.out.println("r: "+r[0]+" "+r[1]);
-    	//Gamegrid
-    	System.out.println("grid c: " + gameboardcanvas.grid.getColumns());
-    	System.out.println("grid r: " + gameboardcanvas.grid.getRows());
-    	//End testing
-    	
     	System.out.println(gameboardcanvas.shapeBiggerThanGameboard(Integer.parseInt(c[1]), Integer.parseInt(r[1])));
+    	//End for testing
     	
-    	
-    	
-    	
-    	
-       	//Parse the pattern, update gamegrid array accordingly
-       	gameboardcanvas.parsePattern(filecontent[2]);
-       	
-       	//Redraw gameboard (i.e draw the laoded pattern)
-    	Grid.draw(gc, Gameboard);
+       	//If shape is not bigger than gamegrid array;
+    	//parse the pattern, update gamegrid array accordingly and redraw gameboard (i.e draw the laoded pattern)
+       	if (!gameboardcanvas.shapeBiggerThanGameboard(Integer.parseInt(c[1]), Integer.parseInt(r[1]))){
+       		gameboardcanvas.parsePattern(filecontent[2]);
+       	   	Grid.draw(gc, Gameboard);
+       	}
     }
 
     /**
