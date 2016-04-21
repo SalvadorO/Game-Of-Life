@@ -12,7 +12,7 @@ import java.io.Writer;
 import javafx.stage.FileChooser;
 import javafx.stage.FileChooser.ExtensionFilter;
 
-//TODO: consider rewrite or returning an array, consisting metatada:header:pattern
+
 
 public class FileManagement {
 
@@ -32,7 +32,8 @@ public class FileManagement {
 
 /**
  * Method takes a file and returns the content as String array.
- * Method assumes files uses the convention; 
+ * Method assumes files uses the convention;
+ * TODO: check for null returned from openFile() 
  * 
  * @return filecontent as a String array; 
  * pos 0 contains metadata
