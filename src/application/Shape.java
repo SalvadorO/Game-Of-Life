@@ -1,6 +1,5 @@
 package application;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class Shape.
  */

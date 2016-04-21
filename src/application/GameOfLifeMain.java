@@ -16,9 +16,6 @@ import javafx.stage.Stage;
  */
 public class GameOfLifeMain extends Application {
 	
-	/* (non-Javadoc)
-	 * @see javafx.application.Application#start(javafx.stage.Stage)
-	 */
 	@Override
 	public void start(Stage primaryStage) {
 		try {

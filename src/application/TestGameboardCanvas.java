@@ -7,14 +7,13 @@ import org.junit.Test;
 import application.GameboardCanvas;
 import application.Grid;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class TestGameboardCanvas.
  */
 public class TestGameboardCanvas {
 
 	/**
-	 * Testing 4 scenarioes of the shapeBiggerThan method.
+	 * Testing 4 scenarios of the shapeBiggerThan method.
 	 *
 	 * @author hd
 	 */

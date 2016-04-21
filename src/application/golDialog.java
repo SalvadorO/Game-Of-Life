@@ -19,7 +19,6 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Callback;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class golDialog.
  */
@@ -41,7 +40,7 @@ public class golDialog extends Application	{
 		}
 		
 		/**
-		 * Advanced dialogue.
+		 * Advanced dialogue, witch will allow the user to take more controll over the game, and its settings
 		 */
 		// Advanced Dialogue
 		protected  static void AdvancedDialogue() {
@@ -57,7 +56,6 @@ public class golDialog extends Application	{
 		/**
 		 * Stats dialogue.
 		 */
-		// Stats Dialogue
 		protected static void StatsDialogue()	{
 			Alert stats = new Alert(AlertType.INFORMATION);
 			stats.setTitle("Stats");
@@ -132,12 +130,8 @@ public class golDialog extends Application	{
 		return returnValue;
 	}
 
-	/* (non-Javadoc)
-	 * @see javafx.application.Application#start(javafx.stage.Stage)
-	 */
 	@Override
 	public void start(Stage primaryStage) throws Exception {
-		// TODO Auto-generated method stub
 		
 	}
 }

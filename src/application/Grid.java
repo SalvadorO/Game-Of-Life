@@ -4,7 +4,6 @@ import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class Grid.
  */
@@ -30,8 +29,8 @@ class Grid {
 	 * Method defines the grid size based on received x and y values.
 	 *
 	 * @author hd
-	 * @param x the x
-	 * @param y the y
+	 * @param x
+	 * @param y
 	 */
 	protected void setGrid(int x, int y){
 		gamegrid = new int[x][y];
@@ -60,8 +59,8 @@ class Grid {
 	/**
 	 * Method returns current gamegrid.
 	 *
+	 * @author hd
 	 * @return int[][] gamegrid
-	 * @auth hd
 	 */
 	protected int[][] getGrid(){
 		return gamegrid;
@@ -73,8 +72,8 @@ class Grid {
 	 * TODO: not tested after moved here.
 	 *
 	 * @author hd
-	 * @param x the x
-	 * @param y the y
+	 * @param x
+	 * @param y
 	 * @return number of neighbours
 	 */
 	protected int countNeighbours(int x, int y)	{
@@ -95,9 +94,9 @@ class Grid {
 	 * Method sets cell value based on received x and y parameter.
 	 *
 	 * @author hd
-	 * @param x the x
-	 * @param y the y
-	 * @param value the value
+	 * @param x
+	 * @param y
+	 * @param value
 	 */
 	public void setCellstatus(int x, int y, int value)	{
 		gamegrid[x][y]=value;
@@ -106,8 +105,8 @@ class Grid {
 	/**
 	 * Method gets cell value based on received x and y parameter.
 	 *
-	 * @param x the x
-	 * @param y the y
+	 * @param x
+	 * @param y
 	 * @return int value
 	 */
 	public int getCellstatus(int x, int y){
@@ -135,7 +134,7 @@ class Grid {
 	 * A toString method to get a 1D representation of the gamegrid array.
 	 *
 	 * @author hd
-	 * @return the string
+	 * @return string
 	 */
 	@Override
 	public String toString() {
@@ -176,7 +175,7 @@ class Grid {
 	    	   
 		int [][] nextGen = new int [gamegrid.length][gamegrid.length];
 		
-		// This loop is for counting neighbors
+		
 		for ( int rows = 0; rows < gamegrid.length; rows++ ) {
             int over, under;  
             int left, right; 
@@ -239,45 +238,24 @@ class Grid {
 	 * One gen.
 	 *
 	 * @author hd
-	 * @param gc the gc
-	 * @param img the img
+	 * @param gc
+	 * @param img
 	 */
-	
-	
-	
-
-
-	
-	
-	
 	public void oneGen(GraphicsContext gc, Canvas img){
-		
-		
-			
 		gamegrid = nextGeneration(gamegrid, gc);
 		draw(gc,img);
-		
 	}
 	
 	/**
 	 * Draw.
 	 *
-	 * @param gc the gc
-	 * @param canvas the canvas
+	 * @param gc
+	 * @param canvas
 	 * @return the int[][]
 	 */
 	public static int[][] draw(GraphicsContext gc, Canvas canvas){
-		
-	
-
 
 		cellSize = (int) (canvas.getHeight()/gamegrid.length);
-
-
-		
-	
-
-		
 
 		int[][] array = gamegrid;
 		gc.setFill(Color.GREY);
@@ -286,8 +264,6 @@ class Grid {
 		for (int i = 0;i<array.length;i++){
 			for (int j = 0; j<(array[i].length); j++){
 				
-				
-	
 				if (array[i][j]==1)	{
 					gc.setFill(Color.WHITE);
 					gc.fillRect(i*cellSize, j*cellSize, cellSize*0.9, cellSize*0.9);
@@ -304,9 +280,9 @@ class Grid {
 	/**
 	 * Update game grid.
 	 *
-	 * @param x the x
-	 * @param y the y
-	 * @param gc the gc
+	 * @param x
+	 * @param y
+	 * @param gc
 	 */
 	public static void updateGameGrid (int x, int y, GraphicsContext gc){
 		for (int i = 0;i<gamegrid.length;i++){

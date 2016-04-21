@@ -20,7 +20,6 @@ import javafx.util.Duration;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class GameController.
  */
@@ -45,19 +44,19 @@ public class GameController implements Initializable{
 	@FXML
 	private Canvas Gameboard;
 
-    /** The mnu_ setup gridsize. */
+    /** The mnu_FileOpen, mnu_FileSave, mnu_SetupGridsize. */
     @FXML
     private MenuItem mnu_FileOpen,  mnu_FileSave, mnu_SetupGridsize;
 	
-	/** The btn_ grid size. */
+	/** The btn_ grid size, btn_PlayStop, btn_Quit, btn_Next, btn_Gridsize and cmi_adv. */
 	@FXML
-    private Button btn_Reset, btn_PlayStop, btn_Quit, btn_Next, cmi_adv, btn_GridSize;
+    private Button btn_Reset, btn_PlayStop, btn_Quit, btn_Next, btn_GridSize, cmi_adv;
 	
 	/** The Sld_ speed. */
 	@FXML
 	private Slider Sld_Speed;
 
-	/** The H b_ advanced. */
+	/** The HB_ advanced. */
 	@FXML
 	private HBox HB_Advanced;
 	
@@ -83,7 +82,7 @@ public class GameController implements Initializable{
 	}
 	
 	/**
-	 * Mnu_ about dialog pressed.
+	 * Mnu_About dialog pressed.
 	 *
 	 * @author lars
 	 * @param event the event
@@ -94,7 +93,7 @@ public class GameController implements Initializable{
  	}
 
 	/**
-	 * Mnu_ stats menu pressed.
+	 * Mnu_Stats menu pressed.
 	 *
 	 * @author lars
 	 * @param event the event
@@ -106,7 +105,7 @@ public class GameController implements Initializable{
 	}
 
 	/**
-	 * Btn_ play stop pressed.
+	 * Btn_PlayStop pressed.
 	 *
 	 * @author hd
 	 * @param event the event
@@ -224,7 +223,7 @@ public class GameController implements Initializable{
     }
     
 	/**
-	 * Btn_ quit pressed.
+	 * Btn_Quit pressed.
 	 *
 	 * @param event the event
 	 */
@@ -234,7 +233,7 @@ public class GameController implements Initializable{
     }
     
     /**
-     * Btn_ next.
+     * Btn_Next.
      *
      * @param event the event
      */
@@ -245,7 +244,7 @@ public class GameController implements Initializable{
     }
     
     /**
-     * Cmi_adv.
+     * CheckMenuItem
      *
      * @author lars
      * @param event the event
@@ -270,9 +269,7 @@ public class GameController implements Initializable{
 //    	});
     }
     
-    /* (non-Javadoc)
-     * @see javafx.fxml.Initializable#initialize(java.net.URL, java.util.ResourceBundle)
-     */
+    
     @Override
 	public void initialize(URL location, ResourceBundle resources) {
 		gc = Gameboard.getGraphicsContext2D();

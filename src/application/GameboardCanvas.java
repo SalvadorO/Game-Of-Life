@@ -8,7 +8,6 @@ import javafx.scene.canvas.GraphicsContext;
 
 import javafx.scene.paint.Color;
 
-// TODO: Auto-generated Javadoc
 /**
  * Constructed by creating a Grid object
  * Provides methods to set and get the grid
@@ -41,7 +40,6 @@ public class GameboardCanvas {
 	 * @param pattern the pattern
 	 * @return void
 	 */
-
 	public void parsePattern(String pattern){
 		
     	String[] inputstring = pattern.split("\\$");
@@ -86,12 +84,7 @@ public class GameboardCanvas {
 		}
 	}
 
-	/**
-	 *  TODO: To be implemented
-	 * //	public void nextGeneration(gameboard board) {
-	 * 			
-	 * 		/*TODO: Decide if the method should be in the GBCanvas class
-	 * 		/**
+	/**			
 	 * Method counts and returns number of neighbours
 	 * to a cell given by provided x and y param.
 	 *
@@ -133,11 +126,10 @@ public class GameboardCanvas {
 			
 			
 		/**
-		 *TODO: add JDOC, Decide if the method should be in the GBCanvas class
-
 		 * Method implements two rules
 		 * 1) cell dies if number of neighbours is less than 2
 		 * 2) cell dies if number of neighbours is greater than 3
+		 * 
 		 * @param neighBours
 		 * @return boolean
 		 * @author hd
