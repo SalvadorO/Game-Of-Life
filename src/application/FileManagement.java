@@ -43,9 +43,6 @@ public class FileManagement {
  * @author hd
  * @param f the f
  * @return filecontent as a String array;
- * pos 0 contains metadata
- * pos 1 contains header
- * pos 2 contains pattern
  */
 public String[] parseFile(File f) 	{
 
@@ -91,9 +88,6 @@ public String[] parseFile(File f) 	{
  * @author hd
  * @param filecontent the filecontent
  * @return returnedHeader array
- * (position 0 holds x value
- * position 1 holds y value
- * position 2 holds rule value (if present))
  */
 	public String[] getHeader(String[] filecontent)	{
 		
