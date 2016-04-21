@@ -20,27 +20,44 @@ import javafx.util.Duration;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class GameController.
+ */
 public class GameController implements Initializable{
 	
+	/** The gameboardcanvas. */
 	private GameboardCanvas gameboardcanvas =  new GameboardCanvas();
+	
+	/** The gc. */
 	private static GraphicsContext gc;
+	
+	/** The filemanager. */
 	private FileManagement filemanager = new FileManagement();
+	
+	/** The dialog. */
 	private golDialog dialog = new golDialog();
 
+	/** The timeline. */
 	Timeline timeline = new Timeline();
 	
+	/** The Gameboard. */
 	@FXML
 	private Canvas Gameboard;
 
+    /** The mnu_ setup gridsize. */
     @FXML
     private MenuItem mnu_FileOpen,  mnu_FileSave, mnu_SetupGridsize;
 	
+	/** The btn_ grid size. */
 	@FXML
     private Button btn_Reset, btn_PlayStop, btn_Quit, btn_Next, cmi_adv, btn_GridSize;
 	
+	/** The Sld_ speed. */
 	@FXML
 	private Slider Sld_Speed;
 
+	/** The H b_ advanced. */
 	@FXML
 	private HBox HB_Advanced;
 	
@@ -49,8 +66,9 @@ public class GameController implements Initializable{
 	 * When the menu item "SetupGridsize" is pressed, the setgridsize dialog method
 	 * is called.
 	 * The returned values are sent to the GameBoardCanvas setGridmethod to set the grid size
-	 * @param event
+	 *
 	 * @author hd
+	 * @param event the event
 	 */
 	@FXML
 	protected void mnu_SetupGridsizePressed(ActionEvent event) {
@@ -65,9 +83,10 @@ public class GameController implements Initializable{
 	}
 	
 	/**
-	 * 
-	 * @param event
+	 * Mnu_ about dialog pressed.
+	 *
 	 * @author lars
+	 * @param event the event
 	 */
 	@FXML
 	protected void mnu_AboutDialogPressed(ActionEvent event) {
@@ -75,9 +94,10 @@ public class GameController implements Initializable{
  	}
 
 	/**
-	 * 
-	 * @param event
+	 * Mnu_ stats menu pressed.
+	 *
 	 * @author lars
+	 * @param event the event
 	 */
 	@FXML
 	protected void mnu_StatsMenuPressed(ActionEvent event){
@@ -86,8 +106,10 @@ public class GameController implements Initializable{
 	}
 
 	/**
-	 * @param event
+	 * Btn_ play stop pressed.
+	 *
 	 * @author hd
+	 * @param event the event
 	 */
     @FXML
     protected void btn_PlayStopPressed(ActionEvent event) {
@@ -106,9 +128,10 @@ public class GameController implements Initializable{
     /**
      * Method resets the Gameboarcanvas by creating a new gameboardcanvas object
      * and let the gameboardcanvas parameter point to this 
-     * It also clears the graphicscontext object
-     * @param event
+     * It also clears the graphicscontext object.
+     *
      * @author hd
+     * @param event the event
      */
     @FXML
     protected void btn_ResetPressed(ActionEvent event) {
@@ -160,9 +183,10 @@ public class GameController implements Initializable{
     /**
      * Method called when user selects File - Open
      * It checks if the shape to be loaded is within the gamegrid boundaries
-     * TODO: checking procedure should be a separate method in a model class
-     * @param event
+     * TODO: checking procedure should be a separate method in a model class.
+     *
      * @author hd
+     * @param event the event
      */
     @FXML
     protected void mnu_FileOpenPressed(ActionEvent event) {
@@ -189,9 +213,10 @@ public class GameController implements Initializable{
     }
 
     /**
-     * TODO: to be implemented
-     * @param event
+     * TODO: to be implemented.
+     *
      * @author hd
+     * @param event the event
      */
     @FXML
     protected void mnu_FileSavePressed(ActionEvent event) {
@@ -199,8 +224,9 @@ public class GameController implements Initializable{
     }
     
 	/**
-	 * 
-	 * @param event
+	 * Btn_ quit pressed.
+	 *
+	 * @param event the event
 	 */
     @FXML
     protected void btn_QuitPressed(ActionEvent event) {
@@ -208,8 +234,9 @@ public class GameController implements Initializable{
     }
     
     /**
-     * 
-     * @param event
+     * Btn_ next.
+     *
+     * @param event the event
      */
     @FXML
     protected void btn_Next(ActionEvent event){
@@ -218,9 +245,10 @@ public class GameController implements Initializable{
     }
     
     /**
-     * 
-     * @param event
+     * Cmi_adv.
+     *
      * @author lars
+     * @param event the event
      */
     @FXML
     protected void cmi_adv(ActionEvent event){
@@ -242,8 +270,8 @@ public class GameController implements Initializable{
 //    	});
     }
     
-    /**
-     * 
+    /* (non-Javadoc)
+     * @see javafx.fxml.Initializable#initialize(java.net.URL, java.util.ResourceBundle)
      */
     @Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -263,9 +291,7 @@ public class GameController implements Initializable{
 		
     }
     
-    /**
-     * 
-     */
+    /** The mouse handler clicked. */
     protected static EventHandler<MouseEvent> mouseHandlerClicked = new EventHandler <MouseEvent>()		{
 		@Override
 		public void handle(MouseEvent event) {
@@ -277,9 +303,7 @@ public class GameController implements Initializable{
 		}
     };
     
-    /**
-     * 
-     */
+    /** The mouse handler dragged. */
     protected static EventHandler<MouseEvent> mouseHandlerDragged = new EventHandler <MouseEvent>()		{
 		@Override
 		public void handle(MouseEvent event) {

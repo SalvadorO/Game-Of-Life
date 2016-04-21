@@ -19,11 +19,14 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Callback;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class golDialog.
+ */
 public class golDialog extends Application	{
 
 		/**
-		 * Method that show a Alertbox to the user that explains how the game work
-		 * @return 
+		 * Method that show a Alertbox to the user that explains how the game work.
 		 */
 		protected static  void AboutDialogue() {
 			Alert about = new Alert(AlertType.NONE);
@@ -37,6 +40,9 @@ public class golDialog extends Application	{
 			about.showAndWait();
 		}
 		
+		/**
+		 * Advanced dialogue.
+		 */
 		// Advanced Dialogue
 		protected  static void AdvancedDialogue() {
 			Alert advanced = new Alert(AlertType.INFORMATION);
@@ -48,6 +54,9 @@ public class golDialog extends Application	{
 			advanced.showAndWait();
 		}
 		
+		/**
+		 * Stats dialogue.
+		 */
 		// Stats Dialogue
 		protected static void StatsDialogue()	{
 			Alert stats = new Alert(AlertType.INFORMATION);
@@ -73,9 +82,9 @@ public class golDialog extends Application	{
 	 * The values are returned to the calling method.
 	 * TODO: consider if method should reside in another class, e.g. GameBoardCanvas
 	 * TODO: validate x and y
-	 * @return 
-	 * @return String
+	 *
 	 * @author hd (plus Internet)
+	 * @return String
 	 */
 	public Optional<int[]> setGridSizeDialogue() {
 		Optional<int[]>returnValue = null;
@@ -123,6 +132,9 @@ public class golDialog extends Application	{
 		return returnValue;
 	}
 
+	/* (non-Javadoc)
+	 * @see javafx.application.Application#start(javafx.stage.Stage)
+	 */
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		// TODO Auto-generated method stub

@@ -14,13 +14,18 @@ import javafx.stage.FileChooser.ExtensionFilter;
 
 
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class FileManagement.
+ */
 public class FileManagement {
 
 	/**
-	 * The method takes the filecontent as a String, and returns the pattern element from it
-	 * @param filecontent
-	 * @return String pattern
+	 * The method takes the filecontent as a String, and returns the pattern element from it.
+	 *
 	 * @author hd
+	 * @param filecontent the filecontent
+	 * @return String pattern
 	 */
  	public String getPattern(String[] filecontent)	{
 	
@@ -34,12 +39,13 @@ public class FileManagement {
  * Method takes a file and returns the content as String array.
  * Method assumes files uses the convention;
  * TODO: check for null returned from openFile() 
- * 
- * @return filecontent as a String array; 
+ *
+ * @author hd
+ * @param f the f
+ * @return filecontent as a String array;
  * pos 0 contains metadata
  * pos 1 contains header
  * pos 2 contains pattern
- * @author hd
  */
 public String[] parseFile(File f) 	{
 
@@ -79,15 +85,16 @@ public String[] parseFile(File f) 	{
 }
 	
 /**
-	 * The method takes the filecontent as a String, and returns the header
-	 * element as elements in an array
-	 * @param filecontent
-	 * @return returnedHeader array 
-	 * (position 0 holds x value
-	 * position 1 holds y value
-	 * position 2 holds rule value (if present))
-	 * @author hd
-	 */
+ * The method takes the filecontent as a String, and returns the header
+ * element as elements in an array.
+ *
+ * @author hd
+ * @param filecontent the filecontent
+ * @return returnedHeader array
+ * (position 0 holds x value
+ * position 1 holds y value
+ * position 2 holds rule value (if present))
+ */
 	public String[] getHeader(String[] filecontent)	{
 		
 		// Initialize local variable header with the header part of the filecontent array
@@ -103,11 +110,11 @@ public String[] parseFile(File f) 	{
 
 	/**
 	 * TODO: to be completed
-	 * Method receives the filecontent as a String and saves this to the default file (created if not existing)
-	 * 
-	 * @param filecontent
-	 * @return boolean true if content was saved successfully
+	 * Method receives the filecontent as a String and saves this to the default file (created if not existing).
+	 *
 	 * @author hd
+	 * @param filecontent the filecontent
+	 * @return boolean true if content was saved successfully
 	 */
 	public boolean saveFile(String filecontent) {
     	
@@ -129,8 +136,9 @@ public String[] parseFile(File f) 	{
 /**
  * Method provides the user with a File open-dialogue to select a file. Allowed file types are
  * filtered using ExtensionFilter class.
- * @return f as a File object
+ *
  * @author hd
+ * @return f as a File object
  */
 	public File openFile(){
 		

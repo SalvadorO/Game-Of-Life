@@ -4,44 +4,62 @@ import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class Grid.
+ */
 class Grid {
 	
+	/** The gamegrid. */
 	protected static int[][] gamegrid;
+	
+	/** The cell size. */
 	protected static int cellSize ;
+	
+	/**
+	 * Instantiates a new grid.
+	 *
+	 * @param x the x
+	 * @param y the y
+	 */
 	protected Grid(int x, int y){
 		gamegrid = new int[x][y];	
 	}
 	
 	/**
-	 * Method defines the grid size based on received x and y values
-	 * @param x
-	 * @param y
+	 * Method defines the grid size based on received x and y values.
+	 *
 	 * @author hd
+	 * @param x the x
+	 * @param y the y
 	 */
 	protected void setGrid(int x, int y){
 		gamegrid = new int[x][y];
 	}
 	
 	/**
-	 * Method returns number of rows in gamegrid
-	 * @return int rows
+	 * Method returns number of rows in gamegrid.
+	 *
 	 * @author hd
+	 * @return int rows
 	 */
 	protected int getRows(){
 		return gamegrid.length;
 	}
 	
 	/**
-	 * Method returns number of columns in gamegrid
-	 * @return int columns
+	 * Method returns number of columns in gamegrid.
+	 *
 	 * @author hd
+	 * @return int columns
 	 */
 	protected int getColumns(){
 		return gamegrid[0].length;
 	}
 	
 	/**
-	 * Method returns current gamegrid
+	 * Method returns current gamegrid.
+	 *
 	 * @return int[][] gamegrid
 	 * @auth hd
 	 */
@@ -52,10 +70,12 @@ class Grid {
 	/**
 	 * Method counts and returns number of neighbours
 	 * to a cell given by provided x and y param
-	 * TODO: not tested after moved here
-	 * @param int x, int y
-	 * @return number of neighbours
+	 * TODO: not tested after moved here.
+	 *
 	 * @author hd
+	 * @param x the x
+	 * @param y the y
+	 * @return number of neighbours
 	 */
 	protected int countNeighbours(int x, int y)	{
 	
@@ -72,20 +92,22 @@ class Grid {
 	}
 	
 	/**
-	 * Method sets cell value based on received x and y parameter
-	 * @param x
-	 * @param y
-	 * @param value
+	 * Method sets cell value based on received x and y parameter.
+	 *
 	 * @author hd
+	 * @param x the x
+	 * @param y the y
+	 * @param value the value
 	 */
 	public void setCellstatus(int x, int y, int value)	{
 		gamegrid[x][y]=value;
 	}
 	
 	/**
-	 * Method gets cell value based on received x and y parameter
-	 * @param x
-	 * @param y
+	 * Method gets cell value based on received x and y parameter.
+	 *
+	 * @param x the x
+	 * @param y the y
 	 * @return int value
 	 */
 	public int getCellstatus(int x, int y){
@@ -95,10 +117,11 @@ class Grid {
 	/**
 	 * Method implements two rules
 	 * 1) cell dies if number of neighbours is less than 2
-	 * 2) cell dies if number of neighbours is greater than 3
-	 * @param neighBours
-	 * @return boolean
+	 * 2) cell dies if number of neighbours is greater than 3.
+	 *
 	 * @author hd
+	 * @param neighbours the neighbours
+	 * @return boolean
 	 */
 	public boolean survives(int neighbours){
 		boolean alive=true;
@@ -110,7 +133,9 @@ class Grid {
 		
 	/**
 	 * A toString method to get a 1D representation of the gamegrid array.
+	 *
 	 * @author hd
+	 * @return the string
 	 */
 	@Override
 	public String toString() {
@@ -121,6 +146,13 @@ class Grid {
 		return o;
 	}
 	
+	/**
+	 * Next generation.
+	 *
+	 * @param array2 the array2
+	 * @param gc the gc
+	 * @return the int[][]
+	 */
 	public int [][] nextGeneration(int [][] array2, GraphicsContext gc){
 		
 		int [][] currentGen = array2;
@@ -204,10 +236,11 @@ class Grid {
       	}
 
 	/**
-	 * 
-	 * @param gc
+	 * One gen.
+	 *
 	 * @author hd
-	 * @return 
+	 * @param gc the gc
+	 * @param img the img
 	 */
 	
 	
@@ -226,6 +259,13 @@ class Grid {
 		
 	}
 	
+	/**
+	 * Draw.
+	 *
+	 * @param gc the gc
+	 * @param canvas the canvas
+	 * @return the int[][]
+	 */
 	public static int[][] draw(GraphicsContext gc, Canvas canvas){
 		
 	
@@ -261,6 +301,13 @@ class Grid {
 	}
 	
 	
+	/**
+	 * Update game grid.
+	 *
+	 * @param x the x
+	 * @param y the y
+	 * @param gc the gc
+	 */
 	public static void updateGameGrid (int x, int y, GraphicsContext gc){
 		for (int i = 0;i<gamegrid.length;i++){
 			for (int j = 0; j<(gamegrid[i].length); j++){
