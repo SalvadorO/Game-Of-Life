@@ -130,11 +130,12 @@ public String[] parseFile(File f) 	{
 /**
  * Method provides the user with a File open-dialogue to select a file. Allowed file types are
  * filtered using ExtensionFilter class.
+ * TODO: add Throws, not return null when no file selected
  *
  * @author hd
- * @return File
+ * @return File object: The file, or null if none is selected
  */
-	public File openFile(){
+	public File openFile() {
 		
 		ExtensionFilter filterGoLfiles = new ExtensionFilter("GoL, *.rle","*.rle");
 
