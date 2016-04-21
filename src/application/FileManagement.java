@@ -14,7 +14,7 @@ import javafx.stage.FileChooser.ExtensionFilter;
 
 
 
-// TODO: Auto-generated Javadoc
+
 /**
  * The Class FileManagement.
  */
@@ -24,7 +24,7 @@ public class FileManagement {
 	 * The method takes the filecontent as a String, and returns the pattern element from it.
 	 *
 	 * @author hd
-	 * @param filecontent the filecontent
+	 * @param String [] filecontent
 	 * @return String pattern
 	 */
  	public String getPattern(String[] filecontent)	{
@@ -41,7 +41,7 @@ public class FileManagement {
  * TODO: check for null returned from openFile() 
  *
  * @author hd
- * @param f the f
+ * @param File f
  * @return filecontent as a String array;
  */
 public String[] parseFile(File f) 	{
@@ -104,10 +104,10 @@ public String[] parseFile(File f) 	{
 
 	/**
 	 * TODO: to be completed
-	 * Method receives the filecontent as a String and saves this to the default file (created if not existing).
+	 * Method receives the filecontent as a String and saves this to file (created if not existing).
 	 *
 	 * @author hd
-	 * @param filecontent the filecontent
+	 * @param String filecontent
 	 * @return boolean true if content was saved successfully
 	 */
 	public boolean saveFile(String filecontent) {

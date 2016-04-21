@@ -26,7 +26,7 @@ class Grid {
 	}
 	
 	/**
-	 * Method defines the grid size based on received x and y values.
+	 * Method defines the grid size based on received x and y values and pint the gamegrid array to a new array object.
 	 *
 	 * @author hd
 	 * @param x
@@ -94,9 +94,9 @@ class Grid {
 	 * Method sets cell value based on received x and y parameter.
 	 *
 	 * @author hd
-	 * @param x
-	 * @param y
-	 * @param value
+	 * @param int x
+	 * @param int y
+	 * @param int value
 	 */
 	public void setCellstatus(int x, int y, int value)	{
 		gamegrid[x][y]=value;
@@ -104,10 +104,11 @@ class Grid {
 	
 	/**
 	 * Method gets cell value based on received x and y parameter.
-	 *
-	 * @param x
-	 * @param y
-	 * @return int value
+	 * 
+	 * @author hd
+	 * @param int x
+	 * @param int y
+	 * @return int
 	 */
 	public int getCellstatus(int x, int y){
 		return gamegrid[x][y];
@@ -115,11 +116,12 @@ class Grid {
 	
 	/**
 	 * Method implements two rules
+	 * Note: method not in use
 	 * 1) cell dies if number of neighbours is less than 2
 	 * 2) cell dies if number of neighbours is greater than 3.
 	 *
 	 * @author hd
-	 * @param neighbours the neighbours
+	 * @param int neighbours
 	 * @return boolean
 	 */
 	public boolean survives(int neighbours){
@@ -132,7 +134,7 @@ class Grid {
 		
 	/**
 	 * A toString method to get a 1D representation of the gamegrid array.
-	 *
+	 * Useful when implemeting tests
 	 * @author hd
 	 * @return string
 	 */
@@ -237,7 +239,7 @@ class Grid {
 	/**
 	 * One gen.
 	 *
-	 * @author hd
+	 * @author
 	 * @param gc
 	 * @param img
 	 */

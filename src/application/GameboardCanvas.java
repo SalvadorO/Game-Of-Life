@@ -22,7 +22,7 @@ public class GameboardCanvas {
 	Grid grid;
 	
 	/**
-	 * Instantiates a new gameboard canvas.
+	 * Instantiates a new gameboard canvas with default gridsize.
 	 */
 	public GameboardCanvas(){
 
@@ -37,7 +37,7 @@ public class GameboardCanvas {
 	 * ('2' followed by a 'b' is 'bb', $ represents new line) and sets the gamegrid array.
 	 *
 	 * @author hd
-	 * @param pattern the pattern
+	 * @param String pattern
 	 * @return void
 	 */
 	public void parsePattern(String pattern){
@@ -86,10 +86,11 @@ public class GameboardCanvas {
 
 	/**			
 	 * Method counts and returns number of neighbours
-	 * to a cell given by provided x and y param.
-	 *
+	 * to a cell given by provided x and y coordinates.
+	 * Not in use
 	 * @author hd
-	 * @param neighbours the neighbours
+	 * @param int x
+	 * @param int y
 	 * @return number of neighbours
 	 */
 //		protected int countNeighbours(int x, int y)	{
@@ -130,8 +131,8 @@ public class GameboardCanvas {
 		 * 1) cell dies if number of neighbours is less than 2
 		 * 2) cell dies if number of neighbours is greater than 3
 		 * 
-		 * @param neighBours
-		 * @return boolean
+		 * @param in neighbours
+		 * @return boolean 
 		 * @author hd
 		 */
 		public boolean survives(int neighbours)	{
@@ -148,8 +149,8 @@ public class GameboardCanvas {
 		 * returns false otherwise.
 		 *
 		 * @author hd
-		 * @param shapeColumns the shape columns
-		 * @param shapeRows the shape rows
+		 * @param int shapeColumns
+		 * @param int shapeRows
 		 * @return boolean
 		 */
 		public boolean shapeBiggerThanGameboard(int shapeColumns, int shapeRows){

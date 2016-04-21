@@ -85,7 +85,7 @@ public class GameController implements Initializable{
 	 * Mnu_About dialog pressed.
 	 *
 	 * @author lars
-	 * @param event the event
+	 * @param ActionEvent event
 	 */
 	@FXML
 	protected void mnu_AboutDialogPressed(ActionEvent event) {
@@ -185,7 +185,7 @@ public class GameController implements Initializable{
      * TODO: checking procedure should be a separate method in a model class.
      *
      * @author hd
-     * @param event the event
+     * @param ActionEvent event
      */
     @FXML
     protected void mnu_FileOpenPressed(ActionEvent event) {
@@ -215,7 +215,7 @@ public class GameController implements Initializable{
      * TODO: to be implemented.
      *
      * @author hd
-     * @param event the event
+     * @param ActionEvent event
      */
     @FXML
     protected void mnu_FileSavePressed(ActionEvent event) {

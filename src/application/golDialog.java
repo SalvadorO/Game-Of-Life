@@ -75,11 +75,11 @@ public class golDialog extends Application	{
 		}	
 	
 	/**
-	 * Method that show a custom inputdialog box to the user.
+	 * Method that shows a custom inputdialog window to the user.
 	 * The dialog takes an x value and a y value.
 	 * The values are returned to the calling method.
-	 * TODO: consider if method should reside in another class, e.g. GameBoardCanvas
-	 * TODO: validate x and y
+	 * 
+	 * TODO: add validation of x and y input
 	 *
 	 * @author hd (plus Internet)
 	 * @return String
