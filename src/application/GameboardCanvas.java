@@ -8,17 +8,23 @@ import javafx.scene.canvas.GraphicsContext;
 
 import javafx.scene.paint.Color;
 
+// TODO: Auto-generated Javadoc
 /**
  * Constructed by creating a Grid object
  * Provides methods to set and get the grid
  * Provides methods to set and get a specific cell
- * TODO: consider adding a register holding living cells
- * @author hd
+ * TODO: consider adding a register holding living cells.
  *
+ * @author hd
  */
 public class GameboardCanvas {
+	
+	/** The grid. */
 	Grid grid;
 	
+	/**
+	 * Instantiates a new gameboard canvas.
+	 */
 	public GameboardCanvas(){
 
 		grid = new Grid(50,50);
@@ -30,9 +36,10 @@ public class GameboardCanvas {
 	/**
 	 * The method takes a pattern in RLE format (e.g 2b2o$2o2b) as a String and interprets the characters 
 	 * ('2' followed by a 'b' is 'bb', $ represents new line) and sets the gamegrid array.
-	 * @param patterntobeparsed
-	 * @return void
+	 *
 	 * @author hd
+	 * @param pattern the pattern
+	 * @return void
 	 */
 
 	public void parsePattern(String pattern){
@@ -79,17 +86,19 @@ public class GameboardCanvas {
 		}
 	}
 
-	/** TODO: To be implemented
-//	public void nextGeneration(gameboard board) {
-			
-		/*TODO: Decide if the method should be in the GBCanvas class
-		/**
-		 * Method counts and returns number of neighbours
-		 * to a cell given by provided x and y param
-		 * @param int x, int y
-		 * @return number of neighbours
-		 * @author hd
-		 */
+	/**
+	 *  TODO: To be implemented
+	 * //	public void nextGeneration(gameboard board) {
+	 * 			
+	 * 		/*TODO: Decide if the method should be in the GBCanvas class
+	 * 		/**
+	 * Method counts and returns number of neighbours
+	 * to a cell given by provided x and y param.
+	 *
+	 * @author hd
+	 * @param neighbours the neighbours
+	 * @return number of neighbours
+	 */
 //		protected int countNeighbours(int x, int y)	{
 //		
 //			int neighbours = 0;
@@ -144,11 +153,12 @@ public class GameboardCanvas {
 		
 		/**
 		 * Method takes the size (x and y values) of and returns true if any exceeds size of gamegrid,
-		 * returns false otherwise
-		 * @param shapeColumns
-		 * @param shapeRows
-		 * @return boolean
+		 * returns false otherwise.
+		 *
 		 * @author hd
+		 * @param shapeColumns the shape columns
+		 * @param shapeRows the shape rows
+		 * @return boolean
 		 */
 		public boolean shapeBiggerThanGameboard(int shapeColumns, int shapeRows){
 			
