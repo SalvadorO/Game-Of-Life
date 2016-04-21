@@ -55,6 +55,7 @@ public class GameController implements Initializable{
 	@FXML
 	protected void mnu_SetupGridsizePressed(ActionEvent event) {
 		int[] newgridsize = dialog.setGridSizeDialogue().get();
+
 			if (newgridsize != null) {
 				gameboardcanvas.grid.setGrid(newgridsize[0],newgridsize[1]);
 			Grid.draw(gc, Gameboard);
