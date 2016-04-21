@@ -25,7 +25,7 @@ public class FileManagement {
 	 *
 	 * @author hd
 	 * @param String [] filecontent
-	 * @return String pattern
+	 * @return String
 	 */
  	public String getPattern(String[] filecontent)	{
 	
@@ -42,7 +42,7 @@ public class FileManagement {
  *
  * @author hd
  * @param File f
- * @return filecontent as a String array;
+ * @return String[];
  */
 public String[] parseFile(File f) 	{
 
@@ -87,7 +87,7 @@ public String[] parseFile(File f) 	{
  *
  * @author hd
  * @param filecontent the filecontent
- * @return returnedHeader array
+ * @return String[]
  */
 	public String[] getHeader(String[] filecontent)	{
 		
@@ -108,7 +108,7 @@ public String[] parseFile(File f) 	{
 	 *
 	 * @author hd
 	 * @param String filecontent
-	 * @return boolean true if content was saved successfully
+	 * @return boolean
 	 */
 	public boolean saveFile(String filecontent) {
     	
@@ -132,7 +132,7 @@ public String[] parseFile(File f) 	{
  * filtered using ExtensionFilter class.
  *
  * @author hd
- * @return f as a File object
+ * @return File
  */
 	public File openFile(){
 		
