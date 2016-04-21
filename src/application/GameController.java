@@ -296,7 +296,7 @@ public class GameController implements Initializable{
 			int x = (int) Math.floor((event.getX() / Grid.cellSize));
 			int y = (int) Math.floor((event.getY() / Grid.cellSize));
 			
-		Grid.updateGameGrid(x, y, gc);
+		Grid.DrawOnGameGrid(x, y, gc);
 		}
     };
     
@@ -308,7 +308,7 @@ public class GameController implements Initializable{
 			int x = (int) Math.floor((event.getX() / Grid.cellSize));
 			int y = (int) Math.floor((event.getY() / Grid.cellSize));
 			
-		Grid.updateGameGrid(x, y, gc);
+		Grid.DrawOnGameGrid(x, y, gc);
 		}
     };
 }

@@ -148,11 +148,11 @@ class Grid {
 	}
 	
 	/**
-	 * Next generation.
+	 * Next generation method is used to calculate the next state of a cell according to the game rules.
 	 *
-	 * @param array2 the array2
-	 * @param gc the gc
-	 * @return the int[][]
+	 * @param int[][] array2
+	 * @param GraphicsContext gc
+	 * @return the next generation
 	 */
 	public int [][] nextGeneration(int [][] array2, GraphicsContext gc){
 		
@@ -162,19 +162,9 @@ class Grid {
 		
 			for (int x = 0; x < currentGen.length; x++){
 	    	   for (int y = 0; y < currentGen[0].length; y++){
-	    		   
-	    		
 	    	   }
-	    	 
-	       }
-		
-	    	 
-	       
-		
-	    	   
-	   
-	   
-	    	   
+	     }
+		   
 		int [][] nextGen = new int [gamegrid.length][gamegrid.length];
 		
 		
@@ -237,11 +227,11 @@ class Grid {
       	}
 
 	/**
-	 * One gen.
+	 * OneGen method is used to only calculate the next generation when next button is clicked
 	 *
 	 * @author
-	 * @param gc
-	 * @param img
+	 * @param GraphicsContext gc
+	 * @param Canvas img
 	 */
 	public void oneGen(GraphicsContext gc, Canvas img){
 		gamegrid = nextGeneration(gamegrid, gc);
@@ -249,11 +239,11 @@ class Grid {
 	}
 	
 	/**
-	 * Draw.
+	 * Draw method is used to draw the gameboard.
 	 *
-	 * @param gc
-	 * @param canvas
-	 * @return the int[][]
+	 * @param gc GraphicsContext
+	 * @param Canvas canvas
+	 * @return the int[][] array
 	 */
 	public static int[][] draw(GraphicsContext gc, Canvas canvas){
 
@@ -280,13 +270,13 @@ class Grid {
 	
 	
 	/**
-	 * Update game grid.
+	 * DrawOnGameGrid method is used to visually draw cells on the gamebaord.
 	 *
-	 * @param x
-	 * @param y
-	 * @param gc
+	 * @param int x
+	 * @param int y
+	 * @param GraphicsContext gc
 	 */
-	public static void updateGameGrid (int x, int y, GraphicsContext gc){
+	public static void DrawOnGameGrid (int x, int y, GraphicsContext gc){
 		for (int i = 0;i<gamegrid.length;i++){
 			for (int j = 0; j<(gamegrid[i].length); j++){
 				if (x == i && y == j){
