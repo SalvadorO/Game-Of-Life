@@ -60,6 +60,7 @@ public class GameController implements Initializable{
 				gameboardcanvas.grid.setGrid(newgridsize[0],newgridsize[1]);
 			Grid.draw(gc, Gameboard);
 		}	
+
     }
 	
 	/**
