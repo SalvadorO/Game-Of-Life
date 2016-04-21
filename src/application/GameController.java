@@ -57,8 +57,8 @@ public class GameController implements Initializable{
 		int[] newgridsize = dialog.setGridSizeDialogue().get();
 			if (newgridsize != null) {
 				gameboardcanvas.grid.setGrid(newgridsize[0],newgridsize[1]);
-			Grid.draw(gc, Gameboard);
-		}	
+				Grid.draw(gc, Gameboard);
+		}
     }
 	
 	/**
@@ -121,7 +121,39 @@ public class GameController implements Initializable{
     		timeline.stop();
     }
 	}
+    /*
+    @FXML
+    protected void btn_ResetPressed(ActionEvent event) {
+    	
+//  gc.clearRect(0, 0, Gameboard.getWidth(), Gameboard.getHeight());
+    gc.clearRect(0, 0, Grid.gamegrid.length, Grid.gamegrid[0].length);
     
+    
+//    gc.clearRect(0, 0, Grid.gamegrid.length, Grid.gamegrid[0].length);
+    gameboardcanvas = new GameboardCanvas();
+    
+    
+//    if(){
+//    	
+//    }	else {
+//    	gameboardcanvas = new GameboardCanvas();
+//        Grid.draw(gc, Gameboard);
+//    }
+//    mnu_SetupGridsize.getOnAction()
+//    gameboardcanvas.grid.setGrid(newgridsize[0], newgridsize[1]);
+    
+//    Grid.gamegrid.length 
+//    Grid.gamegrid[0].length
+//    Grid.draw(gc, Gameboard);
+    
+    
+    //Changes the button to Play and stops the timeline if reset is pressed
+    if (btn_PlayStop.getText().equals("Play")){
+    	timeline.stop();	
+    	}	else		{
+    		btn_PlayStop.setText("Play");	
+    		timeline.stop();
+    }*/
     /**
      * Method called when user selects File - Open
      * It checks if the shape to be loaded is within the gamegrid boundaries
