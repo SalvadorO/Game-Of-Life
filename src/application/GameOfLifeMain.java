@@ -9,8 +9,6 @@ import javafx.scene.image.Image;
 
 import javafx.stage.Stage;
 
-
-// TODO: Auto-generated Javadoc
 /**
  * The Class GameOfLifeMain.
  */
