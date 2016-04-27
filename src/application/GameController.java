@@ -3,6 +3,7 @@ package application;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.animation.Animation;
@@ -38,7 +39,7 @@ public class GameController implements Initializable{
 	private golDialog dialog = new golDialog();
 
 	/** The timeline. */
-	Timeline timeline = new Timeline();
+	protected Timeline timeline = new Timeline();
 	
 	/** The Gameboard. */
 	@FXML
@@ -101,7 +102,6 @@ public class GameController implements Initializable{
 	@FXML
 	protected void mnu_StatsMenuPressed(ActionEvent event){
 		golDialog.StatsDialogue();
-//		HB_Advanced.setVisible(true);			   
 	}
 
 	/**
@@ -111,11 +111,11 @@ public class GameController implements Initializable{
 	 * @param event the event
 	 */
     @FXML
-    protected void btn_PlayStopPressed(ActionEvent event) {
+    public void btn_PlayStopPressed(ActionEvent event) {
 
     	if (btn_PlayStop.getText().equals("Stop")){
     		btn_PlayStop.setText("Play");
-	    	timeline.stop();	
+	    	timeline.stop();
     	}else{
     		btn_PlayStop.setText("Stop");	
     		timeline.play();
@@ -139,6 +139,7 @@ public class GameController implements Initializable{
     gameboardcanvas = new GameboardCanvas();
     Grid.draw(gc, Gameboard);
     //Changes the button to Play and stops the timeline if reset is pressed
+    
     if (btn_PlayStop.getText().equals("Play")){
     	timeline.stop();	
     	}	else		{
@@ -215,12 +216,13 @@ public class GameController implements Initializable{
      * TODO: to be implemented.
      *
      * @author hd
-     * @param ActionEvent event
+     * @param ActionEvent event 
      */
     @FXML
-    protected void mnu_FileSavePressed(ActionEvent event) {
-//      	filemanager.saveFile(filecontent);
+    protected void mnu_FileSavePressed(ActionEvent event){
+    	FileManagement.saveFile();
     }
+    
     
 	/**
 	 * Btn_Quit pressed.
@@ -311,4 +313,5 @@ public class GameController implements Initializable{
 		Grid.DrawOnGameGrid(x, y, gc);
 		}
     };
+
 }

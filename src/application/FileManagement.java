@@ -2,18 +2,21 @@ package application;
 
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 
 import java.io.FileOutputStream;
 import java.io.FileReader;
-import java.io.IOException;
+import java.io.FileWriter;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
 import java.io.Writer;
+
+import javafx.event.ActionEvent;
 import javafx.stage.FileChooser;
 import javafx.stage.FileChooser.ExtensionFilter;
-
-
-
+import javafx.stage.Stage;
 
 /**
  * The Class FileManagement.
@@ -30,8 +33,8 @@ public class FileManagement {
  	public String getPattern(String[] filecontent)	{
 	
 	 	//Remove end of file marker ('!')
-		String fc = filecontent[2].replaceAll("\\!", "");
-		return fc;
+		String openFile = filecontent[2].replaceAll("\\!", "");
+		return openFile;
 }
 
 
@@ -108,25 +111,30 @@ public String[] parseFile(File f) 	{
 	 *
 	 * @author hd
 	 * @param String filecontent
-	 * @return boolean
 	 */
-	public boolean saveFile(String filecontent) {
-    	
+	public static File saveFile() {
 		
-    	OutputStream os;
-		try {
-			os = new FileOutputStream("hans.txt");
-	    	Writer osw = new OutputStreamWriter(os);
-	    	osw.write(filecontent);
-	    	osw.close();
-		} catch (IOException ioe) {
-			ioe.printStackTrace();
-			return false;
-		}
+		ExtensionFilter filterGoLfiles = new ExtensionFilter("RLE file, *.rle","*.rle");
+
+		FileChooser saveFile = new FileChooser();
+		saveFile.getExtensionFilters().addAll(filterGoLfiles);
 		
-		return true;
-    }
+		File savedFile = saveFile.showSaveDialog(null);
+		return savedFile;
 		
+	}
+	/*--------------------------- Code i maybe need later --------------------
+	try(PrintWriter out = new PrintWriter("Lars.txt"))
+ 	{
+ 		out.println("Dette er bare en test for å se om jeg klarer å lagre en fil med noe informasjon i seg. Etterhvert skal det kunne lagre som en RLE fil");
+ 		out.println("test5");
+	}
+catch(IOException ioe) {
+ioe.printStackTrace();
+ }
+ * */
+
+
 /**
  * Method provides the user with a File open-dialogue to select a file. Allowed file types are
  * filtered using ExtensionFilter class.
@@ -137,13 +145,12 @@ public String[] parseFile(File f) 	{
  */
 	public File openFile() {
 		
-		ExtensionFilter filterGoLfiles = new ExtensionFilter("GoL, *.rle","*.rle");
+		ExtensionFilter filterGoLfiles = new ExtensionFilter("RLE file, *.rle","*.rle");
 
-		FileChooser fc = new FileChooser();
-		fc.setTitle("Open");
-		fc.getExtensionFilters().addAll(filterGoLfiles);
+		FileChooser openFile = new FileChooser();
+		openFile.getExtensionFilters().addAll(filterGoLfiles);
 	
-		File f = fc.showOpenDialog(null);
+		File f = openFile.showOpenDialog(null);
 		return f;
 	}
 }
