@@ -14,7 +14,9 @@ import javafx.scene.control.ChoiceDialog;
 import javafx.scene.control.Dialog;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.control.TextInputDialog;
 import javafx.scene.layout.GridPane;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Callback;
@@ -27,8 +29,8 @@ public class golDialog extends Application	{
 		/**
 		 * Method that show a Alertbox to the user that explains how the game work.
 		 */
-		protected static  void AboutDialogue() {
-			Alert about = new Alert(AlertType.NONE);
+		protected static void AboutDialogue() {
+			Alert about = new Alert(AlertType.INFORMATION);
 			about.setHeaderText(null);
 			about.setContentText("John Conway's Game Of Life"+"\n\n"+"The Game of Life, also known simply as Life, is a cellular automaton devised by the British mathematician John Horton Conway in 1970"+"\n"+"The 'game' is a zero-player game, meaning that its evolution is determined by its initial state, requiring no further input. One interacts with the Game of Life by creating an initial configuration and observing how it evolves or, for advanced players, by creating patterns with particular properties."+"\n\n"+"Rules"+"\n"+"1. Any live cell with fewer than two live neighbours dies, as if caused by under-population."+"\n"+"2. Any live cell with two or three live neighbours lives on to the next generation."+"\n"+"3. Any live cell with more than three live neighbours dies, as if by over-population."+"\n"+"4. Any dead cell with exactly three live neighbours becomes a live cell, as if by reproduction.");
 			about.initStyle(StageStyle.UNDECORATED);
@@ -44,7 +46,7 @@ public class golDialog extends Application	{
 		 */
 		// Advanced Dialogue
 		protected  static void AdvancedDialogue() {
-			Alert advanced = new Alert(AlertType.INFORMATION);
+			Alert advanced = new Alert(AlertType.NONE);
 			advanced.setTitle("Advanced");
 			advanced.setHeaderText(null);
 			advanced.setContentText("Advanced Menu is now enabled! \n\n Good luck!");
@@ -57,7 +59,7 @@ public class golDialog extends Application	{
 		 * Stats dialogue.
 		 */
 		protected static void StatsDialogue()	{
-			Alert stats = new Alert(AlertType.INFORMATION);
+			Alert stats = new Alert(AlertType.NONE);
 			stats.setTitle("Stats");
 			stats.setHeaderText(null);
 			stats.setResizable(false);
@@ -130,6 +132,28 @@ public class golDialog extends Application	{
 		return returnValue;
 	}
 
+//	protected static void SaveFileDialogueName()	{
+//		FileChooser fileChooser1 = new FileChooser();
+//		fileChooser1.setTitle("Save Image");
+//		System.out.println(pic.getId());
+//		File file = fileChooser1.showSaveDialog(stage);
+//		System.out.println(file);
+//	}
+	
+	protected static void SaveFileDialogueConfirmed(){
+		Alert savefileconfirmed = new Alert(AlertType.NONE);
+		savefileconfirmed.setHeaderText(null);
+		savefileconfirmed.setContentText("Your file is now saved!"+"\n");
+		savefileconfirmed.setResizable(false);
+		
+		savefileconfirmed.initStyle(StageStyle.UNDECORATED);
+		
+		ButtonType buttonTypeOkei = new ButtonType("Good!", ButtonData.CANCEL_CLOSE);
+		savefileconfirmed.getButtonTypes().setAll(buttonTypeOkei);
+		
+		savefileconfirmed.showAndWait();
+	}
+	
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		
