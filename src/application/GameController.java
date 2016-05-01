@@ -66,7 +66,7 @@ public class GameController implements Initializable{
 	 * When the menu item "SetupGridsize" is pressed, the setgridsize dialog method
 	 * is called.
 	 * The returned values are sent to the GameBoardCanvas setGridmethod to set the grid size
-	 *
+	 * TODO: check for values when gridsie dialog is cancelled
 	 * @author hd
 	 * @param event the event
 	 */

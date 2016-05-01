@@ -84,7 +84,7 @@ public class golDialog extends Application	{
 	 * 
 	 * TODO: add validation of x and y input
 	 *
-	 * @author hd (plus Internet)
+	 * @author hd
 	 * @return String
 	 */
 	public Optional<int[]> setGridSizeDialogue() {
