@@ -87,7 +87,7 @@ public String[] parseFile(File f) 	{
 /**
  * The method takes the filecontent as a String, and returns the header
  * element as elements in an array.
- *
+ * TODO: consider adding Throws if header somehow is corrupt
  * @author hd
  * @param filecontent the filecontent
  * @return String[]
@@ -126,7 +126,7 @@ public String[] parseFile(File f) 	{
 	/*--------------------------- Code i maybe need later --------------------
 	try(PrintWriter out = new PrintWriter("Lars.txt"))
  	{
- 		out.println("Dette er bare en test for å se om jeg klarer å lagre en fil med noe informasjon i seg. Etterhvert skal det kunne lagre som en RLE fil");
+ 		out.println("Dette er bare en test for ï¿½ se om jeg klarer ï¿½ lagre en fil med noe informasjon i seg. Etterhvert skal det kunne lagre som en RLE fil");
  		out.println("test5");
 	}
 catch(IOException ioe) {
@@ -138,8 +138,6 @@ ioe.printStackTrace();
 /**
  * Method provides the user with a File open-dialogue to select a file. Allowed file types are
  * filtered using ExtensionFilter class.
- * TODO: add Throws, not return null when no file selected
- *
  * @author hd
  * @return File object: The file, or null if none is selected
  */
@@ -151,6 +149,7 @@ ioe.printStackTrace();
 		openFile.getExtensionFilters().addAll(filterGoLfiles);
 	
 		File f = openFile.showOpenDialog(null);
+		
 		return f;
 	}
 }

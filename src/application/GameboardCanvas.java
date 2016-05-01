@@ -35,7 +35,7 @@ public class GameboardCanvas {
 	/**
 	 * The method takes a pattern in RLE format (e.g 2b2o$2o2b) as a String and interprets the characters 
 	 * ('2' followed by a 'b' is 'bb', $ represents new line) and sets the gamegrid array.
-	 *
+	 * TODO: add inline comments
 	 * @author hd
 	 * @param String pattern
 	 * @return void
@@ -87,7 +87,7 @@ public class GameboardCanvas {
 	/**			
 	 * Method counts and returns number of neighbours
 	 * to a cell given by provided x and y coordinates.
-	 * Not in use
+	 * Note; Not in use
 	 * @author hd
 	 * @param int x
 	 * @param int y
@@ -147,7 +147,7 @@ public class GameboardCanvas {
 		/**
 		 * Method takes the size (x and y values) of and returns true if any exceeds size of gamegrid,
 		 * returns false otherwise.
-		 *
+		 * TODO: Consider creating a Model class to hold this method
 		 * @author hd
 		 * @param int shapeColumns
 		 * @param int shapeRows
