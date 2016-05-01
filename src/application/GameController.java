@@ -194,7 +194,7 @@ public class GameController implements Initializable{
     	//Get a file object by using FileManagement class openFile() method
     	File file = filemanager.openFile();
     	//Check whether a file object is present
-    	if (file!=null){
+    	if (file != null){
     		//Get the file content as an array
 	    	String[] filecontent = filemanager.parseFile(file);
 	    	    	
