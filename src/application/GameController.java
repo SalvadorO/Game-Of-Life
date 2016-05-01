@@ -190,26 +190,31 @@ public class GameController implements Initializable{
      */
     @FXML
     protected void mnu_FileOpenPressed(ActionEvent event) {
-    	//Get the file content as an array
-    	File file = filemanager.openFile();
-    	String[] filecontent = filemanager.parseFile(file);
-    	    	
-    	//Check if size of shape exceedes current gameboard
-    	String[] header = filemanager.getHeader(filecontent); 
-    	//Get the y and x values (c indicates column hence is x value)
-    	String[] c = header[0].split("=");
-    	String[] r = header[1].split("=");
-    	 
-    	//For testing
-    	System.out.println(gameboardcanvas.shapeBiggerThanGameboard(Integer.parseInt(c[1]), Integer.parseInt(r[1])));
-    	//End for testing
     	
-       	//If shape is not bigger than gamegrid array;
-    	//parse the pattern, update gamegrid array accordingly and redraw gameboard (i.e draw the laoded pattern)
-       	if (!gameboardcanvas.shapeBiggerThanGameboard(Integer.parseInt(c[1]), Integer.parseInt(r[1]))){
-       		gameboardcanvas.parsePattern(filecontent[2]);
-       	   	Grid.draw(gc, Gameboard);
-       	}
+    	//Get a file object by using FileManagement class openFile() method
+    	File file = filemanager.openFile();
+    	//Check whether a file object is present
+    	if (file!=null){
+    		//Get the file content as an array
+	    	String[] filecontent = filemanager.parseFile(file);
+	    	    	
+	    	//Check if size of shape exceedes current gameboard
+	    	String[] header = filemanager.getHeader(filecontent); 
+	    	//Get the y and x values (c indicates column hence is x value)
+	    	String[] c = header[0].split("=");
+	    	String[] r = header[1].split("=");
+	    	
+	    	//For testing
+	    	System.out.println(gameboardcanvas.shapeBiggerThanGameboard(Integer.parseInt(c[1]), Integer.parseInt(r[1])));
+	    	//End for testing
+	    	
+	       	//If shape is not bigger than gamegrid array;
+	    	//parse the pattern, update gamegrid array accordingly and redraw gameboard (i.e draw the laoded pattern)
+	       	if (!gameboardcanvas.shapeBiggerThanGameboard(Integer.parseInt(c[1]), Integer.parseInt(r[1]))){
+	       		gameboardcanvas.parsePattern(filecontent[2]);
+	       	   	Grid.draw(gc, Gameboard);
+	       	}
+    	}
     }
 
     /**
