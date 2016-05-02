@@ -83,10 +83,10 @@ public class golDialog extends Application	{
 	 * The dialog takes an x value and a y value.
 	 * The values are returned to the calling method.
 	 * 
-	 * TODO: add validation of x and y input
+	 * The input values are validated, and only positive integers are accepted
 	 *
 	 * @author hd
-	 * @return String
+	 * @return An int[] containing the x and the y value, and exit codes if relevant where -1 means cancel, and -2 means validation failed
 	 */
 	public Optional<int[]> setGridSizeDialogue() {
 				
@@ -116,7 +116,7 @@ public class golDialog extends Application	{
 		ButtonType buttonTypeCancel = new ButtonType ("Cancel", ButtonData.CANCEL_CLOSE);
 		dialog.getDialogPane().getButtonTypes().addAll(buttonTypeOk, buttonTypeCancel);
 		
-//		Get the output from the dialog, using the callback interface
+//		Get the output from the dialog, by implementing the callback interface
 		dialog.setResultConverter(
 				new Callback<ButtonType, int[]>() {
 					@Override	
@@ -125,7 +125,7 @@ public class golDialog extends Application	{
 						if (ok==buttonTypeOk){
 							String x_value = txt_x.getText();
 							String y_value = txt_y.getText();
-							//Validate that both x and y value is a number (variable valuesOk set to true if they are)
+							//Validate that both x and y value is a number and positive (variable valuesOk set to true if they are)
 							boolean valuesOk = 
 									( (StringUtils.isNumeric(x_value)) && (Integer.parseInt(x_value) > 0) ) && 
 									( (StringUtils.isNumeric(y_value)) && (Integer.parseInt(y_value) > 0) );

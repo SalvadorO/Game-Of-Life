@@ -74,9 +74,8 @@ public class GameController implements Initializable{
 	protected void mnu_SetupGridsizePressed(ActionEvent event) {
 		int[] newgridsize = dialog.setGridSizeDialogue().get();
 
-		
-		//Check for null or -1; null means nothing was returned and -1 means Cancel was pressed in dialog -2 indicates validation failed
-		
+		//Check for null or -1; null means nothing was returned and -1 means Cancel was pressed in dialog
+		//-2 indicates validation failed
 		System.out.println("Returned value: " + newgridsize[0]);
 		
 		if (newgridsize != null)
