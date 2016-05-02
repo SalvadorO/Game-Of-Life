@@ -19,7 +19,9 @@ import javafx.scene.paint.Color;
 public class GameboardCanvas {
 	
 //	Grid object, holding the grid array
-	private Grid grid;
+	
+	//TODO: should be private, refactor methods calling this to use avoid using static
+	protected Grid grid;
 	
 	
 	//Constructor, a new gameboard canvas with default gridsize.
@@ -31,7 +33,7 @@ public class GameboardCanvas {
 	 * The method takes a pattern in RLE format (e.g 2b2o$2o2b) as a String and interprets the characters 
 	 * ('2' followed by a 'b' is 'bb', $ represents new line) and sets the gamegrid array.
 	 * TODO: add inline comments
-	 * @author hd
+	 * @author hd with help from Internet
 	 * @param String pattern
 	 * @return void
 	 */
@@ -53,24 +55,18 @@ public class GameboardCanvas {
 						int number = Integer.parseInt(matcher.group());
 						matcher.find();
 						while (number-- != 0){
-
-							//For testing
 							if (matcher.group().equals("b")){
 								grid.setCellstatus( x_counter++,i, 0);
 							}
-							//End for testing
-
 							if (matcher.group().equals("o")){
 								grid.setCellstatus( x_counter++,i, 1);
 							}
 						}
 					}
 					else {
-						//For testing
 						if (matcher.group().equals("b"))	{
 							grid.setCellstatus(x_counter++,i, 0);
 						}
-						//End for testing
 						if (matcher.group().equals("o"))	{
 							grid.setCellstatus(x_counter++,i, 1);
 						}

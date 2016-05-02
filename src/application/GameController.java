@@ -21,43 +21,43 @@ import javafx.util.Duration;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 
-/**
- * The Class GameController.
- */
+
+//Class GameController
+
 public class GameController implements Initializable{
 	
-	/** The gameboardcanvas. */
+// 	Decalring the gameboardcanvas object
 	private GameboardCanvas gameboardcanvas =  new GameboardCanvas();
 	
-	/** The gc. */
+//	Declaring the gc object (Graphics contect)
 	private static GraphicsContext gc;
-	
-	/** The filemanager. */
+
+//	Declaring the filemanager object
 	private FileManagement filemanager = new FileManagement();
 	
-	/** The dialog. */
+//	The dialog object
 	private golDialog dialog = new golDialog();
 
-	/** The timeline. */
+//	Declaring the timeline object
 	protected Timeline timeline = new Timeline();
 	
-	/** The Gameboard. */
+//	Declaring the Gameboard object
 	@FXML
 	private Canvas Gameboard;
 
-    /** The mnu_FileOpen, mnu_FileSave, mnu_SetupGridsize. */
+//	Declaring mnu_FileOpen, mnu_FileSave, mnu_SetupGridsize variables
     @FXML
     private MenuItem mnu_FileOpen,  mnu_FileSave, mnu_SetupGridsize;
 	
-	/** The btn_ grid size, btn_PlayStop, btn_Quit, btn_Next, btn_Gridsize and cmi_adv. */
+//  Declaring the Button type variables
 	@FXML
     private Button btn_Reset, btn_PlayStop, btn_Quit, btn_Next, btn_GridSize, cmi_adv;
 	
-	/** The Sld_ speed. */
+//	Declaring the SLD_Speed object (Slider type)
 	@FXML
 	private Slider Sld_Speed;
 
-	/** The HB_ advanced. */
+//	Declaring the HB_Advanced (HBox type)
 	@FXML
 	private HBox HB_Advanced;
 	
@@ -68,7 +68,7 @@ public class GameController implements Initializable{
 	 * The returned values are sent to the GameBoardCanvas setGridmethod to set the grid size
 	 * and the grid is redrawn accordingly
 	 * @author hd
-	 * @param event the event
+	 * @param event
 	 */
 	@FXML
 	protected void mnu_SetupGridsizePressed(ActionEvent event) {
@@ -131,6 +131,7 @@ public class GameController implements Initializable{
      * Method resets the Gameboardcanvas by creating a new gameboardcanvas object
      * and let the gameboardcanvas parameter point to this 
      * It also clears the graphicscontext object.
+     * TODO: do not reset to 50x50, but actual grid size
      *
      * @author hd
      * @param event the event
@@ -151,39 +152,8 @@ public class GameController implements Initializable{
     		timeline.stop();
     }
 	}
-    /*
-    @FXML
-    protected void btn_ResetPressed(ActionEvent event) {
-    	
-//  gc.clearRect(0, 0, Gameboard.getWidth(), Gameboard.getHeight());
-    gc.clearRect(0, 0, Grid.gamegrid.length, Grid.gamegrid[0].length);
+ 
     
-    
-//    gc.clearRect(0, 0, Grid.gamegrid.length, Grid.gamegrid[0].length);
-    gameboardcanvas = new GameboardCanvas();
-    
-    
-//    if(){
-//    	
-//    }	else {
-//    	gameboardcanvas = new GameboardCanvas();
-//        Grid.draw(gc, Gameboard);
-//    }
-//    mnu_SetupGridsize.getOnAction()
-//    gameboardcanvas.grid.setGrid(newgridsize[0], newgridsize[1]);
-    
-//    Grid.gamegrid.length 
-//    Grid.gamegrid[0].length
-//    Grid.draw(gc, Gameboard);
-    
-    
-    //Changes the button to Play and stops the timeline if reset is pressed
-    if (btn_PlayStop.getText().equals("Play")){
-    	timeline.stop();	
-    	}	else		{
-    		btn_PlayStop.setText("Play");	
-    		timeline.stop();
-    }*/
     /**
      * Method called when user selects File - Open
      * It checks if the shape to be loaded is within the gamegrid boundaries

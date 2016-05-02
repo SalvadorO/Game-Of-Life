@@ -10,7 +10,7 @@ import javafx.scene.paint.Color;
 class Grid {
 	
 	/** The gamegrid. */
-	private static int[][] gamegrid;
+	protected static int[][] gamegrid;
 	
 	/** The cell size. */
 	protected static int cellSize ;
