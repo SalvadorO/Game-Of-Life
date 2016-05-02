@@ -207,10 +207,6 @@ public class GameController implements Initializable{
 	    	String[] c = header[0].split("=");
 	    	String[] r = header[1].split("=");
 	    	
-	    	//For testing
-	    	System.out.println(gameboardcanvas.shapeBiggerThanGameboard(Integer.parseInt(c[1]), Integer.parseInt(r[1])));
-	    	//End for testing
-	    	
 	       	//If shape is not bigger than gamegrid array;
 	    	//parse the pattern, update gamegrid array accordingly and redraw gameboard (i.e draw the laoded pattern)
 	       	if (!gameboardcanvas.shapeBiggerThanGameboard(Integer.parseInt(c[1]), Integer.parseInt(r[1]))){
