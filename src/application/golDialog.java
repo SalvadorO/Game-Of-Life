@@ -1,6 +1,7 @@
 package application;
 
 import java.util.ArrayList;
+import org.apache.commons.lang3.StringUtils;
 import java.util.List;
 import java.util.Optional;
 
@@ -117,11 +118,28 @@ public class golDialog extends Application	{
 		dialog.setResultConverter(new Callback<ButtonType, int[]>() {
 			@Override	
 			public int[] call(ButtonType ok) {
-				if (ok==buttonTypeOk){
-					return new int[]{Integer.parseInt(txt_x.getText()), Integer.parseInt(txt_y.getText())};
-				}	else {
+				
+				String x_value = txt_x.getText();
+				String y_value = txt_y.getText();
+				
+				//Validate that both x and y value is a number (parameter valuesOk set to true if they are
+				boolean valuesOk = (StringUtils.isNumeric(x_value) && StringUtils.isNumeric(y_value));
+							
+				if (valuesOk) {
+				
+					if (ok==buttonTypeOk){
+						//Return an array with the x and y values 
+						return new int[]{Integer.parseInt(x_value), Integer.parseInt(y_value)};
+					}	else {
+						//Return null, if cancel is pressed
+						return null;
+					}
+				}
+				else { 
+					System.out.println("Feil input");
 					return null;
 				}
+					
 			}
 	    });
 		
