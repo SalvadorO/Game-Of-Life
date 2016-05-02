@@ -10,7 +10,7 @@ import javafx.scene.paint.Color;
 class Grid {
 	
 	/** The gamegrid. */
-	protected static int[][] gamegrid;
+	private static int[][] gamegrid;
 	
 	/** The cell size. */
 	protected static int cellSize ;
@@ -68,8 +68,9 @@ class Grid {
 	
 	/**
 	 * Method counts and returns number of neighbours
-	 * to a cell given by provided x and y param
-	 * TODO: not tested after moved here.
+	 * to a cell given by provided x and y param.
+	 * Not in use
+	 * TODO: not tested after moved to this class.
 	 *
 	 * @author hd
 	 * @param x

@@ -139,6 +139,7 @@ public class GameController implements Initializable{
     protected void btn_ResetPressed(ActionEvent event) {
     
     gc.clearRect(0, 0, Gameboard.getWidth(), Gameboard.getHeight());
+    
     gameboardcanvas = new GameboardCanvas();
     Grid.draw(gc, Gameboard);
     

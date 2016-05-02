@@ -12,24 +12,19 @@ import javafx.scene.paint.Color;
  * Constructed by creating a Grid object
  * Provides methods to set and get the grid
  * Provides methods to set and get a specific cell
- * TODO: consider adding a register holding living cells.
+ * TODO: for efficiency; consider adding a register holding living cells.
  *
  * @author hd
  */
 public class GameboardCanvas {
 	
-	/** The grid. */
-	Grid grid;
+//	Grid object, holding the grid array
+	private Grid grid;
 	
-	/**
-	 * Instantiates a new gameboard canvas with default gridsize.
-	 */
+	
+	//Constructor, a new gameboard canvas with default gridsize.
 	public GameboardCanvas(){
-
 		grid = new Grid(50,50);
-		
-		
-
 	}
 	
 	/**
@@ -49,7 +44,7 @@ public class GameboardCanvas {
 		
   		int x_counter = 0;
 		
-		//loop antall ganger som det er linjer i is
+		//Loop antall ganger som det er linjer i inputstring
 		for (int i = 0; i < inputstring.length; i++){
 			x_counter = 0;
 			matcher = p.matcher(inputstring[i]);
@@ -145,7 +140,7 @@ public class GameboardCanvas {
 		
 		
 		/**
-		 * Method takes the size (x and y values) of and returns true if any exceeds size of gamegrid,
+		 * Method takes the size (x and y values) and returns true if any exceeds size of gamegrid,
 		 * returns false otherwise.
 		 * TODO: Consider creating a Model class to hold this method
 		 * @author hd
