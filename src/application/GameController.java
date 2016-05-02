@@ -63,10 +63,10 @@ public class GameController implements Initializable{
 	
 	
 	/**
-	 * When the menu item "SetupGridsize" is pressed, the setgridsize dialog method
+	 * When the menu item "SetupGridsize" is pressed, the setgridsize dialog() method
 	 * is called.
 	 * The returned values are sent to the GameBoardCanvas setGridmethod to set the grid size
-	 * TODO: check for values when gridsie dialog is cancelled
+	 * and the grid is redrawn accordingly
 	 * @author hd
 	 * @param event the event
 	 */
@@ -74,12 +74,17 @@ public class GameController implements Initializable{
 	protected void mnu_SetupGridsizePressed(ActionEvent event) {
 		int[] newgridsize = dialog.setGridSizeDialogue().get();
 
-			if (newgridsize != null) {
+		
+		//Check for null or -1; null means nothing was returned and -1 means Cancel was pressed in dialog -2 indicates validation failed
+		
+		System.out.println("Returned value: " + newgridsize[0]);
+		
+		if (newgridsize != null)
+			if ( ! ( (newgridsize[0] == -1) || (newgridsize[0] == -2) ) ) {
 				gameboardcanvas.grid.setGrid(newgridsize[0],newgridsize[1]);
 				Grid.draw(gc, Gameboard);
 		}
 
-			Grid.draw(gc, Gameboard);
 	}
 	
 	/**

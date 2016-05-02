@@ -89,8 +89,7 @@ public class golDialog extends Application	{
 	 * @return String
 	 */
 	public Optional<int[]> setGridSizeDialogue() {
-		Optional<int[]>returnValue = null;
-		
+				
 		Dialog<int[]> dialog = new Dialog<int[]>();
 		dialog.setTitle("Enter size of grid");
 		dialog.setResizable(false);
@@ -100,55 +99,71 @@ public class golDialog extends Application	{
 		TextField txt_x = new TextField();
 		TextField txt_y = new TextField();
 		
+		//Build the user interface
 		GridPane grid = new GridPane();
-		
 		grid.add(lbl_x, 1, 1);
 		grid.add(lbl_y, 2, 1);
 		grid.add(txt_x, 1, 2);
 		grid.add(txt_y, 2, 2);
 		grid.add(CurrentGrid, 1, 3);
 		dialog.getDialogPane().setContent(grid);
-//		Focuses the X-value when you enter the stage
+//		Focuses the X-value when entering dialog
 		Platform.runLater(() -> txt_x.requestFocus());
 		
+		//Instantiates two objects of type ButtonType and assign them to variables, add the variables to the 
+		//dialog object 'dialog'
 		ButtonType buttonTypeOk = new ButtonType ("Ok", ButtonData.OK_DONE);
 		ButtonType buttonTypeCancel = new ButtonType ("Cancel", ButtonData.CANCEL_CLOSE);
 		dialog.getDialogPane().getButtonTypes().addAll(buttonTypeOk, buttonTypeCancel);
 		
-		dialog.setResultConverter(new Callback<ButtonType, int[]>() {
-			@Override	
-			public int[] call(ButtonType ok) {
-				
-				String x_value = txt_x.getText();
-				String y_value = txt_y.getText();
-				
-				//Validate that both x and y value is a number (parameter valuesOk set to true if they are
-				boolean valuesOk = (StringUtils.isNumeric(x_value) && StringUtils.isNumeric(y_value));
-							
-				if (valuesOk) {
-					if (ok==buttonTypeOk){
-						//Return an array with the x and y values 
-						return new int[]{Integer.parseInt(x_value), Integer.parseInt(y_value)};
-					}
-					else {
-						//Return null, if cancel is pressed
-						return new int[]{-1};
-					}
-				}
-				else { 
-					System.out.println("Feil input");
-					return null;
-				}
+//		Get the output from the dialog, using the callback interface
+		dialog.setResultConverter(
+				new Callback<ButtonType, int[]>() {
+					@Override	
+					public int[] call(ButtonType ok) {
+
+						if (ok==buttonTypeOk){
+							String x_value = txt_x.getText();
+							String y_value = txt_y.getText();
+							//Validate that both x and y value is a number (variable valuesOk set to true if they are)
+							boolean valuesOk = 
+									( (StringUtils.isNumeric(x_value)) && (Integer.parseInt(x_value) > 0) ) && 
+									( (StringUtils.isNumeric(y_value)) && (Integer.parseInt(y_value) > 0) );
+	
+							//For testing
+							System.out.println("Verdier ok: " + valuesOk);
+							//End for testing
+															
+							//Return an array with the x and y values if validation is ok 
+							if (valuesOk){
+								return new int[]{Integer.parseInt(x_value), Integer.parseInt(y_value)};
+							}
+							else {
+								//-2 as return value indicates validations failed
+								return new int[]{-2};
+							}
+						}
 					
-			}
-	    });
-		
+						else {
+							//-1 as return value indicates Cancel was pressed
+							return new int[]{-1};
+					}
+				}
+						
+			    });
+				
 		Optional<int[]> result = dialog.showAndWait();
-		if ( result.isPresent()){
+		
+		if ( result.isPresent() ) {
 			return result;
 		}
 		
-		return returnValue;
+		else {
+			return null;
+		}
+		
+		
+
 	}
 
 //	protected static void SaveFileDialogueName()	{
