@@ -141,8 +141,8 @@ public class GameController implements Initializable{
     gc.clearRect(0, 0, Gameboard.getWidth(), Gameboard.getHeight());
     gameboardcanvas = new GameboardCanvas();
     Grid.draw(gc, Gameboard);
-    //Changes the button to Play and stops the timeline if reset is pressed
     
+    //Changes the button to Play and stops the timeline if reset is pressed
     if (btn_PlayStop.getText().equals("Play")){
     	timeline.stop();	
     	}	else		{
