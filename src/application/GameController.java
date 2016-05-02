@@ -120,16 +120,15 @@ public class GameController implements Initializable{
     	if (btn_PlayStop.getText().equals("Stop")){
     		btn_PlayStop.setText("Play");
 	    	timeline.stop();
-    	}else{
+    	}
+    	else{
     		btn_PlayStop.setText("Stop");	
     		timeline.play();
     	}
-    	gameboardcanvas.grid.setCellstatus(8, 8, 1);
-    	gameboardcanvas.grid.setCellstatus(16, 12, 1);
     }
 
     /**
-     * Method resets the Gameboarcanvas by creating a new gameboardcanvas object
+     * Method resets the Gameboardcanvas by creating a new gameboardcanvas object
      * and let the gameboardcanvas parameter point to this 
      * It also clears the graphicscontext object.
      *
