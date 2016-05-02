@@ -126,13 +126,13 @@ public class golDialog extends Application	{
 				boolean valuesOk = (StringUtils.isNumeric(x_value) && StringUtils.isNumeric(y_value));
 							
 				if (valuesOk) {
-				
 					if (ok==buttonTypeOk){
 						//Return an array with the x and y values 
 						return new int[]{Integer.parseInt(x_value), Integer.parseInt(y_value)};
-					}	else {
+					}
+					else {
 						//Return null, if cancel is pressed
-						return null;
+						return new int[]{-1};
 					}
 				}
 				else { 
