@@ -13,6 +13,7 @@ import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.io.Writer;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import javafx.event.ActionEvent;
@@ -53,11 +54,53 @@ public class FileManagement {
  * @return String[] containing the various elements; metadata, header and pattern;
  */
  	
- 	//START TEST OF ARRAYLIST
-//public List<String> parseFile(File f) 	{
-//
+ 	//START TEST OF HashMap
+public HashMap<String, String> parseFile(File f) 	{
+
+	File file = f;
+	HashMap<String, String> filecontent = new HashMap<String, String>();
+	
+	StringBuilder metadata = new StringBuilder();
+	String header = "";
+	StringBuilder pattern = new StringBuilder();
+
+	try (BufferedReader br = new BufferedReader(new FileReader(file))) {
+		String line = null;
+		do{
+		line = br.readLine();
+			if (line != null){
+				if (line.startsWith("#")){
+					metadata.append(line);
+				}
+				else {
+					if (header == "")
+						header = line;
+					else
+						pattern.append(line);
+				}
+			};
+	
+		}while (line != null);	
+	} 
+	catch (IOException e) {
+		System.err.format("IOException: %s%n", e);
+	}
+	filecontent.put("Metadata", metadata.toString());
+	filecontent.put("Header", header.replaceAll("\\s+",""));
+	filecontent.put("Pattern", pattern.toString());
+
+	return filecontent;
+}
+	
+	//END TEST
+	
+	
+	
+	
+//	
+// 	public String[] parseFile(File f) 	{
 //	File file = f;
-//	List<String> filecontent = new ArrayList<String>();
+//	String filecontent[] = new String[3];
 //	StringBuilder metadata = new StringBuilder();
 //	String header = "";
 //	StringBuilder pattern = new StringBuilder();
@@ -67,73 +110,40 @@ public class FileManagement {
 //		do{
 //			line = br.readLine();
 //				if (line != null){
-//					filecontent.add(line);
+//					if (line.startsWith("#")){
+//						metadata.append(line);
 //					}
-//						
+//					else {
+//						if (header == "")
+//							header = line;
+//						else
+//							pattern.append(line);
+//					}
+//				};
+//		
 //		}while (line != null);
 //	} 
 //	catch (IOException e) {
 //		System.err.format("IOException: %s%n", e);
 //	}
+//	filecontent[0] = metadata.toString();
+//	filecontent[1] = header.replaceAll("\\s+","");
+//	filecontent[2] = pattern.toString();
 //	
 //	return filecontent;
+//	
 //}
 	
-	//END TEST OF ARRAYLIST
-	
-	
-	
-	
-	
- 	public String[] parseFile(File f) 	{
-	File file = f;
-	String filecontent[] = new String[3];
-	StringBuilder metadata = new StringBuilder();
-	String header = "";
-	StringBuilder pattern = new StringBuilder();
-
-	try (BufferedReader br = new BufferedReader(new FileReader(file))) {
-		String line = null;
-		do{
-			line = br.readLine();
-				if (line != null){
-					if (line.startsWith("#")){
-						metadata.append(line);
-					}
-					else {
-						if (header == "")
-							header = line;
-						else
-							pattern.append(line);
-					}
-				};
-		
-		}while (line != null);
-	} 
-	catch (IOException e) {
-		System.err.format("IOException: %s%n", e);
-	}
-	filecontent[0] = metadata.toString();
-	filecontent[1] = header.replaceAll("\\s+","");
-	filecontent[2] = pattern.toString();
-	
-	return filecontent;
-	
-}
-	
 /**
- * The method takes the filecontent as a String, and returns the header
+ * The method takes the header as a String, and returns the header
  * element as elements in an array.
  * TODO: consider adding Throws if header somehow is corrupt
  * @author hd
  * @param filecontent the filecontent
  * @return String[]
  */
-	public String[] getHeader(String[] filecontent)	{
+	public String[] getHeaderArray(String header)	{
 		
-		// Initialize local variable header with the header part of the filecontent array
-	String header = filecontent[1];
-	
 		// split header into info elements, ',' separates info elements
 	String[] headerelements = header.split(",");
 	
