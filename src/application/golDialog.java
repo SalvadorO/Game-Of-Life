@@ -122,13 +122,17 @@ public class golDialog extends Application	{
 					@Override	
 					public int[] call(ButtonType ok) {
 
+						
 						if (ok==buttonTypeOk){
 							String x_value = txt_x.getText();
 							String y_value = txt_y.getText();
 							//Validate that both x and y value is a number and positive (variable valuesOk set to true if they are)
-							boolean valuesOk = 
+							boolean valuesNumericAndPositive = 
 									( (StringUtils.isNumeric(x_value)) && (Integer.parseInt(x_value) > 0) ) && 
 									( (StringUtils.isNumeric(y_value)) && (Integer.parseInt(y_value) > 0) );
+							//Validate that x equals y, i.e the grid is supposed to be a square
+							boolean valuesOk = 
+									( valuesNumericAndPositive && ( (Integer.parseInt(x_value)) == (Integer.parseInt(y_value)) ) ) ; 
 	
 							//For testing
 							System.out.println("Verdier ok: " + valuesOk);

@@ -112,7 +112,7 @@ public class GameController implements Initializable{
 	 * Btn_PlayStop pressed.
 	 *
 	 * @author hd
-	 * @param event the event
+	 * @param ActionEvent event
 	 */
     @FXML
     public void btn_PlayStopPressed(ActionEvent event) {
