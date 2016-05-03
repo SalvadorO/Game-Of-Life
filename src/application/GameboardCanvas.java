@@ -136,20 +136,29 @@ public class GameboardCanvas {
 		
 		
 		/**
-		 * Method takes the size (x and y values) and returns true if any exceeds size of gamegrid,
+		 * Method takes the headerelements as a String array, compares with the current gamegrid size
+		 * and returns true if any exceeds.
 		 * returns false otherwise.
 		 * TODO: Consider creating a Model class to hold this method
+		 * TODO: Add som inline comments
 		 * @author hd
-		 * @param int shapeColumns
-		 * @param int shapeRows
+		 * @param String[] headerelements
+		 * 
 		 * @return boolean
 		 */
-		public boolean shapeBiggerThanGameboard(int shapeColumns, int shapeRows){
+		public boolean shapeBiggerThanGameboard(String[] headerElements){
+						
+		  	//Get the y and x values (c indicates column hence is x value)
+	    	String[] c = headerElements[0].split("=");
+	    	String[] r = headerElements[1].split("=");
+	  
+	    	int shapeColumns = Integer.parseInt(c[1]);
+	    	int shapeRows = Integer.parseInt(r[1]);
 			
-			int rows = grid.getRows();
-			int columns = grid.getColumns();
+	    	int gridRows = grid.getRows();
+			int gridColumns = grid.getColumns();
 			
-			if ((shapeRows > rows) || (shapeColumns > columns))
+			if ((shapeRows > gridRows) || (shapeColumns > gridColumns))
 				return true;
 			else 
 				return false;

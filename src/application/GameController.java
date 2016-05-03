@@ -180,19 +180,12 @@ public class GameController implements Initializable{
     		//Get the file content as a HashMap (key-value pairs)
 	    	HashMap<String, String> filecontent = filemanager.parseFile(file);
 	    	
-	    	System.out.println(filecontent.get("Metadata"));
-	    	System.out.println(filecontent.get("Header"));
-	    	System.out.println(filecontent.get("Pattern"));
+	    	//Check if size of shape exceeds current gameboard
+	    	String[] headerelements = filemanager.getHeaderArray(filecontent.get("Header")); 
 	    	
-	    	//Check if size of shape exceedes current gameboard
-	    	String[] header = filemanager.getHeaderArray(filecontent.get("Header")); 
-	    	//Get the y and x values (c indicates column hence is x value)
-	    	String[] c = header[0].split("=");
-	    	String[] r = header[1].split("=");
-	    	
-	       	//If shape is not bigger than gamegrid array;
-	    	//parse the pattern, update gamegrid array accordingly and redraw gameboard (i.e draw the laoded pattern)
-	       	if (!gameboardcanvas.shapeBiggerThanGameboard(Integer.parseInt(c[1]), Integer.parseInt(r[1]))){
+	    	//If shape is not bigger than gamegrid array, parse the pattern,
+	    	//update gamegrid array accordingly and redraw gameboard (i.e draw the laoded pattern)
+	    	if (!gameboardcanvas.shapeBiggerThanGameboard(headerelements)) {
 	       		gameboardcanvas.parsePattern(filecontent.get("Pattern"));
 	       	   	gameboardcanvas.grid.draw(gc, Gameboard);
 	       	}

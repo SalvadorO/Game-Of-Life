@@ -135,7 +135,7 @@ public HashMap<String, String> parseFile(File f) 	{
 //}
 	
 /**
- * The method takes the header as a String, and returns the header
+ * The method takes the filecontent as a String, and returns the header
  * element as elements in an array.
  * TODO: consider adding Throws if header somehow is corrupt
  * @author hd
@@ -144,6 +144,8 @@ public HashMap<String, String> parseFile(File f) 	{
  */
 	public String[] getHeaderArray(String header)	{
 		
+
+	
 		// split header into info elements, ',' separates info elements
 	String[] headerelements = header.split(",");
 	
