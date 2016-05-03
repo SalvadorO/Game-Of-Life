@@ -33,6 +33,7 @@ public class GameboardCanvas {
 	 * The method takes a pattern in RLE format (e.g 2b2o$2o2b) as a String and interprets the characters 
 	 * ('2' followed by a 'b' is 'bb', $ represents new line) and sets the gamegrid array.
 	 * TODO: add inline comments
+	 * TODO: check if pattern end marker ! works ok
 	 * @author hd with help from Internet
 	 * @param String pattern
 	 * @return void

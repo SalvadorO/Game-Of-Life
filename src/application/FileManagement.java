@@ -28,7 +28,7 @@ public class FileManagement {
 
 	/**
 	 * The method takes the filecontent as a String, and returns the pattern element from it.
-	 *
+	 * TODO: have to refactor according to hashmap regime, igth be obsolete
 	 * @author hd
 	 * @param String [] filecontent
 	 * @return String

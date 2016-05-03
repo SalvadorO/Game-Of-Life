@@ -197,7 +197,6 @@ public void ChangeSpeed(){
     		//Get the file content as a HashMap (key-value pairs)
 	    	HashMap<String, String> filecontent = filemanager.parseFile(file);
 	    	
-
 	    	//Check if size of shape exceeds current gameboard
 	    	String[] headerelements = filemanager.getHeaderArray(filecontent.get("Header")); 
 			
