@@ -136,15 +136,12 @@ public class GameController implements Initializable{
      * Method resets the Gameboardcanvas by gameboardcanvas gridobject's setGrid() method
      * and let the gameboardcanvas parameter point to this.
      * The current size is kept.
-     * It also clears the graphicscontext object.
      * 
      * @author hd
      * @param ActionEvent event
      */
     @FXML
     protected void btn_ResetPressed(ActionEvent event) {
-    
-//    gc.clearRect(0, 0, Gameboard.getWidth(), Gameboard.getHeight());
     
     int currentNoOfColumns = gameboardcanvas.grid.getColumns();
     int currentNoOfRows = gameboardcanvas.grid.getRows();
@@ -156,8 +153,7 @@ public class GameController implements Initializable{
     		btn_PlayStop.setText("Play");	
     		timeline.stop();
     }
-
-//  gameboardcanvas = new GameboardCanvas(currentNoOfColumns, currentNoOfRows);
+  
 //  Resets the grid array by thworing the old and instatiate a new
     gameboardcanvas.grid.setGrid(currentNoOfColumns, currentNoOfRows);
     Grid.draw(gc, Gameboard);
