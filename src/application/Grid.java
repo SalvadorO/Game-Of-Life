@@ -9,11 +9,11 @@ import javafx.scene.paint.Color;
  */
 class Grid {
 	
-	/** The gamegrid. */
-	protected static int[][] gamegrid;
+// The gamegrid array
+	private static int[][] gamegrid;
 	
 	/** The cell size. */
-	protected static int cellSize ;
+	private int cellSize ;
 	
 	/**
 	 * Instantiates a new grid.
@@ -21,7 +21,7 @@ class Grid {
 	 * @param int columns
 	 * @param int rows
 	 */
-	protected Grid(int columns, int rows){
+	public Grid(int columns, int rows){
 		gamegrid = new int[columns][rows];	
 	}
 	
@@ -32,7 +32,7 @@ class Grid {
 	 * @param x
 	 * @param y
 	 */
-	protected void setGrid(int columns, int rows){
+	public void setGrid(int columns, int rows){
 		gamegrid = new int[columns][rows];
 	}
 	
@@ -42,7 +42,7 @@ class Grid {
 	 * @author hd
 	 * @return int rows
 	 */
-	protected int getColumns(){
+	public static int getColumns(){
 		return gamegrid.length;
 	}
 	
@@ -52,7 +52,7 @@ class Grid {
 	 * @author hd
 	 * @return int columns
 	 */
-	protected int getRows(){
+	public static int getRows(){
 		return gamegrid[0].length;
 	}
 	
@@ -62,9 +62,19 @@ class Grid {
 	 * @author hd
 	 * @return int[][] gamegrid
 	 */
-	protected int[][] getGrid(){
+	public static int[][] getGrid(){
 		return gamegrid;
 	}
+	
+	/**
+	 * The method returns the value of the private cellsize variable
+	 * @author hd
+	 * @return int cellsize
+	 */
+	public int getCellSize() {
+		return cellSize;
+	}
+	
 	
 	/**
 	 * Method counts and returns number of neighbours
@@ -77,7 +87,7 @@ class Grid {
 	 * @param y
 	 * @return number of neighbours
 	 */
-	protected int countNeighbours(int x, int y)	{
+	public int countNeighbours(int x, int y)	{
 	
 		int neighbours = 0;
 		int cellValue = 0;
@@ -231,7 +241,7 @@ class Grid {
 	 * @param Canvas canvas
 	 * @return the int[][] array
 	 */
-	public static int[][] draw(GraphicsContext gc, Canvas canvas){
+	public int[][] draw(GraphicsContext gc, Canvas canvas){
 
 		cellSize = (int) (canvas.getHeight()/gamegrid.length);
 
@@ -262,14 +272,14 @@ class Grid {
 	 * @param int y
 	 * @param GraphicsContext gc
 	 */
-	public static void DrawOnGameGrid (int x, int y, GraphicsContext gc){
+	public void DrawOnGameGrid (int x, int y, GraphicsContext gc){
 		for (int i = 0;i<gamegrid.length;i++){
 			for (int j = 0; j<(gamegrid[i].length); j++){
 				if (x == i && y == j){
 					
 					gamegrid[i][j] = 1;
 					gc.setFill(Color.WHITE);
-					gc.fillRect(i*cellSize, j*cellSize, cellSize*0.9, cellSize *0.9);
+					gc.fillRect(i*getCellSize(), j*getCellSize(), getCellSize()*0.9, getCellSize()*0.9);
 				}
 	
 				}
