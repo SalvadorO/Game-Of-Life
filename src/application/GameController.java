@@ -61,6 +61,8 @@ public class GameController implements Initializable{
 	@FXML
 	private HBox HB_Advanced;
 	
+	protected static int CountGen;
+	
 	
 	/**
 	 * When the menu item "SetupGridsize" is pressed, the setgridsize dialog() method
@@ -105,6 +107,8 @@ public class GameController implements Initializable{
 	 */
 	@FXML
 	protected void mnu_StatsMenuPressed(ActionEvent event){
+		timeline.stop();
+		btn_PlayStop.setText("Play");
 		golDialog.StatsDialogue();
 	}
 
@@ -218,6 +222,7 @@ public class GameController implements Initializable{
     protected void btn_Next(ActionEvent event){
     	// This will show the next gen and stop there
     	gameboardcanvas.grid.oneGen(gc, Gameboard);
+    	CountGen++;
     }
     
     /**
@@ -254,9 +259,11 @@ public class GameController implements Initializable{
 		Grid.draw(gc, Gameboard);
 		// Animation
 		// Used for updating next generation
-		timeline = new Timeline(new KeyFrame(
-    	        Duration.millis(125),
-    	        Kv -> gameboardcanvas.grid.oneGen(gc, Gameboard)));
+		timeline = new Timeline(new KeyFrame
+				(Duration.millis(125), Kv -> {
+					gameboardcanvas.grid.oneGen(gc, Gameboard);
+					CountGen++;
+					}));
     	timeline.setCycleCount(Animation.INDEFINITE);
     	
 		// lets us connect the mouse event that is in controller class in some way
