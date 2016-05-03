@@ -41,7 +41,9 @@
           <Menu mnemonicParsing="false" text="Advanced">
           	<items>
           		<MenuItem mnemonicParsing="false" onAction="#mnu_StatsMenuPressed" text="Stats" />
-                <CheckMenuItem id="cmi_adv" mnemonicParsing="false" text="Advanced Menu" />
+          		<MenuItem mnemonicParsing="false" onAction="#mnu_AdvancedMenuPressed" text="Change Speed" />
+          		<MenuItem mnemonicParsing="false" onAction="#mnu_AdvancedMenuPressed" text="Change color of cells" />
+          		<MenuItem mnemonicParsing="false" onAction="#mnu_AdvancedMenuPressed" text="Change color of grid" />
           	</items>
           </Menu>
         </menus>
