@@ -128,13 +128,13 @@ public class GameController implements Initializable{
     }
 
     /**
-     * Method resets the Gameboardcanvas by creating a new gameboardcanvas object
-     * and let the gameboardcanvas parameter point to this 
+     * Method resets the Gameboardcanvas by gameboardcanvas gridobject's setGrid() method
+     * and let the gameboardcanvas parameter point to this.
+     * The current size is kept.
      * It also clears the graphicscontext object.
-     * TODO: do not reset to 50x50, but actual grid size
-     *
+     * 
      * @author hd
-     * @param event the event
+     * @param ActionEvent event
      */
     @FXML
     protected void btn_ResetPressed(ActionEvent event) {
@@ -143,18 +143,20 @@ public class GameController implements Initializable{
     
     int currentNoOfColumns = gameboardcanvas.grid.getColumns();
     int currentNoOfRows = gameboardcanvas.grid.getRows();
-    		
-//    gameboardcanvas = new GameboardCanvas(currentNoOfColumns, currentNoOfRows);
-    gameboardcanvas.grid.setGrid(currentNoOfColumns, currentNoOfRows);
-    Grid.draw(gc, Gameboard);
-    
-    //Changes the button to Play and stops the timeline if reset is pressed while game is running
+
+//	Changes the button to Play and stops the timeline if reset is pressed while game is running
     if (btn_PlayStop.getText().equals("Play")){
     	timeline.stop();	
     	}	else		{
     		btn_PlayStop.setText("Play");	
     		timeline.stop();
     }
+
+//  gameboardcanvas = new GameboardCanvas(currentNoOfColumns, currentNoOfRows);
+//  Resets the grid array by thworing the old and instatiate a new
+    gameboardcanvas.grid.setGrid(currentNoOfColumns, currentNoOfRows);
+    Grid.draw(gc, Gameboard);
+    
 	}
  
     
