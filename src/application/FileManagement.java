@@ -41,13 +41,16 @@ public class FileManagement {
 
 
 /**
- * Method takes a file and returns the content as String array.
- * Method assumes files uses the convention;
- * TODO: check for null returned from openFile() 
+ * Method takes a file and returns the content as a String array.
+ * Method assumes files uses the convention; http://www.conwaylife.com/wiki/Run_Length_Encoded;
+ * - First line contains header information: x='value', y='value', rule='value'
+ * - Remaining lines contains the payload, the actual pattern. 
+ * - The first line may be preceded with a line beginning with hashtag; #
+ *  
  *
  * @author hd
  * @param File f
- * @return String[];
+ * @return String[] containing the various elements; metadata, header and pattern;
  */
  	
  	//START TEST OF ARRAYLIST
