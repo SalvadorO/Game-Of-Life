@@ -26,8 +26,8 @@ import javafx.scene.canvas.GraphicsContext;
 
 public class GameController implements Initializable{
 	
-// 	Decalring the gameboardcanvas object
-	private GameboardCanvas gameboardcanvas =  new GameboardCanvas();
+// 	Declaring the gameboardcanvas object, sending default values to the constructor
+	private GameboardCanvas gameboardcanvas =  new GameboardCanvas(50, 50);
 	
 //	Declaring the gc object (Graphics contect)
 	private static GraphicsContext gc;
@@ -139,12 +139,12 @@ public class GameController implements Initializable{
     @FXML
     protected void btn_ResetPressed(ActionEvent event) {
     
-    gc.clearRect(0, 0, Gameboard.getWidth(), Gameboard.getHeight());
+//    gc.clearRect(0, 0, Gameboard.getWidth(), Gameboard.getHeight());
     
     gameboardcanvas = new GameboardCanvas();
     Grid.draw(gc, Gameboard);
     
-    //Changes the button to Play and stops the timeline if reset is pressed
+    //Changes the button to Play and stops the timeline if reset is pressed while game is running
     if (btn_PlayStop.getText().equals("Play")){
     	timeline.stop();	
     	}	else		{
