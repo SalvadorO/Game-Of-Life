@@ -30,7 +30,7 @@ public class GameController implements Initializable{
 	protected GameboardCanvas gameboardcanvas =  new GameboardCanvas(50, 50);
 	
 //	Declaring the gc object (Graphics contect)
-	private static GraphicsContext gc;
+	private GraphicsContext gc;
 
 //	Declaring the filemanager object
 	private FileManagement filemanager = new FileManagement();
@@ -62,7 +62,7 @@ public class GameController implements Initializable{
 	private HBox HB_Advanced;
 	
 //	Variable for counting number of generations played
-	protected static int CountGen;
+	protected int CountGen;
 	
 	
 	/**

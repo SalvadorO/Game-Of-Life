@@ -10,7 +10,7 @@ import javafx.scene.paint.Color;
 class Grid {
 	
 // The gamegrid array
-	private static int[][] gamegrid;
+	private int[][] gamegrid;
 	
 	/** The cell size. */
 	private int cellSize ;
@@ -42,7 +42,7 @@ class Grid {
 	 * @author hd
 	 * @return int rows
 	 */
-	public static int getColumns(){
+	public int getColumns(){
 		return gamegrid.length;
 	}
 	
@@ -52,7 +52,7 @@ class Grid {
 	 * @author hd
 	 * @return int columns
 	 */
-	public static int getRows(){
+	public int getRows(){
 		return gamegrid[0].length;
 	}
 	
@@ -62,7 +62,7 @@ class Grid {
 	 * @author hd
 	 * @return int[][] gamegrid
 	 */
-	public static int[][] getGrid(){
+	public int[][] getGrid(){
 		return gamegrid;
 	}
 	
