@@ -65,13 +65,9 @@ public class golDialog extends Application	{
 			stats.setHeaderText(null);
 			stats.setResizable(false);
 
-			stats.setContentText("Current gridsize is: "+ Grid.gamegrid.length + " x " + Grid.gamegrid[0].length + "\n" + "Number of generations: ");
-			//cellSpace.generations
-
-						
-//			stats.setContentText("Here will stats about the game be \n\n\n Ticks in the game: \n How many cell's are alive: \n And much more!");
+			stats.setContentText("Current gridsize is: "+ Grid.gamegrid.length + " x " + Grid.gamegrid[0].length + "\n" + "Number of generations played: " + GameController.CountGen);
 			stats.initStyle(StageStyle.UNDECORATED);
-			
+			  
 			ButtonType buttonTypeCancel = new ButtonType("Close", ButtonData.CANCEL_CLOSE);
 			stats.getButtonTypes().setAll(buttonTypeCancel);
 			
@@ -164,28 +160,6 @@ public class golDialog extends Application	{
 		
 		
 
-	}
-
-//	protected static void SaveFileDialogueName()	{
-//		FileChooser fileChooser1 = new FileChooser();
-//		fileChooser1.setTitle("Save Image");
-//		System.out.println(pic.getId());
-//		File file = fileChooser1.showSaveDialog(stage);
-//		System.out.println(file);
-//	}
-	
-	protected static void SaveFileDialogueConfirmed(){
-		Alert savefileconfirmed = new Alert(AlertType.NONE);
-		savefileconfirmed.setHeaderText(null);
-		savefileconfirmed.setContentText("Your file is now saved!"+"\n");
-		savefileconfirmed.setResizable(false);
-		
-		savefileconfirmed.initStyle(StageStyle.UNDECORATED);
-		
-		ButtonType buttonTypeOkei = new ButtonType("Good!", ButtonData.CANCEL_CLOSE);
-		savefileconfirmed.getButtonTypes().setAll(buttonTypeOkei);
-		
-		savefileconfirmed.showAndWait();
 	}
 	
 	@Override
