@@ -15,17 +15,15 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
-
+import javafx.scene.control.CheckMenuItem;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.Slider;
 import javafx.scene.paint.Color;
 import javafx.util.Duration;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.control.CheckMenuItem;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
-
 
 
 //Class GameController
@@ -54,8 +52,7 @@ public class GameController implements Initializable{
 //	Declaring mnu_FileOpen, mnu_FileSave, mnu_SetupGridsize variables
     @FXML
     private MenuItem mnu_FileOpen,  mnu_FileSave, mnu_SetupGridsize;
-	
-
+    
 //  Declaring cmi_Speed variables  
     @FXML
     private CheckMenuItem cmi_Speed;
@@ -75,7 +72,7 @@ public class GameController implements Initializable{
 //	Variable for counting number of generations played
 	protected static int CountGen;
 	
-public void ChangeSpeed(){
+	public void ChangeSpeed(){
 		Sld_Speed.valueProperty().addListener(new ChangeListener<Number>(){
 			public void changed(ObservableValue<? extends Number> ov, Number old_val, Number new_val){
 				GameController.timeline.setRate((double) new_val);
@@ -110,7 +107,7 @@ public void ChangeSpeed(){
 	/**
 	 * Mnu_About dialog pressed.
 	 *
-	 * @author lars
+	 *@author Lars Kristian Haga
 	 * @param ActionEvent event
 	 */
 	@FXML
@@ -121,7 +118,7 @@ public void ChangeSpeed(){
 	/**
 	 * Mnu_Stats menu pressed.
 	 *
-	 * @author lars
+	 *@author Lars Kristian Haga
 	 * @param event the event
 	 */
 	@FXML
@@ -199,7 +196,7 @@ public void ChangeSpeed(){
 	    	
 	    	//Check if size of shape exceeds current gameboard
 	    	String[] headerelements = filemanager.getHeaderArray(filecontent.get("Header")); 
-			
+	    	
 	    	//If shape is not bigger than gamegrid array, parse the pattern,
 	    	//update gamegrid array accordingly and redraw gameboard (i.e draw the laoded pattern)
 	    	if (!gameboardcanvas.shapeBiggerThanGameboard(headerelements)) {
@@ -242,8 +239,8 @@ public void ChangeSpeed(){
     	gameboardcanvas.grid.oneGen(gc, Gameboard);
     	CountGen++;
     }
-
-/**
+       
+    /**
      * Enables the sld_Speed slider, and allows you to change the speed of the game
      * 
      * @param
@@ -258,20 +255,14 @@ public void ChangeSpeed(){
     		HB_Speed.setVisible(true);
     	}});
     }
-
-/**
-
-
-
-
+    
+    /**
      * Cell Color
      * @param event
      * @author Lars Kristian Haga
      */
     @FXML
     protected void mnu_CellColorMenuPressed(ActionEvent event){
-
-
     	golDialog.CellColorDialogue();
 
     }
@@ -306,12 +297,10 @@ public void ChangeSpeed(){
 		// lets us connect the mouse event that is in controller class in some way
        Gameboard.setOnMouseClicked(GameController.mouseHandlerClicked);
        Gameboard.setOnMouseDragged(GameController.mouseHandlerDragged);
-
        ChangeSpeed();
        cmi_SpeedPressed();
     }
     
-
     /** The mouse handler clicked.
      * @author Salvador, Lars Kristian Haga
      */
@@ -326,7 +315,6 @@ public void ChangeSpeed(){
 		}
     };
     
-
     /** The mouse handler dragged.
      * @author Salvador, Lars Kristian Haga
      */

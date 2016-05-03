@@ -50,11 +50,8 @@ public class golDialog extends Application	{
 		 */
 		protected static void SpeedDialogue() {
 			
-
 			Alert speedDialogue = new Alert(null);
 			speedDialogue.setTitle("Select Speed");
-
-
 			speedDialogue.setResizable(false);
 			speedDialogue.setHeaderText(null);
 			
@@ -83,8 +80,8 @@ public class golDialog extends Application	{
 			
 			speedDialogue.showAndWait();
 		}
-
-protected static void CellColorDialogue() {
+		
+		protected static void CellColorDialogue() {
 			
 			TextInputDialog cellcolordialogue = new TextInputDialog("Change Cell Color");
 			cellcolordialogue.setTitle("Change Cell Color");
@@ -115,8 +112,6 @@ protected static void CellColorDialogue() {
 			stats.setTitle("Stats");
 			stats.setHeaderText(null);
 			stats.setResizable(false);
-
-
 			stats.initStyle(StageStyle.UNDECORATED);
 			
 //			If the game hasent started yet the stats dialog will add a sentence in the dialog

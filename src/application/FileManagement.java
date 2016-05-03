@@ -28,7 +28,9 @@ public class FileManagement {
 
 	/**
 	 * The method takes the filecontent as a String, and returns the pattern element from it.
+	 *
 	 * TODO: have to refactor according to hashmap regime, igth be obsolete
+	 * 
 	 * @author hd
 	 * @param String [] filecontent
 	 * @return String
@@ -131,16 +133,6 @@ public HashMap<String, String> parseFile(File f) {
 		return savedFile;
 		
 	}
-	/*--------------------------- Code i maybe need later --------------------
-	try(PrintWriter out = new PrintWriter("Lars.txt"))
- 	{
- 		out.println("Dette er bare en test for � se om jeg klarer � lagre en fil med noe informasjon i seg. Etterhvert skal det kunne lagre som en RLE fil");
- 		out.println("test5");
-	}
-catch(IOException ioe) {
-ioe.printStackTrace();
- }
- * */
 
 
 /**
