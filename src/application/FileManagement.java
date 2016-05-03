@@ -49,6 +49,7 @@ public class FileManagement {
  * - The first line may be preceded with one or more lines beginning with hashtag; #
  *  
  * TODO: add inline comments
+ * TODO: deal with corrupt files, i.e files not following the convention
  * @author hd
  * @param File f
  * @return HashMap<String><String> containing the elements; metadata, header and pattern;
