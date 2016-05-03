@@ -253,7 +253,7 @@ public class GameController implements Initializable{
 		// Animation
 		// Used for updating next generation
 		timeline = new Timeline(new KeyFrame
-				(Duration.millis(1000), Kv -> {
+				(Duration.millis(125), Kv -> {
 					gameboardcanvas.grid.oneGen(gc, Gameboard);
 					CountGen++;
 					}));

@@ -158,7 +158,7 @@ class Grid {
 	public int [][] nextGeneration(int [][] array2, GraphicsContext gc){
 		
 		int [][] currentGen = array2;
-		int size = cellSize;
+		
 		
 		
 			for (int x = 0; x < currentGen.length; x++){
@@ -205,22 +205,7 @@ class Grid {
        for (int x = 0; x < currentGen.length; x++){
     	   for (int y = 0; y < currentGen[0].length; y++){
     		   
-    		   int[][] array3 = nextGen;
-      			gc.setFill(Color.WHITE);
-      			
-      			for (int i = 0;i<array3.length;i++){
-       				for (int j = 0; j<(array3[i].length); j++){
-       					if (array3[i][j]==1)	{
-       						
-    		   
-    
-    	
-    		   
-    		   gc.fillRect((x+size*j), (y+size*i), size/currentGen.length, size/currentGen.length);
-    	   }
-       					
-       }
-    }
+   
     	   }}
        
        return nextGen;
