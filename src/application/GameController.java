@@ -27,7 +27,7 @@ import javafx.scene.canvas.GraphicsContext;
 public class GameController implements Initializable{
 	
 // 	Declaring the gameboardcanvas object, sending default values to the constructor
-	private GameboardCanvas gameboardcanvas =  new GameboardCanvas(50, 50);
+	protected GameboardCanvas gameboardcanvas =  new GameboardCanvas(50, 50);
 	
 //	Declaring the gc object (Graphics contect)
 	private static GraphicsContext gc;
@@ -84,7 +84,7 @@ public class GameController implements Initializable{
 		if (newgridsize != null)
 			if ( ! ( (newgridsize[0] == -1) || (newgridsize[0] == -2) ) ) {
 				gameboardcanvas.grid.setGrid(newgridsize[0],newgridsize[1]);
-				Grid.draw(gc, Gameboard);
+				gameboardcanvas.grid.draw(gc, Gameboard);
 		}
 
 	}
@@ -97,7 +97,7 @@ public class GameController implements Initializable{
 	 */
 	@FXML
 	protected void mnu_AboutDialogPressed(ActionEvent event) {
- 		golDialog.AboutDialogue();
+ 		dialog.AboutDialogue();
  	}
 
 	/**
@@ -110,7 +110,7 @@ public class GameController implements Initializable{
 	protected void mnu_StatsMenuPressed(ActionEvent event){
 		timeline.stop();
 		btn_PlayStop.setText("Play");
-		golDialog.StatsDialogue();
+		dialog.StatsDialogue();
 	}
 
 	/**
@@ -156,7 +156,7 @@ public class GameController implements Initializable{
   
 //  Resets the grid array by thworing the old and instatiate a new
     gameboardcanvas.grid.setGrid(currentNoOfColumns, currentNoOfRows);
-    Grid.draw(gc, Gameboard);
+    gameboardcanvas.grid.draw(gc, Gameboard);
     
 	}
  
@@ -189,7 +189,7 @@ public class GameController implements Initializable{
 	    	//parse the pattern, update gamegrid array accordingly and redraw gameboard (i.e draw the laoded pattern)
 	       	if (!gameboardcanvas.shapeBiggerThanGameboard(Integer.parseInt(c[1]), Integer.parseInt(r[1]))){
 	       		gameboardcanvas.parsePattern(filecontent[2]);
-	       	   	Grid.draw(gc, Gameboard);
+	       	   	gameboardcanvas.grid.draw(gc, Gameboard);
 	       	}
     	}
     }
@@ -237,7 +237,7 @@ public class GameController implements Initializable{
     @FXML
     protected void mnu_AdvancedMenuPressed(ActionEvent event){
     	System.out.println("test");
-    	golDialog.AdvancedDialogue();
+    	dialog.AdvancedDialogue();
     }
     
     
@@ -245,7 +245,7 @@ public class GameController implements Initializable{
 	public void initialize(URL location, ResourceBundle resources) {
 		gc = Gameboard.getGraphicsContext2D();
 		gc.setFill(Color.BLACK);
-		Grid.draw(gc, Gameboard);
+		gameboardcanvas.grid.draw(gc, Gameboard);
 		// Animation
 		// Used for updating next generation
 		timeline = new Timeline(new KeyFrame
@@ -256,32 +256,32 @@ public class GameController implements Initializable{
     	timeline.setCycleCount(Animation.INDEFINITE);
     	
 		// lets us connect the mouse event that is in controller class in some way
-       Gameboard.setOnMouseClicked(GameController.mouseHandlerClicked);
-       Gameboard.setOnMouseDragged(GameController.mouseHandlerDragged);
+       Gameboard.setOnMouseClicked(mouseHandlerClicked);
+       Gameboard.setOnMouseDragged(mouseHandlerDragged);
 		
     }
     
     /** The mouse handler clicked. */
-    protected static EventHandler<MouseEvent> mouseHandlerClicked = new EventHandler <MouseEvent>()		{
+    protected EventHandler<MouseEvent> mouseHandlerClicked = new EventHandler <MouseEvent>()		{
 		@Override
 		public void handle(MouseEvent event) {
 		
-			int x = (int) Math.floor((event.getX() / Grid.cellSize));
-			int y = (int) Math.floor((event.getY() / Grid.cellSize));
+			int x = (int) Math.floor((event.getX() / gameboardcanvas.grid.getCellSize()));
+			int y = (int) Math.floor((event.getY() / gameboardcanvas.grid.getCellSize()));
 			
-		Grid.DrawOnGameGrid(x, y, gc);
+		gameboardcanvas.grid.DrawOnGameGrid(x, y, gc);
 		}
     };
     
     /** The mouse handler dragged. */
-    protected static EventHandler<MouseEvent> mouseHandlerDragged = new EventHandler <MouseEvent>()		{
+    protected EventHandler<MouseEvent> mouseHandlerDragged = new EventHandler <MouseEvent>()		{
 		@Override
 		public void handle(MouseEvent event) {
 
-			int x = (int) Math.floor((event.getX() / Grid.cellSize));
-			int y = (int) Math.floor((event.getY() / Grid.cellSize));
+			int x = (int) Math.floor((event.getX() / gameboardcanvas.grid.getCellSize()));
+			int y = (int) Math.floor((event.getY() / gameboardcanvas.grid.getCellSize()));
 			
-		Grid.DrawOnGameGrid(x, y, gc);
+		gameboardcanvas.grid.DrawOnGameGrid(x, y, gc);
 		}
     };
 
