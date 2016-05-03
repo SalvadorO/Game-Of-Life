@@ -112,7 +112,7 @@ public String[] parseFile(File f) 	{
 	 * @author hd
 	 * @param String filecontent
 	 */
-	public static File saveFile() {
+	public File saveFile() {
 		
 		ExtensionFilter filterGoLfiles = new ExtensionFilter("RLE file, *.rle","*.rle");
 

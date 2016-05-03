@@ -30,7 +30,7 @@ public class golDialog extends Application	{
 		/**
 		 * Method that show a Alertbox to the user that explains how the game work.
 		 */
-		protected void AboutDialogue() {
+		public void AboutDialogue() {
 			Alert about = new Alert(AlertType.INFORMATION);
 			about.setHeaderText(null);
 			about.setContentText("John Conway's Game Of Life"+"\n\n"+"The Game of Life, also known simply as Life, is a cellular automaton devised by the British mathematician John Horton Conway in 1970"+"\n"+"The 'game' is a zero-player game, meaning that its evolution is determined by its initial state, requiring no further input. One interacts with the Game of Life by creating an initial configuration and observing how it evolves or, for advanced players, by creating patterns with particular properties."+"\n\n"+"Rules"+"\n"+"1. Any live cell with fewer than two live neighbours dies, as if caused by under-population."+"\n"+"2. Any live cell with two or three live neighbours lives on to the next generation."+"\n"+"3. Any live cell with more than three live neighbours dies, as if by over-population."+"\n"+"4. Any dead cell with exactly three live neighbours becomes a live cell, as if by reproduction.");
@@ -47,7 +47,7 @@ public class golDialog extends Application	{
 		 * Advanced dialogue, witch will allow the user to take more controll over the game, and its settings
 		 * 
 		 */
-		protected void AdvancedDialogue() {
+		public void AdvancedDialogue() {
 			
 			TextInputDialog advanced = new TextInputDialog("Select Speed");
 			advanced.setTitle("Select Speed");
@@ -69,7 +69,7 @@ public class golDialog extends Application	{
 		/**
 		 * Stats dialogue.
 		 */
-		protected void StatsDialogue()	{
+		public void StatsDialogue()	{
 			Alert stats = new Alert(AlertType.INFORMATION);
 			stats.setTitle("Stats");
 			stats.setHeaderText(null);
