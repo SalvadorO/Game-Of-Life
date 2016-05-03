@@ -26,8 +26,8 @@ import javafx.scene.canvas.GraphicsContext;
 
 public class GameController implements Initializable{
 	
-// 	Decalring the gameboardcanvas object
-	private GameboardCanvas gameboardcanvas =  new GameboardCanvas();
+// 	Declaring the gameboardcanvas object, sending default values to the constructor
+	private GameboardCanvas gameboardcanvas =  new GameboardCanvas(50, 50);
 	
 //	Declaring the gc object (Graphics contect)
 	private static GraphicsContext gc;
@@ -116,7 +116,7 @@ public class GameController implements Initializable{
 	 * Btn_PlayStop pressed.
 	 *
 	 * @author hd
-	 * @param event the event
+	 * @param ActionEvent event
 	 */
     @FXML
     public void btn_PlayStopPressed(ActionEvent event) {
@@ -132,29 +132,35 @@ public class GameController implements Initializable{
     }
 
     /**
-     * Method resets the Gameboardcanvas by creating a new gameboardcanvas object
-     * and let the gameboardcanvas parameter point to this 
+     * Method resets the Gameboardcanvas by gameboardcanvas gridobject's setGrid() method
+     * and let the gameboardcanvas parameter point to this.
+     * The current size is kept.
      * It also clears the graphicscontext object.
-     * TODO: do not reset to 50x50, but actual grid size
-     *
+     * 
      * @author hd
-     * @param event the event
+     * @param ActionEvent event
      */
     @FXML
     protected void btn_ResetPressed(ActionEvent event) {
     
-    gc.clearRect(0, 0, Gameboard.getWidth(), Gameboard.getHeight());
+//    gc.clearRect(0, 0, Gameboard.getWidth(), Gameboard.getHeight());
     
-    gameboardcanvas = new GameboardCanvas();
-    Grid.draw(gc, Gameboard);
-    
-    //Changes the button to Play and stops the timeline if reset is pressed
+    int currentNoOfColumns = gameboardcanvas.grid.getColumns();
+    int currentNoOfRows = gameboardcanvas.grid.getRows();
+
+//	Changes the button to Play and stops the timeline if reset is pressed while game is running
     if (btn_PlayStop.getText().equals("Play")){
     	timeline.stop();	
     	}	else		{
     		btn_PlayStop.setText("Play");	
     		timeline.stop();
     }
+
+//  gameboardcanvas = new GameboardCanvas(currentNoOfColumns, currentNoOfRows);
+//  Resets the grid array by thworing the old and instatiate a new
+    gameboardcanvas.grid.setGrid(currentNoOfColumns, currentNoOfRows);
+    Grid.draw(gc, Gameboard);
+    
 	}
  
     

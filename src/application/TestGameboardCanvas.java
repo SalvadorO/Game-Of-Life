@@ -20,7 +20,7 @@ public class TestGameboardCanvas {
 	@Test
 	public void testShapeBiggerThanGameboard() {
 		
-		GameboardCanvas gb = new GameboardCanvas();
+		GameboardCanvas gb = new GameboardCanvas(20, 20);
 				
 		int shapeColumns, shapeRows;
 		int gridColumns = 10;

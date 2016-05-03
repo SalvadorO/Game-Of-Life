@@ -25,8 +25,8 @@ public class GameboardCanvas {
 	
 	
 	//Constructor, a new gameboard canvas with default gridsize.
-	public GameboardCanvas(){
-		grid = new Grid(50,50);
+	public GameboardCanvas(int columns, int rows){
+		grid = new Grid(columns, rows);
 	}
 	
 	/**
