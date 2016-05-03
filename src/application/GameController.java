@@ -51,7 +51,7 @@ public class GameController implements Initializable{
 	
 //  Declaring the Button type variables
 	@FXML
-    private Button btn_Reset, btn_PlayStop, btn_Quit, btn_Next, btn_GridSize, cmi_adv;
+    private Button btn_Reset, btn_PlayStop, btn_Quit, btn_Next, btn_GridSize;
 	
 //	Declaring the SLD_Speed object (Slider type)
 	@FXML
@@ -61,6 +61,7 @@ public class GameController implements Initializable{
 	@FXML
 	private HBox HB_Advanced;
 	
+//	Variable for counting number of generations played
 	protected static int CountGen;
 	
 	
@@ -238,23 +239,9 @@ public class GameController implements Initializable{
      * @param event the event
      */
     @FXML
-    protected void cmi_adv(ActionEvent event){
-    	// This will activate the advanced menu
-//    	Sld_Speed.setVisible(true);
-//    	System.out.println("The Speed slider is now visible");
-//    	Sld_SpeedSlider.isVisible();
-//		Sld_SpeedSlider.setDisable(false);
-//		Sld_SpeedSlider.setVisible(true);
-//    	cmi_adv.setSelected(true);
-    	
-//		golDialog.StatsDialogue();
-		
-//    	HB_Advanced.setVisible(true);
-//    	cmi_adv.setOnAction(new EventHandler<ActionEvent>() {
-//    		public void handle(ActionEvent e)	{
-//    			System.out.println("YES!");
-//    		}
-//    	});
+    protected void mnu_AdvancedMenuPressed(ActionEvent event){
+    	System.out.println("test");
+    	golDialog.AdvancedDialogue();
     }
     
     
@@ -266,7 +253,7 @@ public class GameController implements Initializable{
 		// Animation
 		// Used for updating next generation
 		timeline = new Timeline(new KeyFrame
-				(Duration.millis(125), Kv -> {
+				(Duration.millis(1000), Kv -> {
 					gameboardcanvas.grid.oneGen(gc, Gameboard);
 					CountGen++;
 					}));
