@@ -15,12 +15,17 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.Slider;
 import javafx.scene.paint.Color;
 import javafx.util.Duration;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.control.CheckMenuItem;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
+
 
 
 //Class GameController
@@ -28,10 +33,10 @@ import javafx.scene.canvas.GraphicsContext;
 public class GameController implements Initializable{
 	
 // 	Declaring the gameboardcanvas object, sending default values to the constructor
-	private GameboardCanvas gameboardcanvas =  new GameboardCanvas(50, 50);
+	protected static GameboardCanvas gameboardcanvas =  new GameboardCanvas(50, 50);
 	
 //	Declaring the gc object (Graphics contect)
-	private GraphicsContext gc;
+	private static GraphicsContext gc;
 
 //	Declaring the filemanager object
 	private FileManagement filemanager = new FileManagement();
@@ -40,7 +45,7 @@ public class GameController implements Initializable{
 	private golDialog dialog = new golDialog();
 
 //	Declaring the timeline object
-	private Timeline timeline = new Timeline();
+	protected static Timeline timeline = new Timeline();
 	
 //	Declaring the Gameboard object
 	@FXML
@@ -50,6 +55,11 @@ public class GameController implements Initializable{
     @FXML
     private MenuItem mnu_FileOpen,  mnu_FileSave, mnu_SetupGridsize;
 	
+
+//  Declaring cmi_Speed variables  
+    @FXML
+    private CheckMenuItem cmi_Speed;
+	
 //  Declaring the Button type variables
 	@FXML
     private Button btn_Reset, btn_PlayStop, btn_Quit, btn_Next, btn_GridSize;
@@ -58,13 +68,20 @@ public class GameController implements Initializable{
 	@FXML
 	private Slider Sld_Speed;
 
-//	Declaring the HB_Advanced (HBox type)
+//	Declaring the HB_Speed (HBox type)
 	@FXML
-	private HBox HB_Advanced;
+	private HBox HB_Speed;
 	
 //	Variable for counting number of generations played
-	private int CountGen;
+	protected static int CountGen;
 	
+public void ChangeSpeed(){
+		Sld_Speed.valueProperty().addListener(new ChangeListener<Number>(){
+			public void changed(ObservableValue<? extends Number> ov, Number old_val, Number new_val){
+				GameController.timeline.setRate((double) new_val);
+			}
+		});
+	}
 	
 	/**
 	 * When the menu item "SetupGridsize" is pressed, the setgridsize dialog() method
@@ -117,7 +134,7 @@ public class GameController implements Initializable{
 	/**
 	 * Btn_PlayStop pressed.
 	 *
-	 * @author hd
+	 * @author hd, Lars Kristian Haga
 	 * @param ActionEvent event
 	 */
     @FXML
@@ -180,8 +197,12 @@ public class GameController implements Initializable{
     		//Get the file content as a HashMap (key-value pairs)
 	    	HashMap<String, String> filecontent = filemanager.parseFile(file);
 	    	
+
 	    	//Check if size of shape exceeds current gameboard
 	    	String[] headerelements = filemanager.getHeaderArray(filecontent.get("Header")); 
+				//Get the y and x values (c indicates column hence is x value)
+	    	String[] c = header[0].split("=");
+	    	String[] r = header[1].split("=");
 	    	
 	    	//If shape is not bigger than gamegrid array, parse the pattern,
 	    	//update gamegrid array accordingly and redraw gameboard (i.e draw the laoded pattern)
@@ -225,20 +246,53 @@ public class GameController implements Initializable{
     	gameboardcanvas.grid.oneGen(gc, Gameboard);
     	CountGen++;
     }
-    
-    /**
-     * CheckMenuItem
-     *
-     * @author lars
-     * @param event the event
+
+/**
+     * Enables the sld_Speed slider, and allows you to change the speed of the game
+     * 
+     * @param
+     * @author Lars Kristian Haga
      */
     @FXML
-    public void mnu_AdvancedMenuPressed(ActionEvent event){
-    	System.out.println("test");
-    	dialog.AdvancedDialogue();
+    protected void cmi_SpeedPressed(){
+    	cmi_Speed.selectedProperty().addListener((ChangeListener<Boolean>) (ov, old_val, new_val) -> 
+    	{if(HB_Speed.isVisible()){
+    		HB_Speed.setVisible(false);
+    	}	else	{
+    		HB_Speed.setVisible(true);
+    	}});
+    }
+
+/**
+
+
+
+
+     * Cell Color
+     * @param event
+     * @author Lars Kristian Haga
+     */
+    @FXML
+    protected void mnu_CellColorMenuPressed(ActionEvent event){
+
+
+    	golDialog.CellColorDialogue();
+
     }
     
+    /**
+     * Grid Color
+     * @param event
+     * @author Lars Kristian Haga
+     */
+    @FXML
+    protected void mnu_GridColorMenuPressed(ActionEvent event){
+    	golDialog.GridColorDialogue();
+    }
     
+    /**
+     * 
+     */
     @Override
 	public void initialize(URL location, ResourceBundle resources) {
 		gc = Gameboard.getGraphicsContext2D();
@@ -247,20 +301,25 @@ public class GameController implements Initializable{
 		// Animation
 		// Used for updating next generation
 		timeline = new Timeline(new KeyFrame
-				(Duration.millis(125), Kv -> {
+				(Duration.seconds(1), Kv -> {
 					gameboardcanvas.grid.oneGen(gc, Gameboard);
 					CountGen++;
 					}));
     	timeline.setCycleCount(Animation.INDEFINITE);
     	
 		// lets us connect the mouse event that is in controller class in some way
-       Gameboard.setOnMouseClicked(mouseHandlerClicked);
-       Gameboard.setOnMouseDragged(mouseHandlerDragged);
-		
+       Gameboard.setOnMouseClicked(GameController.mouseHandlerClicked);
+       Gameboard.setOnMouseDragged(GameController.mouseHandlerDragged);
+
+       ChangeSpeed();
+       cmi_SpeedPressed();
     }
     
-    /** The mouse handler clicked. */
-    public EventHandler<MouseEvent> mouseHandlerClicked = new EventHandler <MouseEvent>()		{
+
+    /** The mouse handler clicked.
+     * @author Salvador, Lars Kristian Haga
+     */
+    protected static EventHandler<MouseEvent> mouseHandlerClicked = new EventHandler <MouseEvent>()		{
 		@Override
 		public void handle(MouseEvent event) {
 		
@@ -271,8 +330,11 @@ public class GameController implements Initializable{
 		}
     };
     
-    /** The mouse handler dragged. */
-    public EventHandler<MouseEvent> mouseHandlerDragged = new EventHandler <MouseEvent>()		{
+
+    /** The mouse handler dragged.
+     * @author Salvador, Lars Kristian Haga
+     */
+    protected static EventHandler<MouseEvent> mouseHandlerDragged = new EventHandler <MouseEvent>()		{
 		@Override
 		public void handle(MouseEvent event) {
 
