@@ -12,6 +12,8 @@ import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.io.Writer;
+import java.util.ArrayList;
+import java.util.List;
 
 import javafx.event.ActionEvent;
 import javafx.stage.FileChooser;
@@ -47,8 +49,40 @@ public class FileManagement {
  * @param File f
  * @return String[];
  */
-public String[] parseFile(File f) 	{
-
+ 	
+ 	//START TEST OF ARRAYLIST
+//public List<String> parseFile(File f) 	{
+//
+//	File file = f;
+//	List<String> filecontent = new ArrayList<String>();
+//	StringBuilder metadata = new StringBuilder();
+//	String header = "";
+//	StringBuilder pattern = new StringBuilder();
+//
+//	try (BufferedReader br = new BufferedReader(new FileReader(file))) {
+//		String line = null;
+//		do{
+//			line = br.readLine();
+//				if (line != null){
+//					filecontent.add(line);
+//					}
+//						
+//		}while (line != null);
+//	} 
+//	catch (IOException e) {
+//		System.err.format("IOException: %s%n", e);
+//	}
+//	
+//	return filecontent;
+//}
+	
+	//END TEST OF ARRAYLIST
+	
+	
+	
+	
+	
+ 	public String[] parseFile(File f) 	{
 	File file = f;
 	String filecontent[] = new String[3];
 	StringBuilder metadata = new StringBuilder();
@@ -112,7 +146,7 @@ public String[] parseFile(File f) 	{
 	 * @author hd
 	 * @param String filecontent
 	 */
-	public static File saveFile() {
+	public File saveFile() {
 		
 		ExtensionFilter filterGoLfiles = new ExtensionFilter("RLE file, *.rle","*.rle");
 

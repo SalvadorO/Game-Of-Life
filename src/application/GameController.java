@@ -27,10 +27,10 @@ import javafx.scene.canvas.GraphicsContext;
 public class GameController implements Initializable{
 	
 // 	Declaring the gameboardcanvas object, sending default values to the constructor
-	protected GameboardCanvas gameboardcanvas =  new GameboardCanvas(50, 50);
+	private GameboardCanvas gameboardcanvas =  new GameboardCanvas(50, 50);
 	
 //	Declaring the gc object (Graphics contect)
-	private static GraphicsContext gc;
+	private GraphicsContext gc;
 
 //	Declaring the filemanager object
 	private FileManagement filemanager = new FileManagement();
@@ -39,7 +39,7 @@ public class GameController implements Initializable{
 	private golDialog dialog = new golDialog();
 
 //	Declaring the timeline object
-	protected Timeline timeline = new Timeline();
+	private Timeline timeline = new Timeline();
 	
 //	Declaring the Gameboard object
 	@FXML
@@ -62,7 +62,7 @@ public class GameController implements Initializable{
 	private HBox HB_Advanced;
 	
 //	Variable for counting number of generations played
-	protected static int CountGen;
+	private int CountGen;
 	
 	
 	/**
@@ -74,7 +74,7 @@ public class GameController implements Initializable{
 	 * @param event
 	 */
 	@FXML
-	protected void mnu_SetupGridsizePressed(ActionEvent event) {
+	public void mnu_SetupGridsizePressed(ActionEvent event) {
 		int[] newgridsize = dialog.setGridSizeDialogue().get();
 
 		//Check for null or -1; null means nothing was returned and -1 means Cancel was pressed in dialog
@@ -96,7 +96,7 @@ public class GameController implements Initializable{
 	 * @param ActionEvent event
 	 */
 	@FXML
-	protected void mnu_AboutDialogPressed(ActionEvent event) {
+	public void mnu_AboutDialogPressed(ActionEvent event) {
  		dialog.AboutDialogue();
  	}
 
@@ -107,7 +107,7 @@ public class GameController implements Initializable{
 	 * @param event the event
 	 */
 	@FXML
-	protected void mnu_StatsMenuPressed(ActionEvent event){
+	public void mnu_StatsMenuPressed(ActionEvent event){
 		timeline.stop();
 		btn_PlayStop.setText("Play");
 		dialog.StatsDialogue();
@@ -141,7 +141,7 @@ public class GameController implements Initializable{
      * @param ActionEvent event
      */
     @FXML
-    protected void btn_ResetPressed(ActionEvent event) {
+    public void btn_ResetPressed(ActionEvent event) {
     
     int currentNoOfColumns = gameboardcanvas.grid.getColumns();
     int currentNoOfRows = gameboardcanvas.grid.getRows();
@@ -170,7 +170,7 @@ public class GameController implements Initializable{
      * @param ActionEvent event
      */
     @FXML
-    protected void mnu_FileOpenPressed(ActionEvent event) {
+    public void mnu_FileOpenPressed(ActionEvent event) {
     	
     	//Get a file object by using FileManagement class openFile() method
     	File file = filemanager.openFile();
@@ -201,8 +201,8 @@ public class GameController implements Initializable{
      * @param ActionEvent event 
      */
     @FXML
-    protected void mnu_FileSavePressed(ActionEvent event){
-    	FileManagement.saveFile();
+    public void mnu_FileSavePressed(ActionEvent event){
+    	filemanager.saveFile();
     }
     
     
@@ -212,7 +212,7 @@ public class GameController implements Initializable{
 	 * @param event the event
 	 */
     @FXML
-    protected void btn_QuitPressed(ActionEvent event) {
+    public void btn_QuitPressed(ActionEvent event) {
     	System.exit(0);
     }
     
@@ -222,7 +222,7 @@ public class GameController implements Initializable{
      * @param event the event
      */
     @FXML
-    protected void btn_Next(ActionEvent event){
+    public void btn_Next(ActionEvent event){
     	// This will show the next gen and stop there
     	gameboardcanvas.grid.oneGen(gc, Gameboard);
     	CountGen++;
@@ -235,7 +235,7 @@ public class GameController implements Initializable{
      * @param event the event
      */
     @FXML
-    protected void mnu_AdvancedMenuPressed(ActionEvent event){
+    public void mnu_AdvancedMenuPressed(ActionEvent event){
     	System.out.println("test");
     	dialog.AdvancedDialogue();
     }
@@ -262,7 +262,7 @@ public class GameController implements Initializable{
     }
     
     /** The mouse handler clicked. */
-    protected EventHandler<MouseEvent> mouseHandlerClicked = new EventHandler <MouseEvent>()		{
+    public EventHandler<MouseEvent> mouseHandlerClicked = new EventHandler <MouseEvent>()		{
 		@Override
 		public void handle(MouseEvent event) {
 		
@@ -274,7 +274,7 @@ public class GameController implements Initializable{
     };
     
     /** The mouse handler dragged. */
-    protected EventHandler<MouseEvent> mouseHandlerDragged = new EventHandler <MouseEvent>()		{
+    public EventHandler<MouseEvent> mouseHandlerDragged = new EventHandler <MouseEvent>()		{
 		@Override
 		public void handle(MouseEvent event) {
 
