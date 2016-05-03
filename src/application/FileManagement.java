@@ -42,22 +42,23 @@ public class FileManagement {
 
 
 /**
- * Method takes a file and returns the content as a String array.
- * Method assumes files uses the convention; http://www.conwaylife.com/wiki/Run_Length_Encoded;
- * - First line contains header information: x='value', y='value', rule='value'
+ * Method takes a file and returns the content as a HashMap (key-value pairs).
+ * Method assumes files uses the convention; http://www.conwaylife.com/wiki/Run_Length_Encoded; where
+ * - First line contains header information: x='value', y='value', [optional]rule='value'
  * - Remaining lines contains the payload, the actual pattern. 
- * - The first line may be preceded with a line beginning with hashtag; #
+ * - The first line may be preceded with one or more lines beginning with hashtag; #
  *  
- *
+ * TODO: add inline comments
  * @author hd
  * @param File f
- * @return String[] containing the various elements; metadata, header and pattern;
+ * @return HashMap<String><String> containing the elements; metadata, header and pattern;
  */
  	
- 	//START TEST OF HashMap
-public HashMap<String, String> parseFile(File f) 	{
+
+public HashMap<String, String> parseFile(File f) {
 
 	File file = f;
+	
 	HashMap<String, String> filecontent = new HashMap<String, String>();
 	
 	StringBuilder metadata = new StringBuilder();
@@ -85,6 +86,7 @@ public HashMap<String, String> parseFile(File f) 	{
 	catch (IOException e) {
 		System.err.format("IOException: %s%n", e);
 	}
+	
 	filecontent.put("Metadata", metadata.toString());
 	filecontent.put("Header", header.replaceAll("\\s+",""));
 	filecontent.put("Pattern", pattern.toString());
@@ -92,59 +94,15 @@ public HashMap<String, String> parseFile(File f) 	{
 	return filecontent;
 }
 	
-	//END TEST
-	
-	
-	
-	
-//	
-// 	public String[] parseFile(File f) 	{
-//	File file = f;
-//	String filecontent[] = new String[3];
-//	StringBuilder metadata = new StringBuilder();
-//	String header = "";
-//	StringBuilder pattern = new StringBuilder();
-//
-//	try (BufferedReader br = new BufferedReader(new FileReader(file))) {
-//		String line = null;
-//		do{
-//			line = br.readLine();
-//				if (line != null){
-//					if (line.startsWith("#")){
-//						metadata.append(line);
-//					}
-//					else {
-//						if (header == "")
-//							header = line;
-//						else
-//							pattern.append(line);
-//					}
-//				};
-//		
-//		}while (line != null);
-//	} 
-//	catch (IOException e) {
-//		System.err.format("IOException: %s%n", e);
-//	}
-//	filecontent[0] = metadata.toString();
-//	filecontent[1] = header.replaceAll("\\s+","");
-//	filecontent[2] = pattern.toString();
-//	
-//	return filecontent;
-//	
-//}
-	
 /**
- * The method takes the filecontent as a String, and returns the header
- * element as elements in an array.
+ * The method takes the header as a String, splits it and returns the header
+ * elements as elements in an array. Example of header element: "x=3"
  * TODO: consider adding Throws if header somehow is corrupt
  * @author hd
- * @param filecontent the filecontent
- * @return String[]
+ * @param String header
+ * @return String[] headerelements
  */
 	public String[] getHeaderArray(String header)	{
-		
-
 	
 		// split header into info elements, ',' separates info elements
 	String[] headerelements = header.split(",");

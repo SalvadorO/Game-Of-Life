@@ -147,7 +147,8 @@ public class GameboardCanvas {
 		 * @return boolean
 		 */
 		public boolean shapeBiggerThanGameboard(String[] headerElements){
-						
+			
+			
 		  	//Get the y and x values (c indicates column hence is x value)
 	    	String[] c = headerElements[0].split("=");
 	    	String[] r = headerElements[1].split("=");
