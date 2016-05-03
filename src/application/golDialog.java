@@ -14,6 +14,7 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.ChoiceDialog;
 import javafx.scene.control.Dialog;
 import javafx.scene.control.Label;
+import javafx.scene.control.Slider;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TextInputDialog;
 import javafx.scene.layout.GridPane;
@@ -47,24 +48,64 @@ public class golDialog extends Application	{
 		 * Advanced dialogue, witch will allow the user to take more controll over the game, and its settings
 		 * 
 		 */
-		public void AdvancedDialogue() {
+		protected static void SpeedDialogue() {
 			
-			TextInputDialog advanced = new TextInputDialog("Select Speed");
-			advanced.setTitle("Select Speed");
-			advanced.setHeaderText("Select Speed");
-			advanced.setContentText("");
+
+			Alert speedDialogue = new Alert(null);
+			speedDialogue.setTitle("Select Speed");
+
+
+			speedDialogue.setResizable(false);
+			speedDialogue.setHeaderText(null);
 			
-			Label Speed_lbl = new Label("Speed Value");
-			TextField txt_x = new TextField();
-			advanced.showAndWait();
+			Slider SpeedSlider = new Slider();
+			Label test = new Label("Test");
+			
+			GridPane grid = new GridPane();
+			grid.add(SpeedSlider, 2, 1);
+			grid.add(test, 1, 1);
+			
+			speedDialogue.getDialogPane().setContent(grid);
+//			Label lbl_ChangeSpeed = new Label("Change Speed");
+//			Label lbl_GenperSec = new Label("Generations/Sec");
+//			Label lbl_CurrentSpeed = new Label ("Current speed is set to: ");
+//			TextField InputNewSpeed = new TextField();
+//			
+//			//Build the user interface
+//			GridPane grid = new GridPane();
+//			grid.add(lbl_ChangeSpeed, 1, 1);
+//			grid.add(InputNewSpeed, 1, 2);
+//			grid.add(lbl_GenperSec, 2, 2);
+//			grid.add(lbl_CurrentSpeed, 1, 3);
+//			speedDialogue.getDialogPane().setContent(grid);
+			ButtonType buttonTypeCancel = new ButtonType("Close", ButtonData.CANCEL_CLOSE);
+			speedDialogue.getButtonTypes().setAll(buttonTypeCancel);
+			
+			speedDialogue.showAndWait();
+		}
+
+protected static void CellColorDialogue() {
+			
+			TextInputDialog cellcolordialogue = new TextInputDialog("Change Cell Color");
+			cellcolordialogue.setTitle("Change Cell Color");
+			
+//			Label Speed_lbl = new Label("Speed Value");
+//			TextField txt_x = new TextField();
+			
+			
+			cellcolordialogue.showAndWait();
 		}
 		
-
-//		// Traditional way to get the response value.
-//		Optional<String> result = dialog.showAndWait();
-//		if (result.isPresent()){
-//		    System.out.println("Your name: " + result.get());
-//		}
+		protected static void GridColorDialogue() {
+			
+			TextInputDialog gridcolordialogue = new TextInputDialog("Change Grid Color");
+			gridcolordialogue.setTitle("Change Grid Color");
+			
+//			Label Speed_lbl = new Label("Speed Value");
+//			TextField txt_x = new TextField();
+			
+			gridcolordialogue.showAndWait();
+		}
 		
 		/**
 		 * Stats dialogue.
@@ -75,8 +116,17 @@ public class golDialog extends Application	{
 			stats.setHeaderText(null);
 			stats.setResizable(false);
 
-//			stats.setContentText("Current gridsize is: "+ Grid.gamegrid.length + " x " + Grid.gamegrid[0].length + "\n" + "Number of generations played: " + GameController.CountGen);
+
 			stats.initStyle(StageStyle.UNDECORATED);
+			
+//			If the game hasent started yet the stats dialog will add a sentence in the dialog
+			if(GameController.CountGen == 0){
+				stats.setContentText("Current gridsize is: "+ Grid.gamegrid.length + " x " + Grid.gamegrid[0].length + "\n" + 
+			"The game hasn't started yet!");
+			}	else	{
+				stats.setContentText("Current gridsize is: "+ Grid.gamegrid.length + " x " + Grid.gamegrid[0].length + "\n" + 
+						"Number of generations played: " + GameController.CountGen + "\n" + "Speed: " + (Math.round(GameController.timeline.getRate()*100.00)/100.00) + " Generations/Sec");
+			};
 			  
 			ButtonType buttonTypeCancel = new ButtonType("Close", ButtonData.CANCEL_CLOSE);
 			stats.getButtonTypes().setAll(buttonTypeCancel);
