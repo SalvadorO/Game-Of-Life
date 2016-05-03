@@ -144,7 +144,8 @@ public class GameController implements Initializable{
     int currentNoOfColumns = gameboardcanvas.grid.getColumns();
     int currentNoOfRows = gameboardcanvas.grid.getRows();
     		
-    gameboardcanvas = new GameboardCanvas(currentNoOfColumns, currentNoOfRows);
+//    gameboardcanvas = new GameboardCanvas(currentNoOfColumns, currentNoOfRows);
+    gameboardcanvas.grid.setGrid(currentNoOfColumns, currentNoOfRows);
     Grid.draw(gc, Gameboard);
     
     //Changes the button to Play and stops the timeline if reset is pressed while game is running

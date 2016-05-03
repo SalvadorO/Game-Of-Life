@@ -18,11 +18,11 @@ class Grid {
 	/**
 	 * Instantiates a new grid.
 	 *
-	 * @param x the x
-	 * @param y the y
+	 * @param int columns
+	 * @param int rows
 	 */
-	protected Grid(int x, int y){
-		gamegrid = new int[x][y];	
+	protected Grid(int columns, int rows){
+		gamegrid = new int[columns][rows];	
 	}
 	
 	/**
@@ -32,8 +32,8 @@ class Grid {
 	 * @param x
 	 * @param y
 	 */
-	protected void setGrid(int x, int y){
-		gamegrid = new int[x][y];
+	protected void setGrid(int columns, int rows){
+		gamegrid = new int[columns][rows];
 	}
 	
 	/**
@@ -42,7 +42,7 @@ class Grid {
 	 * @author hd
 	 * @return int rows
 	 */
-	protected int getRows(){
+	protected int getColumns(){
 		return gamegrid.length;
 	}
 	
@@ -52,7 +52,7 @@ class Grid {
 	 * @author hd
 	 * @return int columns
 	 */
-	protected int getColumns(){
+	protected int getRows(){
 		return gamegrid[0].length;
 	}
 	
