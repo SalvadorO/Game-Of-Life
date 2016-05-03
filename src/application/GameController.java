@@ -200,10 +200,7 @@ public void ChangeSpeed(){
 
 	    	//Check if size of shape exceeds current gameboard
 	    	String[] headerelements = filemanager.getHeaderArray(filecontent.get("Header")); 
-				//Get the y and x values (c indicates column hence is x value)
-	    	String[] c = header[0].split("=");
-	    	String[] r = header[1].split("=");
-	    	
+			
 	    	//If shape is not bigger than gamegrid array, parse the pattern,
 	    	//update gamegrid array accordingly and redraw gameboard (i.e draw the laoded pattern)
 	    	if (!gameboardcanvas.shapeBiggerThanGameboard(headerelements)) {
