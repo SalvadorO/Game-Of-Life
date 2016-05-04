@@ -119,22 +119,22 @@ public HashMap<String, String> parseFile(File f) {
 	 * @author hd
 	 * @param String filecontent
 	 */
-	public File saveFile() {
-		
-		ExtensionFilter filterGoLfiles = new ExtensionFilter("RLE file, *.rle","*.rle");
-
-		FileChooser saveFile = new FileChooser();
-		saveFile.getExtensionFilters().addAll(filterGoLfiles);
-		
-		File savedFile = saveFile.showSaveDialog(null);
-		return savedFile;
-		
-	}
+//	public File saveFile() {
+//		
+//		ExtensionFilter filterGoLfiles = new ExtensionFilter("RLE file, *.rle","*.rle");
+//
+//		FileChooser saveFile = new FileChooser();
+//		saveFile.getExtensionFilters().addAll(filterGoLfiles);
+//		
+//		File savedFile = saveFile.showSaveDialog(null);
+//		return savedFile;
+//		
+//	}
 
 
 /**
  * Method provides the user with a File open-dialogue to select a file. Allowed file types are
- * filtered using ExtensionFilter class.
+ * filtered using ExtensionFilter class. Filetype is limited to RLE files.
  * @author hd
  * @return File object: The file, or null if none is selected
  */
@@ -162,8 +162,6 @@ public HashMap<String, String> parseFile(File f) {
 		alert.setTitle("File problem");
 		alert.setHeaderText(message);
 		alert.show();
-		
-		
-		
+			
 	}
 }
