@@ -151,11 +151,11 @@ public HashMap<String, String> parseFile(File f) {
 	}
 	
 	/**
-	 * The method is generalized and is intended to be called by various catch blocks. I notifes the user that 
+	 * The method is a generalized alert pop-up box which is intended to be called by various catch blocks. It notifes the user that 
 	 * something went wrong, and takes a message as a parameter. The user click OK button to verify.
 	 * 
 	 * @author hd
-	 * @param String the message to be shown to the user
+	 * @param String the message to be shown to the user (used as HeaderText in the popup box)
 	 */
 	public void errorDialog(String message) {
 		Alert alert = new Alert(AlertType.ERROR);
