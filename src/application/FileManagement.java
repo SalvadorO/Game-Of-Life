@@ -5,21 +5,12 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
-import java.io.FileOutputStream;
 import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.OutputStream;
-import java.io.OutputStreamWriter;
-import java.io.PrintWriter;
-import java.io.Writer;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
-
-import javafx.event.ActionEvent;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.stage.FileChooser;
 import javafx.stage.FileChooser.ExtensionFilter;
-import javafx.stage.Stage;
 
 /**
  * The Class FileManagement.
@@ -29,7 +20,7 @@ public class FileManagement {
 	/**
 	 * The method takes the filecontent as a String, and returns the pattern element from it.
 	 *
-	 * TODO: have to refactor according to hashmap regime, igth be obsolete
+	 * TODO: have to refactor according to hashmap regime, migth be obsolete
 	 * 
 	 * @author hd
 	 * @param String [] filecontent
@@ -62,12 +53,14 @@ public HashMap<String, String> parseFile(File f) {
 
 	File file = f;
 	
+//	Instantiate local variables. HashMap type is a nice way of storing key-value pairs,
+//	while Stringbuilder type is an efficient way of building strings 
 	HashMap<String, String> filecontent = new HashMap<String, String>();
-	
 	StringBuilder metadata = new StringBuilder();
 	String header = "";
 	StringBuilder pattern = new StringBuilder();
 
+//	Use try-catch block to cathc exceptions during file operation (reading lines from file)
 	try (BufferedReader br = new BufferedReader(new FileReader(file))) {
 		String line = null;
 		do{
@@ -86,14 +79,18 @@ public HashMap<String, String> parseFile(File f) {
 	
 		}while (line != null);	
 	} 
-	catch (IOException e) {
-		System.err.format("IOException: %s%n", e);
+	catch ( FileNotFoundException fnfe ) {
+		errorDialog( "File not found" );
+    }
+    catch ( IOException ioe )
+    {
+    	errorDialog( "An error occured while reading file" );
 	}
 	
 	filecontent.put("Metadata", metadata.toString());
 	filecontent.put("Header", header.replaceAll("\\s+",""));
 	filecontent.put("Pattern", pattern.toString());
-
+		
 	return filecontent;
 }
 	
@@ -151,5 +148,22 @@ public HashMap<String, String> parseFile(File f) {
 		File f = openFile.showOpenDialog(null);
 		
 		return f;
+	}
+	
+	/**
+	 * The method is generalized and is intended to be called by various catch blocks. I notifes the user that 
+	 * something went wrong, and takes a message as a parameter. The user click OK button to verify.
+	 * 
+	 * @author hd
+	 * @param String the message to be shown to the user
+	 */
+	public void errorDialog(String message) {
+		Alert alert = new Alert(AlertType.ERROR);
+		alert.setTitle("File problem");
+		alert.setHeaderText(message);
+		alert.show();
+		
+		
+		
 	}
 }
