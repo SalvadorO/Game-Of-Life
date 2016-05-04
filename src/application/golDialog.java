@@ -117,7 +117,7 @@ public class golDialog extends Application	{
 //			If the game hasent started yet the stats dialog will add a sentence in the dialog
 			if(GameController.CountGen == 0){
 				stats.setContentText("Current gridsize is: "+ Grid.gamegrid.length + " x " + Grid.gamegrid[0].length + "\n" + 
-			"The game hasn't started yet!");
+			"The game hasn't started yet!" + "\n" + "The game will start with " + (Math.round(GameController.timeline.getRate()*100.00)/100.00) + " Generations/Sec");
 			}	else	{
 				stats.setContentText("Current gridsize is: "+ Grid.gamegrid.length + " x " + Grid.gamegrid[0].length + "\n" + 
 						"Number of generations played: " + GameController.CountGen + "\n" + "Speed: " + (Math.round(GameController.timeline.getRate()*100.00)/100.00) + " Generations/Sec");
