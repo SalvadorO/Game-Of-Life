@@ -20,7 +20,7 @@ public class TestGameboardCanvas {
 	 * @author hd
 	 */
 	@Test
-	public void testShapeBiggerThanGameboard() {
+	public void test_shapeWithinGamegridBoundaries() {
 		
 		int gridColumns = 10;
 		int gridRows = 10;
@@ -38,22 +38,22 @@ public class TestGameboardCanvas {
 		String[] shape4 = new String[]{"x=11","y=9"};
 		String[] shape5 = new String[]{"x=10","y=10"};
 		
-		//Expect true
-		boolean result1 = gb.shapeBiggerThanGameboard(shape1);
 		//Expect false
-		boolean result2 = gb.shapeBiggerThanGameboard(shape2);
+		boolean result1 = gb.shapeWithinGamegridBoundaries(11, 11);
 		//Expect true
-		boolean result3 = gb.shapeBiggerThanGameboard(shape3);
-		//Expect true
-		boolean result4 = gb.shapeBiggerThanGameboard(shape4);
+		boolean result2 = gb.shapeWithinGamegridBoundaries(9, 9);
 		//Expect false
-		boolean result5 = gb.shapeBiggerThanGameboard(shape5);
+		boolean result3 = gb.shapeWithinGamegridBoundaries(9, 11);
+		//Expect false
+		boolean result4 = gb.shapeWithinGamegridBoundaries(11, 9);
+		//Expect true
+		boolean result5 = gb.shapeWithinGamegridBoundaries(10, 10);
 		
-		assertTrue(result1);
-		assertFalse(result2);
-		assertTrue(result3);
-		assertTrue(result4);
-		assertFalse(result5);
+		assertFalse(result1);
+		assertTrue(result2);
+		assertFalse(result3);
+		assertFalse(result4);
+		assertTrue(result5);
 	}
 
 }

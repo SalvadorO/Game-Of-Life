@@ -195,11 +195,14 @@ public class GameController implements Initializable{
 	    	HashMap<String, String> filecontent = filemanager.parseFile(file);
 	    	
 	    	//Check if size of shape exceeds current gameboard
-	    	String[] headerelements = filemanager.getHeaderArray(filecontent.get("Header")); 
+	    	HashMap<String, String> headerelements = filemanager.getHeaderArray(filecontent.get("Header")); 
+	    	
+	    	boolean shapeOk = gameboardcanvas.shapeWithinGamegridBoundaries(Integer.parseInt(headerelements.get("x")),
+	    			Integer.parseInt(headerelements.get("y")));
 	    	
 	    	//If shape is not bigger than gamegrid array, parse the pattern,
 	    	//update gamegrid array accordingly and redraw gameboard (i.e draw the laoded pattern)
-	    	if (!gameboardcanvas.shapeBiggerThanGameboard(headerelements)) {
+	    	if (shapeOk) {
 	       		gameboardcanvas.parsePattern(filecontent.get("Pattern"));
 	       	   	gameboardcanvas.grid.draw(gc, Gameboard);
 	       	}
@@ -207,14 +210,14 @@ public class GameController implements Initializable{
     }
 
     /**
-     * TODO: to be implemented.
+     * TODO: To be implemented.
      *
      * @author hd
      * @param ActionEvent event 
      */
     @FXML
     public void mnu_FileSavePressed(ActionEvent event){
-    	filemanager.saveFile();
+//    	filemanager.saveFile();
     }
     
     
