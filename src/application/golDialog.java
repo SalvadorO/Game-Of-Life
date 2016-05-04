@@ -145,14 +145,14 @@ public class golDialog extends Application	{
 		TextField txt_x = new TextField();
 		TextField txt_y = new TextField();
 		
-		//Build the user interface
+//		Build the user interface
 		GridPane grid = new GridPane();
 		grid.add(lbl_x, 1, 1);
 		grid.add(lbl_y, 2, 1);
 		grid.add(txt_x, 1, 2);
 		grid.add(txt_y, 2, 2);
 		dialog.getDialogPane().setContent(grid);
-//		Focuses the X-value when entering dialog
+//		Set focus on the X-value when entering dialog
 		Platform.runLater(() -> txt_x.requestFocus());
 		
 		//Instantiates two objects of type ButtonType and assign them to variables, add the variables to the 
@@ -166,8 +166,6 @@ public class golDialog extends Application	{
 				new Callback<ButtonType, int[]>() {
 					@Override	
 					public int[] call(ButtonType ok) {
-
-						
 						if (ok==buttonTypeOk){
 							String x_value = txt_x.getText();
 							String y_value = txt_y.getText();
@@ -179,10 +177,6 @@ public class golDialog extends Application	{
 							boolean valuesOk = 
 									( valuesNumericAndPositive && ( (Integer.parseInt(x_value)) == (Integer.parseInt(y_value)) ) ) ; 
 	
-							//For testing
-							System.out.println("Verdier ok: " + valuesOk);
-							//End for testing
-															
 							//Return an array with the x and y values if validation is ok 
 							if (valuesOk){
 								return new int[]{Integer.parseInt(x_value), Integer.parseInt(y_value)};
