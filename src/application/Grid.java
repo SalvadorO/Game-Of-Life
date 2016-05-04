@@ -152,7 +152,7 @@ class Grid {
 		String o="";
 		for (int i=0;i<gamegrid.length;i++)
 			for (int j=0;j<gamegrid[i].length;j++)
-				o+=gamegrid[i][j];
+				o+=gamegrid[j][i];
 		return o;
 	}
 	
