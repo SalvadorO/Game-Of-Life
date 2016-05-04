@@ -32,12 +32,6 @@ public class TestGameboardCanvas {
 		System.out.println("Columns: "+ gb.grid.getColumns());
 		System.out.println("Rows: "+ gb.grid.getRows());
 		
-		String[] shape1 = new String[]{"x=11","y=11"};
-		String[] shape2 = new String[]{"x=9","y=9"};
-		String[] shape3 = new String[]{"x=9","y=11"};
-		String[] shape4 = new String[]{"x=11","y=9"};
-		String[] shape5 = new String[]{"x=10","y=10"};
-		
 		//Expect false
 		boolean result1 = gb.shapeWithinGamegridBoundaries(11, 11);
 		//Expect true

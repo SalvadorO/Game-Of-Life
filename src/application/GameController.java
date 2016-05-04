@@ -31,10 +31,10 @@ import javafx.beans.value.ObservableValue;
 public class GameController implements Initializable{
 	
 // 	Declaring the gameboardcanvas object, sending default values to the constructor
-	public static GameboardCanvas gameboardcanvas =  new GameboardCanvas(50, 50);
+	public GameboardCanvas gameboardcanvas =  new GameboardCanvas(50, 50);
 	
 //	Declaring the gc object (Graphics contect)
-	private static GraphicsContext gc;
+	private GraphicsContext gc;
 
 //	Declaring the filemanager object
 	private FileManagement filemanager = new FileManagement();
