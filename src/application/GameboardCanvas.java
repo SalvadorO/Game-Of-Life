@@ -15,7 +15,7 @@ public class GameboardCanvas {
 //	Grid object, holding the grid array
 	
 	//TODO: should be private, refactor methods calling this to use avoid using static
-	private Grid grid;
+	protected Grid grid;
 	
 	
 	//Constructor, a new gameboard canvas with default gridsize.
