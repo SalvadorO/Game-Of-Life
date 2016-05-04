@@ -179,8 +179,7 @@ public class GameController implements Initializable{
     /**
      * Method called when user selects File - Open
      * It checks if the shape to be loaded is within the gamegrid boundaries
-     * TODO: checking procedure should be a separate method in a model class.
-     *
+     * 
      * @author hd
      * @param ActionEvent event
      */
@@ -189,21 +188,22 @@ public class GameController implements Initializable{
     	
     	//Get a file object by using FileManagement class openFile() method
     	File file = filemanager.openFile();
+    	
     	//Check whether a file object is present
     	if (file != null){
     		//Get the file content as a HashMap (key-value pairs)
 	    	HashMap<String, String> filecontent = filemanager.parseFile(file);
 	    	
 	    	//Check if size of shape exceeds current gameboard
-	    	HashMap<String, String> headerelements = filemanager.getHeaderArray(filecontent.get("Header")); 
-	    	
+	    	HashMap<String, String> headerelements = filemanager.getHeaderArray(filecontent.get("header")); 
 	    	boolean shapeOk = gameboardcanvas.shapeWithinGamegridBoundaries(Integer.parseInt(headerelements.get("x")),
 	    			Integer.parseInt(headerelements.get("y")));
+	    	
 	    	
 	    	//If shape is not bigger than gamegrid array, parse the pattern,
 	    	//update gamegrid array accordingly and redraw gameboard (i.e draw the laoded pattern)
 	    	if (shapeOk) {
-	       		gameboardcanvas.parsePattern(filecontent.get("Pattern"));
+	       		gameboardcanvas.parsePattern(filecontent.get("pattern"));
 	       	   	gameboardcanvas.grid.draw(gc, Gameboard);
 	       	}
     	}

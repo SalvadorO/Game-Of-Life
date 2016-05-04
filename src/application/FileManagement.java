@@ -13,10 +13,12 @@ import javafx.stage.FileChooser;
 import javafx.stage.FileChooser.ExtensionFilter;
 
 /**
- * The Class FileManagement.
+ * FileManagement class keeps all operations related to managing files.
+ * This includes opening and parsing
+ * @author hd
  */
 public class FileManagement {
-
+	
 	/**
 	 * The method takes the filecontent as a String, and returns the pattern element from it.
 	 *
@@ -60,18 +62,22 @@ public HashMap<String, String> parseFile(File f) {
 	String header = "";
 	StringBuilder pattern = new StringBuilder();
 
-//	Use try-catch block to cathc exceptions during file operation (reading lines from file)
+//	Use try-catch block to catch exceptions during file operation (reading lines from file)
 	try (BufferedReader br = new BufferedReader(new FileReader(file))) {
 		String line = null;
+//	Do - while loop until end of file (indicated by line == null)
 		do{
 		line = br.readLine();
 			if (line != null){
+//	One or more lines may start with hashtag, this indicates metadata
 				if (line.startsWith("#")){
 					metadata.append(line);
 				}
+//	If line does not start with hashtag, and the header variable is empty, the line is a header
 				else {
 					if (header == "")
 						header = line;
+//	Otherwise, the line is a part of the pattern, hence added to the patternvariable
 					else
 						pattern.append(line);
 				}
@@ -79,17 +85,20 @@ public HashMap<String, String> parseFile(File f) {
 	
 		}while (line != null);	
 	} 
+//	Throw exception (notify user) if file is not found
 	catch ( FileNotFoundException fnfe ) {
 		errorDialog( "File not found" );
     }
-    catch ( IOException ioe )
+//	Throw exception (notify user) if an error occurs during file processing
+	catch ( IOException ioe )
     {
     	errorDialog( "An error occured while reading file" );
 	}
 	
-	filecontent.put("Metadata", metadata.toString());
-	filecontent.put("Header", header.replaceAll("\\s+",""));
-	filecontent.put("Pattern", pattern.toString());
+	filecontent.put("metadata", metadata.toString());
+//	Removing spaces from header String
+	filecontent.put("header", header.replaceAll("\\s+",""));
+	filecontent.put("pattern", pattern.toString());
 		
 	return filecontent;
 }
@@ -97,50 +106,30 @@ public HashMap<String, String> parseFile(File f) {
 /**
  * The method takes the header as a String, splits it and returns the header
  * elements as key-value pairs in a HashMap. 
- * Expected header elements: x, y, rule
+ * Expected header elements keys: x, y, rule
  * Important notice; x indicates number of columns, y indicates number of rows, rule is optional
- * Important notice; the map may contain 
- * TODO: consider adding Throws if header somehow is corrupt
+ * 
  * @author hd
  * @param String header
- * @return String[] headerelements
+ * @return HashMap <String, String> headerElements
  */
-	public HashMap<String, String> getHeaderArray(String header)	{
+	public HashMap<String, String> getHeaderArray(String header) {
 
 	String[] infoElement;
 	HashMap<String, String> headerElements = new HashMap<String, String>();
 
-// 	Split header String into info elements, ',' separates info elements. Store 
+// 	Split header String into info elements, ',' separates info elements 
 	String[] headerElementsArray = header.split(",");
 	
 //	Get all info elements from the array, and add to HashMap as key-value pairs
 	for (int counter = 0; counter < headerElementsArray.length; counter++) {
 		infoElement = headerElementsArray[counter].split("=");
-		headerElements.put(infoElement[0], infoElement[1]);
+		headerElements.put(infoElement[0].toLowerCase(), infoElement[1]);
 	};
 	
 	return headerElements;
 }
 
-
-	/**
-	 * TODO: to be completed
-	 * Method receives the filecontent as a String and saves this to file (created if not existing).
-	 *
-	 * @author hd
-	 * @param String filecontent
-	 */
-//	public File saveFile() {
-//		
-//		ExtensionFilter filterGoLfiles = new ExtensionFilter("RLE file, *.rle","*.rle");
-//
-//		FileChooser saveFile = new FileChooser();
-//		saveFile.getExtensionFilters().addAll(filterGoLfiles);
-//		
-//		File savedFile = saveFile.showSaveDialog(null);
-//		return savedFile;
-//		
-//	}
 
 
 /**
@@ -163,7 +152,7 @@ public HashMap<String, String> parseFile(File f) {
 	
 	/**
 	 * The method is a generalized alert pop-up box which is intended to be called by various catch blocks. It notifes the user that 
-	 * something went wrong, and takes a message as a parameter. The user click OK button to verify.
+	 * something went wrong, and takes a message as a parameter and shows this. The user clicks OK button to verify.
 	 * 
 	 * @author hd
 	 * @param String the message to be shown to the user (used as HeaderText in the popup box)
@@ -175,4 +164,25 @@ public HashMap<String, String> parseFile(File f) {
 		alert.show();
 			
 	}
+	
+
+//	/**
+//	 * TODO: To be completed
+//	 * Method receives the filecontent as a String and saves this to file (created if not existing).
+//	 *
+//	 * @author hd
+//	 * @param String filecontent
+//	 */
+//	public File saveFile() {
+//		
+//		ExtensionFilter filterGoLfiles = new ExtensionFilter("RLE file, *.rle","*.rle");
+//
+//		FileChooser saveFile = new FileChooser();
+//		saveFile.getExtensionFilters().addAll(filterGoLfiles);
+//		
+//		File savedFile = saveFile.showSaveDialog(null);
+//		return savedFile;
+//		
+//	}
+
 }
