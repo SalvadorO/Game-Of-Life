@@ -61,7 +61,7 @@ public class TestGameboardCanvas {
 //		1D representation of a glider
 		String expectedresult1 = "010001111";
 		
-		String testpattern2 = "o2bo$o2bo$o2bo$o2bo$";
+		String testpattern2 = "o2bo$o2bo$o2bo$o2bo!";
 		String expectedresult2 = "1001100110011001";
 		
 		
