@@ -3,17 +3,11 @@ package application;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-
-import javafx.scene.canvas.GraphicsContext;
-
-import javafx.scene.paint.Color;
-
 /**
- * Constructed by creating a Grid object
- * Provides methods to set and get the grid
- * Provides methods to set and get a specific cell
- * TODO: for efficiency; consider adding a register holding living cells.
- *
+ * Constructed by creating a Grid object and keep this as a class variable (grid)
+ * Provides methods to;
+ * - parse patterns loaded from e.g. a file and update the grid.
+ * - a validator that may be called to check that a pattern is within grid boundaries 
  * @author hd
  */
 public class GameboardCanvas {
@@ -32,8 +26,6 @@ public class GameboardCanvas {
 	/**
 	 * The method takes a pattern in RLE format (e.g 2b2o$2o2b) as a String and interprets the characters 
 	 * ('2' followed by a 'b' is 'bb', $ represents new line) and sets the gamegrid array.
-	 * TODO: add inline comments
-	 * TODO: check if pattern end marker ! works ok
 	 * @author hd with help from Internet
 	 * @param String pattern
 	 * @return void
@@ -41,29 +33,35 @@ public class GameboardCanvas {
 	public void parsePattern(String pattern){
 		
     	String[] inputstring = pattern.split("\\$");
+//    	Define a pattern (regex) to match against (digit og letters (upperlower case az))
     	String re = "[0-9]+|[a-zA-Z]";
 		Pattern p = Pattern.compile(re);
     	Matcher matcher;
 		
   		int x_counter = 0;
 		
-		//Loop antall ganger som det er linjer i inputstring
+		//Loop through inputstring array
 		for (int i = 0; i < inputstring.length; i++){
 			x_counter = 0;
+//			Look for match with pattern
 			matcher = p.matcher(inputstring[i]);
 				while (matcher.find()){
+//					If match is a number, it indicates the following value should be repeated that number of times (count down until zero)
 					if (Character.isDigit(matcher.group().charAt(0))){
 						int number = Integer.parseInt(matcher.group());
 						matcher.find();
 						while (number-- != 0){
 							if (matcher.group().equals("b")){
+//							Use Grid's setCellstatus method. "b" means dead cell i.e. value set to 0
 								grid.setCellstatus( x_counter++,i, 0);
 							}
+//							Use Grid's setCellstatus method. "o" means dead cell, i.e. value set to 1
 							if (matcher.group().equals("o")){
 								grid.setCellstatus( x_counter++,i, 1);
 							}
 						}
 					}
+//					Same as above, but no leading digit, hence only one value to set
 					else {
 						if (matcher.group().equals("b"))	{
 							grid.setCellstatus(x_counter++,i, 0);
@@ -85,7 +83,7 @@ public class GameboardCanvas {
 	 * @param int y
 	 * @return number of neighbours
 	 */
-//		protected int countNeighbours(int x, int y)	{
+//		public int countNeighbours(int x, int y)	{
 //		
 //			int neighbours = 0;
 //			int cellValue = 0;
@@ -98,24 +96,8 @@ public class GameboardCanvas {
 //				}
 //			return neighbours;
 //		}
-//			
-//			//TODO: add JDOC
-//			 protected int cellstatusNextgeneration(int x, int y)	{
-//				 int cn = countNeighbours(x,y);
-//				 
-//				 if (gb.getTable()[x][y]==1){
-//					if (survives(cn))
-//						return 1;
-//					gb.updateCellstatus(x, y, 0);
-//					return 0;
-//				 }
-//				 if (cn==3){
-//					 gb.updateCellstatus(x, y, 1);
-//					 return 1;
-//				 }
-//				 return 0;
-//			 }	 
-//		 
+			
+
 			
 			
 		/**
@@ -141,7 +123,6 @@ public class GameboardCanvas {
 		 * and returns true if any exceeds.
 		 * returns false otherwise.
 		 * TODO: Consider creating a Model class to hold this method
-		 * TODO: Add som inline comments
 		 * @author hd
 		 * @param String[] headerelements
 		 * 
@@ -152,6 +133,7 @@ public class GameboardCanvas {
 	    	int gridRows = grid.getRows();
 			int gridColumns = grid.getColumns();
 			
+//			Both rows and columns value of shape must be smaller than corresponding grid
 			if ((shapeRows <= gridRows) && (shapeColumns <= gridColumns))
 				return true;
 			else 

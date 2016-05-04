@@ -210,7 +210,7 @@ public class GameController implements Initializable{
     }
 
     /**
-     * TODO: To be implemented.
+     * TODO: To be implemented
      *
      * @author hd
      * @param ActionEvent event 

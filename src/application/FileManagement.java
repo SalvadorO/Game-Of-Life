@@ -19,32 +19,13 @@ import javafx.stage.FileChooser.ExtensionFilter;
  */
 public class FileManagement {
 	
-	/**
-	 * The method takes the filecontent as a String, and returns the pattern element from it.
-	 *
-	 * TODO: have to refactor according to hashmap regime, migth be obsolete
-	 * 
-	 * @author hd
-	 * @param String [] filecontent
-	 * @return String
-	 */
- 	public String getPattern(String[] filecontent)	{
-	
-	 	//Remove end of file marker ('!')
-		String openFile = filecontent[2].replaceAll("\\!", "");
-		return openFile;
-}
-
-
 /**
  * Method takes a file and returns the content as a HashMap (key-value pairs).
  * Method assumes files uses the convention; http://www.conwaylife.com/wiki/Run_Length_Encoded; where
  * - First line contains header information: x='value', y='value', [optional]rule='value'
  * - Remaining lines contains the payload, the actual pattern. 
  * - The first line may be preceded with one or more lines beginning with hashtag; #
- *  
- * TODO: add inline comments
- * TODO: deal with corrupt files, i.e files not following the convention
+ * 
  * @author hd
  * @param File f
  * @return HashMap<String><String> containing the elements; metadata, header and pattern;
@@ -167,7 +148,7 @@ public HashMap<String, String> parseFile(File f) {
 	
 
 //	/**
-//	 * TODO: To be completed
+//	 * TODO: To be implemented
 //	 * Method receives the filecontent as a String and saves this to file (created if not existing).
 //	 *
 //	 * @author hd
