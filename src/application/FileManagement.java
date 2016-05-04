@@ -96,37 +96,28 @@ public HashMap<String, String> parseFile(File f) {
 	
 /**
  * The method takes the header as a String, splits it and returns the header
- * elements as elements in an array. Example of header element: "x=3"
- * Important notice; x indicates number of columns, y indicates number of rows
+ * elements as key-value pairs in a HashMap. 
+ * Expected header elements: x, y, rule
+ * Important notice; x indicates number of columns, y indicates number of rows, rule is optional
+ * Important notice; the map may contain 
  * TODO: consider adding Throws if header somehow is corrupt
  * @author hd
  * @param String header
  * @return String[] headerelements
  */
 	public HashMap<String, String> getHeaderArray(String header)	{
-	
+
+	String[] infoElement;
+	HashMap<String, String> headerElements = new HashMap<String, String>();
+
 // 	Split header String into info elements, ',' separates info elements. Store 
 	String[] headerElementsArray = header.split(",");
 	
-	//Get the y and x values (c indicates column hence is x value)
-//	String[] c = headerElementsArray[0].split("=");
-//	String[] r = headerElementsArray[1].split("=");
-	String[] infoElement;
-
-	HashMap<String, String> headerElements = new HashMap<String, String>();
-	
-	//Get all info elements from the array, and add to HashMap as key-value pairs
+//	Get all info elements from the array, and add to HashMap as key-value pairs
 	for (int counter = 0; counter < headerElementsArray.length; counter++) {
 		infoElement = headerElementsArray[counter].split("=");
 		headerElements.put(infoElement[0], infoElement[1]);
 	};
-	
-	System.out.println(headerElements.get("x"));
-	System.out.println(headerElements.get("y"));
-	System.out.println(headerElements.get("Rule"));
-	
-//	int shapeColumns = Integer.parseInt(c[1]);
-//	int shapeRows = Integer.parseInt(r[1]);
 	
 	return headerElements;
 }
