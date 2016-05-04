@@ -31,7 +31,7 @@ import javafx.beans.value.ObservableValue;
 public class GameController implements Initializable{
 	
 // 	Declaring the gameboardcanvas object, sending default values to the constructor
-	protected static GameboardCanvas gameboardcanvas =  new GameboardCanvas(50, 50);
+	public static GameboardCanvas gameboardcanvas =  new GameboardCanvas(50, 50);
 	
 //	Declaring the gc object (Graphics contect)
 	private static GraphicsContext gc;
@@ -43,7 +43,7 @@ public class GameController implements Initializable{
 	private golDialog dialog = new golDialog();
 
 //	Declaring the timeline object
-	protected static Timeline timeline = new Timeline();
+	public static Timeline timeline = new Timeline();
 	
 //	Declaring the Gameboard object
 	@FXML
@@ -70,7 +70,7 @@ public class GameController implements Initializable{
 	private HBox HB_Speed;
 	
 //	Variable for counting number of generations played
-	protected static int CountGen;
+	public static int CountGen;
 	
 	public void ChangeSpeed(){
 		Sld_Speed.valueProperty().addListener(new ChangeListener<Number>(){
