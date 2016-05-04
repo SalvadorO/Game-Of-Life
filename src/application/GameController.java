@@ -30,34 +30,27 @@ import javafx.beans.value.ObservableValue;
 
 public class GameController implements Initializable{
 	
-// 	Declaring the gameboardcanvas object, sending default values to the constructor
+//	Declarations
+
 	public GameboardCanvas gameboardcanvas =  new GameboardCanvas(50, 50);
 	
-//	Declaring the gc object (Graphics contect)
 	private GraphicsContext gc;
 
-//	Declaring the filemanager object
 	private FileManagement filemanager = new FileManagement();
 	
-//	The dialog object
 	private golDialog dialog = new golDialog();
 
-//	Declaring the timeline object
 	public static Timeline timeline = new Timeline();
 	
-//	Declaring the Gameboard object
 	@FXML
 	private Canvas Gameboard;
 
-//	Declaring mnu_FileOpen, mnu_FileSave, mnu_SetupGridsize variables
-    @FXML
+	@FXML
     private MenuItem mnu_FileOpen,  mnu_FileSave, mnu_SetupGridsize;
     
-//  Declaring cmi_Speed variables  
     @FXML
     private CheckMenuItem cmi_Speed;
 	
-//  Declaring the Button type variables
 	@FXML
     private Button btn_Reset, btn_PlayStop, btn_Quit, btn_Next, btn_GridSize;
 	
@@ -92,14 +85,13 @@ public class GameController implements Initializable{
 	public void mnu_SetupGridsizePressed(ActionEvent event) {
 		int[] newgridsize = dialog.setGridSizeDialogue().get();
 
-		//Check for null or -1; null means nothing was returned and -1 means Cancel was pressed in dialog
-		//-2 indicates validation failed
-		System.out.println("Returned value: " + newgridsize[0]);
-		
-		if (newgridsize != null)
+		//Check for null, -1 or -2; null means nothing was returned, -1 means Cancel was pressed and
+		//-2 indicates input validation failed
+		if (newgridsize != null) {
 			if ( ! ( (newgridsize[0] == -1) || (newgridsize[0] == -2) ) ) {
 				gameboardcanvas.grid.setGrid(newgridsize[0],newgridsize[1]);
 				gameboardcanvas.grid.draw(gc, Gameboard);
+			}
 		}
 
 	}
