@@ -158,6 +158,7 @@ public class GameController implements Initializable{
     @FXML
     public void btn_ResetPressed(ActionEvent event) {
     
+//  Get and store the current gridsize 
     int currentNoOfColumns = gameboardcanvas.grid.getColumns();
     int currentNoOfRows = gameboardcanvas.grid.getRows();
 
@@ -169,7 +170,7 @@ public class GameController implements Initializable{
     		timeline.stop();
     }
   
-//  Resets the grid array by thworing the old and instatiate a new
+//  Resets the grid array by setting a new grid with current gridsize
     gameboardcanvas.grid.setGrid(currentNoOfColumns, currentNoOfRows);
     gameboardcanvas.grid.draw(gc, Gameboard);
     
