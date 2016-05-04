@@ -298,8 +298,8 @@ public class GameController implements Initializable{
     	timeline.setCycleCount(Animation.INDEFINITE);
     	
 		// lets us connect the mouse event that is in controller class in some way
-       Gameboard.setOnMouseClicked(GameController.mouseHandlerClicked);
-       Gameboard.setOnMouseDragged(GameController.mouseHandlerDragged);
+       Gameboard.setOnMouseClicked(this.mouseHandlerClicked);
+       Gameboard.setOnMouseDragged(this.mouseHandlerDragged);
        ChangeSpeed();
        cmi_SpeedPressed();
     }
@@ -307,7 +307,7 @@ public class GameController implements Initializable{
     /** The mouse handler clicked.
      * @author Salvador, Lars Kristian Haga
      */
-    protected static EventHandler<MouseEvent> mouseHandlerClicked = new EventHandler <MouseEvent>()		{
+    public EventHandler<MouseEvent> mouseHandlerClicked = new EventHandler <MouseEvent>()		{
 		@Override
 		public void handle(MouseEvent event) {
 		
@@ -321,7 +321,7 @@ public class GameController implements Initializable{
     /** The mouse handler dragged.
      * @author Salvador, Lars Kristian Haga
      */
-    protected static EventHandler<MouseEvent> mouseHandlerDragged = new EventHandler <MouseEvent>()		{
+    public EventHandler<MouseEvent> mouseHandlerDragged = new EventHandler <MouseEvent>()		{
 		@Override
 		public void handle(MouseEvent event) {
 
