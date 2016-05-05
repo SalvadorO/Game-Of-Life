@@ -228,6 +228,9 @@ import javafx.beans.value.ObservableValue;
     @FXML
     private void btn_Next(ActionEvent event){
     	gameboardcanvas.grid.oneGen(gc, Gameboard);
+    	// This stops the game when Next button is pressed
+    	gameboardcanvas.grid.getTimeline().stop();
+    	btn_PlayStop.setText("Play");
     }
        
     /**
