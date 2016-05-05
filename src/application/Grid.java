@@ -68,6 +68,7 @@ class Grid {
 	
 	protected void incrementCountgen() {
 		countgen++;
+		
 	}
 	
 	protected int getCountgen() {
@@ -270,6 +271,7 @@ class Grid {
        for (int x = 0; x < currentGen.length; x++){
     	   for (int y = 0; y < currentGen[0].length; y++){
     	   }}
+       incrementCountgen();
        return nextGen;
       	}
 
@@ -282,7 +284,6 @@ class Grid {
 	 */
 	protected void oneGen(GraphicsContext gc, Canvas img){
 		gamegrid = nextGeneration(gamegrid, gc);
-		countgen++;
 		draw(gc,img);
 	}
 	

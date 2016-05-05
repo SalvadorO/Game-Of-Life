@@ -17,8 +17,10 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckMenuItem;
+import javafx.scene.control.Label;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.Slider;
+import javafx.scene.control.TextField;
 import javafx.util.Duration;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
@@ -58,6 +60,12 @@ import javafx.beans.value.ObservableValue;
 
 	@FXML
 	private HBox HB_Speed;
+	
+	@FXML
+	private Label lblGenerations;
+	
+	@FXML
+	private TextField txtGenerations;
 	
 	/**
 	 * Listens to the slider and sets the new slider value to the timeline, which increases the speed of the game
