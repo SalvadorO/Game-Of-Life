@@ -1,9 +1,16 @@
 package application;
 
+import java.awt.Insets;
+
 import javafx.animation.Timeline;
+import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.control.ColorPicker;
+import javafx.scene.layout.HBox;
 import javafx.scene.paint.Color;
+import javafx.scene.text.Text;
+import javafx.stage.Stage;
 
 /**
  * The Class Grid.
@@ -18,7 +25,7 @@ class Grid {
 //	Variable holding the number of generetations played
 	private int countgen;
 	
-	Color cellcolor = Color.RED;
+	private Color cellcolor = Color.RED;
 	
 	
 	private Timeline timeline = new Timeline();
@@ -53,6 +60,18 @@ class Grid {
 		timeline = tl;
 	}
 
+	//TEST COLORPICKER
+	
+	
+	protected void setCellColor() {
+		ColorPicker colorPicker1 = new ColorPicker();
+			
+		
+	}
+
+	
+	//END TEST COLORPICKER
+	
 	/**
 	 * Method defines the grid size based on received x and y values and pint the gamegrid array to a new array object.
 	 *

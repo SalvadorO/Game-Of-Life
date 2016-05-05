@@ -1,18 +1,26 @@
 package application;
 
 import org.apache.commons.lang3.StringUtils;
+
+import java.awt.Event;
+import java.awt.Insets;
 import java.util.Optional;
 import javafx.application.Application;
 import javafx.application.Platform;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.ButtonBar.ButtonData;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.ColorPicker;
 import javafx.scene.control.Dialog;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TextInputDialog;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Callback;
@@ -52,6 +60,41 @@ class golDialog extends Application	{
 			
 			cellcolordialogue.showAndWait();
 		}
+		
+		protected void cellColorPicker() {
+//		TEST COLORPICKER
+			// TODO: Hans: for testing, remove this
+		Stage stage;
+		stage.setTitle("ColorPicker");
+        Scene scene = new Scene(new HBox(20), 400, 100);
+        HBox box = (HBox) scene.getRoot();
+                  
+             
+        final ColorPicker colorPicker = new ColorPicker();
+        colorPicker.setValue(Color.CORAL);
+        
+        final Text text = new Text("Try the color picker!");
+        text.setFill(colorPicker.getValue());
+        
+        colorPicker.setOnAction(new EventHandler() {
+            public void handle(Event t) {
+                text.setFill(colorPicker.getValue());               
+            }
+        });
+ 
+        box.getChildren().addAll(colorPicker, text);
+ 
+        stage.setScene(scene);
+        stage.show();
+    }
+
+
+		
+		//ENDTEST COLORPICKER
+		
+		
+		
+		
 		
 		/**
 		 * TODO: To be implemented
