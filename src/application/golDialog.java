@@ -71,19 +71,19 @@ class golDialog extends Application	{
 		 * 
 		 * @author Lars 
 		 */
-		protected void StatsDialogue()	{
+		protected void StatsDialogue(Grid grid)	{
 			Alert stats = new Alert(AlertType.INFORMATION);
 			stats.setTitle("Stats");
 			stats.setHeaderText(null);
 			stats.initStyle(StageStyle.UNDECORATED);
 			
 //			If the game hasen't started yet the stats dialog will add a sentence in the dialog
-			if(GameController.CountGen == 0){
-				stats.setContentText("Current gridsize is: "+ Grid.gamegrid.length + " x " + Grid.gamegrid[0].length + "\n" + 
+			if(grid.getCountgen() == 0){
+				stats.setContentText("Current gridsize is: "+ grid.getColumns() + " x " + grid.getRows() + "\n" + 
 			"The game hasn't started yet!" + "\n" + "The game will start with " + (Math.round(GameController.getTimeline().getRate()*100.00) / 100.00) + " Generations/Sec");
 			}	else	{
-				stats.setContentText("Current gridsize is: "+ Grid.gamegrid.length + " x " + Grid.gamegrid[0].length + "\n" + 
-						"Number of generations played: " + GameController.CountGen + "\n" + "Speed: " + (Math.round(GameController.getTimeline().getRate()*100.00) / 100.00) + " Generations/Sec");
+				stats.setContentText("Current gridsize is: "+ grid.getColumns() + " x " + grid.getRows() + "\n" + 
+						"Number of generations played: " + grid.getCountgen() + "\n" + "Speed: " + (Math.round(GameController.getTimeline().getRate()*100.00) / 100.00) + " Generations/Sec");
 			};
 			  
 			ButtonType buttonTypeCancel = new ButtonType("Cool!", ButtonData.CANCEL_CLOSE);

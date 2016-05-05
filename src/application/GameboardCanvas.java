@@ -15,6 +15,7 @@ class GameboardCanvas {
 //	Grid object, holding the grid array
 	protected Grid grid;
 	
+
 	
 	//Constructor, a new gameboard canvas with default gridsize.
 	protected GameboardCanvas(int columns, int rows){

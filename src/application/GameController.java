@@ -39,7 +39,7 @@ import javafx.beans.value.ObservableValue;
 
 	private static Timeline timeline = new Timeline();
 	
-	protected static int CountGen;
+	
 	
 	@FXML
 	private Canvas Gameboard;
@@ -116,7 +116,7 @@ import javafx.beans.value.ObservableValue;
 		getTimeline().stop();
 		btn_PlayStop.setText("Play");
 		// Shows the Stats Dialogue
-		dialog.StatsDialogue();
+		dialog.StatsDialogue(gameboardcanvas.grid);
 	}
 
 	/**
@@ -231,7 +231,6 @@ import javafx.beans.value.ObservableValue;
     @FXML
     private void btn_Next(ActionEvent event){
     	gameboardcanvas.grid.oneGen(gc, Gameboard);
-    	CountGen++;
     }
        
     /**
@@ -293,7 +292,6 @@ import javafx.beans.value.ObservableValue;
 		setTimeline(new Timeline(new KeyFrame
 				(Duration.seconds(1), Kv -> {
 					gameboardcanvas.grid.oneGen(gc, Gameboard);
-					CountGen++;
 					})));
 		// Sets the the timeline is going to go infinite times until stopped
     	getTimeline().setCycleCount(Animation.INDEFINITE);

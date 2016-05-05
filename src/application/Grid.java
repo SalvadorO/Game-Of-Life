@@ -14,6 +14,10 @@ class Grid {
 	
 	private int cellSize ;
 	
+//	Variable holding the number of generetations played
+	private int countgen;
+	
+	
 	/**
 	 * Instantiates a new grid.
 	 *
@@ -34,6 +38,19 @@ class Grid {
 	protected void setGrid(int columns, int rows){
 		gamegrid = new int[columns][rows];
 	}
+	
+	protected void incrementCountgen() {
+		countgen++;
+	}
+	
+	protected int getCountgen() {
+		return countgen;
+	}
+	
+	protected void resetCountgen() {
+		countgen = 0;
+	}
+	
 	
 	/**
 	 * Method returns number of rows in gamegrid.
@@ -81,7 +98,7 @@ class Grid {
 	 * to a cell given by provided x and y param.
 	 * Not in use
 	 * 
-	 * TODO: er den ikke i bruk kan vi ikke like sågodt fjerne den?
+	 * TODO: er den ikke i bruk kan vi ikke like sï¿½godt fjerne den?
 	 * 
 	 * @author hd
 	 * @param x
@@ -224,6 +241,7 @@ class Grid {
 	 */
 	protected void oneGen(GraphicsContext gc, Canvas img){
 		gamegrid = nextGeneration(gamegrid, gc);
+		countgen++;
 		draw(gc,img);
 	}
 	
