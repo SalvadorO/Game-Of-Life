@@ -157,7 +157,7 @@ class Grid {
 	/**
 	 * Method sets cell value based on received x and y parameter.
 	 *
-	 * @author hd
+	 * @author Hans Dragnes
 	 * @param int x
 	 * @param int y
 	 * @param int value (1 means live, 0 means dead)
@@ -270,6 +270,7 @@ class Grid {
        for (int x = 0; x < currentGen.length; x++){
     	   for (int y = 0; y < currentGen[0].length; y++){
     	   }}
+       incrementCountgen();
        return nextGen;
       	}
 
@@ -282,7 +283,6 @@ class Grid {
 	 */
 	protected void oneGen(GraphicsContext gc, Canvas img){
 		gamegrid = nextGeneration(gamegrid, gc);
-		countgen++;
 		draw(gc,img);
 	}
 	
