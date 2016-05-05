@@ -221,6 +221,7 @@ class Grid {
 	 * @param int[][] array2
 	 * @param GraphicsContext gc
 	 * @return the next generation
+	 * @author Salvador
 	 */
 	protected int [][] nextGeneration(int [][] array2, GraphicsContext gc){
 		
@@ -277,6 +278,7 @@ class Grid {
 	 *
 	 * @param GraphicsContext gc
 	 * @param Canvas img
+	 * @author Salvador
 	 */
 	protected void oneGen(GraphicsContext gc, Canvas img){
 		gamegrid = nextGeneration(gamegrid, gc);
@@ -289,6 +291,7 @@ class Grid {
 	 *
 	 * @param gc GraphicsContext
 	 * @param Canvas canvas
+	 * @author Salvador
 	 * @return the int[][] array
 	 */
 	protected int[][] draw(GraphicsContext gc, Canvas canvas){
@@ -315,12 +318,10 @@ class Grid {
 }
 	
 	/**
-<<<<<<< HEAD
-	 * drawWhenMouseClicked method is used to mark/ unmark cells on the gamebaord.
-=======
-	 * DrawOnTheGameBoard method is used to change the value of cells that are being clicked by the mouse, 
-	 * it also visualizes where we are spawning cells by changing the color of the live cells 
->>>>>>> origin/master
+
+	 * MarkCell & MarkCell2 methods is used to change the value of cells that are being marked by the mouse, 
+	 * it also visualizes where we are drawing cells by changing the color of the cells 
+
 	 *
 	 * @param int x
 	 * @param int y
