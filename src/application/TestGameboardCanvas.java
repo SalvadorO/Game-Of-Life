@@ -9,7 +9,7 @@ import application.GameboardCanvas;
 /**
  * TestGameboardCanvas class
  */
-public class TestGameboardCanvas {
+class TestGameboardCanvas {
 
 	/**
 	 * Testing 5 scenarios of the shapeBiggerThan method.
@@ -20,7 +20,7 @@ public class TestGameboardCanvas {
 	 * @author hd
 	 */
 	@Test
-	public void test_shapeWithinGamegridBoundaries() {
+	protected void test_shapeWithinGamegridBoundaries() {
 		
 		int gridColumns = 10;
 		int gridRows = 10;
@@ -54,7 +54,7 @@ public class TestGameboardCanvas {
 	 * @author hd
 	 */
 	@Test
-	public void test_parsePattern(){
+	protected void test_parsePattern(){
 		
 //		RLE representation of a glider
 		String testpattern1 = "bo$2bo$3o!";

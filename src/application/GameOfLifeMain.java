@@ -31,8 +31,6 @@ public class GameOfLifeMain extends Application {
 
 			primaryStage.setScene(GOLgame);
 			primaryStage.show();
-
-
 		} catch(Exception e) {
 			e.printStackTrace();
 		}

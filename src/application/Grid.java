@@ -9,10 +9,9 @@ import javafx.scene.paint.Color;
  */
 class Grid {
 	
-// The gamegrid array
-	public static int[][] gamegrid;
+	// Declarations
+	protected static int[][] gamegrid;
 	
-	/** The cell size. */
 	private int cellSize ;
 	
 	/**
@@ -21,7 +20,7 @@ class Grid {
 	 * @param int columns
 	 * @param int rows
 	 */
-	public Grid(int columns, int rows){
+	protected Grid(int columns, int rows){
 		gamegrid = new int[columns][rows];	
 	}
 	
@@ -32,7 +31,7 @@ class Grid {
 	 * @param x
 	 * @param y
 	 */
-	public void setGrid(int columns, int rows){
+	protected void setGrid(int columns, int rows){
 		gamegrid = new int[columns][rows];
 	}
 	
@@ -42,7 +41,7 @@ class Grid {
 	 * @author hd
 	 * @return int rows
 	 */
-	public int getColumns(){
+	protected int getColumns(){
 		return gamegrid.length;
 	}
 	
@@ -52,7 +51,7 @@ class Grid {
 	 * @author hd
 	 * @return int columns
 	 */
-	public int getRows(){
+	protected int getRows(){
 		return gamegrid[0].length;
 	}
 	
@@ -62,16 +61,17 @@ class Grid {
 	 * @author hd
 	 * @return int[][] gamegrid
 	 */
-	public int[][] getGrid(){
+	protected int[][] getGrid(){
 		return gamegrid;
 	}
 	
 	/**
-	 * The method returns the value of the private cellsize variable
+	 * The method returns the value of the private cellsize variable.
+	 * 
 	 * @author hd
 	 * @return int cellsize
 	 */
-	public int getCellSize() {
+	protected int getCellSize() {
 		return cellSize;
 	}
 	
@@ -80,12 +80,15 @@ class Grid {
 	 * Method counts and returns number of neighbours
 	 * to a cell given by provided x and y param.
 	 * Not in use
+	 * 
+	 * TODO: er den ikke i bruk kan vi ikke like sågodt fjerne den?
+	 * 
 	 * @author hd
 	 * @param x
 	 * @param y
 	 * @return number of neighbours
 	 */
-	public int countNeighbours(int x, int y)	{
+	protected int countNeighbours(int x, int y)	{
 	
 		int neighbours = 0;
 		int cellValue = 0;
@@ -107,7 +110,7 @@ class Grid {
 	 * @param int y
 	 * @param int value
 	 */
-	public void setCellstatus(int x, int y, int value)	{
+	protected void setCellstatus(int x, int y, int value)	{
 		gamegrid[x][y]=value;
 	}
 	
@@ -119,7 +122,7 @@ class Grid {
 	 * @param int y
 	 * @return int
 	 */
-	public int getCellstatus(int x, int y){
+	protected int getCellstatus(int x, int y){
 		return gamegrid[x][y];
 	}
 	
@@ -133,17 +136,17 @@ class Grid {
 	 * @param int neighbours
 	 * @return boolean
 	 */
-	public boolean survives(int neighbours){
+	protected boolean survives(int neighbours){
 		boolean alive=true;
 		if (( neighbours < 2) || (neighbours> 3))
 			alive = false;
 		return alive;
 	}
 	
-		
 	/**
 	 * A toString method to get a 1D representation of the gamegrid array.
-	 * Useful when implemeting tests
+	 * Useful when implemeting tests.
+	 * 
 	 * @author hd
 	 * @return string
 	 */
@@ -163,11 +166,9 @@ class Grid {
 	 * @param GraphicsContext gc
 	 * @return the next generation
 	 */
-	public int [][] nextGeneration(int [][] array2, GraphicsContext gc){
+	protected int [][] nextGeneration(int [][] array2, GraphicsContext gc){
 		
 		int [][] currentGen = array2;
-		
-		
 		
 			for (int x = 0; x < currentGen.length; x++){
 	    	   for (int y = 0; y < currentGen[0].length; y++){
@@ -175,7 +176,6 @@ class Grid {
 	     }
 		   
 		int [][] nextGen = new int [gamegrid.length][gamegrid.length];
-		
 		
 		for ( int rows = 0; rows < gamegrid.length; rows++ ) {
             int over, under;  
@@ -212,22 +212,17 @@ class Grid {
         
        for (int x = 0; x < currentGen.length; x++){
     	   for (int y = 0; y < currentGen[0].length; y++){
-    		   
-   
     	   }}
-       
        return nextGen;
-       
       	}
 
 	/**
-	 * OneGen method is used to only calculate the next generation when next button is clicked
+	 * OneGen method is used to only calculate the next generation when next button is clicked.
 	 *
-	 * @author
 	 * @param GraphicsContext gc
 	 * @param Canvas img
 	 */
-	public void oneGen(GraphicsContext gc, Canvas img){
+	protected void oneGen(GraphicsContext gc, Canvas img){
 		gamegrid = nextGeneration(gamegrid, gc);
 		draw(gc,img);
 	}
@@ -239,7 +234,7 @@ class Grid {
 	 * @param Canvas canvas
 	 * @return the int[][] array
 	 */
-	public int[][] draw(GraphicsContext gc, Canvas canvas){
+	protected int[][] draw(GraphicsContext gc, Canvas canvas){
 
 		cellSize = (int) (canvas.getHeight()/gamegrid.length);
 
@@ -252,7 +247,7 @@ class Grid {
 				
 				if (array[i][j]==1)	{
 					gc.setFill(Color.WHITE);
-					gc.fillRect(i*cellSize, j*cellSize, cellSize*0.9, cellSize*0.9);
+					gc.fillRect(i*cellSize, j*cellSize, cellSize, cellSize);
 				}
 				
 				gc.strokeRect(i*cellSize, j*cellSize, cellSize, cellSize);
@@ -262,7 +257,6 @@ class Grid {
 		return array;
 	}
 	
-	
 	/**
 	 * DrawOnGameGrid method is used to visually draw cells on the gamebaord.
 	 *
@@ -270,18 +264,17 @@ class Grid {
 	 * @param int y
 	 * @param GraphicsContext gc
 	 */
-	public void DrawOnGameGrid (int x, int y, GraphicsContext gc){
+	protected void DrawOnGameGrid (int x, int y, GraphicsContext gc){
 		for (int i = 0;i<gamegrid.length;i++){
 			for (int j = 0; j<(gamegrid[i].length); j++){
 				if (x == i && y == j){
 					
 					gamegrid[i][j] = 1;
 					gc.setFill(Color.WHITE);
-					gc.fillRect(i*getCellSize(), j*getCellSize(), getCellSize()*0.9, getCellSize()*0.9);
+					gc.fillRect(i*getCellSize(), j*getCellSize(), getCellSize(), getCellSize());
 				}
 	
 				}
-			}
-		
+			}	
 	}
 }

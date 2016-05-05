@@ -10,16 +10,14 @@ import java.util.regex.Pattern;
  * - a validator that may be called to check that a pattern is within grid boundaries 
  * @author hd
  */
-public class GameboardCanvas {
+class GameboardCanvas {
 	
 //	Grid object, holding the grid array
-	
-
-	public Grid grid;
+	protected Grid grid;
 	
 	
 	//Constructor, a new gameboard canvas with default gridsize.
-	public GameboardCanvas(int columns, int rows){
+	protected GameboardCanvas(int columns, int rows){
 		grid = new Grid(columns, rows);
 	}
 	
@@ -30,7 +28,7 @@ public class GameboardCanvas {
 	 * @param String pattern
 	 * @return void
 	 */
-	public void parsePattern(String pattern){
+	protected void parsePattern(String pattern){
 		
     	String[] inputstring = pattern.split("\\$");
 //    	Define a pattern (regex) to match against (digit og letters (upperlower case az))
@@ -83,7 +81,7 @@ public class GameboardCanvas {
 	 * @param int y
 	 * @return number of neighbours
 	 */
-//		public int countNeighbours(int x, int y)	{
+//		protected int countNeighbours(int x, int y)	{
 //		
 //			int neighbours = 0;
 //			int cellValue = 0;
@@ -109,7 +107,7 @@ public class GameboardCanvas {
 		 * @return boolean 
 		 * @author hd
 		 */
-		public boolean survives(int neighbours)	{
+		protected boolean survives(int neighbours)	{
 			boolean alive=true;
 			
 			if (( neighbours < 2) || (neighbours> 3))
@@ -128,7 +126,7 @@ public class GameboardCanvas {
 		 * 
 		 * @return boolean
 		 */
-		public boolean shapeWithinGamegridBoundaries(int shapeColumns, int shapeRows){
+		protected boolean shapeWithinGamegridBoundaries(int shapeColumns, int shapeRows){
 			
 	    	int gridRows = grid.getRows();
 			int gridColumns = grid.getColumns();

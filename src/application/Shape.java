@@ -1,12 +1,14 @@
 package application;
 
 /**
+ * TODO: Kan vi ikke bare slette hele denne klassen? Den blir jo ikke brukt
+ * 
  * The Class Shape.
  */
-public class Shape {
+class Shape {
 
 		/** The type a. */
-		int[][] typeA = new int[][]{
+		private int[][] typeA = new int[][]{
 		{0,0,0,0},
 		{0,1,1,0},
 		{1,0,0,1},
@@ -14,7 +16,7 @@ public class Shape {
 		};
 		
 		/** The type b. */
-		int[][] typeB = new int[][]{
+		private int[][] typeB = new int[][]{
 		{1,0,0,0,1},
 		{0,1,0,1,0},
 		{0,0,1,0,0},
@@ -23,7 +25,7 @@ public class Shape {
 		};
 		
 		/** The type infinity. */
-		int[][] typeInfinity = new int[][] {
+		private int[][] typeInfinity = new int[][] {
 		{0,0,0,0,0},
 		{0,0,0,0,0},
 		{0,1,1,1,0},
@@ -32,7 +34,7 @@ public class Shape {
 		};
 		
 		/** The type glider. */
-		int[][] typeGlider = new int[][] 	{
+		private int[][] typeGlider = new int[][] 	{
 		{0,0,0,0,0},
 		{0,0,1,0,0},
 		{0,0,0,1,0},
@@ -41,7 +43,7 @@ public class Shape {
 		};
 		
 		/** The type glider gun. */
-		int[][] typeGliderGun = new int[][] {
+		private int[][] typeGliderGun = new int[][] {
 		{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0},
 		{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0},
 		{0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,1,1},
@@ -54,7 +56,7 @@ public class Shape {
 		};
 		
 		/** The test. */
-		int[][] test = new int[][]{
+		private int[][] test = new int[][]{
 		{0,0,0,0,0,0,0,0,0,0},
 		{0,0,0,0,0,0,0,0,0,0},
 		{0,0,0,0,1,0,0,0,0,0},
@@ -72,7 +74,7 @@ public class Shape {
 	 *
 	 * @return the shape a
 	 */
-	public  int[][] getShapeA(){
+	protected int[][] getShapeA(){
 		return typeA;
 	}
 	

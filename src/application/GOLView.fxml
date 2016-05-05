@@ -80,7 +80,7 @@
    				<children>
                   <Pane cacheHint="SCALE" nodeOrientation="LEFT_TO_RIGHT">
                      <children>
-         					<Slider fx:id="Sld_Speed" focusTraversable="false" min="1.0" max="50.0" nodeOrientation="LEFT_TO_RIGHT" value="1.0" />
+         					<Slider fx:id="Sld_Speed" focusTraversable="false" min="0.5" max="50.0" nodeOrientation="LEFT_TO_RIGHT" value="1.0" />
                      </children>
                      <padding>
                      	<Insets left="5.0" right="5.0" />

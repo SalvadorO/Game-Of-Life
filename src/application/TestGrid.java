@@ -8,12 +8,12 @@ import org.junit.Test;
  * TestGrid class
  * @author hd
  */
-public class TestGrid {
+class TestGrid {
 
 	GameboardCanvas gbc = new GameboardCanvas(10, 10);
 	
 	@Test
-	public void test_GridGetters() {
+	protected void test_GridGetters() {
 		
 //		Test 1
 		assertTrue(gbc.grid.getColumns() == 10);
@@ -27,7 +27,7 @@ public class TestGrid {
 	}
 	
 	@Test
-	public void test_setCellStatus() {
+	protected void test_setCellStatus() {
 		
 		gbc.grid.setGrid(5, 5);
 		

@@ -4,20 +4,3 @@
 }
 * 
 */
-.alert.confirmation.dialog-pane,
-.text-input-dialog.dialog-pane,
-.choice-dialog.dialog-pane {
-    -fx-graphic: url("GOL.PNG");
-}
-
-.alert.information.dialog-pane {
-    -fx-graphic: url("GOL.PNG");
-}
-
-.alert.error.dialog-pane {
-    -fx-graphic: url("GOL.PNG");
-}
-
-.alert.warning.dialog-pane {
-    -fx-graphic: url("GOL.PNG");
-}
