@@ -16,7 +16,7 @@ import javafx.stage.FileChooser.ExtensionFilter;
 	 * This includes opening and parsing
 	 * @author hd
 	 */
-	public class FileManagement {
+	class FileManagement {
 	
 		
 	/**
