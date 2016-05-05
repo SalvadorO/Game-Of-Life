@@ -167,7 +167,10 @@ class Grid {
 	 * @return int
 	 */
 	protected int getCellstatus(int x, int y){
-		return gamegrid[x][y];
+		if (x<=getColumns() && y <= getRows())
+			return gamegrid[x][y];
+		else
+			return -1;
 	}
 	
 	/**
@@ -303,7 +306,7 @@ class Grid {
 	}
 	
 	/**
-	 * DrawOnGameGrid method is used to visually draw cells on the gamebaord.
+	 * drawWhenMouseClicked method is used to mark/ unmark cells on the gamebaord.
 	 *
 	 * @param int x
 	 * @param int y
@@ -317,7 +320,8 @@ class Grid {
 			gc.setFill(cellcolor);
 			gc.fillRect(x*getCellSize(), y*getCellSize(), getCellSize(), getCellSize());
 		}
-		else {
+		else if (getCellstatus(x, y)==1){
+			
 			setCellstatus(x, y, 0);
 			gc.setFill(gridcolor);
 			gc.fillRect(x*getCellSize(), y*getCellSize(), getCellSize(), getCellSize());
