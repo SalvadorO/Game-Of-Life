@@ -1,19 +1,14 @@
 package application;
 
-import java.awt.Insets;
-
 import javafx.animation.Timeline;
-import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.ColorPicker;
-import javafx.scene.layout.HBox;
 import javafx.scene.paint.Color;
-import javafx.scene.text.Text;
-import javafx.stage.Stage;
 
 /**
- * The Class Grid.
+ * The Grid class.
+ * Hold the gamegrid and offers various methods to operate on it.
  */
 class Grid {
 	
@@ -59,18 +54,6 @@ class Grid {
 	protected void setTimeline(Timeline tl) {
 		timeline = tl;
 	}
-
-	//TEST COLORPICKER
-	
-	
-	protected void setCellColor() {
-		ColorPicker colorPicker1 = new ColorPicker();
-			
-		
-	}
-
-	
-	//END TEST COLORPICKER
 	
 	/**
 	 * Method defines the grid size based on received x and y values and pint the gamegrid array to a new array object.
