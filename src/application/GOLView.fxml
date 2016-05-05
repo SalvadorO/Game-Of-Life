@@ -51,7 +51,7 @@
    <center>
       <Pane prefHeight="275.0" prefWidth="426.0" style="-fx-background-color: #dedede">
          <children>
-            <Canvas fx:id="Gameboard" height="700.0" nodeOrientation="INHERIT" width="700.0" BorderPane.alignment="CENTER" />
+            <Canvas fx:id="Gameboard" height="600.0" nodeOrientation="INHERIT" width="600.0" BorderPane.alignment="CENTER" />
          </children>
          <opaqueInsets>
             <Insets top="10.0" />
