@@ -126,7 +126,7 @@ import javafx.beans.value.ObservableValue;
 	/**
 	 * Will stop and start the game depending on btn_PlayStop text is set to stop or play 
 	 *
-	 * @author Lars, Hans Dragnes
+	 * @author Lars, Hans Dragnes, Salvador
 	 * @param ActionEvent event
 	 */
     @FXML
