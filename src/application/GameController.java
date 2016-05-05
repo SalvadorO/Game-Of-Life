@@ -312,7 +312,7 @@ import javafx.beans.value.ObservableValue;
 			int x = (int) Math.floor((event.getX() / gameboardcanvas.grid.getCellSize()));
 			int y = (int) Math.floor((event.getY() / gameboardcanvas.grid.getCellSize()));
 			
-		gameboardcanvas.grid.DrawOnGameGrid(x, y, gc);
+		gameboardcanvas.grid.drawWhenMouseClicked(x, y, gc);
 		}
     };
     
@@ -328,7 +328,7 @@ import javafx.beans.value.ObservableValue;
 			int x = (int) Math.floor((event.getX() / gameboardcanvas.grid.getCellSize()));
 			int y = (int) Math.floor((event.getY() / gameboardcanvas.grid.getCellSize()));
 			
-		gameboardcanvas.grid.DrawOnGameGrid(x, y, gc);
+		gameboardcanvas.grid.drawWhenMouseClicked(x, y, gc);
 		}
     };
 

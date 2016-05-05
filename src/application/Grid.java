@@ -327,10 +327,8 @@ class Grid {
 	 * @author Salvador, Hans
 	 * @param GraphicsContext gc
 	 */
-	protected void DrawOnGameGrid (int x, int y, GraphicsContext gc){
+	protected void drawWhenMouseClicked (int x, int y, GraphicsContext gc){
 
-		//HANS TEST 
-		
 		if (getCellstatus(x, y)==0) {
 			setCellstatus(x, y, 1);
 			gc.setFill(cellcolor);
@@ -342,8 +340,8 @@ class Grid {
 			gc.fillRect(x*getCellSize(), y*getCellSize(), getCellSize(), getCellSize());
 		}
 		
-		//END HANS TEST
-			
+
+		// OLD CODE FOLLOWS
 //		for (int i = 0;i<gamegrid.length;i++){
 //			for (int j = 0; j<(gamegrid[i].length); j++){
 //				if (x == i && y == j){
@@ -353,6 +351,7 @@ class Grid {
 //				}
 //			}
 //		}
+		// END OLD CODE
 	
 	}
 }
