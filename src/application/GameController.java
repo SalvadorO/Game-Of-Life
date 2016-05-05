@@ -259,7 +259,7 @@ import javafx.beans.value.ObservableValue;
      */
     @FXML
     protected void mnu_CellColorMenuPressed(ActionEvent event){
-    	golDialog.CellColorDialogue();
+    	dialog.CellColorDialogue();
 
     }
     
@@ -271,7 +271,7 @@ import javafx.beans.value.ObservableValue;
      */
     @FXML
     protected void mnu_GridColorMenuPressed(ActionEvent event){
-    	golDialog.GridColorDialogue();
+    	dialog.GridColorDialogue();
     }
     
     /**

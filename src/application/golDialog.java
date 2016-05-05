@@ -45,7 +45,7 @@ class golDialog extends Application	{
 		 * 
 		 * @author Lars 
 		 */
-		protected static void CellColorDialogue() {
+		protected void CellColorDialogue() {
 			
 			TextInputDialog cellcolordialogue = new TextInputDialog("Change Cell Color");
 			cellcolordialogue.setTitle("Change Cell Color");
@@ -58,7 +58,7 @@ class golDialog extends Application	{
 		 * 
 		 * @author Lars 
 		 */
-		protected static void GridColorDialogue() {
+		protected void GridColorDialogue() {
 			
 			TextInputDialog gridcolordialogue = new TextInputDialog("Change Grid Color");
 			gridcolordialogue.setTitle("Change Grid Color");
