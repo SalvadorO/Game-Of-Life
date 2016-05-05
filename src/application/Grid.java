@@ -25,7 +25,7 @@ class Grid {
 //	Variable holding the number of generations played
 	private int countgen;
 	
-	private Color cellcolor = Color.RED;
+	public static Color cellcolor = Color.WHITE;
 	private Color gridcolor = Color.GREY;
 		
 	private Timeline timeline = new Timeline();

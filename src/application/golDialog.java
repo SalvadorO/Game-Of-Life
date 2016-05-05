@@ -4,7 +4,11 @@ import org.apache.commons.lang3.StringUtils;
 
 import java.awt.Event;
 import java.awt.Insets;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
+import java.util.Set;
+
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.scene.Scene;
@@ -12,6 +16,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.ButtonBar.ButtonData;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.ChoiceDialog;
 import javafx.scene.control.ColorPicker;
 import javafx.scene.control.Dialog;
 import javafx.scene.control.Label;
@@ -55,10 +60,44 @@ class golDialog extends Application	{
 		 */
 		protected void CellColorDialogue() {
 			
-			TextInputDialog cellcolordialogue = new TextInputDialog("Change Cell Color");
-			cellcolordialogue.setTitle("Change Cell Color");
+			List<String> Color = new ArrayList<>();
+			Color.add("Red");
+			Color.add("Orange");
+			Color.add("Yellow");
+			Color.add("Green");
+			Color.add("Blue");
+			Color.add("Purple");
+			Color.add("White");
 			
-			cellcolordialogue.showAndWait();
+			ChoiceDialog<String> ColorDialog = new ChoiceDialog<>("",Color);
+			ColorDialog.setTitle("Select the color of your choice");
+			ColorDialog.setHeaderText(null);
+			ColorDialog.setContentText("Choose your color carefully:");
+			
+			Optional<String> newColor = ColorDialog.showAndWait();
+			if(newColor.isPresent()){
+
+				System.out.println(newColor.get());
+				
+//				protected String setthecolor = newColor.get();
+				
+//				Grid.cellcolor
+				
+//				Grid.cellcolor = Color.WHITE
+//				.toUpperCase();
+//				protected static Color cellcolor = Color.WHITE;
+				colortest();
+//				Grid.cellcolor = Color.newColor.get();
+			}
+			
+			
+//			Grid.cellcolor = Color.newColor.get();
+			
+		}
+		public void colortest(){
+			Grid.cellcolor = Color.BLUE;
+//			Grid.cellcolor = (Color.)
+//			System.out.println(newColor.get());
 		}
 //		TEST COLORPICKER
 		// TODO: Hans: for testing, remove this
@@ -214,9 +253,6 @@ class golDialog extends Application	{
 		else {
 			return null;
 		}
-		
-		
-
 	}
 	
 	@Override

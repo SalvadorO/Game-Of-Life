@@ -2,6 +2,8 @@ package application;
 
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
+import javafx.scene.paint.Color;
+
 import java.io.File;
 import java.net.URL;
 import java.util.HashMap;
