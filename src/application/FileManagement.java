@@ -14,19 +14,19 @@ import javafx.stage.FileChooser.ExtensionFilter;
 	/**
 	 * FileManagement class keeps all operations related to managing files.
 	 * This includes opening and parsing
-	 * @author hd
+	 * @author Hans Dragnes
 	 */
 	class FileManagement {
 	
 		
 	/**
-	 * Method takes a file and returns the content as a HashMap (key-value pairs).
-	 * Method assumes files uses the convention; http://www.conwaylife.com/wiki/Run_Length_Encoded; where
+	 * The method takes a file and returns the content as a HashMap (key-value pairs).
+	 * The method assumes files is formatted according to the convention; http://www.conwaylife.com/wiki/Run_Length_Encoded; where
 	 * - First line contains header information: x='value', y='value', [optional]rule='value'
 	 * - Remaining lines contains the payload, the actual pattern. 
 	 * - The first line may be preceded with one or more lines beginning with hashtag; #
 	 * 
-	 * @author hd
+	 * @author Hans Dragnes
 	 * @param File f
 	 * @return HashMap<String><String> containing the elements; metadata, header and pattern;
 	 */
@@ -34,7 +34,7 @@ import javafx.stage.FileChooser.ExtensionFilter;
 	
 		File file = f;
 		
-	//	Instantiate local variables. HashMap type is a nice way of storing key-value pairs,
+	//	Instantiate local variables. HashMap type is a nice way of storing key-value pairs dynamically,
 	//	while Stringbuilder type is an efficient way of building strings 
 		HashMap<String, String> filecontent = new HashMap<String, String>();
 		StringBuilder metadata = new StringBuilder();
@@ -74,6 +74,7 @@ import javafx.stage.FileChooser.ExtensionFilter;
 	    	errorDialog( "An error occured while reading file" );
 		}
 		
+//		Populate HashMap with data
 		filecontent.put("metadata", metadata.toString());
 	//	Removing spaces from header String
 		filecontent.put("header", header.replaceAll("\\s+",""));
@@ -85,11 +86,11 @@ import javafx.stage.FileChooser.ExtensionFilter;
 	/**
 	 * The method takes the header as a String, splits it and returns the header
 	 * elements as key-value pairs in a HashMap. 
-	 * Expected header elements keys: x, y, rule
+	 * Expected header element keys: x, y, rule
 	 * Important notice; x indicates number of columns, y indicates number of rows, rule is optional
 	 * 
-	 * @author hd
-	 * @param String header
+	 * @author Hans Dragnes
+	 * @param header as a String
 	 * @return HashMap <String, String> headerElements
 	 */
 		protected HashMap<String, String> getHeaderArray(String header) {
@@ -111,7 +112,7 @@ import javafx.stage.FileChooser.ExtensionFilter;
 	/**
 	 * Method provides the user with a File open-dialogue to select a file. Allowed file types are
 	 * filtered using ExtensionFilter class. Filetype is limited to RLE files.
-	 * @author hd
+	 * @author Hans Dragnes
 	 * @return File object: The file, or null if none is selected
 	 */
 		protected File openFile() {
@@ -127,10 +128,11 @@ import javafx.stage.FileChooser.ExtensionFilter;
 		}
 		
 		/**
-		 * The method is a generalized alert pop-up box which is intended to be called by various catch blocks. It notifes the user that 
-		 * something went wrong, and takes a message as a parameter and shows this. The user clicks OK button to verify.
+		 * The method is a generalized alert pop-up box which is intended to be called by various catch blocks (not limited to).
+		 * It notifes the user that something went wrong, and shows the parameterized message. 
+		 * The user clicks OK button to acknowledge.
 		 * 
-		 * @author hd
+		 * @author Hans Dragnes
 		 * @param String the message to be shown to the user (used as HeaderText in the popup box)
 		 * 
 		 */
