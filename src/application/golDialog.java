@@ -151,7 +151,7 @@ class golDialog extends Application	{
 		/**
 		 * This will show a stats dialogue which contains some information about the game
 		 * 
-		 * @author Lars , hd contributed by rewriting some to avoid using static references i calls
+		 * @author Lars , hd contributed by rewriting calls to avoid using static references
 		 */
 		protected void StatsDialogue(Grid grid)	{
 			Alert stats = new Alert(AlertType.INFORMATION);
@@ -181,7 +181,7 @@ class golDialog extends Application	{
 	 * 
 	 * The input values are validated, and only positive integers are accepted
 	 *
-	 * @author hd, Lars
+	 * @author Hans Dragnes
 	 * @return An int[] containing the x and the y value, and exit codes if relevant where -1 means cancel, and -2 means validation failed
 	 */
 	protected Optional<int[]> setGridSizeDialogue() {
@@ -243,7 +243,7 @@ class golDialog extends Application	{
 				}
 						
 			    });
-				
+//		Show the dialog, and wait for user to interact		
 		Optional<int[]> result = dialog.showAndWait();
 		
 		if ( result.isPresent() ) {

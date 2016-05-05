@@ -1,19 +1,14 @@
 package application;
 
-import java.awt.Insets;
-
 import javafx.animation.Timeline;
-import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.ColorPicker;
-import javafx.scene.layout.HBox;
 import javafx.scene.paint.Color;
-import javafx.scene.text.Text;
-import javafx.stage.Stage;
 
 /**
- * The Class Grid.
+ * The Grid class.
+ * Hold the gamegrid and offers various methods to operate on it.
  */
 class Grid {
 	
@@ -59,18 +54,6 @@ class Grid {
 	protected void setTimeline(Timeline tl) {
 		timeline = tl;
 	}
-
-	//TEST COLORPICKER
-	
-	
-	protected void setCellColor() {
-		ColorPicker colorPicker1 = new ColorPicker();
-			
-		
-	}
-
-	
-	//END TEST COLORPICKER
 	
 	/**
 	 * Method defines the grid size based on received x and y values and pint the gamegrid array to a new array object.
@@ -163,6 +146,14 @@ class Grid {
 		return neighbours;
 	}
 	
+	
+	protected boolean onGrid(int x, int y) {
+		if ((x+1) <= getColumns() && (y+1) <= getRows())
+			return true;
+		else
+			return false;
+	}
+	
 	/**
 	 * Method sets cell value based on received x and y parameter.
 	 *
@@ -172,7 +163,8 @@ class Grid {
 	 * @param int value (1 means live, 0 means dead)
 	 */
 	protected void setCellstatus(int x, int y, int value)	{
-		gamegrid[x][y]=value;
+		if (onGrid(x, y))
+			gamegrid[x][y]=value;
 	}
 	
 	/**
@@ -183,8 +175,11 @@ class Grid {
 	 * @param int y
 	 * @return int
 	 */
-	protected int getCellstatus(int x, int y){
-		return gamegrid[x][y];
+	protected int getCellstatus(int x, int y) {
+		if (onGrid(x, y))
+			return gamegrid[x][y];
+		else
+			return -1;
 	}
 	
 	/**
@@ -226,6 +221,7 @@ class Grid {
 	 * @param int[][] array2
 	 * @param GraphicsContext gc
 	 * @return the next generation
+	 * @author Salvador
 	 */
 	protected int [][] nextGeneration(int [][] array2, GraphicsContext gc){
 		
@@ -282,6 +278,7 @@ class Grid {
 	 *
 	 * @param GraphicsContext gc
 	 * @param Canvas img
+	 * @author Salvador
 	 */
 	protected void oneGen(GraphicsContext gc, Canvas img){
 		gamegrid = nextGeneration(gamegrid, gc);
@@ -294,6 +291,7 @@ class Grid {
 	 *
 	 * @param gc GraphicsContext
 	 * @param Canvas canvas
+	 * @author Salvador
 	 * @return the int[][] array
 	 */
 	protected int[][] draw(GraphicsContext gc, Canvas canvas){
@@ -317,41 +315,44 @@ class Grid {
 		}
 	
 		return array;
-	}
+}
 	
 	/**
-	 * DrawOnGameGrid method is used to visually draw cells on the gamebaord.
+
+	 * MarkCell & MarkCell2 methods is used to change the value of cells that are being marked by the mouse, 
+	 * it also visualizes where we are drawing cells by changing the color of the cells 
+
 	 *
 	 * @param int x
 	 * @param int y
 	 * @author Salvador, Hans
 	 * @param GraphicsContext gc
 	 */
-	protected void drawWhenMouseClicked (int x, int y, GraphicsContext gc){
-
+	protected void markCell (int x, int y, GraphicsContext gc){
+	
 		if (getCellstatus(x, y)==0) {
 			setCellstatus(x, y, 1);
 			gc.setFill(cellcolor);
 			gc.fillRect(x*getCellSize(), y*getCellSize(), getCellSize(), getCellSize());
+			gc.strokeRect(x*cellSize, y*cellSize, cellSize, cellSize);
 		}
-		else {
+		else if (getCellstatus(x, y)==1){
+			
 			setCellstatus(x, y, 0);
 			gc.setFill(gridcolor);
 			gc.fillRect(x*getCellSize(), y*getCellSize(), getCellSize(), getCellSize());
+			gc.strokeRect(x*cellSize, y*cellSize, cellSize, cellSize);
 		}
 		
 
-		// OLD CODE FOLLOWS
-//		for (int i = 0;i<gamegrid.length;i++){
-//			for (int j = 0; j<(gamegrid[i].length); j++){
-//				if (x == i && y == j){
-//					gamegrid[i][j] = 1;
-//					gc.setFill(cellcolor);
-//					gc.fillRect(i*getCellSize(), j*getCellSize(), getCellSize(), getCellSize());
-//				}
-//			}
-//		}
-		// END OLD CODE
-	
+	}
+	protected void markCell2 (int x, int y, GraphicsContext gc){
+		
+			if (onGrid(x, y)) {
+				setCellstatus(x, y, 1);
+				gc.setFill(cellcolor);
+				gc.fillRect(x*getCellSize(), y*getCellSize(), getCellSize(), getCellSize());
+				gc.strokeRect(x*cellSize, y*cellSize, cellSize, cellSize);
+			}
 	}
 }

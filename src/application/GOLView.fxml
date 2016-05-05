@@ -40,10 +40,10 @@
           
           <Menu mnemonicParsing="false" text="Advanced">
           	<items>
-          		<MenuItem 		mnemonicParsing="false" onAction="#mnu_StatsMenuPressed" 		text="Stats" />
-          		<CheckMenuItem 	mnemonicParsing="false" fx:id="cmi_Speed" 						text="Enable speed Menu" />
-          		<MenuItem 		mnemonicParsing="false" onAction="#mnu_CellColorMenuPressed" 	text="Change color of cells" />
-          		<MenuItem 		mnemonicParsing="false" onAction="#mnu_GridColorMenuPressed" 	text="Change color of grid" />
+          		<MenuItem mnemonicParsing="false" onAction="#mnu_StatsMenuPressed" text="Stats" />
+          		<CheckMenuItem fx:id="cmi_Speed" mnemonicParsing="false" text="Enable speed Menu" />
+          		<MenuItem mnemonicParsing="false" onAction="#mnu_CellColorMenuPressed" text="Change color of cells" />
+          		<MenuItem mnemonicParsing="false" onAction="#mnu_GridColorMenuPressed" text="Change color of grid" />
           	</items>
           </Menu>
         </menus>
@@ -54,7 +54,7 @@
    <center>
       <Pane prefHeight="275.0" prefWidth="426.0" style="-fx-background-color: #dedede">
          <children>
-            <Canvas fx:id="Gameboard" height="450.0" width="800.0" BorderPane.alignment="CENTER" />
+            <Canvas fx:id="Gameboard" height="700.0" nodeOrientation="INHERIT" width="700.0" BorderPane.alignment="CENTER" />
          </children>
          <opaqueInsets>
             <Insets top="10.0" />
@@ -80,7 +80,7 @@
    				<children>
                   <Pane cacheHint="SCALE" nodeOrientation="LEFT_TO_RIGHT">
                      <children>
-         					<Slider fx:id="Sld_Speed" focusTraversable="false" min="0.5" max="50.0" nodeOrientation="LEFT_TO_RIGHT" value="1.0" />
+         					<Slider fx:id="Sld_Speed" focusTraversable="false" max="50.0" min="0.5" nodeOrientation="LEFT_TO_RIGHT" value="1.0" />
                      </children>
                      <padding>
                      	<Insets left="5.0" right="5.0" />
@@ -91,10 +91,10 @@
    			
    			<HBox alignment="CENTER_RIGHT" nodeOrientation="LEFT_TO_RIGHT" prefHeight="30.0" prefWidth="400.0" spacing="5.0">
    				<children>
-   					<Button fx:id="btn_PlayStop" 	alignment="CENTER_RIGHT" defaultButton="true" 	mnemonicParsing="false" onAction="#btn_PlayStopPressed" prefHeight="30" text="Play" />
-                  	<Button fx:id="btn_Next" 		alignment="CENTER_RIGHT" 						mnemonicParsing="false" onAction="#btn_Next" 			prefHeight="30" text="Next" />
-               	  	<Button fx:id="btn_Reset" 		alignment="CENTER_RIGHT" 						mnemonicParsing="false" onAction="#btn_ResetPressed" 	prefHeight="30" text="Reset" />
-                  	<Button fx:id="btn_Quit" 		alignment="CENTER_RIGHT" cancelButton="true" 	mnemonicParsing="false" onAction="#btn_QuitPressed" 	prefHeight="30" text="Quit" />
+   					<Button fx:id="btn_PlayStop" alignment="CENTER_RIGHT" defaultButton="true" mnemonicParsing="false" onAction="#btn_PlayStopPressed" prefHeight="30" text="Play" />
+                  	<Button fx:id="btn_Next" alignment="CENTER_RIGHT" mnemonicParsing="false" onAction="#btn_Next" prefHeight="30" text="Next" />
+               	  	<Button fx:id="btn_Reset" alignment="CENTER_RIGHT" mnemonicParsing="false" onAction="#btn_ResetPressed" prefHeight="30" text="Reset" />
+                  	<Button fx:id="btn_Quit" alignment="CENTER_RIGHT" cancelButton="true" mnemonicParsing="false" onAction="#btn_QuitPressed" prefHeight="30" text="Quit" />
    				</children>
                	<padding>
                   	<Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
