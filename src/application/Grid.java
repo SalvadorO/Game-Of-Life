@@ -146,6 +146,14 @@ class Grid {
 		return neighbours;
 	}
 	
+	
+	protected boolean onGrid(int x, int y) {
+		if ((x+1) <= getColumns() && (y+1) <= getRows())
+			return true;
+		else
+			return false;
+	}
+	
 	/**
 	 * Method sets cell value based on received x and y parameter.
 	 *
@@ -155,7 +163,8 @@ class Grid {
 	 * @param int value (1 means live, 0 means dead)
 	 */
 	protected void setCellstatus(int x, int y, int value)	{
-		gamegrid[x][y]=value;
+		if (onGrid(x, y))
+			gamegrid[x][y]=value;
 	}
 	
 	/**
@@ -166,8 +175,8 @@ class Grid {
 	 * @param int y
 	 * @return int
 	 */
-	protected int getCellstatus(int x, int y){
-		if (x<=getColumns() && y <= getRows())
+	protected int getCellstatus(int x, int y) {
+		if (onGrid(x, y))
 			return gamegrid[x][y];
 		else
 			return -1;
