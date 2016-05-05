@@ -26,7 +26,7 @@ import javafx.beans.value.ObservableValue;
 
 //Class GameController
 
-public class GameController implements Initializable{
+ public class GameController implements Initializable{
 	
 	// Declarations
 	protected GameboardCanvas gameboardcanvas =  new GameboardCanvas(50, 50);

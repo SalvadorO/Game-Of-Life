@@ -30,7 +30,7 @@ import javafx.stage.FileChooser.ExtensionFilter;
 	 * @param File f
 	 * @return HashMap<String><String> containing the elements; metadata, header and pattern;
 	 */
-	private HashMap<String, String> parseFile(File f) {
+	public HashMap<String, String> parseFile(File f) {
 	
 		File file = f;
 		
@@ -92,7 +92,7 @@ import javafx.stage.FileChooser.ExtensionFilter;
 	 * @param String header
 	 * @return HashMap <String, String> headerElements
 	 */
-		private HashMap<String, String> getHeaderArray(String header) {
+		public HashMap<String, String> getHeaderArray(String header) {
 	
 		String[] infoElement;
 		HashMap<String, String> headerElements = new HashMap<String, String>();
@@ -114,7 +114,7 @@ import javafx.stage.FileChooser.ExtensionFilter;
 	 * @author hd
 	 * @return File object: The file, or null if none is selected
 	 */
-		private File openFile() {
+		public File openFile() {
 			
 			ExtensionFilter filterGoLfiles = new ExtensionFilter("RLE file, *.rle","*.rle");
 	
@@ -134,7 +134,7 @@ import javafx.stage.FileChooser.ExtensionFilter;
 		 * @param String the message to be shown to the user (used as HeaderText in the popup box)
 		 * 
 		 */
-		private void errorDialog(String message) {
+		public void errorDialog(String message) {
 			Alert alert = new Alert(AlertType.ERROR);
 			alert.setTitle("File problem");
 			alert.setHeaderText(message);
