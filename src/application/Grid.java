@@ -312,42 +312,46 @@ class Grid {
 		}
 	
 		return array;
-	}
+}
 	
 	/**
+<<<<<<< HEAD
 	 * drawWhenMouseClicked method is used to mark/ unmark cells on the gamebaord.
+=======
+	 * DrawOnTheGameBoard method is used to change the value of cells that are being clicked by the mouse, 
+	 * it also visualizes where we are spawning cells by changing the color of the live cells 
+>>>>>>> origin/master
 	 *
 	 * @param int x
 	 * @param int y
 	 * @author Salvador, Hans
 	 * @param GraphicsContext gc
 	 */
-	protected void drawWhenMouseClicked (int x, int y, GraphicsContext gc){
-
+	protected void DrawOnTheGameBoard (int x, int y, GraphicsContext gc){
+	
 		if (getCellstatus(x, y)==0) {
 			setCellstatus(x, y, 1);
 			gc.setFill(cellcolor);
 			gc.fillRect(x*getCellSize(), y*getCellSize(), getCellSize(), getCellSize());
+			gc.strokeRect(x*cellSize, y*cellSize, cellSize, cellSize);
 		}
 		else if (getCellstatus(x, y)==1){
 			
 			setCellstatus(x, y, 0);
 			gc.setFill(gridcolor);
 			gc.fillRect(x*getCellSize(), y*getCellSize(), getCellSize(), getCellSize());
+			gc.strokeRect(x*cellSize, y*cellSize, cellSize, cellSize);
 		}
 		
 
-		// OLD CODE FOLLOWS
-//		for (int i = 0;i<gamegrid.length;i++){
-//			for (int j = 0; j<(gamegrid[i].length); j++){
-//				if (x == i && y == j){
-//					gamegrid[i][j] = 1;
-//					gc.setFill(cellcolor);
-//					gc.fillRect(i*getCellSize(), j*getCellSize(), getCellSize(), getCellSize());
-//				}
-//			}
-//		}
-		// END OLD CODE
+	}
+	protected void DrawOnTheGameBoard2 (int x, int y, GraphicsContext gc){
+		
+		
+			setCellstatus(x, y, 1);
+			gc.setFill(cellcolor);
+			gc.fillRect(x*getCellSize(), y*getCellSize(), getCellSize(), getCellSize());
+			gc.strokeRect(x*cellSize, y*cellSize, cellSize, cellSize);
 	
 	}
 }
