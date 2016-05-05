@@ -28,7 +28,9 @@ import javafx.beans.value.ObservableValue;
 
  public class GameController implements Initializable{
 	
-	// Declarations
+//	 Declarations
+	
+//	Instatiates a GameboardCanvas object, with grid with default size 50x50
 	protected GameboardCanvas gameboardcanvas =  new GameboardCanvas(50, 50);
 	
 	private GraphicsContext gc;
@@ -36,7 +38,6 @@ import javafx.beans.value.ObservableValue;
 	private FileManagement filemanager = new FileManagement();
 	
 	private golDialog dialog = new golDialog();
-
 	
 	@FXML
 	private Canvas Gameboard;
@@ -73,8 +74,9 @@ import javafx.beans.value.ObservableValue;
 	 * is called.
 	 * The returned values are sent to the GameBoardCanvas setGridmethod to set the grid size
 	 * and the grid is redrawn accordingly
-	 * @author hd
-	 * @param event
+	 * @author Hans Dragnes
+	 * @param ActionEvent event
+	 * 
 	 */
 	@FXML
 	protected void mnu_SetupGridsizePressed(ActionEvent event) {
@@ -119,7 +121,7 @@ import javafx.beans.value.ObservableValue;
 	/**
 	 * Will stop and start the game depending on btn_PlayStop text is set to stop or play 
 	 *
-	 * @author hd, Lars
+	 * @author Lars, Hans Dragnes
 	 * @param ActionEvent event
 	 */
     @FXML
@@ -139,7 +141,7 @@ import javafx.beans.value.ObservableValue;
      * and let the gameboardcanvas parameter point to this.
      * The current size is kept.
      * 
-     * @author hd, Lars
+     * @author Lars, Hans Dragnes
      * @param ActionEvent event
      */
     @FXML
@@ -168,7 +170,7 @@ import javafx.beans.value.ObservableValue;
      * Method called when user selects File - Open
      * It checks if the shape to be loaded is within the gamegrid boundaries
      * 
-     * @author hd
+     * @author Hans Dragnes
      * @param ActionEvent event
      */
     @FXML
@@ -281,9 +283,7 @@ import javafx.beans.value.ObservableValue;
      * @author Lars, hd, Salvador
      */
     @Override
-    /**
-     * TODO: Hvorfor m� denne v�re public?
-     */
+    
 	public void initialize(URL location, ResourceBundle resources) {
 		gc = Gameboard.getGraphicsContext2D();
 //		gc.setFill(Color.BLACK);
