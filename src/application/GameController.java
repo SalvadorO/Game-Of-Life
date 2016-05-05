@@ -100,7 +100,7 @@ import javafx.beans.value.ObservableValue;
 	 * @param ActionEvent event
 	 */
 	@FXML
-	protected void mnu_AboutDialogPressed(ActionEvent event) {
+	private void mnu_AboutDialogPressed(ActionEvent event) {
  		dialog.AboutDialogue();
  	}
 
@@ -111,7 +111,7 @@ import javafx.beans.value.ObservableValue;
 	 * @param ActionEvent event
 	 */
 	@FXML
-	protected void mnu_StatsMenuPressed(ActionEvent event){
+	private void mnu_StatsMenuPressed(ActionEvent event){
 		//Stops the game when stats is pressed
 		getTimeline().stop();
 		btn_PlayStop.setText("Play");
