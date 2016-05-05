@@ -68,7 +68,6 @@ class Grid {
 	
 	protected void incrementCountgen() {
 		countgen++;
-		
 	}
 	
 	protected int getCountgen() {
@@ -158,7 +157,7 @@ class Grid {
 	/**
 	 * Method sets cell value based on received x and y parameter.
 	 *
-	 * @author hd
+	 * @author Hans Dragnes
 	 * @param int x
 	 * @param int y
 	 * @param int value (1 means live, 0 means dead)

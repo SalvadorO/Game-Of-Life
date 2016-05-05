@@ -61,12 +61,7 @@ import javafx.beans.value.ObservableValue;
 	@FXML
 	private HBox HB_Speed;
 	
-	@FXML
-	private Label lblGenerations;
-	
-	@FXML
-	private TextField txtGenerations;
-	
+		
 	/**
 	 * Listens to the slider and sets the new slider value to the timeline, which increases the speed of the game
 	 * @author Lars
