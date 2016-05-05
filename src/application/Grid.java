@@ -18,6 +18,9 @@ class Grid {
 //	Variable holding the number of generetations played
 	private int countgen;
 	
+	Color cellcolor = Color.RED;
+	
+	
 	private Timeline timeline = new Timeline();
 	
 	/**
