@@ -317,8 +317,8 @@ import javafx.beans.value.ObservableValue;
      * @param timeline
      * @author Lars 
      */
-	protected static void setTimeline(Timeline timeline) {
-		GameController.timeline = timeline;
+	protected static void setTimeline(Timeline tl) {
+		GameController.timeline = tl;
 	}
 
 	/** 
