@@ -327,7 +327,7 @@ class Grid {
 	 * @author Salvador, Hans
 	 * @param GraphicsContext gc
 	 */
-	protected void DrawOnTheGameBoard (int x, int y, GraphicsContext gc){
+	protected void markCell (int x, int y, GraphicsContext gc){
 	
 		if (getCellstatus(x, y)==0) {
 			setCellstatus(x, y, 1);
@@ -345,13 +345,13 @@ class Grid {
 		
 
 	}
-	protected void DrawOnTheGameBoard2 (int x, int y, GraphicsContext gc){
+	protected void markCell2 (int x, int y, GraphicsContext gc){
 		
-		
-			setCellstatus(x, y, 1);
-			gc.setFill(cellcolor);
-			gc.fillRect(x*getCellSize(), y*getCellSize(), getCellSize(), getCellSize());
-			gc.strokeRect(x*cellSize, y*cellSize, cellSize, cellSize);
-	
+			if (onGrid(x, y)) {
+				setCellstatus(x, y, 1);
+				gc.setFill(cellcolor);
+				gc.fillRect(x*getCellSize(), y*getCellSize(), getCellSize(), getCellSize());
+				gc.strokeRect(x*cellSize, y*cellSize, cellSize, cellSize);
+			}
 	}
 }
