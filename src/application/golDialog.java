@@ -60,33 +60,33 @@ class golDialog extends Application	{
 			
 			cellcolordialogue.showAndWait();
 		}
-		
-		protected void cellColorPicker() {
 //		TEST COLORPICKER
-			// TODO: Hans: for testing, remove this
-		Stage stage;
-		stage.setTitle("ColorPicker");
-        Scene scene = new Scene(new HBox(20), 400, 100);
-        HBox box = (HBox) scene.getRoot();
-                  
-             
-        final ColorPicker colorPicker = new ColorPicker();
-        colorPicker.setValue(Color.CORAL);
-        
-        final Text text = new Text("Try the color picker!");
-        text.setFill(colorPicker.getValue());
-        
-        colorPicker.setOnAction(new EventHandler() {
-            public void handle(Event t) {
-                text.setFill(colorPicker.getValue());               
-            }
-        });
- 
-        box.getChildren().addAll(colorPicker, text);
- 
-        stage.setScene(scene);
-        stage.show();
-    }
+		// TODO: Hans: for testing, remove this
+//		protected void cellColorPicker() {
+//		
+//		Stage stage;
+//		stage.setTitle("ColorPicker");
+//        Scene scene = new Scene(new HBox(20), 400, 100);
+//        HBox box = (HBox) scene.getRoot();
+//                  
+//             
+//        final ColorPicker colorPicker = new ColorPicker();
+//        colorPicker.setValue(Color.CORAL);
+//        
+//        final Text text = new Text("Try the color picker!");
+//        text.setFill(colorPicker.getValue());
+//        
+//        colorPicker.setOnAction(new EventHandler() {
+//            public void handle(Event t) {
+//                text.setFill(colorPicker.getValue());               
+//            }
+//        });
+// 
+//        box.getChildren().addAll(colorPicker, text);
+// 
+//        stage.setScene(scene);
+//        stage.show();
+//    }
 
 
 		

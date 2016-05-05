@@ -308,7 +308,7 @@ class Grid {
 			for (int j = 0; j<(array[i].length); j++){
 				
 				if (array[i][j]==1)	{
-					gc.setFill(Color.RED);
+					gc.setFill(cellcolor);
 					gc.fillRect(i*cellSize, j*cellSize, cellSize, cellSize);
 				}
 				
@@ -327,16 +327,24 @@ class Grid {
 	 * @param GraphicsContext gc
 	 */
 	protected void DrawOnGameGrid (int x, int y, GraphicsContext gc){
-		for (int i = 0;i<gamegrid.length;i++){
-			for (int j = 0; j<(gamegrid[i].length); j++){
-				if (x == i && y == j){
-					
-					gamegrid[i][j] = 1;
-					gc.setFill(Color.RED);
-					gc.fillRect(i*getCellSize(), j*getCellSize(), getCellSize(), getCellSize());
-				}
-	
-				}
-			}	
+		
+		//HANS TEST
+		
+		
+		//HANS TEST SLUTT
+		
+		
+		
+//		for (int i = 0;i<gamegrid.length;i++){
+//			for (int j = 0; j<(gamegrid[i].length); j++){
+//				if (x == i && y == j){
+//					
+//					gamegrid[i][j] = 1;
+//					gc.setFill(cellcolor);
+//					gc.fillRect(i*getCellSize(), j*getCellSize(), getCellSize(), getCellSize());
+//				}
+//	
+//				}
+//			}	
 	}
 }
