@@ -25,9 +25,7 @@ import javafx.beans.value.ObservableValue;
 
 
 //Class GameController
-/**
- *	TODO:Hvorfor må denne være public???
- */
+
 public class GameController implements Initializable{
 	
 	// Declarations
@@ -284,7 +282,7 @@ public class GameController implements Initializable{
      */
     @Override
     /**
-     * TODO: Hvorfor må denne være public?
+     * TODO: Hvorfor mï¿½ denne vï¿½re public?
      */
 	public void initialize(URL location, ResourceBundle resources) {
 		gc = Gameboard.getGraphicsContext2D();

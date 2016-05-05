@@ -16,7 +16,8 @@ import javafx.stage.FileChooser.ExtensionFilter;
 	 * This includes opening and parsing
 	 * @author hd
 	 */
-	class FileManagement {
+	public class FileManagement {
+	
 		
 	/**
 	 * Method takes a file and returns the content as a HashMap (key-value pairs).
@@ -29,7 +30,7 @@ import javafx.stage.FileChooser.ExtensionFilter;
 	 * @param File f
 	 * @return HashMap<String><String> containing the elements; metadata, header and pattern;
 	 */
-	protected HashMap<String, String> parseFile(File f) {
+	private HashMap<String, String> parseFile(File f) {
 	
 		File file = f;
 		
@@ -91,7 +92,7 @@ import javafx.stage.FileChooser.ExtensionFilter;
 	 * @param String header
 	 * @return HashMap <String, String> headerElements
 	 */
-		protected HashMap<String, String> getHeaderArray(String header) {
+		private HashMap<String, String> getHeaderArray(String header) {
 	
 		String[] infoElement;
 		HashMap<String, String> headerElements = new HashMap<String, String>();
@@ -113,7 +114,7 @@ import javafx.stage.FileChooser.ExtensionFilter;
 	 * @author hd
 	 * @return File object: The file, or null if none is selected
 	 */
-		protected File openFile() {
+		private File openFile() {
 			
 			ExtensionFilter filterGoLfiles = new ExtensionFilter("RLE file, *.rle","*.rle");
 	
@@ -132,11 +133,6 @@ import javafx.stage.FileChooser.ExtensionFilter;
 		 * @author hd
 		 * @param String the message to be shown to the user (used as HeaderText in the popup box)
 		 * 
-		 * 
-		 * TODO:Jeg endret errorDialog til private kan den være det???
-		 * 
-		 * 
-		 * 
 		 */
 		private void errorDialog(String message) {
 			Alert alert = new Alert(AlertType.ERROR);
@@ -153,7 +149,7 @@ import javafx.stage.FileChooser.ExtensionFilter;
 	//	 * @author hd, lars
 	//	 * @param String filecontent
 	//	 */
-	//	protected File saveFile() {
+	//	private File saveFile() {
 	//		
 	//		ExtensionFilter filterGoLfiles = new ExtensionFilter("RLE file, *.rle","*.rle");
 	//
