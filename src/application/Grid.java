@@ -148,7 +148,9 @@ class Grid {
 	
 	
 	protected boolean onGrid(int x, int y) {
-		if ((x+1) <= getColumns() && (y+1) <= getRows())
+		
+		if ( (x > 0 && y > 0) &&
+			 ((x+1) <= getColumns() && (y+1) <= getRows()))
 			return true;
 		else
 			return false;
