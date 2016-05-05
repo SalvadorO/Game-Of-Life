@@ -1,5 +1,6 @@
 package application;
 
+import javafx.animation.Timeline;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
@@ -10,24 +11,45 @@ import javafx.scene.paint.Color;
 class Grid {
 	
 	// Declarations
-	protected static int[][] gamegrid;
+	private int[][] gamegrid;
 	
 	private int cellSize ;
 	
 //	Variable holding the number of generetations played
 	private int countgen;
 	
+	private Timeline timeline = new Timeline();
 	
 	/**
-	 * Instantiates a new grid.
-	 *
+	 * Construcotr; Instantiates a new grid.
+	 * Resets the generationcounter variable
+	 * @author hd
 	 * @param int columns
 	 * @param int rows
 	 */
 	protected Grid(int columns, int rows){
 		gamegrid = new int[columns][rows];	
+		countgen = 0;
 	}
 	
+	 /**
+     * 
+     * @return
+     * @author Lars 
+     */
+    protected Timeline getTimeline() {
+		return timeline;
+	}
+    
+    /**
+     * 
+     * @param timeline
+     * @author Lars 
+     */
+	protected void setTimeline(Timeline tl) {
+		timeline = tl;
+	}
+
 	/**
 	 * Method defines the grid size based on received x and y values and pint the gamegrid array to a new array object.
 	 *
@@ -264,7 +286,7 @@ class Grid {
 			for (int j = 0; j<(array[i].length); j++){
 				
 				if (array[i][j]==1)	{
-					gc.setFill(Color.WHITE);
+					gc.setFill(Color.RED);
 					gc.fillRect(i*cellSize, j*cellSize, cellSize, cellSize);
 				}
 				
@@ -288,7 +310,7 @@ class Grid {
 				if (x == i && y == j){
 					
 					gamegrid[i][j] = 1;
-					gc.setFill(Color.WHITE);
+					gc.setFill(Color.RED);
 					gc.fillRect(i*getCellSize(), j*getCellSize(), getCellSize(), getCellSize());
 				}
 	

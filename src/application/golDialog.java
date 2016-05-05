@@ -69,7 +69,7 @@ class golDialog extends Application	{
 		/**
 		 * This will show a stats dialogue which contains some information about the game
 		 * 
-		 * @author Lars 
+		 * @author Lars , hd contributed by rewriting some to avoid using static references i calls
 		 */
 		protected void StatsDialogue(Grid grid)	{
 			Alert stats = new Alert(AlertType.INFORMATION);
@@ -80,10 +80,10 @@ class golDialog extends Application	{
 //			If the game hasen't started yet the stats dialog will add a sentence in the dialog
 			if(grid.getCountgen() == 0){
 				stats.setContentText("Current gridsize is: "+ grid.getColumns() + " x " + grid.getRows() + "\n" + 
-			"The game hasn't started yet!" + "\n" + "The game will start with " + (Math.round(GameController.getTimeline().getRate()*100.00) / 100.00) + " Generations/Sec");
+			"The game hasn't started yet!" + "\n" + "The game will start with " + (Math.round(grid.getTimeline().getRate()*100.00) / 100.00) + " Generations/Sec");
 			}	else	{
 				stats.setContentText("Current gridsize is: "+ grid.getColumns() + " x " + grid.getRows() + "\n" + 
-						"Number of generations played: " + grid.getCountgen() + "\n" + "Speed: " + (Math.round(GameController.getTimeline().getRate()*100.00) / 100.00) + " Generations/Sec");
+						"Number of generations played: " + grid.getCountgen() + "\n" + "Speed: " + (Math.round(grid.getTimeline().getRate()*100.00) / 100.00) + " Generations/Sec");
 			};
 			  
 			ButtonType buttonTypeCancel = new ButtonType("Cool!", ButtonData.CANCEL_CLOSE);

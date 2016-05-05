@@ -37,9 +37,6 @@ import javafx.beans.value.ObservableValue;
 	
 	private golDialog dialog = new golDialog();
 
-	private static Timeline timeline = new Timeline();
-	
-	
 	
 	@FXML
 	private Canvas Gameboard;
@@ -66,7 +63,7 @@ import javafx.beans.value.ObservableValue;
 	protected void ChangeSpeed(){
 		Sld_Speed.valueProperty().addListener(new ChangeListener<Number>(){
 			 public void changed(ObservableValue<? extends Number> ov, Number old_val, Number new_val){
-				GameController.getTimeline().setRate((double) new_val);
+				gameboardcanvas.grid.getTimeline().setRate((double) new_val);
 			}
 		});
 	}
@@ -113,7 +110,7 @@ import javafx.beans.value.ObservableValue;
 	@FXML
 	private void mnu_StatsMenuPressed(ActionEvent event){
 		//Stops the game when stats is pressed
-		getTimeline().stop();
+		gameboardcanvas.grid.getTimeline().stop();
 		btn_PlayStop.setText("Play");
 		// Shows the Stats Dialogue
 		dialog.StatsDialogue(gameboardcanvas.grid);
@@ -129,11 +126,11 @@ import javafx.beans.value.ObservableValue;
     private void btn_PlayStopPressed(ActionEvent event) {
     	if (btn_PlayStop.getText().equals("Stop")){
     		btn_PlayStop.setText("Play");
-	    	getTimeline().stop();
+	    	gameboardcanvas.grid.getTimeline().stop();
     	}
     	else{
     		btn_PlayStop.setText("Stop");	
-    		getTimeline().play();
+    		gameboardcanvas.grid.getTimeline().play();
     	}
     }
 
@@ -154,10 +151,10 @@ import javafx.beans.value.ObservableValue;
 
 //	Changes the button to Play and stops the timeline if reset is pressed while game is running
     if (btn_PlayStop.getText().equals("Play")){
-    	getTimeline().stop();	
+    	gameboardcanvas.grid.getTimeline().stop();	
     	}	else		{
     		btn_PlayStop.setText("Play");	
-    		getTimeline().stop();
+    		gameboardcanvas.grid.getTimeline().stop();
     }
     // Resets the CountGen variable
     gameboardcanvas.grid.resetCountgen();
@@ -289,12 +286,12 @@ import javafx.beans.value.ObservableValue;
 //		gc.setFill(Color.BLACK);
 		gameboardcanvas.grid.draw(gc, Gameboard);
 		// Used for updating next generation
-		setTimeline(new Timeline(new KeyFrame
+		gameboardcanvas.grid.setTimeline(new Timeline(new KeyFrame
 				(Duration.seconds(1), Kv -> {
 					gameboardcanvas.grid.oneGen(gc, Gameboard);
 					})));
 		// Sets the the timeline is going to go infinite times until stopped
-    	getTimeline().setCycleCount(Animation.INDEFINITE);
+    	gameboardcanvas.grid.getTimeline().setCycleCount(Animation.INDEFINITE);
     	
     	//Sets a listener to the Mouse clicked and dragged, and the Speed method
        Gameboard.setOnMouseClicked(this.mouseHandlerClicked);
@@ -302,24 +299,7 @@ import javafx.beans.value.ObservableValue;
        ChangeSpeed();
        cmi_SpeedPressed();
     }
-    /**
-     * 
-     * @return
-     * @author Lars 
-     */
-    protected static Timeline getTimeline() {
-		return timeline;
-	}
-    
-    /**
-     * 
-     * @param timeline
-     * @author Lars 
-     */
-	protected static void setTimeline(Timeline tl) {
-		GameController.timeline = tl;
-	}
-
+   
 	/** 
 	 * This will notice when you click the canvas and call a method which draws where you clicked on the grid
 	 * 
