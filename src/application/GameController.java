@@ -160,7 +160,7 @@ import javafx.beans.value.ObservableValue;
     		getTimeline().stop();
     }
     // Resets the CountGen variable
-    CountGen = 0;
+    gameboardcanvas.grid.resetCountgen();
 //  Resets the grid array by setting a new grid with current gridsize
     gameboardcanvas.grid.setGrid(currentNoOfColumns, currentNoOfRows);
     gameboardcanvas.grid.draw(gc, Gameboard);
