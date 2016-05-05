@@ -20,8 +20,8 @@ public class GameOfLifeMain extends Application {
 			Parent root = 	FXMLLoader.load(getClass().getResource("GOLView.fxml"));
 			primaryStage.setTitle("Conway's Game of Life");
 			// Sets the minimal height and width value
-			primaryStage.setMinWidth(716);
-			primaryStage.setMinHeight(799);
+			primaryStage.setMinWidth(616);
+			primaryStage.setMinHeight(699);
 			primaryStage.setResizable(true);
 			Scene GOLgame = new Scene(root);
 			// Connects to CSS file
