@@ -22,16 +22,16 @@ class Grid {
 	
 	private int cellSize ;
 	
-//	Variable holding the number of generetations played
+//	Variable holding the number of generations played
 	private int countgen;
 	
 	private Color cellcolor = Color.RED;
-	
-	
+	private Color gridcolor = Color.GREY;
+		
 	private Timeline timeline = new Timeline();
 	
 	/**
-	 * Construcotr; Instantiates a new grid.
+	 * Constructor; Instantiates a new grid.
 	 * Resets the generationcounter variable
 	 * @author hd
 	 * @param int columns
@@ -169,7 +169,7 @@ class Grid {
 	 * @author hd
 	 * @param int x
 	 * @param int y
-	 * @param int value
+	 * @param int value (1 means live, 0 means dead)
 	 */
 	protected void setCellstatus(int x, int y, int value)	{
 		gamegrid[x][y]=value;
@@ -324,27 +324,35 @@ class Grid {
 	 *
 	 * @param int x
 	 * @param int y
+	 * @author Salvador, Hans
 	 * @param GraphicsContext gc
 	 */
 	protected void DrawOnGameGrid (int x, int y, GraphicsContext gc){
+
+		//HANS TEST 
 		
-		//HANS TEST
+		if (getCellstatus(x, y)==0) {
+			setCellstatus(x, y, 1);
+			gc.setFill(cellcolor);
+			gc.fillRect(x*getCellSize(), y*getCellSize(), getCellSize(), getCellSize());
+		}
+		else {
+			setCellstatus(x, y, 0);
+			gc.setFill(gridcolor);
+			gc.fillRect(x*getCellSize(), y*getCellSize(), getCellSize(), getCellSize());
+		}
 		
-		
-		//HANS TEST SLUTT
-		
-		
-		
+		//END HANS TEST
+			
 //		for (int i = 0;i<gamegrid.length;i++){
 //			for (int j = 0; j<(gamegrid[i].length); j++){
 //				if (x == i && y == j){
-//					
 //					gamegrid[i][j] = 1;
 //					gc.setFill(cellcolor);
 //					gc.fillRect(i*getCellSize(), j*getCellSize(), getCellSize(), getCellSize());
 //				}
-//	
-//				}
-//			}	
+//			}
+//		}
+	
 	}
 }
