@@ -19,7 +19,7 @@
           <Menu mnemonicParsing="false" text="File">
             <items>
               <MenuItem fx:id="mnu_FileOpen" mnemonicParsing="false" onAction="#mnu_FileOpenPressed" text="Open GoL file" />
-			  <MenuItem fx:id="mnu_FileSave" mnemonicParsing="false" onAction="#mnu_FileSavePressed" text="Save GoL file" />
+			  <MenuItem fx:id="mnu_FileSave" disable="true" mnemonicParsing="false" onAction="#mnu_FileSavePressed" text="Save GoL file" />
             </items>
           </Menu>
           
@@ -31,8 +31,8 @@
           
           <Menu mnemonicParsing="false" text="Advanced">
           	<items>
-          		<MenuItem 		mnemonicParsing="false" onAction="#mnu_StatsMenuPressed" 	text="Stats" />
-          		<CheckMenuItem 	mnemonicParsing="false" fx:id="cmi_Speed" 					text="Enable speed Menu" />
+          		<MenuItem mnemonicParsing="false" onAction="#mnu_StatsMenuPressed" text="Stats" />
+          		<CheckMenuItem fx:id="cmi_Speed" mnemonicParsing="false" text="Enable speed Menu" />
           		<!-- <MenuItem mnemonicParsing="false" onAction="#mnu_CellColorMenuPressed" text="Change color of cells" /> -->
           		<!-- <MenuItem mnemonicParsing="false" onAction="#mnu_GridColorMenuPressed" text="Change color of grid" /> -->
           	</items>
