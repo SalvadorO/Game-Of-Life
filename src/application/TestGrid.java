@@ -6,14 +6,15 @@ import org.junit.Test;
 
 /**
  * TestGrid class
- * @author hd
+ * Runs scenarios to test various functions in the Grid class
+ * @author Hans Dragnes
  */
-class TestGrid {
+public class TestGrid {
 
 	GameboardCanvas gbc = new GameboardCanvas(10, 10);
 	
 	@Test
-	protected void test_GridGetters() {
+	public void test_GridGetters() {
 		
 //		Test 1
 		assertTrue(gbc.grid.getColumns() == 10);
@@ -27,7 +28,7 @@ class TestGrid {
 	}
 	
 	@Test
-	protected void test_setCellStatus() {
+	public void test_setCellStatus() {
 		
 		gbc.grid.setGrid(5, 5);
 		

@@ -148,18 +148,20 @@ class Grid {
 	
 	/**
 	 * Utility method that may be used to check if given coordinate is on the gamegrid
-	 * @author hd
+	 * @author Hans Dragnes
 	 * @param x
 	 * @param y
 	 * @return boolean true if coordinate is on cell
 	 */
 	protected boolean onGrid(int x, int y) {
 		
-		if ( (x > 0 && y > 0) &&
-			 ((x) < getColumns() && (y) < getRows()))
+		if ( (x >= 0 && y >= 0) &&
+			 ((x) < getColumns() && (y) < getRows())) {
 			return true;
-		else
+		}	
+		else {
 			return false;
+		}
 	}
 	
 	/**
@@ -337,7 +339,7 @@ class Grid {
 	 * @param GraphicsContext gc
 	 */
 	protected void markCell (int x, int y, GraphicsContext gc){
-	
+				
 		if (getCellstatus(x, y)==0) {
 			setCellstatus(x, y, 1);
 			gc.setFill(cellcolor);

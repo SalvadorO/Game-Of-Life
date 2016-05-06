@@ -149,7 +149,7 @@ class golDialog extends Application	{
 		ButtonType buttonTypeOk = new ButtonType ("Ok", ButtonData.OK_DONE);
 		ButtonType buttonTypeCancel = new ButtonType ("Cancel", ButtonData.CANCEL_CLOSE);
 		dialog.getDialogPane().getButtonTypes().addAll(buttonTypeOk, buttonTypeCancel);
-		
+				
 //		Get the output from the dialog, by implementing the callback interface
 		dialog.setResultConverter(
 				new Callback<ButtonType, int[]>() {
@@ -189,7 +189,6 @@ class golDialog extends Application	{
 		if ( result.isPresent() ) {
 			return result;
 		}
-		
 		else {
 			return null;
 		}

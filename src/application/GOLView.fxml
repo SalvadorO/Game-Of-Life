@@ -29,12 +29,6 @@
             </items>
           </Menu>
           
-          <Menu mnemonicParsing="false" text="Help">
-            <items>
-            	<MenuItem mnemonicParsing="false" onAction="#mnu_AboutDialogPressed" text="About" />
-            </items>
-          </Menu>
-          
           <Menu mnemonicParsing="false" text="Advanced">
           	<items>
           		<MenuItem mnemonicParsing="false" onAction="#mnu_StatsMenuPressed" text="Stats" />
@@ -42,6 +36,12 @@
           		<!-- <MenuItem mnemonicParsing="false" onAction="#mnu_CellColorMenuPressed" text="Change color of cells" /> -->
           		<!-- <MenuItem mnemonicParsing="false" onAction="#mnu_GridColorMenuPressed" text="Change color of grid" /> -->
           	</items>
+          </Menu>
+          
+                <Menu mnemonicParsing="false" text="Help">
+            <items>
+            	<MenuItem mnemonicParsing="false" onAction="#mnu_AboutDialogPressed" text="About" />
+            </items>
           </Menu>
         </menus>
       </MenuBar>
