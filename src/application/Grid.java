@@ -146,11 +146,17 @@ class Grid {
 		return neighbours;
 	}
 	
-	
+	/**
+	 * Utility method that may be used to check if given coordinate is on the gamegrid
+	 * @author hd
+	 * @param x
+	 * @param y
+	 * @return boolean true if coordinate is on cell
+	 */
 	protected boolean onGrid(int x, int y) {
 		
 		if ( (x > 0 && y > 0) &&
-			 ((x+1) <= getColumns() && (y+1) <= getRows()))
+			 ((x) < getColumns() && (y) < getRows()))
 			return true;
 		else
 			return false;
