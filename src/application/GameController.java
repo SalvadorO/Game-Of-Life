@@ -319,7 +319,7 @@ import javafx.beans.value.ObservableValue;
 		
 			int x = (int) Math.floor((event.getX() / gameboardcanvas.grid.getCellSize()));
 			int y = (int) Math.floor((event.getY() / gameboardcanvas.grid.getCellSize()));
-			
+		
 		gameboardcanvas.grid.markCell(x, y, gc);
 
 		}
@@ -337,7 +337,6 @@ import javafx.beans.value.ObservableValue;
 			int x = (int) Math.floor((event.getX() / gameboardcanvas.grid.getCellSize()));
 			int y = (int) Math.floor((event.getY() / gameboardcanvas.grid.getCellSize()));
 			
-		System.out.println(x+", "+ y);
 			gameboardcanvas.grid.markCell2(x, y, gc);
 		}
     };
