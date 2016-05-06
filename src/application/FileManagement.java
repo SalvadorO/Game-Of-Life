@@ -27,7 +27,7 @@ import javafx.stage.FileChooser.ExtensionFilter;
 	 * - The first line may be preceded with one or more lines beginning with hashtag; #
 	 * 
 	 * @author Hans Dragnes
-	 * @param File f
+	 * @param The file as a file object
 	 * @return HashMap<String><String> containing the elements; metadata, header and pattern;
 	 */
 	protected HashMap<String, String> parseFile(File f) {
