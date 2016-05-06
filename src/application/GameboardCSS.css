@@ -1,6 +1,9 @@
-/* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
-/*.root {
-     -fx-background-image: url("");
+.root{
+    -fx-font-size: 9pt;
+    -fx-font-family: "SANS_SERIF";
+    -fx-base: rgb(169, 169, 169);
 }
-* 
-*/
+
+.slider{
+    -fx-color: white;
+}
