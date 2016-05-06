@@ -39,7 +39,7 @@ class Grid {
 	
 	 /**
      * 
-     * @return
+     * @param timeline
      * @author Lars 
      */
     protected Timeline getTimeline() {

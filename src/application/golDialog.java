@@ -2,30 +2,17 @@ package application;
 
 import org.apache.commons.lang3.StringUtils;
 
-import java.awt.Event;
-import java.awt.Insets;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Optional;
-import java.util.Set;
-
 import javafx.application.Application;
 import javafx.application.Platform;
-import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.ButtonBar.ButtonData;
 import javafx.scene.control.ButtonType;
-import javafx.scene.control.ChoiceDialog;
-import javafx.scene.control.ColorPicker;
 import javafx.scene.control.Dialog;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.control.TextInputDialog;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.paint.Color;
-import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Callback;
@@ -54,52 +41,54 @@ class golDialog extends Application	{
 		}
 		
 		/**
+		 * Will allow the user to change the color of the cells
 		 * TODO: To be implemented
+		 * Not finished
 		 * 
 		 * @author Lars 
-		 * @return 
 		 */
-		protected void CellColorDialogue() {
-			
-			List<String> Color = new ArrayList<>();
-			Color.add("Blue");
-			Color.add("Red");
-			Color.add("Green");
-			Color.add("White");
-			
-			ChoiceDialog<String> ColorDialog = new ChoiceDialog<>("",Color);
-			ColorDialog.setTitle("Select the color of your choice");
-			ColorDialog.setHeaderText(null);
-			ColorDialog.setContentText("Choose your color carefully:");
-			
-			Optional<String> newColor = ColorDialog.showAndWait();
-			if(newColor.isPresent()){
+
+//		protected static void CellColorDialogue() {
+//			
+//			List<String> Color = new ArrayList<>();
+//			Color.add("Blue");
+//			Color.add("Red");
+//			Color.add("Green");
+//			Color.add("White");
+//			
+//			ChoiceDialog<String> ColorDialog = new ChoiceDialog<>("",Color);
+//			ColorDialog.setTitle("Select the color of your choice");
+//			ColorDialog.setHeaderText(null);
+//			ColorDialog.setContentText("Choose your color carefully:");
+//			
+//			Optional<String> newColor = ColorDialog.showAndWait();
+//			if(newColor.isPresent()){
 //				Grid.cellcolor.equals(newColor);
 //				newColor.equals(Grid.cellcolor);
 //				Grid.cellcolor. = newColor.get();
-				
-				System.out.println(Grid.cellcolor.equals(newColor));
-				System.out.println("newColor: " + newColor.get());
-				System.out.println("cellcolor: " + Grid.cellcolor);
-				
-				
-			}
-		}		
+//				
+//				System.out.println(Grid.cellcolor.equals(newColor));
+//				System.out.println("newColor: " + newColor.get());
+//				System.out.println("cellcolor: " + Grid.cellcolor);
+//			}
+//		}		
+
 		
 				
 		/**
 		 * TODO: To be implemented
 		 * Will change the grid's color on user request.
+		 * Not finished
 		 * 
 		 * @author Lars 
 		 */
-		protected void GridColorDialogue() {
-			
-			TextInputDialog gridcolordialogue = new TextInputDialog("Change Grid Color");
-			gridcolordialogue.setTitle("Change Grid Color");
-			
-			gridcolordialogue.showAndWait();
-		}
+//		protected void GridColorDialogue() {
+//			
+//			TextInputDialog gridcolordialogue = new TextInputDialog("Change Grid Color");
+//			gridcolordialogue.setTitle("Change Grid Color");
+//			
+//			gridcolordialogue.showAndWait();
+//		}
 		
 		/**
 		 * This will show a stats dialogue which contains some information about the game
@@ -134,7 +123,7 @@ class golDialog extends Application	{
 	 * 
 	 * The input values are validated, and only positive integers are accepted
 	 *
-	 * @author Hans Dragnes
+	 * @author Hans Dragnes, Lars
 	 * @return An int[] containing the x and the y value, and exit codes if relevant where -1 means cancel, and -2 means validation failed
 	 */
 	protected Optional<int[]> setGridSizeDialogue() {
