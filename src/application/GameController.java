@@ -2,8 +2,6 @@ package application;
 
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
-import javafx.scene.paint.Color;
-
 import java.io.File;
 import java.net.URL;
 import java.util.HashMap;
@@ -17,10 +15,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckMenuItem;
-import javafx.scene.control.Label;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.Slider;
-import javafx.scene.control.TextField;
 import javafx.util.Duration;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
@@ -109,7 +105,7 @@ import javafx.beans.value.ObservableValue;
  	}
 
 	/**
-	 * Gets the Stats Dialogue when Stats is pressed
+	 * Gets the Stats Dialogue when Stats is pressed, and stops the game
 	 *
 	 * @author Lars
 	 * @param ActionEvent event
@@ -243,8 +239,9 @@ import javafx.beans.value.ObservableValue;
     /**
      * This will show the HB_Box which contains the Speed Slider(sld_Speed), and allows you to change the speed of the game
      * 
-     * @param
      * @author Lars 
+     * @param old_val
+     * @param new_val
      */
     @FXML
     protected void cmi_SpeedPressed(){
@@ -259,29 +256,30 @@ import javafx.beans.value.ObservableValue;
     
     /**
      * TODO: Cell Color
+     * Not implemented yet
      * 
      * @param ActionEvent event
      * @author Lars 
      */
-    @FXML
-    protected void mnu_CellColorMenuPressed(ActionEvent event){
-    	dialog.CellColorDialogue();
-
-    }
+//    @FXML
+//    protected void mnu_CellColorMenuPressed(ActionEvent event){
+//    	dialog.CellColorDialogue();
+//    }
     
     /**
      * TODO: Grid Color
+     * Not implemented yet
      * 
      * @param ActionEvent event
      * @author Lars 
      */
-    @FXML
-    protected void mnu_GridColorMenuPressed(ActionEvent event){
-    	dialog.GridColorDialogue();
-    }
+//    @FXML
+//    protected void mnu_GridColorMenuPressed(ActionEvent event){
+//    	dialog.GridColorDialogue();
+//    }
     
     /**
-     * TODO: This initializes the ...
+     * This initialize the game 
      * And sets the time between each KeyFrame to 1 secound.
      * 
      * @param
