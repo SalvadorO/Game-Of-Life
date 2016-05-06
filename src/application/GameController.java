@@ -282,8 +282,7 @@ import javafx.beans.value.ObservableValue;
      * This initialize the game 
      * And sets the time between each KeyFrame to 1 secound.
      * 
-     * @param
-     * @author Lars, hd, Salvador
+     * @author Lars, Hans Dragnes, Salvador
      */
     @Override
     
