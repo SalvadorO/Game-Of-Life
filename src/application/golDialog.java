@@ -59,7 +59,7 @@ class golDialog extends Application	{
 		 * @author Lars 
 		 * @return 
 		 */
-		protected static void CellColorDialogue() {
+		protected void CellColorDialogue() {
 			
 			List<String> Color = new ArrayList<>();
 			Color.add("Blue");
@@ -81,6 +81,8 @@ class golDialog extends Application	{
 				System.out.println(Grid.cellcolor.equals(newColor));
 				System.out.println("newColor: " + newColor.get());
 				System.out.println("cellcolor: " + Grid.cellcolor);
+				
+				
 			}
 		}		
 		
