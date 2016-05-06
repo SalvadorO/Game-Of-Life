@@ -57,16 +57,14 @@ class golDialog extends Application	{
 		 * TODO: To be implemented
 		 * 
 		 * @author Lars 
+		 * @return 
 		 */
-		protected void CellColorDialogue() {
+		protected static void CellColorDialogue() {
 			
 			List<String> Color = new ArrayList<>();
-			Color.add("Red");
-			Color.add("Orange");
-			Color.add("Yellow");
-			Color.add("Green");
 			Color.add("Blue");
-			Color.add("Purple");
+			Color.add("Red");
+			Color.add("Green");
 			Color.add("White");
 			
 			ChoiceDialog<String> ColorDialog = new ChoiceDialog<>("",Color);
@@ -76,67 +74,20 @@ class golDialog extends Application	{
 			
 			Optional<String> newColor = ColorDialog.showAndWait();
 			if(newColor.isPresent()){
-
-				System.out.println(newColor.get());
+//				Grid.cellcolor.equals(newColor);
+//				newColor.equals(Grid.cellcolor);
+//				Grid.cellcolor. = newColor.get();
 				
-//				protected String setthecolor = newColor.get();
-				
-//				Grid.cellcolor
-				
-//				Grid.cellcolor = Color.WHITE
-//				.toUpperCase();
-//				protected static Color cellcolor = Color.WHITE;
-				colortest();
-//				Grid.cellcolor = Color.newColor.get();
+				System.out.println(Grid.cellcolor.equals(newColor));
+				System.out.println("newColor: " + newColor.get());
+				System.out.println("cellcolor: " + Grid.cellcolor);
 			}
-			
-			
-//			Grid.cellcolor = Color.newColor.get();
-			
-		}
-		public void colortest(){
-			Grid.cellcolor = Color.BLUE;
-//			Grid.cellcolor = (Color.)
-//			System.out.println(newColor.get());
-		}
-//		TEST COLORPICKER
-		// TODO: Hans: for testing, remove this
-//		protected void cellColorPicker() {
-//		
-//		Stage stage;
-//		stage.setTitle("ColorPicker");
-//        Scene scene = new Scene(new HBox(20), 400, 100);
-//        HBox box = (HBox) scene.getRoot();
-//                  
-//             
-//        final ColorPicker colorPicker = new ColorPicker();
-//        colorPicker.setValue(Color.CORAL);
-//        
-//        final Text text = new Text("Try the color picker!");
-//        text.setFill(colorPicker.getValue());
-//        
-//        colorPicker.setOnAction(new EventHandler() {
-//            public void handle(Event t) {
-//                text.setFill(colorPicker.getValue());               
-//            }
-//        });
-// 
-//        box.getChildren().addAll(colorPicker, text);
-// 
-//        stage.setScene(scene);
-//        stage.show();
-//    }
-
-
+		}		
 		
-		//ENDTEST COLORPICKER
-		
-		
-		
-		
-		
+				
 		/**
 		 * TODO: To be implemented
+		 * Will change the grid's color on user request.
 		 * 
 		 * @author Lars 
 		 */
